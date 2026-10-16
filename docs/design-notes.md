@@ -122,7 +122,6 @@ A type is in v0 only if an engine step makes it and a step or check uses it (P9)
 
 | Type | Made by | Used by |
 |---|---|---|
-| scenario | intake; forced in functional analysis at product level (P13) | product functions trace to it |
 | function | 1 Functional analysis | requirements (`of`), child functions |
 | requirement | 2 Requirements | proofs, child requirements, the next level |
 | proof | 2 Requirements (the verifiability gate) | cases, verdicts |
@@ -135,6 +134,13 @@ A type is in v0 only if an engine step makes it and a step or check uses it (P9)
 - **Not files of the model:** a *case* lives in code and names its proof (a tag); a
   search for the proof ID finds every case, in any file or language. *Evidence* is
   generated output at a commit. "Means of compliance" is replaced by proof.
+- **Not a type: technique outputs.** Scenarios, spike results and research live in the
+  block's `analysis/` folder, for every engine step. Each technique defines its output's
+  format in its skill reference; the validator checks only that references to them
+  resolve, so each output has a stable ID. An output exists only if a model artifact
+  cites it (P9). Scenarios are forced at product level (P13), and product functions cite
+  the scenario they serve. A trade study is not a separate output: it lives inside its
+  decision (the alternatives considered).
 - **Not a type in v0:** open question. It is a `TBD` in the field it blocks (a spike
   trigger) plus a GitHub issue for the work. This narrows Q-6.
 - **Constraint is not a type:** it is a requirement with `source: builder`. A field
@@ -144,11 +150,14 @@ A type is in v0 only if an engine step makes it and a step or check uses it (P9)
   requirement forces them apart; a part goes where its technology runs; each
   lowest-level part runs in one unit; an interface that crosses units gains a
   transport, a format and failure modes.
-- **File layout (agreed):** one file per artifact, in a folder per block per type, e.g.
-  `agent-runtime/requirements/REQ-7K3Q.md`. Chosen over one YAML file per block per type
+- **File layout (agreed):** one file per artifact, in a folder per block per type, under
+  one root, e.g. `model/product/agent-runtime/requirements/REQ-7K3Q.yaml`. Chosen over one YAML file per block per type
   on agent cost, merges and tool limits, with equal accuracy
-  (`research/2026-10-16-layout-simulation.md`). Open: the file's content, Markdown with a
-  YAML header or YAML throughout.
+  (`research/2026-10-16-layout-simulation.md`). The content is YAML throughout: prose is in
+  fields (`statement`, `rationale`) that a schema can require. Policy: structure where
+  possible, until a need for unstructured content is shown.
+- **Deployment view:** `model/deployment/units/`, beside `model/product/`. Not
+  `deployment/` at the root, where a codebase keeps its deploy configuration.
 
 ## Links (agreed 2026-10-16)
 
@@ -159,7 +168,7 @@ command), never stored.
   file; its own artifacts live in its folder. A part has no `parent` field.
 - **Functions belong to the block they describe.** A child part states its own function
   with `parent: FUN`, the function it takes on. That is the allocation; there is no
-  `allocated_to`. At product level a function stores `serves: [SCN]`.
+  `allocated_to`. At product level a function stores `serves:`, the scenario it serves.
 - **Requirements are never passed down whole.** A requirement is verifiable at the level
   it is written. Flowdown writes child requirements in the part's folder with
   `parent: REQ`; that is the allocation. A parent is verified by its children plus its
@@ -172,7 +181,18 @@ command), never stored.
 - **Decisions** store `supersedes: DEC` (the old one's state is computed) and
   `drivers: [REQ]`, the requirements it serves, for impact analysis. Revising a decision
   is one new entry (L5).
-- **Open:** the links of interface, unit, risk and scenario. Whether design evaluation's
+- **Interfaces** store `between:` their two ends (part or external) and live in the folder
+  of the block whose synthesis defined them. A refining interface stores `parent: IFC`.
+  A requirement's `of:` may name a function or an interface. A unified interface style
+  is a decision at the higher level that the children follow.
+- **Units:** every part with no children in the model stores `units:`; a parent's units
+  are computed from its children. A unit stores `justified_by: DEC`, except the default
+  unit.
+- **Risks** store only `on:` (function, part or interface). Requirements store
+  `answers: RSK`; a decision may store `accepts: [RSK]` and must state the consequence
+  accepted. A risk is computed as answered, accepted or open. All other risk fields wait
+  for the design of the risk passes.
+- **Open:** whether design evaluation's
   "every requirement is handled" can be computed without `allocated_to`: own proof at its
   level, or children written at synthesis, or reach through its function's children.
 
