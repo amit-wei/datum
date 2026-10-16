@@ -169,7 +169,8 @@ command), never stored.
   file; its own artifacts live in its folder. A part has no `parent` field.
 - **Functions belong to the block they describe.** A child part states its own function
   with `parent: FUN`, the function it takes on. That is the allocation; there is no
-  `allocated_to`. At product level a function stores `serves:`, the scenario it serves.
+  `allocated_to`. A function may store `serves:`, the scenarios it serves (a gate requires
+  it at product level).
 - **Requirements are never passed down whole.** A requirement is verifiable at the level
   it is written. Flowdown writes child requirements in the part's folder with
   `parent: REQ`; that is the allocation. A parent is verified by its children plus its
@@ -189,13 +190,53 @@ command), never stored.
 - **Units:** every part with no children in the model stores `units:`; a parent's units
   are computed from its children. A unit stores `justified_by: DEC`, except the default
   unit.
-- **Risks** store only `on:` (function, part or interface). Requirements store
+- **Risks** store only `threatens:` (function, part or interface). Requirements store
   `answers: RSK`; a decision may store `accepts: [RSK]` and must state the consequence
   accepted. A risk is computed as answered, accepted or open. All other risk fields wait
   for the design of the risk passes.
 - **Open:** whether design evaluation's
   "every requirement is handled" can be computed without `allocated_to`: own proof at its
   level, or children written at synthesis, or reach through its function's children.
+
+## Fields (agreed 2026-10-16)
+
+Tried on real rows in `research/2026-10-16-schema-trial.md`. Schemas, like the pattern
+list, techniques and skills, belong to datum; a project uses them and does not extend
+them.
+
+- **YAML hygiene.** No key or plain value may be a YAML 1.1 boolean word (on, off, yes,
+  no); the validator refuses boolean keys.
+- **Requirement statement** follows EARS: `statement` plus `pattern` (ubiquitous, event,
+  state, unwanted, optional, compound, none). The validator warns on `none` and on more
+  than one "shall". A pattern of our own is added only after the pilot shows a recurring
+  misfit.
+- **Measure.** One metric per requirement, with any number of bounds on it
+  (`{statistic, op, value}`, e.g. p95 and p99), like a tolerance band. The statement
+  holds `{measure}` exactly once when a measure exists, so the number is stored once.
+  `value: TBD` is allowed and is a spike trigger. A metric's definition is inline in v0.
+- **Proof criterion** holds how we will know: the pass condition, sample size,
+  confidence, bound, conditions. It refers to the requirement's measure and never copies
+  it. The case holds the test article (a held-out set, the judge); evidence holds the
+  result.
+- **No `kind` field.** Safety, interface, constraint, performance and functional are
+  computed from links and fields.
+- **Rationale** is required when a measure exists, or when the requirement chooses a
+  response over an obvious alternative (refuse, ignore, report, block); the second is a
+  review check, not a validator rule. Otherwise optional, and it never restates links.
+  *Why this block holds it* goes once in the part's `purpose`.
+- **Part folders** are slugs, and the part names its folder in a `folder:` field.
+- **Interfaces** list the `items` that flow, each with its sender.
+- **Decisions** hold the trade study as `options`; `accepts:` requires `consequence:`;
+  `evidence:` cites analysis outputs.
+
+## Validator and gates (agreed 2026-10-16)
+
+- **The validator** checks invariants true of every artifact on every commit. Its rules
+  are the same at every level and for every artifact of a type; an exception needs a
+  very good reason.
+- **Gate checks** run when an engine step is closed (P11). Level- or step-specific rules
+  live there, e.g. product functions serve a scenario before product-level functional
+  analysis closes (P13). `serves:` is an ordinary optional field at every level.
 
 ## IDs and references (agreed 2026-10-16)
 
