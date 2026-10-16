@@ -32,6 +32,9 @@ requirements, 177 interface rows, 198 decisions, 117 open questions, and no code
 | P9 | The meta-model (artifact types, links, states, validator) is the spine of the library; skills are operations on it. Evidence: supported with conditions, but **not built first in full** — grow it with the first skill and real project; every type and link needs a named consumer (`research/2026-10-metamodel-evidence.md`) | leaning |
 | P10 | One canonical workflow first; custom composition after it is proven on a real project | agreed |
 | P11 | Autonomy deferred; gates are explicit so they can be loosened later | leaning |
+| P12 | Architecture has two views: logical (parts, interfaces) and deployment (units that run separately, each listing the parts it hosts). One unit by default; every extra unit needs a decision that cites the requirement forcing the boundary (`research/2026-10-16-pendentive-audit.md`, L1) | agreed |
+| P13 | Each engine step draws on a menu of techniques. Conditions (level among them) make a technique encouraged, forced or banned. First entries: end-to-end user scenarios, forced in functional analysis at product level; spikes (see the engine) | agreed in concept |
+| P14 | No code for a block until it is analysed down to the stopping rule. Depth only for the increment's blocks (P7); nothing modelled below the stopping rule (no file-level components) | agreed |
 
 ## The level engine (draft, under discussion)
 
@@ -56,6 +59,22 @@ level above. At product level: the needs and the builder's constraints.
    renegotiates a requirement (a recorded decision). Loop to 1–3 until it holds.
 
 **Output:** each part with its allocated requirements, the input to its next level.
+
+**Spikes** (agreed in concept, 2026-10-16). A spike is throwaway code that answers a
+question: a measurement, a feasibility check. Its result enters the model as evidence;
+its code is deleted. It is a technique of the menu (P13), not a free permission: it is
+triggered by a named condition in a step, for example research in functional analysis,
+or filling a TBD value of a requirement during synthesis. Each spike has a time-box and
+a written question before it starts.
+
+Starting set of triggers (agreed 2026-10-16; revised with use, like everything here):
+
+| Step | Trigger | Output |
+|---|---|---|
+| 1 Functional analysis | Doubt that a function is feasible | Evidence to keep, change or send it up a level |
+| 2 Requirements | A TBD value that can be measured | The value, justified by the spike |
+| 3 Synthesis | Trade-study alternatives that cannot be ranked without measuring | Evidence in the decision |
+| 4 Design evaluation | A scenario that cannot be walked through the parts on paper | Pass or fail of the walk-through |
 
 **Decomposition and stopping (draft, agreed in principle):**
 - Decompose a block when it has more than one reason to change, when its requirements
@@ -139,7 +158,7 @@ and functions.
 | Q-1 | What exactly is an increment, and how big is it? Depends on what kind of thing the library is |
 | Q-2 | When is each verification artifact written: the criterion with the requirement; the executable test after the level's external interface is defined? |
 | Q-3 | Skill granularity. Research (`research/2026-10-skill-granularity.md`) points to ~10–15 activity-scale skills, a few atomic user-only commands, rules in references and validator scripts, state on disk, gates enforced by hooks. Awaiting the builder |
-| Q-4 | Pilots: small client projects (speed, tailoring) and Pendentive (depth). Under discussion |
+| Q-4 | Pilots. Agreed 2026-10-16: the first real use of datum v0 is Pendentive's re-scoped v1, run from datum's intake with the existing Pendentive model as reference material, not migrated. While formats are designed, they are tested against real Pendentive rows. Small client projects later |
 | Q-5 | Artifact storage, IDs, link model. Leaning: one Markdown file per artifact with YAML frontmatter, opaque IDs, own validator (`research/2026-10-storage.md`). Deferred as mechanical |
 | Q-6 | GitHub: agreed in principle. Repo files are authoritative (model, decisions, open questions, proofs, evidence index); issues hold intake and work; milestones and releases scope increments; evidence is committed because CI retention is 90 days. Details open |
 
