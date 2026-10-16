@@ -116,14 +116,73 @@ Risk appears twice per level, as in ARP4761: a functional hazard pass after func
 analysis (generates safety requirements), and an architectural pass after synthesis
 (FMEA on parts and interfaces, STRIDE for security; generates derived requirements).
 
-## Types (draft, under discussion)
+## Types (v0, agreed 2026-10-16)
 
-- System model: function (agreed type), requirement, part, interface, risk, means of
-  compliance.
-- Engineering record (about the work, not the system): decision, open question. Whether
-  these are "types" in the same sense is open.
-- Intake: what exists before it becomes a function or requirement (asks, constraints,
-  findings). "Need" is not a type; the form of intake is open.
+A type is in v0 only if an engine step makes it and a step or check uses it (P9).
+
+| Type | Made by | Used by |
+|---|---|---|
+| scenario | intake; forced in functional analysis at product level (P13) | product functions trace to it |
+| function | 1 Functional analysis | requirements (`of`), child functions |
+| requirement | 2 Requirements | proofs, child requirements, the next level |
+| proof | 2 Requirements (the verifiability gate) | cases, verdicts |
+| part | 3 Synthesis | the next level (each part becomes a block) |
+| interface | 3 Synthesis | proofs at its level |
+| unit | 3 Synthesis (deployment view, P12) | the rule that an extra unit cites a decision |
+| decision | 3 Synthesis (trade study), and any recorded choice | derived requirements, units, impact analysis |
+| risk | the two risk passes | the requirements that answer it |
+
+- **Not files of the model:** a *case* lives in code and names its proof (a tag); a
+  search for the proof ID finds every case, in any file or language. *Evidence* is
+  generated output at a commit. "Means of compliance" is replaced by proof.
+- **Not a type in v0:** open question. It is a `TBD` in the field it blocks (a spike
+  trigger) plus a GitHub issue for the work. This narrows Q-6.
+- **Constraint is not a type:** it is a requirement with `source: builder`. A field
+  names a role, never a person (`research/2026-10-16-pendentive-audit.md`, L9).
+- **Unit vs part.** A part is a logical block (arc42 building block); a unit runs on its
+  own (process, container, store; arc42 deployment node). Parts share a unit unless a
+  requirement forces them apart; a part goes where its technology runs; each
+  lowest-level part runs in one unit; an interface that crosses units gains a
+  transport, a format and failure modes.
+- **File layout (agreed):** one file per artifact, in a folder per block per type, e.g.
+  `agent-runtime/requirements/REQ-7K3Q.md`. Chosen over one YAML file per block per type
+  on agent cost, merges and tool limits, with equal accuracy
+  (`research/2026-10-16-layout-simulation.md`). Open: the file's content, Markdown with a
+  YAML header or YAML throughout.
+
+## Links (agreed 2026-10-16)
+
+Each link is stored once, in one direction; the reverse is computed (search or a trace
+command), never stored.
+
+- **Containment comes from the folder.** A part is an entry in its parent block's parts
+  file; its own artifacts live in its folder. A part has no `parent` field.
+- **Functions belong to the block they describe.** A child part states its own function
+  with `parent: FUN`, the function it takes on. That is the allocation; there is no
+  `allocated_to`. At product level a function stores `serves: [SCN]`.
+- **Requirements are never passed down whole.** A requirement is verifiable at the level
+  it is written. Flowdown writes child requirements in the part's folder with
+  `parent: REQ`; that is the allocation. A parent is verified by its children plus its
+  own level's proofs (see Verification). When a parent changes, its computed children are
+  revisited.
+- **A requirement has at least one reason to exist**, any of: `of: FUN` (the function it
+  constrains), `parent: REQ`, `justified_by: DEC`, `answers: RSK`, `source: builder`.
+  None is an error.
+- **Proofs** store `covers: [REQ]`. Cases name their proof; a proof does not list cases.
+- **Decisions** store `supersedes: DEC` (the old one's state is computed) and
+  `drivers: [REQ]`, the requirements it serves, for impact analysis. Revising a decision
+  is one new entry (L5).
+- **Open:** the links of interface, unit, risk and scenario. Whether design evaluation's
+  "every requirement is handled" can be computed without `allocated_to`: own proof at its
+  level, or children written at synthesis, or reach through its function's children.
+
+## States (agreed 2026-10-16)
+
+Only states a person decides are stored: `draft → agreed → retired`; for a decision
+`proposed → agreed`. Everything else is computed, never stored: *built* (a case exists),
+*covered* (a proof covers it), *verified* (evidence passes at this commit), *answered*
+(a requirement answers a risk), *superseded*. The model is ahead of code during every
+build (P4); code ahead of the model is the defect. Per-type states beyond these: open.
 
 ## Independent review (open, deliberately undesigned)
 
@@ -160,7 +219,7 @@ and functions.
 | Q-3 | Skill granularity. Research (`research/2026-10-skill-granularity.md`) points to ~10–15 activity-scale skills, a few atomic user-only commands, rules in references and validator scripts, state on disk, gates enforced by hooks. Awaiting the builder |
 | Q-4 | Pilots. Agreed 2026-10-16: the first real use of datum v0 is Pendentive's re-scoped v1, run from datum's intake with the existing Pendentive model as reference material, not migrated. While formats are designed, they are tested against real Pendentive rows. Small client projects later |
 | Q-5 | Artifact storage, IDs, link model. Leaning: one Markdown file per artifact with YAML frontmatter, opaque IDs, own validator (`research/2026-10-storage.md`). Deferred as mechanical |
-| Q-6 | GitHub: agreed in principle. Repo files are authoritative (model, decisions, open questions, proofs, evidence index); issues hold intake and work; milestones and releases scope increments; evidence is committed because CI retention is 90 days. Details open |
+| Q-6 | GitHub: agreed in principle. Repo files are authoritative (model, decisions, proofs, evidence index; open questions are issues plus a `TBD`, see Types); issues hold intake and work; milestones and releases scope increments; evidence is committed because CI retention is 90 days. Details open |
 
 ## Landscape in one paragraph
 
