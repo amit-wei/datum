@@ -130,6 +130,7 @@ A type is in v0 only if an engine step makes it and a step or check uses it (P9)
 | unit | 3 Synthesis (deployment view, P12) | the rule that an extra unit cites a decision |
 | decision | 3 Synthesis (trade study), and any recorded choice | derived requirements, units, impact analysis |
 | risk | the two risk passes | the requirements that answer it |
+| external | product-level functional analysis (the context: the user, the host, outside services) | interfaces (`between`); generated views such as a README or an installer |
 
 - **Not files of the model:** a *case* lives in code and names its proof (a tag); a
   search for the proof ID finds every case, in any file or language. *Evidence* is
@@ -196,6 +197,17 @@ command), never stored.
   "every requirement is handled" can be computed without `allocated_to`: own proof at its
   level, or children written at synthesis, or reach through its function's children.
 
+## IDs and references (agreed 2026-10-16)
+
+- An ID is a type prefix plus 4 characters of Crockford base32, e.g. `REQ-7K3Q`, minted
+  by a script that checks existing IDs. The validator catches a collision between
+  branches. No block in the ID, no sequence numbers.
+- The file name is the ID. An ID never changes and is never reused. A move is `git mv`.
+- Links name IDs only, never paths. Analysis outputs get IDs the same way (`SCN-`,
+  `SPK-`, `RES-`).
+- Only decisions are superseded. Other artifacts are edited in place (git is their
+  history) or set to `retired`; nothing is deleted.
+
 ## States (agreed 2026-10-16)
 
 Only states a person decides are stored: `draft → agreed → retired`; for a decision
@@ -238,7 +250,7 @@ and functions.
 | Q-2 | When is each verification artifact written: the criterion with the requirement; the executable test after the level's external interface is defined? |
 | Q-3 | Skill granularity. Research (`research/2026-10-skill-granularity.md`) points to ~10–15 activity-scale skills, a few atomic user-only commands, rules in references and validator scripts, state on disk, gates enforced by hooks. Awaiting the builder |
 | Q-4 | Pilots. Agreed 2026-10-16: the first real use of datum v0 is Pendentive's re-scoped v1, run from datum's intake with the existing Pendentive model as reference material, not migrated. While formats are designed, they are tested against real Pendentive rows. Small client projects later |
-| Q-5 | Artifact storage, IDs, link model. Leaning: one Markdown file per artifact with YAML frontmatter, opaque IDs, own validator (`research/2026-10-storage.md`). Deferred as mechanical |
+| Q-5 | Artifact storage, IDs, link model. Settled 2026-10-16: see Types, Links, IDs and references |
 | Q-6 | GitHub: agreed in principle. Repo files are authoritative (model, decisions, proofs, evidence index; open questions are issues plus a `TBD`, see Types); issues hold intake and work; milestones and releases scope increments; evidence is committed because CI retention is 90 days. Details open |
 
 ## Landscape in one paragraph
