@@ -351,8 +351,8 @@ One mechanism, no explicit "reopen" command:
   infeasible or conflicting raises it (an issue and a grilling trigger); the parent's
   step makes the change, under its own review loop.
 - **Across increments:** a later increment can make built items stale; their verdicts
-  are then computed as unverified (P4). Where the rework is scheduled depends on what an
-  increment is (#2).
+  are then computed as unverified (P4). Rework that blocks the current increment joins
+  its milestone; otherwise it is an issue for a later increment.
 - **Subagents** for independence (review; cases apart from implementation, P5), for
   read-heavy work where only the conclusion matters (research, codebase surveys), and
   for parallel independent pieces (scenario walk-throughs, leaf blocks). Never for
@@ -410,7 +410,49 @@ spike). End condition: checks pass, every walk-through completes without a gap,
 conflicts resolved by a decision, closing review clean. A failure loops to requirements
 or synthesis.
 
-**Not designed yet:** the increment step (#2), build, verify.
+**Increment.** See Increments below. Techniques: a menu of strategies for choosing the
+scope, each with where it fits, none forced: walking skeleton (an unproven architecture
+or several units), scenario slice (scenarios exist and a user should try the result),
+risk first (one unknown dominates), function-based (a capability stands alone, such as
+a library or a CLI tool); `grilling` on the choice. The builder decides. The closing
+review flags a stub on the path of the slice the builder means to demonstrate.
+
+**Not designed yet:** build, verify, and work packages (the session-sized unit of work
+inside an increment; deliberately not defined yet).
+
+## Increments (agreed 2026-10-17)
+
+Settles Q-1 and #2.
+
+- **An increment is a usable, verified addition of capability** (the convention of
+  incremental development; Scrum Guide 2020: "thoroughly verified"). It includes the
+  descent through the levels for its scope, build and verify, and ends with something
+  that runs and passes. It is not a session of work.
+- **Scope is a set of functions at any level that is already modelled, plus explicit
+  deferrals.** Everything else is computed: functions → requirements (`of`) →
+  contributing parts (`contributes_to`) → interfaces. No rule makes the first increment
+  product-level: before it, nothing below the product level exists.
+- **Deferrals** each carry a reason. Deferring a requirement that answers a hazard needs
+  a decision with `accepts: [RSK]` in the model. Nothing in scope is dropped silently
+  (L4).
+- **Where it lives (GitHub, accepted for now).** The scope is in the milestone
+  description, in a fixed structure a script reads: function IDs, and deferrals with
+  their reasons. The milestone holds the work; a GitHub release (a version tag) is the
+  close. The router reads the scope through the GitHub API. Accepted costs: no offline
+  use, no other hosts, and probably no edit history of the scope. Reversible by moving
+  the scope into a file.
+- **Out-of-scope neighbours are stubbed, not banned.** An in-scope part with an interface
+  to an out-of-scope sibling is tested against a stub derived from the interface as the
+  parent level defined it (a test double, contract testing; an interface simulator in
+  hardware). The part's own requirements on that interface are verified against the
+  stub; requirements that need both real sides are listed as deferred, with the reason
+  "other end out of scope". A ban would pull every connected part into scope (L1).
+- **Flow.** The increment step runs after product-level design evaluation closes, then
+  the engine for each block in scope down to the stopping rule, then build and verify.
+  A block may be built as soon as its own level reaches the stopping rule, without
+  waiting for its siblings (P14 holds per block; interfaces are fixed above).
+- **Done:** every in-scope requirement that is not deferred is verified at one commit,
+  and the builder closes the increment, which creates the release.
 
 ## Independent review (open, deliberately undesigned)
 
@@ -444,12 +486,12 @@ and functions.
 
 | # | Question |
 |---|---|
-| Q-1 | What exactly is an increment, and how big is it? Depends on what kind of thing the library is |
+| Q-1 | What exactly is an increment, and how big is it? Settled 2026-10-17: see Increments. Size is the builder's choice, by strategy, not by number |
 | Q-2 | When is each verification artifact written: the criterion with the requirement; the executable test after the level's external interface is defined? |
 | Q-3 | Skill granularity. Settled 2026-10-17 in concept: see Skills. Packaging (technique as skill or as reference) is decided by a test in #6 |
 | Q-4 | Pilots. Agreed 2026-10-16: the first real use of datum v0 is Pendentive's re-scoped v1, run from datum's intake with the existing Pendentive model as reference material, not migrated. While formats are designed, they are tested against real Pendentive rows. Small client projects later |
 | Q-5 | Artifact storage, IDs, link model. Settled 2026-10-16: see Types, Links, IDs and references |
-| Q-6 | GitHub: agreed in principle. Repo files are authoritative (model, decisions, proofs, evidence index; open questions are issues plus a `TBD`, see Types); issues hold intake and work; milestones and releases scope increments; evidence is committed because CI retention is 90 days. Details open |
+| Q-6 | GitHub: agreed in principle. Repo files are authoritative (model, decisions, proofs, evidence index; open questions are issues plus a `TBD`, see Types); issues hold intake and work; a milestone holds an increment's scope and work, a release closes it (see Increments); evidence is committed because CI retention is 90 days. Details open |
 
 ## Landscape in one paragraph
 
