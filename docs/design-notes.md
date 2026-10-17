@@ -64,6 +64,10 @@ grilling into an elicitation record (see Skills). Greenfield has no separate int
    the synthesis against the requirements: every requirement allocated, key requirements
    walked through the parts as runtime scenarios. A failure changes the architecture or
    renegotiates a requirement (a recorded decision). Loop to 1–3 until it holds.
+5. **Cases** (added 2026-10-17). The test author writes the executable cases for this
+   level's proofs, as on the left side of the V. The same at every level: a leaf's
+   cases test it through the interfaces its parent fixed; a non-leaf's integration
+   cases run against stubs until its children exist. See Build and verify.
 
 **Output:** each part with its allocated requirements, the input to its next level.
 
@@ -288,7 +292,8 @@ them.
 
 Only states a person decides are stored: `draft → agreed → retired`; for a decision
 `proposed → agreed`. Everything else is computed, never stored: *built* (a case exists),
-*covered* (a proof covers it), *verified* (evidence passes at this commit), *answered*
+*covered* (a proof covers it), *verified* (evidence passes at a version's commit; see
+Build and verify), *answered*
 (a requirement answers a risk), *superseded*. The model is ahead of code during every
 build (P4); code ahead of the model is the defect. Per-type states beyond these: open.
 
@@ -417,8 +422,93 @@ risk first (one unknown dominates), function-based (a capability stands alone, s
 a library or a CLI tool); `grilling` on the choice. The builder decides. The closing
 review flags a stub on the path of the slice the builder means to demonstrate.
 
-**Not designed yet:** build, verify, and work packages (the session-sized unit of work
-inside an increment; deliberately not defined yet).
+**Cases, build, verify.** See Build and verify.
+
+**Not designed yet:** work packages (the session-sized unit of work inside an increment;
+deliberately not defined yet), and evals with their judges.
+
+## Build and verify (agreed 2026-10-17)
+
+Settles Q-2: the criterion is written with the requirement (a proof), the executable
+case when the level closes (engine step 5).
+
+**Build is a contract, not a coding method.** Datum defines what goes in, who does what,
+what is protected and what comes out. The craft of coding is left to the implementer
+agent. No dependency on superpowers: its test-driven development has one agent write
+both the test and the code, against P5.
+
+The contract for one leaf block:
+
+1. **In:** the block's requirements, proofs and cases (written at step 5), its
+   interfaces as the parent fixed them, and the decisions that set conventions.
+2. **A hook locks the cases;** the implementer cannot edit or delete them (P5).
+3. **The implementer writes code until the cases pass.** It builds nothing that no
+   requirement asks for; a need it finds is raised (problems go up). A case it thinks
+   is wrong is raised to the test author, never fixed by the implementer.
+4. **Review loop** against the block's functions and decisions. Verification cannot
+   catch overbuilding or broken conventions: overbuilt code can pass every case.
+5. **Out:** code and passing cases, the IDs listed in the commit or PR.
+
+Standard checks in build:
+
+| Check | Catches | How |
+|---|---|---|
+| The contract | Weakened tests | Hook |
+| Traceability: proof IDs in cases, requirement IDs in commits | Lost trace | Script |
+| Boundary conformance: a block reaches other blocks only through its interfaces | Architecture eroding in code | Script (an import-rule checker) |
+| Overbuild signals: code no case reaches, public surface beyond the interface items, a dependency no decision chose, configuration or abstraction no requirement asks for | Overbuilding | Coverage and script, then review |
+| Functions and decisions | Code doing something other than what the block is for | Review loop |
+
+The step-5 reviewer checks the cases against the proofs and the synthesis; the build
+reviewer checks only the code.
+
+**Conventions come from three sources:**
+
+| Source | Examples | Lives in |
+|---|---|---|
+| Datum, the same in every project | Model layout, IDs, case tags, the build contract, the evidence format | Datum's skills and schemas |
+| The project, an output of synthesis (P3) | Language, frameworks, how code folders map to parts, dependency rules, error handling, logging, test framework, code style | Decisions; a generated, never hand-edited section of the project's AGENTS.md lists them |
+| The builder, across projects | How the agent talks, explains, asks | The builder's own CLAUDE.md, outside the repo |
+
+- A preference that affects the product enters as a builder constraint through grilling.
+  One that affects only how the agent works with the builder stays personal.
+- **Code style** (comments, function size, tone of docs) is the project's, not datum's.
+  Product synthesis records one code-style decision; the default is the ecosystem's
+  standard formatter and linter, whose config files are the convention. What no tool can
+  check is written in the decision and checked by the build review.
+
+**What runs when:**
+
+- **On each commit of the work branch:** the cases a change could affect (change impact
+  analysis, as DO-178C requires for re-verification). Code in a block runs its cases and
+  the cases of every proof that covers its interfaces; a model change runs the proofs of
+  the changed requirements and what links to them; a shared change (a dependency, build
+  config, a shared library) runs everything. Boundary conformance is what makes this
+  trustworthy. These runs are feedback, not evidence of record.
+- **At a release:** everything, on the release candidate.
+
+**Verified = the evidence passes at the version's commit.** Nothing else. Consequences:
+
+- `main` holds only verified versions; each increment works on its own branch.
+- The release candidate is frozen on the work branch, CI and the manual proofs run on
+  that commit, and it reaches `main` without a new commit (a fast-forward merge) and is
+  tagged. A squash merge would orphan the evidence.
+- Manual proofs (Demonstration, manual Inspection) are redone on every release
+  candidate. The cost pushes toward automating a demonstration as a scripted end-to-end
+  Test. Carrying manual evidence forward is the fallback if the pilot shows the cost is
+  real.
+
+**Evidence** has a common core (proof ID, commit, result, date) and a basis by method:
+
+| Method | Basis | Written by |
+|---|---|---|
+| Test | CI run link | CI only |
+| Demonstration | A record: what was shown, what was observed, the criterion | The builder observes; an agent prepares the context and steps, points to what to look at, and writes the record |
+| Inspection | A record: the artifact at a commit, the criterion, the verdict | A reviewer agent that is not the author, or the builder as above |
+| Analysis | The analysis output's ID | Its author; the closing review checks it |
+
+Evidence is never written by the author of the thing it verifies. Where the builder
+supplies evidence, an agent makes the edit.
 
 ## Increments (agreed 2026-10-17)
 
@@ -487,7 +577,7 @@ and functions.
 | # | Question |
 |---|---|
 | Q-1 | What exactly is an increment, and how big is it? Settled 2026-10-17: see Increments. Size is the builder's choice, by strategy, not by number |
-| Q-2 | When is each verification artifact written: the criterion with the requirement; the executable test after the level's external interface is defined? |
+| Q-2 | When is each verification artifact written? Settled 2026-10-17: the proof with the requirement, the case when the level closes (engine step 5). See Build and verify |
 | Q-3 | Skill granularity. Settled 2026-10-17 in concept: see Skills. Packaging (technique as skill or as reference) is decided by a test in #6 |
 | Q-4 | Pilots. Agreed 2026-10-16: the first real use of datum v0 is Pendentive's re-scoped v1, run from datum's intake with the existing Pendentive model as reference material, not migrated. While formats are designed, they are tested against real Pendentive rows. Small client projects later |
 | Q-5 | Artifact storage, IDs, link model. Settled 2026-10-16: see Types, Links, IDs and references |
