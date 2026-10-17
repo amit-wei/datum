@@ -42,7 +42,8 @@ The same procedure at every level (the recursive SE process of MIL-STD-499B / IE
 Corrected 2026-10-14: functional analysis comes before this level's requirements.
 
 **Input to a level:** the requirements and constraints allocated to this block by the
-level above. At product level: the needs and the builder's constraints.
+level above. At product level: the needs and the builder's constraints, drawn out by
+grilling into an elicitation record (see Skills). Greenfield has no separate intake step.
 
 1. **Functional analysis.** What this block must do to meet its inputs, and the flows
    between functions. Infeasible or conflicting inputs go back up (requirements loop).
@@ -53,12 +54,23 @@ level above. At product level: the needs and the builder's constraints.
    requirements to parts, define the interfaces between parts, record each choice as a
    decision with the alternatives considered (the trade study). Choices create
    **derived requirements**, justified by their decision rather than by a parent.
+   Its outputs (agreed 2026-10-17): decisions with their trade studies; parts (purpose,
+   `contributes_to`, unit); interfaces with their items; budgets flowed down as child
+   requirements in each part's folder (a latency or cost budget split between parts);
+   derived requirements, including interface requirements (`of: IFC`); the deployment
+   view; architectural risks and the requirements that answer them. The part entry is
+   the thinnest of these.
 4. **Design evaluation** (not "verification", which is the right side of the V). Check
    the synthesis against the requirements: every requirement allocated, key requirements
    walked through the parts as runtime scenarios. A failure changes the architecture or
    renegotiates a requirement (a recorded decision). Loop to 1–3 until it holds.
 
 **Output:** each part with its allocated requirements, the input to its next level.
+
+**The level rule** (agreed 2026-10-17; the usual SE spine, not a new rule). A choice is
+made, a function defined and a requirement tested at the lowest level that holds
+everything it touches. A choice that affects more than one part, or a requirement of
+this level, is made here; one that affects a single part waits for that part's level.
 
 **Spikes** (agreed in concept, 2026-10-16). A spike is throwaway code that answers a
 question: a measurement, a feasibility check. Its result enters the model as evidence;
@@ -110,11 +122,23 @@ Starting set of triggers (agreed 2026-10-16; revised with use, like everything h
   - Verdicts are computed: requirement → proofs (declared on the proof) → cases
     (declared in the code) → results.
 
-## Risk in the engine (draft)
+## Risk in the engine (agreed 2026-10-17)
 
-Risk appears twice per level, as in ARP4761: a functional hazard pass after functional
-analysis (generates safety requirements), and an architectural pass after synthesis
-(FMEA on parts and interfaces, STRIDE for security; generates derived requirements).
+Risk is a technique, not a step of its own. It appears twice per level, as in ARP4761
+(`research/2026-10-risk-methods.md`):
+
+- **In functional analysis:** losses and hazards (STPA step 1). Some functions are
+  dangerous whatever the design. Requirements answer them in the requirements step.
+- **After synthesis:** STPA unsafe control actions and loss scenarios on the control
+  structure, which exists only once there are parts; STRIDE (spoofing, tampering,
+  repudiation, information disclosure, denial of service, elevation of privilege) on
+  every interface that crosses a trust boundary. They generate derived requirements.
+- **FMEA is not in the default profile**, only in the critical one (interface FMEA).
+  Corrects the earlier draft, which named FMEA on parts and interfaces.
+- Requirements that interact can create risk (Pendentive's exactly-once rules made
+  retrying impossible). Such conflicts are caught in the requirements step's closing
+  review when they show from the requirements alone, and in design evaluation when they
+  need the parts.
 
 ## Types (v0, agreed 2026-10-16)
 
@@ -122,7 +146,7 @@ A type is in v0 only if an engine step makes it and a step or check uses it (P9)
 
 | Type | Made by | Used by |
 |---|---|---|
-| function | 1 Functional analysis | requirements (`of`), child functions |
+| function | 1 Functional analysis | requirements (`of`), child functions, parts (`contributes_to`) |
 | requirement | 2 Requirements | proofs, child requirements, the next level |
 | proof | 2 Requirements (the verifiability gate) | cases, verdicts |
 | part | 3 Synthesis | the next level (each part becomes a block) |
@@ -142,6 +166,9 @@ A type is in v0 only if an engine step makes it and a step or check uses it (P9)
   cites it (P9). Scenarios are forced at product level (P13), and product functions cite
   the scenario they serve. A trade study is not a separate output: it lives inside its
   decision (the alternatives considered).
+- **Need is not a type** (agreed 2026-10-17). Needs live in an elicitation record
+  (`ELI-`), the output of grilling, an analysis output like a research report. The chain
+  is function → scenario → elicitation record.
 - **Not a type in v0:** open question. It is a `TBD` in the field it blocks (a spike
   trigger) plus a GitHub issue for the work. This narrows Q-6.
 - **Constraint is not a type:** it is a requirement with `source: builder`. A field
@@ -167,10 +194,18 @@ command), never stored.
 
 - **Containment comes from the folder.** A part is an entry in its parent block's parts
   file; its own artifacts live in its folder. A part has no `parent` field.
-- **Functions belong to the block they describe.** A child part states its own function
-  with `parent: FUN`, the function it takes on. That is the allocation; there is no
-  `allocated_to`. A function may store `serves:`, the scenarios it serves (a gate requires
-  it at product level).
+- **Functions belong to the block they describe.** A part's own functions are written by
+  that part's functional analysis, one level down, each with `parent: FUN` (functional
+  decomposition). A function may store `serves:`, the scenarios it serves (a gate
+  requires it at product level).
+- **Allocation is a design choice of synthesis** (revised 2026-10-17). The part entry
+  stores `contributes_to: [FUN]`, the functions of this level it contributes to. Several
+  parts may contribute to one function; the children's functions split the work below.
+  Recorded at synthesis so that design evaluation can check that every function has at
+  least one contributing part, and so that parts outside the increment, which get no
+  functional analysis yet (P7, P14), still record their purpose as a link. Functional
+  decomposition and allocation are separate facts, as in classic SE; the earlier
+  position merged them.
 - **Requirements are never passed down whole.** A requirement is verifiable at the level
   it is written. Flowdown writes child requirements in the part's folder with
   `parent: REQ`; that is the allocation. A parent is verified by its children plus its
@@ -244,8 +279,8 @@ them.
   by a script that checks existing IDs. The validator catches a collision between
   branches. No block in the ID, no sequence numbers.
 - The file name is the ID. An ID never changes and is never reused. A move is `git mv`.
-- Links name IDs only, never paths. Analysis outputs get IDs the same way (`SCN-`,
-  `SPK-`, `RES-`).
+- Links name IDs only, never paths. Analysis outputs get IDs the same way (`ELI-`,
+  `SCN-`, `SPK-`, `RES-`).
 - Only decisions are superseded. Other artifacts are edited in place (git is their
   history) or set to `retired`; nothing is deleted.
 
@@ -257,9 +292,105 @@ Only states a person decides are stored: `draft → agreed → retired`; for a d
 (a requirement answers a risk), *superseded*. The model is ahead of code during every
 build (P4); code ahead of the model is the defect. Per-type states beyond these: open.
 
+**Step state** (agreed 2026-10-17). Closing a step is a decision of the builder, so it is
+stored: one file per block, `model/<block>/steps.yaml`, with a fixed schema the
+validator checks, e.g. `functional-analysis: {closed_at: <commit>}`. *Stale* is
+computed: model files of the block changed after the closing commit. The router reads
+these files; GitHub issues hold the queue of work and never mirror model state.
+
+## Skills (agreed 2026-10-17)
+
+Settles Q-3. Evidence: `research/2026-10-skill-granularity.md`,
+`research/2026-10-17-skill-tiering.md`.
+
+- **Three tiers.** A router (`datum`) that reads the state on disk and names the next
+  step. Step skills, one per engine step and around it. Technique skills, each how to
+  do one thing well with its conventions and output format.
+- **A step skill** opens with the stance (think as a systems engineer, from first
+  principles, do not overbuild, justify every artifact), then its goal, its techniques
+  in order with the condition that makes each encouraged, forced or banned (P13), its
+  end condition, and where subagents are used. The stance is the same block at the top
+  of every step skill (the top survives compaction), copied by hand.
+- **Every skill is invocable by the builder.** Ideally only `datum` is invoked.
+- **Packaging is decided in #6** by a test: a technique as its own skill, or as a
+  reference file inside each step that uses it. The direct evidence shows selection
+  errors growing with the number of skills Claude sees.
+- **Quality references are curated:** what matters, in plain words, each item citing its
+  source. Never a standard pasted in. The writing and the reviewing technique of a type
+  read the same reference.
+- **Grilling** is one technique at every level. Forced once at the start of product
+  functional analysis. Afterwards, at any level and after any technique, triggered when
+  a finding can be settled only by the builder: a preference, a priority, a premise, a
+  trade between goals.
+- **Every step closes with a closing review** by a subagent that did not do the work,
+  against the step's end condition, the quality references and the stance. Order:
+  computed checks, closing review, the builder sees findings, the builder closes the
+  step. Targeted reviews of one piece (a trade study, a walk-through) are triggered
+  inside a step.
+- **Subagents** for independence (review; cases apart from implementation, P5), for
+  read-heavy work where only the conclusion matters (research, codebase surveys), and
+  for parallel independent pieces (scenario walk-throughs, leaf blocks). Never for
+  grilling or for a choice the builder must agree to: a subagent proposes, the main
+  session decides with the builder.
+- **Proof vocabulary in techniques:** `writing-requirements` → `writing-proofs` (which
+  verification covers a requirement, by what method, against what criterion) →
+  `writing-cases` (the test code, in build). Functions are never verified;
+  requirements are.
+
+### Step designs (first draft; techniques are names, not yet written)
+
+**Functional analysis.** Goal: the functions of this block and the flows between them,
+complete for its scope, plus the losses it could cause. Techniques: `grilling` (forced
+at product level), `research` (triggered by an unfamiliar domain or a possible existing
+solution; subagent), `writing-scenarios` (forced at product level), `writing-functions`,
+`losses-and-hazards` (forced at product level; below, when a function can cause a loss),
+`running-a-spike` (doubt about feasibility; subagent). At product level the weight is
+on grilling and scenarios; below, on writing functions. End condition: every scenario
+step is done by some function; every function serves a scenario (product) or a parent
+function (below); every elicited need is in a scenario or marked out of scope; losses
+are listed; no feasibility doubt without a spike or a TBD issue; closing review clean.
+
+**Requirements.** Goal: the requirements that say each function is attained, and how
+well where the builder, a hazard or a budget cares; plus constraints and allocated
+budgets; each with a proof. Inputs: functions, hazards, the builder's constraints
+(product level) or the requirements the parent's synthesis wrote (below). Techniques:
+`writing-requirements` per function (attained, how well, unwanted behaviour),
+requirements answering hazards, `writing-proofs`, `grilling` (a value only the builder
+knows), `research` (a value already established elsewhere; subagent), `running-a-spike`
+(a measurable TBD; subagent). The closing review also looks for conflicts visible from
+the requirements alone. No bound on the number of requirements: scope is bounded by the
+increment. End condition: every function has at least one requirement `of: FUN`; every
+hazard answered, accepted or open with an issue; every requirement has a reason and a
+proof with a criterion; every TBD has an issue; validator clean; closing review clean.
+
+**Synthesis.** Goal: the design choices that meet this level's functions and
+requirements. Techniques, in classic order (IEEE 1220): grouping functions into
+candidate parts, `research` on what exists (buy or build; subagent), `trade-study` per
+significant choice (forced for the stack at product level), `running-a-spike` (options
+that cannot be ranked on paper), allocation and derived requirements, `defining-interfaces`,
+`deployment-view`, the architectural risk pass (ARP4761), `applying-stopping-rule` per
+part. End condition: every function has at least one contributing part; every
+requirement flowed down or covered by this level's own proof; every interface has its
+items; every extra unit justified; every part meets the stopping rule or is queued for
+the next level; every architectural risk answered, accepted or open with an issue;
+closing review clean.
+
+**Design evaluation.** Goal: evidence before code that the synthesis meets this level's
+requirements. Techniques: computed checks first (allocation, coverage, links; a
+script), `walking-scenarios` through parts and interfaces (forced per scenario at
+product level; below, the parent's scenarios that touch the block; a subagent per
+scenario), conflicts that need the parts, analysis of budgets verified by Analysis (a
+spike). End condition: checks pass, every walk-through completes without a gap,
+conflicts resolved by a decision, closing review clean. A failure loops to requirements
+or synthesis.
+
+**Not designed yet:** the increment step (#2), build, verify.
+
 ## Independent review (open, deliberately undesigned)
 
-Agreed: reviews at each engine step. Also wanted: specialised reviews (a risk
+Agreed: reviews at each engine step; each step closes with a closing review by a
+subagent (see Skills). How to review is a technique skill; the reviewer is an agent
+that loads it. Also wanted: specialised reviews (a risk
 assessment, a set of interfaces), reviews at different scopes (big picture vs detail).
 Open: can reviewers spawn research agents; how findings are structured. To be designed
 from first principles, not inherited from Pendentive.
@@ -289,7 +420,7 @@ and functions.
 |---|---|
 | Q-1 | What exactly is an increment, and how big is it? Depends on what kind of thing the library is |
 | Q-2 | When is each verification artifact written: the criterion with the requirement; the executable test after the level's external interface is defined? |
-| Q-3 | Skill granularity. Research (`research/2026-10-skill-granularity.md`) points to ~10–15 activity-scale skills, a few atomic user-only commands, rules in references and validator scripts, state on disk, gates enforced by hooks. Awaiting the builder |
+| Q-3 | Skill granularity. Settled 2026-10-17 in concept: see Skills. Packaging (technique as skill or as reference) is decided by a test in #6 |
 | Q-4 | Pilots. Agreed 2026-10-16: the first real use of datum v0 is Pendentive's re-scoped v1, run from datum's intake with the existing Pendentive model as reference material, not migrated. While formats are designed, they are tested against real Pendentive rows. Small client projects later |
 | Q-5 | Artifact storage, IDs, link model. Settled 2026-10-16: see Types, Links, IDs and references |
 | Q-6 | GitHub: agreed in principle. Repo files are authoritative (model, decisions, proofs, evidence index; open questions are issues plus a `TBD`, see Types); issues hold intake and work; milestones and releases scope increments; evidence is committed because CI retention is 90 days. Details open |
