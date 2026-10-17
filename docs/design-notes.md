@@ -322,11 +322,37 @@ Settles Q-3. Evidence: `research/2026-10-skill-granularity.md`,
   functional analysis. Afterwards, at any level and after any technique, triggered when
   a finding can be settled only by the builder: a preference, a priority, a premise, a
   trade between goals.
-- **Every step closes with a closing review** by a subagent that did not do the work,
-  against the step's end condition, the quality references and the stance. Order:
-  computed checks, closing review, the builder sees findings, the builder closes the
-  step. Targeted reviews of one piece (a trade study, a walk-through) are triggered
-  inside a step.
+- **Every step ends in a review loop** with a subagent that did not do the work,
+  against the step's end condition, the quality references and the stance. Findings go
+  straight back to the agent doing the step, which fixes them, and the review runs
+  again. The builder closes the step when neither the working agent nor the reviewer
+  has issues left above a severity threshold. Targeted reviews of one piece (a trade
+  study, a walk-through) are triggered inside a step.
+- **Severity of a finding:** *blocking* (breaks the end condition, or an artifact is
+  wrong) and *should fix* (weakens the work: unclear, unjustified, an alternative
+  missing) keep the loop going; a *note* is shown to the builder at closing. The working
+  agent may reject a finding with its reason; if the reviewer does not accept it, the
+  disagreement goes to the builder (a grilling trigger). The loop ends clean or with a
+  question for the builder, never after a fixed number of rounds. #4 may refine this.
+
+### Going back (agreed 2026-10-17)
+
+One mechanism, no explicit "reopen" command:
+
+1. Any artifact may change at any time. A superseding decision needs the builder's
+   agreement.
+2. Staleness is computed: a step whose artifacts changed after its closing commit, every
+   later step of that block, and every block whose inputs link to the changed artifact.
+3. The router sends work to the highest stale block first, at its earliest stale step.
+4. The builder re-closes each stale step after a review loop over what changed and what
+   links to it. A revisit that changes nothing closes quickly.
+
+- **Across levels, problems go up, changes do not.** A level that finds an input
+  infeasible or conflicting raises it (an issue and a grilling trigger); the parent's
+  step makes the change, under its own review loop.
+- **Across increments:** a later increment can make built items stale; their verdicts
+  are then computed as unverified (P4). Where the rework is scheduled depends on what an
+  increment is (#2).
 - **Subagents** for independence (review; cases apart from implementation, P5), for
   read-heavy work where only the conclusion matters (research, codebase surveys), and
   for parallel independent pieces (scenario walk-throughs, leaf blocks). Never for
