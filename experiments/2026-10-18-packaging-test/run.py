@@ -2,7 +2,7 @@
 
 Usage:
   python3 run.py --variants S,R --models sonnet,haiku --repeats 3 [--queries P1,N8]
-                 [--max-turns 8] [--max-budget 0.50] [--jobs 4] [--tmp DIR]
+                 [--max-turns 20] [--max-budget 0.50] [--jobs 4] [--tmp DIR]
 
 Rerunning the same command resumes: runs already recorded are skipped.
 
@@ -13,8 +13,11 @@ are recorded, plus the names of other skills loaded; raw transcripts stay in the
 temporary folder, because they hold the runner's own setup.
 
 The agent sees every tool, so its choices are not shaped by missing ones, but only
-reading, searching, loading skills and starting agents are approved; any other call is
-refused when made (dontAsk). The test measures what loads, not the work done.
+reading, searching, writing inside the run's own folder, loading skills and starting
+agents are approved; any other call is refused when made (dontAsk).
+
+After each run a judge (Haiku, no tools) compares the final answer and the files the run
+changed with the query's Outcome, and the verdict and a one-line reason are recorded.
 """
 import argparse
 import collections
@@ -32,7 +35,7 @@ import time
 from score import load_queries
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-ALLOWED = "Skill Read Glob Grep Agent"
+ALLOWED = "Skill Read Glob Grep Agent Write Edit"
 REFERENCE = re.compile(r"/skills/([a-z0-9-]+)/references/([a-z0-9-]+)\.md$")
 
 
@@ -61,8 +64,8 @@ def prepare(fixture, tmp):
     return work
 
 
-def loads(transcript):
-    """The ordered loads in a stream-json transcript."""
+def loads(transcript, work):
+    """The ordered loads and writes in a stream-json transcript."""
     events, results = [], {}
     for line in transcript.splitlines():
         try:
@@ -92,6 +95,10 @@ def loads(transcript):
                 if m:
                     events.append({"kind": "reference", "name": m.group(2), "step": m.group(1),
                                    "id": block.get("id")})
+            elif name in ("Write", "Edit"):
+                path = os.path.relpath(arg.get("file_path", ""), work)
+                kind = "write" if name == "Write" else "edit"  # only new files are checked
+                events.append({"kind": kind, "name": path, "id": block.get("id")})
             elif name == "Agent":
                 agent = arg.get("subagent_type", "")
                 if agent.startswith("datum:"):
@@ -99,6 +106,58 @@ def loads(transcript):
     for event in events:
         event["error"] = results.get(event.pop("id"), False)
     return events
+
+
+def final_text(transcript):
+    text = ""
+    for line in transcript.splitlines():
+        try:
+            msg = json.loads(line)
+        except json.JSONDecodeError:
+            continue
+        if isinstance(msg, dict) and msg.get("type") == "result" and isinstance(msg.get("result"), str):
+            text = msg["result"]
+    return text
+
+
+JUDGE = """You judge one run of an AI agent working on a systems-engineering model.
+The builder said: {prompt}
+The expected outcome, written before the run: {outcome}
+
+The agent's final message:
+<final>
+{final}
+</final>
+
+The files the run changed (git diff; empty if none):
+<diff>
+{diff}
+</diff>
+
+Does the run meet the expected outcome? Judge only against the expected outcome, not
+style. Answer with one JSON object and nothing else:
+{{"pass": true or false, "reason": "<one sentence>"}}"""
+
+
+def judge(query, final, work, args):
+    git(work, "add", "-A")
+    diff = subprocess.run(["git", "diff", "--cached", "--", ".", ":!transcript.jsonl"], cwd=work, capture_output=True,
+                          text=True).stdout
+    prompt = JUDGE.format(prompt=query["prompt"], outcome=query["outcome"],
+                          final=final[:8000] or "(no final message)", diff=diff[:8000])
+    proc = subprocess.run(["claude", "-p", "--model", args.judge, "--output-format", "json",
+                           "--no-session-persistence", "--permission-mode", "dontAsk",
+                           "--allowedTools", "", "--max-turns", "2"],
+                          input=prompt, capture_output=True, text=True, timeout=300,
+                          cwd=tempfile.gettempdir())  # away from the fixture's CLAUDE.md
+    try:
+        result = json.loads(proc.stdout)
+        text = result.get("result", "")
+        verdict = json.loads(text[text.index("{"):text.rindex("}") + 1])
+        return {"pass": bool(verdict["pass"]), "reason": str(verdict.get("reason", ""))[:300],
+                "cost_usd": result.get("total_cost_usd")}
+    except (ValueError, KeyError, TypeError):
+        return {"pass": None, "reason": "judge output unreadable", "cost_usd": None}
 
 
 def run_one(query, variant, model, args):
@@ -129,9 +188,10 @@ def run_one(query, variant, model, args):
         if result.get("is_error") and result.get("subtype") not in (
                 "error_max_turns", "error_max_budget_usd"):
             failure = str(result.get("result") or result.get("subtype"))[:200]
+    verdict = judge(query, final_text(out), work, args) if not failure else None
     return {"query": query["id"], "variant": variant, "model": model, "status": status,
             "failure": failure,
-            "loads": loads(out), "cost_usd": cost, "turns": turns,
+            "loads": loads(out, work), "outcome": verdict, "cost_usd": cost, "turns": turns,
             "seconds": round(time.time() - started, 1), "date": time.strftime("%Y-%m-%d"),
             "transcript": os.path.join(work, "transcript.jsonl")}
 
@@ -142,12 +202,13 @@ def main():
     p.add_argument("--models", default="sonnet,haiku")
     p.add_argument("--repeats", type=int, default=3)
     p.add_argument("--queries", default="")
-    p.add_argument("--max-turns", type=int, default=8)
+    p.add_argument("--max-turns", type=int, default=20)
     p.add_argument("--max-budget", type=float, default=0.50)
     p.add_argument("--timeout", type=int, default=600)
     p.add_argument("--tmp", default=None)
     p.add_argument("--max-failures", type=int, default=3)
     p.add_argument("--jobs", type=int, default=1)
+    p.add_argument("--judge", default="haiku")
     p.add_argument("--out", default=os.path.join(HERE, "results", "runs.jsonl"))
     args = p.parse_args()
     queries = load_queries()
@@ -192,7 +253,8 @@ def main():
                 f.write(json.dumps(record) + "\n")
             state["total"] += record["cost_usd"] or 0
             names = " > ".join(e["name"] + ("!" if e["error"] else "") for e in record["loads"])
-            print(f"{query['id']:4} {variant} {model:6} ${record['cost_usd'] or 0:.3f} "
+            verdict = {True: "PASS", False: "FAIL", None: "?"}[record["outcome"]["pass"]]
+            print(f"{query['id']:4} {variant} {model:6} ${record['cost_usd'] or 0:.3f} {verdict} "
                   f"[{names or '-'}]  {transcript}", flush=True)
 
     with concurrent.futures.ThreadPoolExecutor(args.jobs) as pool:

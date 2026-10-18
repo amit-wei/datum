@@ -339,6 +339,10 @@ Settles Q-3. Evidence: `research/2026-10-skill-granularity.md`,
   agent may reject a finding with its reason; if the reviewer does not accept it, the
   disagreement goes to the builder (a grilling trigger). The loop ends clean or with a
   question for the builder, never after a fixed number of rounds. #4 may refine this.
+- **A technique is loaded before its output is produced** (agreed 2026-10-18): before
+  writing or changing an artifact, a record or a looked-up fact, the agent loads the
+  technique that makes it. A question gets an answer grounded in the model and an offer
+  to run the technique. A hook that enforces this on writes under `model/` is parked.
 - **Reviewers are per step, not per type** (agreed 2026-10-18): one reviewer per engine
   step, against that step's end condition, the quality references and the stance. Each is
   an agent in `agents/`, not a skill: the review is always done by a subagent, and an
