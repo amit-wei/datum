@@ -317,9 +317,16 @@ Settles Q-3. Evidence: `research/2026-10-skill-granularity.md`,
   end condition, and where subagents are used. The stance is the same block at the top
   of every step skill (the top survives compaction), copied by hand.
 - **Every skill is invocable by the builder.** Ideally only `datum` is invoked.
-- **Packaging is decided in #6** by a test: a technique as its own skill, or as a
-  reference file inside each step that uses it. The direct evidence shows selection
-  errors growing with the number of skills Claude sees.
+- **Packaging: each technique is its own skill** (agreed 2026-10-18, by test). Against
+  reference files inside the steps, separate skills won on the validation queries on
+  Sonnet and Haiku and in the builder's own setup, by a small margin, and need no
+  copies. A skill hidden with `disable-model-invocation` cannot be called by a step.
+  Evidence and caveats: `research/2026-10-18-packaging-test.md`.
+- **Lessons for writing skills** are in that note (17, each labelled); read them before
+  writing or changing any skill. The ones that change the design: datum's setup writes a
+  line into the project's CLAUDE.md telling the agent to load `datum`; the router names
+  its only exceptions; a technique is loaded before its output is produced; no
+  placeholder text ships in a skill.
 - **Quality references are curated:** what matters, in plain words, each item citing its
   source. Never a standard pasted in. The writing and the reviewing technique of a type
   read the same reference.

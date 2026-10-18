@@ -51,7 +51,10 @@ folder: they hold the runner's own setup and never enter the repository.
    synthesis, and the agent did not look past the step it was asked about. A content
    finding for the real skills, not a packaging one (issue #15).
 
-**Result:** the full run has not started. A smoke test (P3 and P10 on Haiku 5.5, one run per variant,
+**Result:** techniques as separate skills (S). The full run (276 runs, `results/runs.jsonl`)
+and a local check in the builder's setup (`results/local-check.jsonl`) both favour S by a
+small margin. Analysis, the decision and 17 lessons for writing skills:
+`research/2026-10-18-packaging-test.md`. A smoke test (P3 and P10 on Haiku 5.5, one run per variant,
 $0.04 in total) checked the rig end to end and found the fixture bug now fixed. In
 that small sample S and H loaded no technique on their own, and R loaded the expected
 ones. That is two queries and no conclusion.
