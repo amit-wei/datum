@@ -364,6 +364,11 @@ Settles Q-3. Evidence: `research/2026-10-skill-granularity.md`,
   `verify` have no reviewer agent (agreed 2026-10-18): they close on computed checks
   (scope coverage, stubs on the demonstrated path, evidence at one commit) and the
   builder's word.
+- **Script runtime** (agreed 2026-10-18): plain shell for trivial pieces (IDs, staleness
+  through `git diff`); everything else Python with the standard library only, run with
+  `python3` and no packages, so it works whatever the project's stack (P3). Later
+  option: a datum package for `uvx`/`pipx`, which then becomes a requirement for
+  running datum.
 - **Scripts for agents** are written when a step needs one, as with types (P9).
   Candidates: validate, stale, trace (links up and down from an ID), coverage (every
   parent has a child, every function a requirement, every requirement a proof).
