@@ -81,10 +81,3 @@ outcome: The next session is one the user can safely do.
 needs: [ELI-3RWN#2]
 ```
 
-## Sources
-
-Cockburn, *Writing Effective Use Cases* (goal level of one actor in one sitting,
-extensions for failure paths; through a secondary guide). NASA Systems Engineering
-Handbook SP-2016-6105 Rev2, 4.3 (functions based on the concept of operations, every
-use traceable end to end). Pendentive's audit, L3 (no scenario said what the user does
-with the product). Details: `research/2026-10-18-functions.md`, section 3.

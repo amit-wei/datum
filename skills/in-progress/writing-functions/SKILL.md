@@ -97,14 +97,3 @@ definition: |
   take now, for the planner.
 ```
 
-## Sources
-
-NASA Systems Engineering Handbook SP-2016-6105 Rev2, 4.3 and Appendix C (what, not
-how; functions traced to operations; alternative decompositions; necessary and
-sufficient). Parnas 1979, "Designing software for ease of extension and contraction"
-(one function each; users overstate needs). Cockburn, *Writing Effective Use Cases*
-(goal levels, why/how test, extensions for failure paths, CRUD; through a secondary
-guide). INCOSE-derived guidance on verb-object names and empty verbs (secondary).
-Pendentive's lessons (`research/2026-10-16-pendentive-audit.md`: functions with no
-user purpose; properties, interfaces and guards written as functions).
-Details and labels: `research/2026-10-18-functions.md`.

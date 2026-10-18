@@ -334,8 +334,9 @@ Settles Q-3. Evidence: `research/2026-10-skill-granularity.md`,
   line into the project's CLAUDE.md telling the agent to load `datum`; the router names
   its only exceptions; a technique is loaded before its output is produced; no
   placeholder text ships in a skill.
-- **Quality references are curated:** what matters, in plain words, each item citing its
-  source. Never a standard pasted in. The writing and the reviewing technique of a type
+- **Quality references are curated:** what matters, in plain words. Never a standard pasted in.
+  Sources live in the research note behind the skill, not in the skill: the agent does
+  not use them, and they cost context on every load (agreed 2026-10-18). The writing and the reviewing technique of a type
   read the same reference.
 - **Grilling** is one technique at every level. Forced once at the start of every part's
   functional analysis (corrected 2026-10-18; was product only). Afterwards, at any level and after any technique, triggered when
