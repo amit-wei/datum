@@ -20,6 +20,8 @@ the requirements the parent's synthesis wrote into this part's folder.
 
 ## Techniques
 
+{{include load-techniques}}
+
 No bound on the number of requirements: the scope is bounded by the increment.
 
 {{use writing-requirements: For every function (attained, how well, unwanted behaviour), for every hazard, and for every builder constraint.}}

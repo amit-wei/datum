@@ -13,5 +13,7 @@ this step here, then stop.
 
 ## Techniques
 
+{{include load-techniques}}
+
 {{use choosing-an-increment: For every increment.}}
 {{use grilling: On the choice of strategy; the builder decides.}}

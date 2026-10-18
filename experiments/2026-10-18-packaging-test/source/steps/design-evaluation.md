@@ -13,5 +13,7 @@ this step here, then stop.
 
 ## Techniques
 
+{{include load-techniques}}
+
 {{use walking-scenarios: For every scenario at product level; below, the parent's scenarios that touch the block.}}
 {{use running-a-spike: When a budget is verified by Analysis, or a scenario cannot be walked on paper.}}

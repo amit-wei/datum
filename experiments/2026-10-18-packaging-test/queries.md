@@ -55,7 +55,8 @@ state to the right step or technique.
 **How a row is scored** (`score.py`): Expected names, in backticks, must all load in
 that order; anything under Must not must not even be attempted. `none` means no
 technique loads; the router or a step may. Split: `val` rows decide, `train` rows may
-be used to tune descriptions.
+be used to tune descriptions. P5, N5 and N11 were moved from `val` to `train` (and P4,
+N3, N6 the other way) after the skill text was changed in light of pilot runs on them.
 
 ## Should trigger (12)
 
@@ -64,8 +65,8 @@ be used to tune descriptions.
 | P1 | train | F0 | I want to build a tool that tracks my climbing sessions and suggests what to train next. | `functional-analysis` then `grilling` | A new product; grilling is forced first |
 | P2 | val | F1 | I think we've got what people need. What now? | `writing-scenarios` | Needs drawn out; scenarios are forced next |
 | P3 | train | F2 | Let's pin down logging a session. | `writing-requirements` | `FUN-3G1N` has no requirement |
-| P4 | train | F2 | REQ-7K3Q looks finished to me. | `writing-proofs` | It has no proof |
-| P5 | val | F3 | Where should the session data live? | `trade-study` | A design choice with credible options |
+| P4 | val | F2 | REQ-7K3Q looks finished to me. | `writing-proofs` | It has no proof |
+| P5 | train | F3 | Where should the session data live? | `trade-study` | A design choice with credible options |
 | P6 | train | F1 | Surely someone has built this already. | `research` | Possible existing solution |
 | P7 | train | F1 | People will train based on what this tells them. | `losses-and-hazards` | A function can cause harm |
 | P8 | val | F4 | Let's work on the suggestion engine. | `writing-functions` | The part is at its own functional analysis |
@@ -80,15 +81,15 @@ be used to tune descriptions.
 |---|---|---|---|---|---|---|
 | N1 | train | F2 | There's a typo in REQ-7K3Q. | `none` | `writing-requirements` | A direct edit |
 | N2 | val | F2 | What does EARS stand for? | `none` | `writing-requirements` | An answer |
-| N3 | train | F4 | The sync proof needs to run in CI. | `writing-cases` | `writing-proofs` | The proof exists; its executable form does not |
+| N3 | val | F4 | The sync proof needs to run in CI. | `writing-cases` | `writing-proofs` | The proof exists; its executable form does not |
 | N4 | train | F2 | Users want streaks too. | `functional-analysis` | `writing-requirements` | No function for it yet |
-| N5 | val | F3 | SQLite on the device: anything to worry about? | `architectural-risk-pass` | `losses-and-hazards` | A risk of a design choice, not of a function |
-| N6 | train | F7 | Does the design actually support logging a session? | `walking-scenarios` | `writing-scenarios` | Design evaluation |
+| N5 | train | F3 | SQLite on the device: anything to worry about? | `architectural-risk-pass` | `losses-and-hazards` | A risk of a design choice, not of a function |
+| N6 | val | F7 | Does the design actually support logging a session? | `walking-scenarios` | `writing-scenarios` | Design evaluation |
 | N7 | train | F3 | Which of these two scenarios is more realistic? | `none` | `trade-study`, `writing-scenarios` | An opinion or a review, not a design choice |
 | N8 | val | F2 | What's the best way to define training load? | `research` | `grilling` | An established convention; the other wording is "What's the convention for training load?" |
 | N9 | val | F5 | What's the next decomposition of this part? | `synthesis` then `applying-stopping-rule` | `writing-functions` | Its functions are done; at F4 `writing-functions` would be right |
 | N10 | train | F1 | I like short answers. | `none` | `grilling` | Personal, outside the model |
-| N11 | val | F3 | Supabase's free tier would cover us, right? | `research` | | Pricing changes; an answer from memory fails |
+| N11 | train | F3 | Supabase's free tier would cover us, right? | `research` | | Pricing changes; an answer from memory fails |
 
 ## Part B: mid-run fixtures (run once the router is drafted)
 

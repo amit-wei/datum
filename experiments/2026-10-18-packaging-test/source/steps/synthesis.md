@@ -15,6 +15,8 @@ decisions with the alternatives considered. Choices create derived requirements.
 
 ## Techniques
 
+{{include load-techniques}}
+
 In this order (IEEE 1220):
 
 {{use grouping-functions: First: group this block's functions into candidate parts.}}

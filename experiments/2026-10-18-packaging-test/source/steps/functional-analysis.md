@@ -21,6 +21,8 @@ parent's synthesis gave this part.
 
 ## Techniques
 
+{{include load-techniques}}
+
 At product level the weight is on grilling and scenarios; below, on writing functions.
 
 {{use grilling: Forced once at the start of product level, before anything is written. Afterwards, whenever a finding can be settled only by the builder.}}

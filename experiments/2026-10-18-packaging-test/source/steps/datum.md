@@ -12,8 +12,11 @@ real: true
 
 ## What to do
 
-1. If the request is not about the product's model (a question, a typo, how the builder
-   likes to work with you), answer or act directly. Load no step.
+1. Act directly, loading no step, only for: a question about datum itself or its terms
+   (what EARS means), a typo or other edit that changes no meaning, or how the builder
+   likes to work with you. Anything about the product, including a question ("is this
+   all right?", "are we done?", "would this work?"), goes through a step: the answer
+   depends on the model's state and the step's techniques.
 2. If there is no `model/` folder and the builder describes something to build, start
    product-level functional analysis: load the step `functional-analysis`.
 3. Otherwise read every `model/**/steps.yaml`. Find the highest block (closest to

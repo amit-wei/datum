@@ -13,4 +13,6 @@ this step here, then stop.
 
 ## Techniques
 
+{{include load-techniques}}
+
 {{use writing-cases: For every proof of this level.}}
