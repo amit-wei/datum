@@ -34,19 +34,18 @@ requirements, 177 interface rows, 198 decisions, 117 open questions, and no code
 | P11 | Autonomy deferred; gates are explicit so they can be loosened later | leaning |
 | P12 | Architecture has two views: logical (parts, interfaces) and deployment (units that run separately, each listing the parts it hosts). One unit by default; every extra unit needs a decision that cites the requirement forcing the boundary (`research/2026-10-16-pendentive-audit.md`, L1) | agreed |
 | P13 | Each engine step draws on a menu of techniques. Conditions (level among them) make a technique encouraged, forced or banned. First entries: end-to-end user scenarios, forced in functional analysis at product level; spikes (see the engine) | agreed in concept |
-| P14 | No code for a block until it is analysed down to the stopping rule. Depth only for the increment's blocks (P7); nothing modelled below the stopping rule (no file-level components) | agreed |
+| P14 | No code for a part until it is analysed down to the stopping rule. Depth only for the increment's parts (P7); nothing modelled below the stopping rule (no file-level components) | agreed |
 
 ## The level engine (draft, under discussion)
 
 The same procedure at every level (the recursive SE process of MIL-STD-499B / IEEE 1220).
 Corrected 2026-10-14: functional analysis comes before this level's requirements.
 
-**Input to a level:** the requirements and constraints allocated to this block by the
+**Input to a level:** the requirements and constraints allocated to this part by the
 level above. At product level: the needs and the builder's constraints, drawn out by
 grilling into an elicitation record (see Skills). Greenfield has no separate intake step.
 
-1. **Functional analysis.** What this block must do to meet its inputs, and the flows
-   between functions. Infeasible or conflicting inputs go back up (requirements loop).
+1. **Functional analysis.** What this part must do to meet its inputs. Infeasible or conflicting inputs go back up (requirements loop).
 2. **Requirements.** For each function, requirements that state it is attained and how
    well; plus the constraints flowed down. Each with a verification method and a
    pass/fail criterion (the verifiability gate).
@@ -93,10 +92,10 @@ Starting set of triggers (agreed 2026-10-16; revised with use, like everything h
 | 4 Design evaluation | A scenario that cannot be walked through the parts on paper | Pass or fail of the walk-through |
 
 **Decomposition and stopping (draft, agreed in principle):**
-- Decompose a block when it has more than one reason to change, when its requirements
+- Decompose a part when it has more than one reason to change, when its requirements
   need parts with different technologies or dependency rules, or to isolate a
   high-severity risk.
-- Stop when a block carries one function (plus residual functions from scrapped
+- Stop when a part carries one function (plus residual functions from scrapped
   items) and is built or bought as one thing; when its requirements can be verified by
   component tests alone; when splitting adds no new interface. (Hardware practice: one
   function, one physical component, bought or made as one. Software: a module built as
@@ -153,7 +152,7 @@ A type is in v0 only if an engine step makes it and a step or check uses it (P9)
 | function | 1 Functional analysis | requirements (`of`), child functions, parts (`contributes_to`) |
 | requirement | 2 Requirements | proofs, child requirements, the next level |
 | proof | 2 Requirements (the verifiability gate) | cases, verdicts |
-| part | 3 Synthesis | the next level (each part becomes a block) |
+| part | 3 Synthesis | the next level (each part runs the engine in turn) |
 | interface | 3 Synthesis | proofs at its level |
 | unit | 3 Synthesis (deployment view, P12) | the rule that an extra unit cites a decision |
 | decision | 3 Synthesis (trade study), and any recorded choice | derived requirements, units, impact analysis |
@@ -164,7 +163,7 @@ A type is in v0 only if an engine step makes it and a step or check uses it (P9)
   search for the proof ID finds every case, in any file or language. *Evidence* is
   generated output at a commit. "Means of compliance" is replaced by proof.
 - **Not a type: technique outputs.** Scenarios, spike results and research live in the
-  block's `analysis/` folder, for every engine step. Each technique defines its output's
+  part's `analysis/` folder, for every engine step. Each technique defines its output's
   format in its skill reference; the validator checks only that references to them
   resolve, so each output has a stable ID. An output exists only if a model artifact
   cites it (P9). Scenarios are forced at product level (P13), and product functions cite
@@ -177,13 +176,13 @@ A type is in v0 only if an engine step makes it and a step or check uses it (P9)
   trigger) plus a GitHub issue for the work. This narrows Q-6.
 - **Constraint is not a type:** it is a requirement with `source: builder`. A field
   names a role, never a person (`research/2026-10-16-pendentive-audit.md`, L9).
-- **Unit vs part.** A part is a logical block (arc42 building block); a unit runs on its
+- **Unit vs part.** A part is a logical building block (arc42); a unit runs on its
   own (process, container, store; arc42 deployment node). Parts share a unit unless a
   requirement forces them apart; a part goes where its technology runs; each
   lowest-level part runs in one unit; an interface that crosses units gains a
   transport, a format and failure modes.
-- **File layout (agreed):** one file per artifact, in a folder per block per type, under
-  one root, e.g. `model/product/agent-runtime/requirements/REQ-7K3Q.yaml`. Chosen over one YAML file per block per type
+- **File layout (agreed):** one file per artifact, in a folder per part per type, under
+  one root, e.g. `model/product/agent-runtime/requirements/REQ-7K3Q.yaml`. Chosen over one YAML file per part per type
   on agent cost, merges and tool limits, with equal accuracy
   (`research/2026-10-16-layout-simulation.md`). The content is YAML throughout: prose is in
   fields (`statement`, `rationale`) that a schema can require. Policy: structure where
@@ -196,9 +195,8 @@ A type is in v0 only if an engine step makes it and a step or check uses it (P9)
 Each link is stored once, in one direction; the reverse is computed (search or a trace
 command), never stored.
 
-- **Containment comes from the folder.** A part is an entry in its parent block's parts
-  file; its own artifacts live in its folder. A part has no `parent` field.
-- **Functions belong to the block they describe.** A part's own functions are written by
+- **Containment comes from the folder.** A part is an entry in its parent's `parts.yaml`; its own artifacts live in its folder. A part has no `parent` field.
+- **Functions belong to the part they describe.** A part's own functions are written by
   that part's functional analysis, one level down, each with `parent: FUN` (functional
   decomposition). A function may store `serves:`, the scenarios it serves (a gate
   requires it at product level).
@@ -223,7 +221,7 @@ command), never stored.
   `drivers: [REQ]`, the requirements it serves, for impact analysis. Revising a decision
   is one new entry (L5).
 - **Interfaces** store `between:` their two ends (part or external) and live in the folder
-  of the block whose synthesis defined them. A refining interface stores `parent: IFC`.
+  of the part whose synthesis defined them. A refining interface stores `parent: IFC`.
   A requirement's `of:` may name a function or an interface. A unified interface style
   is a decision at the higher level that the children follow.
 - **Units:** every part with no children in the model stores `units:`; a parent's units
@@ -262,7 +260,7 @@ them.
 - **Rationale** is required when a measure exists, or when the requirement chooses a
   response over an obvious alternative (refuse, ignore, report, block); the second is a
   review check, not a validator rule. Otherwise optional, and it never restates links.
-  *Why this block holds it* goes once in the part's `purpose`.
+  *Why this part holds it* goes once in the part's `purpose`.
 - **Part folders** are slugs, and the part names its folder in a `folder:` field.
 - **Interfaces** list the `items` that flow, each with its sender.
 - **Decisions** hold the trade study as `options`; `accepts:` requires `consequence:`;
@@ -281,7 +279,7 @@ them.
 
 - An ID is a type prefix plus 4 characters of Crockford base32, e.g. `REQ-7K3Q`, minted
   by a script that checks existing IDs. The validator catches a collision between
-  branches. No block in the ID, no sequence numbers.
+  branches. No part in the ID, no sequence numbers.
 - The file name is the ID. An ID never changes and is never reused. A move is `git mv`.
 - Links name IDs only, never paths. Analysis outputs get IDs the same way (`ELI-`,
   `SCN-`, `SPK-`, `RES-`).
@@ -298,9 +296,9 @@ Build and verify), *answered*
 build (P4); code ahead of the model is the defect. Per-type states beyond these: open.
 
 **Step state** (agreed 2026-10-17). Closing a step is a decision of the builder, so it is
-stored: one file per block, `model/<block>/steps.yaml`, with a fixed schema the
+stored: one file per part, `model/<part>/steps.yaml`, with a fixed schema the
 validator checks, e.g. `functional-analysis: {closed_at: <commit>}`. *Stale* is
-computed: model files of the block changed after the closing commit. The router reads
+computed: model files of the part changed after the closing commit. The router reads
 these files; GitHub issues hold the queue of work and never mirror model state.
 
 ## Skills (agreed 2026-10-17)
@@ -339,8 +337,8 @@ Settles Q-3. Evidence: `research/2026-10-skill-granularity.md`,
 - **Quality references are curated:** what matters, in plain words, each item citing its
   source. Never a standard pasted in. The writing and the reviewing technique of a type
   read the same reference.
-- **Grilling** is one technique at every level. Forced once at the start of product
-  functional analysis. Afterwards, at any level and after any technique, triggered when
+- **Grilling** is one technique at every level. Forced once at the start of every part's
+  functional analysis (corrected 2026-10-18; was product only). Afterwards, at any level and after any technique, triggered when
   a finding can be settled only by the builder: a preference, a priority, a premise, a
   trade between goals.
 - **Every step ends in a review loop** with a subagent that did not do the work,
@@ -377,8 +375,8 @@ One mechanism, no explicit "reopen" command:
 1. Any artifact may change at any time. A superseding decision needs the builder's
    agreement.
 2. Staleness is computed: a step whose artifacts changed after its closing commit, every
-   later step of that block, and every block whose inputs link to the changed artifact.
-3. The router sends work to the highest stale block first, at its earliest stale step.
+   later step of that part, and every part whose inputs link to the changed artifact.
+3. The router sends work to the highest stale part first, at its earliest stale step.
 4. The builder re-closes each stale step after a review loop over what changed and what
    links to it. A revisit that changes nothing closes quickly.
 
@@ -390,7 +388,7 @@ One mechanism, no explicit "reopen" command:
   its milestone; otherwise it is an issue for a later increment.
 - **Subagents** for independence (review; cases apart from implementation, P5), for
   read-heavy work where only the conclusion matters (research, codebase surveys), and
-  for parallel independent pieces (scenario walk-throughs, leaf blocks). Never for
+  for parallel independent pieces (scenario walk-throughs, leaf parts). Never for
   grilling or for a choice the builder must agree to: a subagent proposes, the main
   session decides with the builder.
 - **Proof vocabulary in techniques:** `writing-requirements` → `writing-proofs` (which
@@ -400,9 +398,9 @@ One mechanism, no explicit "reopen" command:
 
 ### Step designs (first draft; techniques are names, not yet written)
 
-**Functional analysis.** Goal: the functions of this block and the flows between them,
-complete for its scope, plus the losses it could cause. Techniques: `grilling` (forced
-at product level), `research` (triggered by an unfamiliar domain or a possible existing
+**Functional analysis.** Goal: the functions of this part (flows between
+functions dropped 2026-10-18: nothing consumes them yet), complete for its scope, plus
+the losses it could cause. Techniques: `grilling` (forced at the start of every part), `research` (triggered by an unfamiliar domain or a possible existing
 solution; subagent), `writing-scenarios` (forced at product level), `writing-functions`,
 `losses-and-hazards` (forced at product level; below, when a function can cause a loss),
 `running-a-spike` (doubt about feasibility; subagent). At product level the weight is
@@ -439,7 +437,7 @@ closing review clean.
 **Design evaluation.** Goal: evidence before code that the synthesis meets this level's
 requirements. Techniques: computed checks first (allocation, coverage, links; a
 script), `walking-scenarios` through parts and interfaces (forced per scenario at
-product level; below, the parent's scenarios that touch the block; a subagent per
+product level; below, the parent's scenarios that touch the part; a subagent per
 scenario), conflicts that need the parts, analysis of budgets verified by Analysis (a
 spike). End condition: checks pass, every walk-through completes without a gap,
 conflicts resolved by a decision, closing review clean. A failure loops to requirements
@@ -467,15 +465,15 @@ what is protected and what comes out. The craft of coding is left to the impleme
 agent. No dependency on superpowers: its test-driven development has one agent write
 both the test and the code, against P5.
 
-The contract for one leaf block:
+The contract for one leaf part:
 
-1. **In:** the block's requirements, proofs and cases (written at step 5), its
+1. **In:** the part's requirements, proofs and cases (written at step 5), its
    interfaces as the parent fixed them, and the decisions that set conventions.
 2. **A hook locks the cases;** the implementer cannot edit or delete them (P5).
 3. **The implementer writes code until the cases pass.** It builds nothing that no
    requirement asks for; a need it finds is raised (problems go up). A case it thinks
    is wrong is raised to the test author, never fixed by the implementer.
-4. **Review loop** against the block's functions and decisions. Verification cannot
+4. **Review loop** against the part's functions and decisions. Verification cannot
    catch overbuilding or broken conventions: overbuilt code can pass every case.
 5. **Out:** code and passing cases, the IDs listed in the commit or PR.
 
@@ -485,9 +483,9 @@ Standard checks in build:
 |---|---|---|
 | The contract | Weakened tests | Hook |
 | Traceability: proof IDs in cases, requirement IDs in commits | Lost trace | Script |
-| Boundary conformance: a block reaches other blocks only through its interfaces | Architecture eroding in code | Script (an import-rule checker) |
+| Boundary conformance: a part reaches other parts only through its interfaces | Architecture eroding in code | Script (an import-rule checker) |
 | Overbuild signals: code no case reaches, public surface beyond the interface items, a dependency no decision chose, configuration or abstraction no requirement asks for | Overbuilding | Coverage and script, then review |
-| Functions and decisions | Code doing something other than what the block is for | Review loop |
+| Functions and decisions | Code doing something other than what the part is for | Review loop |
 
 The step-5 reviewer checks the cases against the proofs and the synthesis; the build
 reviewer checks only the code.
@@ -510,7 +508,7 @@ reviewer checks only the code.
 **What runs when:**
 
 - **On each commit of the work branch:** the cases a change could affect (change impact
-  analysis, as DO-178C requires for re-verification). Code in a block runs its cases and
+  analysis, as DO-178C requires for re-verification). Code in a part runs its cases and
   the cases of every proof that covers its interfaces; a model change runs the proofs of
   the changed requirements and what links to them; a shared change (a dependency, build
   config, a shared library) runs everything. Boundary conformance is what makes this
@@ -567,12 +565,12 @@ Settles Q-1 and #2.
   hardware). The part's own requirements on that interface are verified against the
   stub; requirements that need both real sides are listed as deferred, with the reason
   "other end out of scope". A ban would pull every connected part into scope (L1).
-- **Flow.** Every block runs the same five engine steps (corrected 2026-10-18: the
-  product block too, including cases). The increment step runs after the product block's
-  cases close, then the engine for each block in scope down to the stopping rule, then
+- **Flow.** Every part runs the same five engine steps (corrected 2026-10-18: the
+  product too, including cases). The increment step runs after the product's
+  cases close, then the engine for each part in scope down to the stopping rule, then
   build and verify.
-  A block may be built as soon as its own level reaches the stopping rule, without
-  waiting for its siblings (P14 holds per block; interfaces are fixed above).
+  A part may be built as soon as its own level reaches the stopping rule, without
+  waiting for its siblings (P14 holds per part; interfaces are fixed above).
 - **Done:** every in-scope requirement that is not deferred is verified at one commit,
   and the builder closes the increment, which creates the release.
 

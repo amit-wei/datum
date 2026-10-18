@@ -10,6 +10,7 @@ Rules for agents (and people) changing this repository. Keep this file short.
 | `skills/<bucket>/` | Released skills (buckets decided when the first skill is released) |
 | `agents/` | Subagents, such as reviewers |
 | `docs/design-notes.md` | Design positions, each with its state |
+| `docs/glossary.md` | The terms datum uses, one meaning each |
 | `docs/decisions/` | Decisions about the library, one file each |
 | `docs/out-of-scope/` | Rejected concepts, one file each, with the reason |
 | `research/` | Dated research summaries |
