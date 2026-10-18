@@ -1,7 +1,8 @@
 """Write the fixture projects F0-F7 into fixtures/<F>/.
 
 A fictional product: a tool that logs climbing sessions and suggests what to train
-next. Each fixture adds to an earlier one. `steps.yaml` holds `closed_at: HEAD`, which
+next. Each fixture adds to an earlier one, and each but F0 has a one-line CLAUDE.md
+that tells the agent to load datum. `steps.yaml` holds `closed_at: HEAD`, which
 run.py replaces with the commit that holds the fixture, so no closed step is stale.
 """
 import os
@@ -143,6 +144,11 @@ F5.update({
     f"{SE}/functions/FUN-A9KE.yaml": "id: FUN-A9KE\nparent: FUN-7SGT\nstatement: Pick the next focus (strength, endurance, technique) and explain why\nstate: agreed\n",
     f"{SE}/requirements/REQ-T2FH.yaml": "id: REQ-T2FH\nof: FUN-A9KE\npattern: ubiquitous\nstatement: The suggest engine shall state the reason for every suggestion in one sentence.\nstate: agreed\n",
 })
+
+# Every datum project tells the agent to load datum (F0 is a new project with no files).
+CLAUDE_MD = "This project is built with datum. Load the `datum` skill before any work in this project.\n"
+for fixture in (F1, F2, F3, F4, F5, F6, F7):
+    fixture["CLAUDE.md"] = CLAUDE_MD
 
 FIXTURES = {"F0": {}, "F1": F1, "F2": F2, "F3": F3, "F4": F4, "F5": F5, "F6": F6, "F7": F7}
 

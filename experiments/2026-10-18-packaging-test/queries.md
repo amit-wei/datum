@@ -1,7 +1,7 @@
 # Packaging test: queries and fixtures
 
-Question: should a technique be its own skill, a reference file inside each step that
-uses it, or a skill hidden from the listing that only step skills call?
+Question: should a technique be its own skill, or a reference file inside each step that
+uses it?
 
 ## Variants
 
@@ -9,16 +9,19 @@ uses it, or a skill hidden from the listing that only step skills call?
 |---|---|---|
 | S | Separate skills, listed | A Skill call to the technique |
 | R | Reference files inside each step skill | A Read of `references/<technique>.md` |
-| H | Separate skills with `disable-model-invocation: true` | A Skill call to the technique, made after a step skill loaded |
 
-The description text is the same in every variant; in R it is the step's pointer line.
+A third variant, H (skills hidden with `disable-model-invocation: true`, called only by
+steps), was dropped after the Sonnet pilot: Claude Code refuses to load such a skill
+through the Skill tool and tells the agent to ask the user to run it.
+
+The description text is the same in both variants; in R it is the step's pointer line.
 All 19 planned techniques, 9 steps (the router `datum` among them) and 6 per-step
 reviewer agents are present; only the router, 3 steps and 8 techniques have real
 bodies, the rest are stubs. Runs happen in the
 builder's real setup, with their other skills listed.
 
 Models: Sonnet 5.5 and Haiku 5.5; Opus 5.5 only if Sonnet falls short (cost). Each
-query 3 times per variant per model: 23 × 3 × 3 × 2 = 414 runs. A pilot of about 5
+query 3 times per variant per model: 23 × 3 × 2 × 2 = 276 runs. A pilot of about 5
 queries per model first measures the cost per run. Train/validation split about 60/40,
 fixed before the first run.
 
@@ -31,7 +34,9 @@ chosen, and the builder decides.
 ## Example project
 
 A fictional project: a tool that logs climbing sessions and suggests what to train
-next. A fixture is a `model/` folder in a given state (written by `fixtures.py`).
+next. A fixture is a `model/` folder in a given state (written by `fixtures.py`). Every
+fixture but F0 has a one-line project CLAUDE.md: "This project is built with datum.
+Load the `datum` skill before any work in this project."
 
 | Fixture | State |
 |---|---|

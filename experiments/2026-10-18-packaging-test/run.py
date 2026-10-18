@@ -1,7 +1,7 @@
 """Run packaging-test queries headless and record what each run loaded.
 
 Usage:
-  python3 run.py --variants S,R,H --models sonnet,haiku --repeats 3 [--queries P1,N8]
+  python3 run.py --variants S,R --models sonnet,haiku --repeats 3 [--queries P1,N8]
                  [--max-turns 8] [--max-budget 0.50] [--jobs 4] [--tmp DIR]
 
 Rerunning the same command resumes: runs already recorded are skipped.
@@ -12,8 +12,9 @@ datum skills, references and agents loaded, in order, and the cost. Only datum n
 are recorded, plus the names of other skills loaded; raw transcripts stay in the
 temporary folder, because they hold the runner's own setup.
 
-The agent may read and search, load skills and start agents, but not write, run shell
-commands or use the web: the test measures what loads, not the work done.
+The agent sees every tool, so its choices are not shaped by missing ones, but only
+reading, searching, loading skills and starting agents are approved; any other call is
+refused when made (dontAsk). The test measures what loads, not the work done.
 """
 import argparse
 import collections
@@ -32,7 +33,6 @@ from score import load_queries
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ALLOWED = "Skill Read Glob Grep Agent"
-DENIED = "Write Edit Bash WebSearch WebFetch NotebookEdit"
 REFERENCE = re.compile(r"/skills/([a-z0-9-]+)/references/([a-z0-9-]+)\.md$")
 
 
@@ -69,10 +69,13 @@ def loads(transcript):
             msg = json.loads(line)
         except json.JSONDecodeError:
             continue
-        content = (msg.get("message") or {}).get("content") or []
+        message = msg.get("message") if isinstance(msg, dict) else None
+        content = message.get("content") if isinstance(message, dict) else None
         if not isinstance(content, list):
             continue
         for block in content:
+            if not isinstance(block, dict):
+                continue
             if block.get("type") == "tool_result":
                 results[block.get("tool_use_id")] = bool(block.get("is_error"))
             if block.get("type") != "tool_use":
@@ -104,7 +107,7 @@ def run_one(query, variant, model, args):
            "--model", model, "--output-format", "stream-json", "--verbose",
            "--no-session-persistence", "--max-turns", str(args.max_turns),
            "--max-budget-usd", str(args.max_budget),
-           "--allowedTools", ALLOWED, "--disallowedTools", DENIED]
+           "--permission-mode", "dontAsk", "--allowedTools", ALLOWED]
     started = time.time()
     try:
         proc = subprocess.run(cmd, cwd=work, capture_output=True, text=True, timeout=args.timeout)
@@ -118,7 +121,7 @@ def run_one(query, variant, model, args):
             result = json.loads(line)
         except json.JSONDecodeError:
             continue
-        if result.get("type") != "result":
+        if not isinstance(result, dict) or result.get("type") != "result":
             continue
         cost, turns = result.get("total_cost_usd"), result.get("num_turns")
         # Hitting the turn or budget cap still leaves valid loads; an API error does not.
@@ -135,7 +138,7 @@ def run_one(query, variant, model, args):
 
 def main():
     p = argparse.ArgumentParser()
-    p.add_argument("--variants", default="S,R,H")
+    p.add_argument("--variants", default="S,R")
     p.add_argument("--models", default="sonnet,haiku")
     p.add_argument("--repeats", type=int, default=3)
     p.add_argument("--queries", default="")
@@ -168,7 +171,10 @@ def main():
         query, variant, model = job
         if state["stop"]:
             return
-        record = run_one(query, variant, model, args)
+        try:
+            record = run_one(query, variant, model, args)
+        except Exception as e:  # one broken run must not end the batch
+            record = {"failure": f"runner error: {e!r}", "transcript": "-"}
         transcript = record.pop("transcript")
         with lock:
             if record["failure"]:

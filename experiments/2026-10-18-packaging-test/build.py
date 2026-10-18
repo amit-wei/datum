@@ -1,8 +1,9 @@
-"""Build the three packaging variants from source/ into variants/<S|R|H>/.
+"""Build the three packaging variants from source/ into variants/<S|R>/.
 
 S: every technique is a listed skill.
 R: techniques are reference files inside each step skill that uses them.
-H: every technique is a skill with disable-model-invocation: true.
+A third variant, H (techniques hidden with disable-model-invocation: true), was dropped
+after the pilot: Claude Code refuses to load such a skill through the Skill tool.
 
 Each variant is a Claude Code plugin named `datum`, loaded with --plugin-dir.
 The text a step shows about a technique (its condition and description) is the same
@@ -73,8 +74,8 @@ def build(variant, steps, techniques, agents):
                 tmeta, tbody = techniques[tech]
                 open(os.path.join(folder, "references", tech + ".md"), "w").write(
                     f"# {tech}\n\n{tmeta['description']}\n\n{tbody}")
-    if variant != "R":
-        extra = ["disable-model-invocation: true"] if variant == "H" else []
+    if variant == "S":
+        extra = []
         for name, (meta, body) in techniques.items():
             folder = os.path.join(root, "skills", name)
             os.makedirs(folder)
@@ -99,6 +100,6 @@ def check(steps, techniques):
 if __name__ == "__main__":
     steps, techniques, agents = load("steps"), load("techniques"), load("agents")
     check(steps, techniques)
-    for variant in "SRH":
+    for variant in "SR":
         build(variant, steps, techniques, agents)
-    print(f"built S, R, H: {len(steps)} steps, {len(techniques)} techniques, {len(agents)} agents")
+    print(f"built S, R: {len(steps)} steps, {len(techniques)} techniques, {len(agents)} agents")
