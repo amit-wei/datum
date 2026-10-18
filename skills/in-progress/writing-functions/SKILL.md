@@ -72,8 +72,8 @@ echo "FUN-$(LC_ALL=C tr -dc '0-9A-HJKMNP-TV-Z' </dev/urandom | head -c 4)"
 
 Fields: `id`, `status` (`draft` until the builder agrees), `name` (the verb and object),
 `definition` (one or two sentences: what is done, for whom, with what result),
-`serves` (the product: the scenarios) or `parent` (any other part: the parent
-function), and `rationale` only when the reason is not already the link.
+`serves` (the product: the scenario steps it does, as `SCN-XXXX#n`) or `parent` (any
+other part: the parent function), and `rationale` only when the reason is not already the link.
 
 Two examples, for illustration only:
 
@@ -84,7 +84,7 @@ name: Plan the next session
 definition: |
   Proposes the next training session from the user's logged sessions and goal, for the
   user to accept or change.
-serves: [SCN-4M2A, SCN-9TQX]
+serves: [SCN-4M2A#3, SCN-9TQX#2]
 ```
 
 ```yaml
