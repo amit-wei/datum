@@ -109,7 +109,7 @@ def main():
             cell = cells[(run["variant"], run["model"], split)]
             cell[0] += ok
             cell[1] += 1
-            cell[2] += run["cost_usd"] or 0
+            cell[2] += (run["cost_usd"] or 0) + ((run.get("outcome") or {}).get("cost_usd") or 0)
             cell[3] += expected_loads(q, run["loads"], techs)
         if not ok:
             outcome = run.get("outcome") or {}

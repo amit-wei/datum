@@ -46,6 +46,8 @@ def git(cwd, *args):
 
 def prepare(fixture, tmp):
     """A fresh repository holding the fixture, with each closed step at its commit."""
+    if tmp:
+        os.makedirs(tmp, exist_ok=True)
     work = tempfile.mkdtemp(prefix=fixture + "-", dir=tmp)
     src = os.path.join(HERE, "fixtures", fixture)
     shutil.copytree(src, work, dirs_exist_ok=True)
@@ -256,10 +258,11 @@ def main():
                                         "work": os.path.dirname(transcript)}) + "\n")
             with open(args.out, "a") as f:
                 f.write(json.dumps(record) + "\n")
-            state["total"] += record["cost_usd"] or 0
+            state["total"] += (record["cost_usd"] or 0) + (record["outcome"]["cost_usd"] or 0)
             names = " > ".join(e["name"] + ("!" if e["error"] else "") for e in record["loads"])
             verdict = {True: "PASS", False: "FAIL", None: "?"}[record["outcome"]["pass"]]
-            print(f"{query['id']:4} {variant} {model:6} ${record['cost_usd'] or 0:.3f} {verdict} "
+            print(f"{query['id']:4} {variant} {model:6} ${record['cost_usd'] or 0:.3f} "
+                  f"+judge ${record['outcome']['cost_usd'] or 0:.3f} {verdict} "
                   f"[{names or '-'}]  {transcript}", flush=True)
 
     with concurrent.futures.ThreadPoolExecutor(args.jobs) as pool:
@@ -267,7 +270,7 @@ def main():
     if state["stop"]:
         sys.exit(f"stopped after {state['failures']} failed runs in a row; rerun the same command to resume")
     total = state["total"]
-    print(f"total ${total:.2f}")
+    print(f"total ${total:.2f}, judge included")
 
 
 if __name__ == "__main__":
