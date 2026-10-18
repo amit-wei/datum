@@ -362,7 +362,13 @@ Settles Q-3. Evidence: `research/2026-10-skill-granularity.md`,
 - **Reviewers are per step, not per type** (agreed 2026-10-18): one reviewer per engine
   step, against that step's end condition, the quality references and the stance. Each is
   an agent in `agents/`, not a skill: the review is always done by a subagent, and an
-  agent is not in the skill listing, so it cannot shadow a technique.
+  agent is not in the skill listing, so it cannot shadow a technique. `increment` and
+  `verify` have no reviewer agent (agreed 2026-10-18): they close on computed checks
+  (scope coverage, stubs on the demonstrated path, evidence at one commit) and the
+  builder's word.
+- **Scripts for agents** are written when a step needs one, as with types (P9).
+  Candidates: validate, stale, trace (links up and down from an ID), coverage (every
+  parent has a child, every function a requirement, every requirement a proof).
 
 ### Going back (agreed 2026-10-17)
 
@@ -561,8 +567,10 @@ Settles Q-1 and #2.
   hardware). The part's own requirements on that interface are verified against the
   stub; requirements that need both real sides are listed as deferred, with the reason
   "other end out of scope". A ban would pull every connected part into scope (L1).
-- **Flow.** The increment step runs after product-level design evaluation closes, then
-  the engine for each block in scope down to the stopping rule, then build and verify.
+- **Flow.** Every block runs the same five engine steps (corrected 2026-10-18: the
+  product block too, including cases). The increment step runs after the product block's
+  cases close, then the engine for each block in scope down to the stopping rule, then
+  build and verify.
   A block may be built as soon as its own level reaches the stopping rule, without
   waiting for its siblings (P14 holds per block; interfaces are fixed above).
 - **Done:** every in-scope requirement that is not deferred is verified at one commit,
