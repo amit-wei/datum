@@ -339,6 +339,10 @@ Settles Q-3. Evidence: `research/2026-10-skill-granularity.md`,
   agent may reject a finding with its reason; if the reviewer does not accept it, the
   disagreement goes to the builder (a grilling trigger). The loop ends clean or with a
   question for the builder, never after a fixed number of rounds. #4 may refine this.
+- **Reviewers are per step, not per type** (agreed 2026-10-18): one reviewer per engine
+  step, against that step's end condition, the quality references and the stance. Each is
+  an agent in `agents/`, not a skill: the review is always done by a subagent, and an
+  agent is not in the skill listing, so it cannot shadow a technique.
 
 ### Going back (agreed 2026-10-17)
 
