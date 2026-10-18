@@ -311,11 +311,20 @@ Settles Q-3. Evidence: `research/2026-10-skill-granularity.md`,
 - **Three tiers.** A router (`datum`) that reads the state on disk and names the next
   step. Step skills, one per engine step and around it. Technique skills, each how to
   do one thing well with its conventions and output format.
-- **A step skill** opens with the stance (think as a systems engineer, from first
-  principles, do not overbuild, justify every artifact), then its goal, its techniques
-  in order with the condition that makes each encouraged, forced or banned (P13), its
-  end condition, and where subagents are used. The stance is the same block at the top
-  of every step skill (the top survives compaction), copied by hand.
+- **A step skill** opens with the stance, then its goal, its techniques in order with
+  the condition that makes each encouraged, forced or banned (P13), its end condition,
+  and where subagents are used. The stance is the same block at the top of every step
+  skill (the top survives compaction), copied by hand.
+- **The stance** (draft, 2026-10-18, from `research/2026-10-18-stance.md`; tested with
+  the skills, not before): understand the step's inputs and outputs first; the simple,
+  lean solution that fits the existing architecture; write only what a later step uses;
+  stay inside datum's steps unless the builder agrees; ask on the builder's choices; say
+  what is missing or assumed; research before a convention or changing fact enters the
+  model; judge "done" from what something must cover; name the evidence. The text is in
+  the router (`skills/in-progress/datum/SKILL.md`).
+- **Skills follow the writing guide** in `research/2026-10-18-stance.md` (agreed
+  2026-10-18): plain imperatives, rules as trigger plus action, no MUST by default,
+  standing rules first, short files.
 - **Every skill is invocable by the builder.** Ideally only `datum` is invoked.
 - **Packaging: each technique is its own skill** (agreed 2026-10-18, by test). Against
   reference files inside the steps, separate skills won on the validation queries on
