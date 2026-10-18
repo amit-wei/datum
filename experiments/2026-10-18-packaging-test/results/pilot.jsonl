@@ -1,0 +1,15 @@
+{"query": "P1", "variant": "S", "model": "sonnet", "status": 0, "loads": [{"kind": "skill", "name": "datum", "error": false}, {"kind": "skill", "name": "functional-analysis", "error": false}, {"kind": "skill", "name": "grilling", "error": false}], "cost_usd": 0.09501349999999999, "turns": 8, "seconds": 19.3, "date": "2026-10-18"}
+{"query": "P1", "variant": "R", "model": "sonnet", "status": 0, "loads": [{"kind": "skill", "name": "datum", "error": false}, {"kind": "skill", "name": "functional-analysis", "error": false}, {"kind": "reference", "name": "grilling", "step": "functional-analysis", "error": false}], "cost_usd": 0.0848562, "turns": 7, "seconds": 14.8, "date": "2026-10-18"}
+{"query": "P1", "variant": "H", "model": "sonnet", "status": 0, "loads": [{"kind": "skill", "name": "datum", "error": false}, {"kind": "skill", "name": "functional-analysis", "error": false}, {"kind": "skill", "name": "grilling", "error": true}], "cost_usd": 0.0809177, "turns": 7, "seconds": 16.2, "date": "2026-10-18"}
+{"query": "P5", "variant": "S", "model": "sonnet", "status": 0, "loads": [], "cost_usd": 0.1068239, "turns": 7, "seconds": 16.5, "date": "2026-10-18"}
+{"query": "P5", "variant": "R", "model": "sonnet", "status": 0, "loads": [], "cost_usd": 0.09828630000000002, "turns": 11, "seconds": 19.3, "date": "2026-10-18"}
+{"query": "P5", "variant": "H", "model": "sonnet", "status": 0, "loads": [], "cost_usd": 0.09720110000000001, "turns": 11, "seconds": 22.9, "date": "2026-10-18"}
+{"query": "P12", "variant": "S", "model": "sonnet", "status": 0, "loads": [{"kind": "skill", "name": "datum", "error": false}], "cost_usd": 0.0996717, "turns": 8, "seconds": 14.1, "date": "2026-10-18"}
+{"query": "P12", "variant": "R", "model": "sonnet", "status": 0, "loads": [], "cost_usd": 0.11250850000000001, "turns": 7, "seconds": 21.9, "date": "2026-10-18"}
+{"query": "P12", "variant": "H", "model": "sonnet", "status": 0, "loads": [{"kind": "skill", "name": "datum", "error": false}], "cost_usd": 0.082344, "turns": 7, "seconds": 14.6, "date": "2026-10-18"}
+{"query": "N5", "variant": "S", "model": "sonnet", "status": 0, "loads": [], "cost_usd": 0.1178746, "turns": 14, "seconds": 24.6, "date": "2026-10-18"}
+{"query": "N5", "variant": "R", "model": "sonnet", "status": 0, "loads": [], "cost_usd": 0.0993541, "turns": 6, "seconds": 19.2, "date": "2026-10-18"}
+{"query": "N5", "variant": "H", "model": "sonnet", "status": 0, "loads": [], "cost_usd": 0.09513069999999998, "turns": 8, "seconds": 19.0, "date": "2026-10-18"}
+{"query": "N11", "variant": "S", "model": "sonnet", "status": 0, "loads": [], "cost_usd": 0.07292409999999999, "turns": 3, "seconds": 12.2, "date": "2026-10-18"}
+{"query": "N11", "variant": "R", "model": "sonnet", "status": 0, "loads": [], "cost_usd": 0.0634782, "turns": 3, "seconds": 7.4, "date": "2026-10-18"}
+{"query": "N11", "variant": "H", "model": "sonnet", "status": 0, "loads": [], "cost_usd": 0.08387700000000001, "turns": 5, "seconds": 15.8, "date": "2026-10-18"}

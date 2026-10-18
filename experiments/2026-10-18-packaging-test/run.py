@@ -2,7 +2,9 @@
 
 Usage:
   python3 run.py --variants S,R,H --models sonnet,haiku --repeats 3 [--queries P1,N8]
-                 [--max-turns 8] [--max-budget 0.50] [--tmp DIR]
+                 [--max-turns 8] [--max-budget 0.50] [--jobs 4] [--tmp DIR]
+
+Rerunning the same command resumes: runs already recorded are skipped.
 
 Each run copies a fixture into a fresh git repository, runs `claude -p` with one
 variant loaded as the `datum` plugin, and appends one line to results/runs.jsonl: the
@@ -14,12 +16,16 @@ The agent may read and search, load skills and start agents, but not write, run 
 commands or use the web: the test measures what loads, not the work done.
 """
 import argparse
+import collections
+import concurrent.futures
 import json
 import os
 import re
 import shutil
 import subprocess
+import sys
 import tempfile
+import threading
 import time
 
 from score import load_queries
@@ -106,15 +112,22 @@ def run_one(query, variant, model, args):
     except subprocess.TimeoutExpired as e:
         out, status = (e.stdout or b"").decode() if isinstance(e.stdout, bytes) else (e.stdout or ""), "timeout"
     open(os.path.join(work, "transcript.jsonl"), "w").write(out)
-    cost, turns = None, None
+    cost, turns, failure = None, None, "no result message"
     for line in out.splitlines():
-        if '"type":"result"' in line.replace(" ", ""):
-            try:
-                result = json.loads(line)
-                cost, turns = result.get("total_cost_usd"), result.get("num_turns")
-            except json.JSONDecodeError:
-                pass
+        try:
+            result = json.loads(line)
+        except json.JSONDecodeError:
+            continue
+        if result.get("type") != "result":
+            continue
+        cost, turns = result.get("total_cost_usd"), result.get("num_turns")
+        # Hitting the turn or budget cap still leaves valid loads; an API error does not.
+        failure = None
+        if result.get("is_error") and result.get("subtype") not in (
+                "error_max_turns", "error_max_budget_usd"):
+            failure = str(result.get("result") or result.get("subtype"))[:200]
     return {"query": query["id"], "variant": variant, "model": model, "status": status,
+            "failure": failure,
             "loads": loads(out), "cost_usd": cost, "turns": turns,
             "seconds": round(time.time() - started, 1), "date": time.strftime("%Y-%m-%d"),
             "transcript": os.path.join(work, "transcript.jsonl")}
@@ -130,6 +143,8 @@ def main():
     p.add_argument("--max-budget", type=float, default=0.50)
     p.add_argument("--timeout", type=int, default=600)
     p.add_argument("--tmp", default=None)
+    p.add_argument("--max-failures", type=int, default=3)
+    p.add_argument("--jobs", type=int, default=1)
     p.add_argument("--out", default=os.path.join(HERE, "results", "runs.jsonl"))
     args = p.parse_args()
     queries = load_queries()
@@ -137,19 +152,48 @@ def main():
         wanted = args.queries.split(",")
         queries = [q for q in queries if q["id"] in wanted]
     os.makedirs(os.path.dirname(args.out), exist_ok=True)
-    total = 0.0
-    for query in queries:
-        for variant in args.variants.split(","):
-            for model in args.models.split(","):
-                for _ in range(args.repeats):
-                    record = run_one(query, variant, model, args)
-                    transcript = record.pop("transcript")
-                    with open(args.out, "a") as f:
-                        f.write(json.dumps(record) + "\n")
-                    total += record["cost_usd"] or 0
-                    names = " > ".join(e["name"] + ("!" if e["error"] else "") for e in record["loads"])
-                    print(f"{query['id']:4} {variant} {model:6} ${record['cost_usd'] or 0:.3f} "
-                          f"[{names or '-'}]  {transcript}", flush=True)
+    # Resumable: runs already in the output file count towards the repeats.
+    done = collections.Counter()
+    if os.path.exists(args.out):
+        for line in open(args.out):
+            run = json.loads(line)
+            done[(run["query"], run["variant"], run["model"])] += 1
+    todo = [(q, v, m) for q in queries for v in args.variants.split(",")
+            for m in args.models.split(",") for _ in range(args.repeats - done[(q["id"], v, m)])]
+    print(f"{len(todo)} runs to do, {args.jobs} at a time", flush=True)
+    state = {"total": 0.0, "failures": 0, "stop": False}
+    lock = threading.Lock()
+
+    def one(job):
+        query, variant, model = job
+        if state["stop"]:
+            return
+        record = run_one(query, variant, model, args)
+        transcript = record.pop("transcript")
+        with lock:
+            if record["failure"]:
+                # A failed run (a usage limit, an API error) is not recorded, so a rerun
+                # of the same command repeats it.
+                state["failures"] += 1
+                print(f"{query['id']:4} {variant} {model:6} FAILED: {record['failure']}  {transcript}",
+                      flush=True)
+                if state["failures"] >= args.max_failures:
+                    state["stop"] = True
+                return
+            state["failures"] = 0
+            record.pop("failure")
+            with open(args.out, "a") as f:
+                f.write(json.dumps(record) + "\n")
+            state["total"] += record["cost_usd"] or 0
+            names = " > ".join(e["name"] + ("!" if e["error"] else "") for e in record["loads"])
+            print(f"{query['id']:4} {variant} {model:6} ${record['cost_usd'] or 0:.3f} "
+                  f"[{names or '-'}]  {transcript}", flush=True)
+
+    with concurrent.futures.ThreadPoolExecutor(args.jobs) as pool:
+        list(pool.map(one, todo))
+    if state["stop"]:
+        sys.exit(f"stopped after {state['failures']} failed runs in a row; rerun the same command to resume")
+    total = state["total"]
     print(f"total ${total:.2f}")
 
 
