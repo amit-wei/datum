@@ -29,7 +29,29 @@ starting agents are approved; other calls are refused when made, since only the 
 are measured. Raw transcripts stay in the temporary
 folder: they hold the runner's own setup and never enter the repository.
 
-**Result:** not run yet. A smoke test (P3 and P10 on Haiku 5.5, one run per variant,
+**Findings from the pilots** (Sonnet 5.5, 5 queries each; `results/pilot*.jsonl`):
+
+1. **H is dead.** Claude Code refuses to load a skill with `disable-model-invocation`
+   through the Skill tool, even when a step names it.
+2. **Without a project CLAUDE.md, Sonnet does not enter datum mid-project.** Fixtures
+   F1–F7 now carry one line telling it to load the `datum` skill.
+3. **A router that allows direct answers to "questions" lets product questions skip the
+   steps.** Narrowed to questions about datum itself, meaning-free edits and personal
+   preferences.
+4. **A technique's pointer line is enough for the agent to act on.** Steps now say a
+   technique is loaded before its output is produced; questions may be answered
+   directly.
+5. **A Haiku judge is noise:** re-judging 10 runs three times gave differing verdicts on
+   4. The builder's marks agreed with Sonnet on 8 of 10 and the two disagreements were an
+   ambiguous Outcome (N5, since reworded). The judge is now Sonnet.
+6. **Known failure, kept: P12.** Asked "are we done with requirements?" with a product
+   budget (`REQ-B4DG`) not flowed down to the parts, every run (S and R, before and after
+   the stance line on "done") checked the requirements step against its own end
+   condition, found other real gaps, and missed the budget: flowdown belongs to
+   synthesis, and the agent did not look past the step it was asked about. A content
+   finding for the real skills, not a packaging one (issue #15).
+
+**Result:** the full run has not started. A smoke test (P3 and P10 on Haiku 5.5, one run per variant,
 $0.04 in total) checked the rig end to end and found the fixture bug now fixed. In
 that small sample S and H loaded no technique on their own, and R loaded the expected
 ones. That is two queries and no conclusion.

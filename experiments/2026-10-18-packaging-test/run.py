@@ -16,7 +16,7 @@ The agent sees every tool, so its choices are not shaped by missing ones, but on
 reading, searching, writing inside the run's own folder, loading skills and starting
 agents are approved; any other call is refused when made (dontAsk).
 
-After each run a judge (Haiku, no tools) compares the final answer and the files the run
+After each run a judge (Sonnet, no tools) compares the final answer and the files the run
 changed with the query's Outcome, and the verdict and a one-line reason are recorded.
 """
 import argparse
@@ -208,7 +208,7 @@ def main():
     p.add_argument("--tmp", default=None)
     p.add_argument("--max-failures", type=int, default=3)
     p.add_argument("--jobs", type=int, default=1)
-    p.add_argument("--judge", default="haiku")
+    p.add_argument("--judge", default="sonnet")
     p.add_argument("--index", default=None, help="local file mapping runs to transcripts")
     p.add_argument("--out", default=os.path.join(HERE, "results", "runs.jsonl"))
     args = p.parse_args()
