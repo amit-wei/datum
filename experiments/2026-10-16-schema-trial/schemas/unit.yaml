@@ -1,0 +1,14 @@
+title: unit
+type: object
+additionalProperties: false
+required: [id, status, name, kind]
+properties:
+  id: {$ref: "_common.yaml#/$defs/UNT"}
+  status: {$ref: "_common.yaml#/$defs/status"}
+  name: {$ref: "_common.yaml#/$defs/text"}
+  kind: {enum: [process, container, store, client, host]}
+  default: {type: boolean}                           # exactly one default unit (validator rule)
+  justified_by: {$ref: "_common.yaml#/$defs/DEC"}    # required unless default
+if: {properties: {default: {const: true}}, required: [default]}
+then: {}
+else: {required: [justified_by]}

@@ -1,0 +1,6 @@
+id: REQ-P1XP
+status: draft
+pattern: ubiquitous
+source: builder
+statement: |
+  The platform shall not perform an action that communicates with a third party, commits funds, or gives the platform access to an external service without the authorization of the user.

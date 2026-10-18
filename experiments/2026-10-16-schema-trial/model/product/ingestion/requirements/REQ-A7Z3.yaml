@@ -1,0 +1,10 @@
+id: REQ-A7Z3
+status: draft
+pattern: ubiquitous
+of: IFC-DJ8F
+parent: REQ-SSZ5
+justified_by: DEC-AWSH
+statement: |
+  The system shall give, with each item, the source that supplied the item.
+rationale: |
+  Only the system that received the delivery knows where the item came from; State Custody cannot find it out later.

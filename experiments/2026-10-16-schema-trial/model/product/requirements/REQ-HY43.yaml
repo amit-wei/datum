@@ -1,0 +1,6 @@
+id: REQ-HY43
+status: draft
+pattern: unwanted
+answers: RSK-KWJR
+statement: |
+  If an external source does not deliver data as its definition states, then the platform shall report it.

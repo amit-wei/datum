@@ -1,0 +1,6 @@
+id: PRT-D25V
+status: draft
+name: State Custody
+purpose: Holds life state with provenance and serves it.
+units:
+- UNT-T4F5

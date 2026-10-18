@@ -1,0 +1,7 @@
+id: REQ-QKFB
+status: draft
+pattern: unwanted
+of: FUN-28JT
+parent: REQ-43DZ
+statement: |
+  If what states an agent names a position that is not declared, then the system shall refuse it.

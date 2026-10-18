@@ -1,0 +1,10 @@
+id: REQ-8VHT
+status: draft
+pattern: unwanted
+of: IFC-DJ8F
+parent: REQ-SSZ5
+justified_by: DEC-AWSH
+statement: |
+  If a write of an observed item does not state its source, then the system shall refuse it.
+rationale: |
+  The refusal is the side of the contract that cannot be gone around. A derived value has no source.

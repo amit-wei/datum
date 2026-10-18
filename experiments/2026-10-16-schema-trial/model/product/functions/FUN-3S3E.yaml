@@ -1,0 +1,7 @@
+id: FUN-3S3E
+status: draft
+name: Life State Custody
+definition: |
+  Holds the data that describes the life of the user. Organises it and serves it. All agents read the same data.
+rationale: Agents keep their own part of the data. Their answers do not agree.
+serves: []

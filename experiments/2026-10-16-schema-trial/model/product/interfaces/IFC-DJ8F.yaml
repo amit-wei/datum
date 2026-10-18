@@ -1,0 +1,8 @@
+id: IFC-DJ8F
+status: draft
+between:
+- PRT-46Q3
+- PRT-D25V
+items:
+- item: the source of an item
+  from: PRT-46Q3

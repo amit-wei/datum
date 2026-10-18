@@ -1,0 +1,35 @@
+title: decision
+type: object
+additionalProperties: false
+required: [id, status, date, decision, reason, reverses_if]
+properties:
+  id: {$ref: "_common.yaml#/$defs/DEC"}
+  status: {enum: [proposed, agreed]}                 # superseded is computed
+  date: {type: string, pattern: "^\\d{4}-\\d{2}-\\d{2}$"}
+  decision: {$ref: "_common.yaml#/$defs/text"}
+  options:                                           # the trade study
+    type: array
+    items:
+      type: object
+      additionalProperties: false
+      required: [option]
+      properties:
+        option: {$ref: "_common.yaml#/$defs/text"}
+        chosen: {type: boolean}
+        for: {$ref: "_common.yaml#/$defs/text"}
+        against: {$ref: "_common.yaml#/$defs/text"}
+  reason: {$ref: "_common.yaml#/$defs/text"}
+  reverses_if: {$ref: "_common.yaml#/$defs/text"}
+  drivers:
+    type: array
+    items: {$ref: "_common.yaml#/$defs/REQ"}
+  supersedes: {$ref: "_common.yaml#/$defs/DEC"}
+  accepts:
+    type: array
+    items: {$ref: "_common.yaml#/$defs/RSK"}
+  consequence: {$ref: "_common.yaml#/$defs/text"}    # what is accepted, in words the user answers
+  evidence:
+    type: array
+    items: {$ref: "_common.yaml#/$defs/ANALYSIS"}    # spikes and research behind it
+dependentRequired:
+  accepts: [consequence]

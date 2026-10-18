@@ -1,0 +1,18 @@
+id: REQ-9ZT2
+status: draft
+pattern: ubiquitous
+of: FUN-4MNP
+justified_by: DEC-ZX45
+statement: |
+  The platform shall give a correct answer or result of work in {measure} of cases.
+measure:
+  metric: correct_result_rate
+  definition: |
+    Answers and results judged correct against a reference answer or a rubric.
+  unit: ratio
+  bounds:
+  - statistic: proportion
+    op: '>='
+    value: TBD
+rationale: |
+  Most of it can be judged without a person. Usefulness to the user is a separate requirement.

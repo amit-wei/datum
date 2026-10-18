@@ -1,0 +1,14 @@
+id: DEC-3XSS
+status: agreed
+date: '2026-10-16'
+decision: |
+  The platform bounds what an agent that content steers can do, and does not judge whether content steers it. No requirement counts on a model or a detector to resist an instruction. External Access does not refuse a call by its address.
+reason: |
+  Most published defences inside a model, and most detectors, fail under attacks that adapt. A test can verify the bounds whatever the model does.
+reverses_if: |
+  A mechanism is found that keeps content from steering an agent and that a test can verify.
+accepts:
+- RSK-E0ZB
+consequence: TBD
+drivers:
+- REQ-7TAN

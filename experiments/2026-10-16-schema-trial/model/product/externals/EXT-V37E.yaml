@@ -1,0 +1,5 @@
+id: EXT-V37E
+status: draft
+name: The host
+definition: |
+  The machine and the operating system on which the platform runs, and what the owner of the host runs on it for the platform.

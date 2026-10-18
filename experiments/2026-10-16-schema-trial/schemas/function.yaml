@@ -1,0 +1,14 @@
+title: function
+type: object
+additionalProperties: false
+required: [id, status, name, definition]
+properties:
+  id: {$ref: "_common.yaml#/$defs/FUN"}
+  status: {$ref: "_common.yaml#/$defs/status"}
+  name: {$ref: "_common.yaml#/$defs/text"}
+  definition: {$ref: "_common.yaml#/$defs/text"}     # what the block does, as a verb phrase
+  parent: {$ref: "_common.yaml#/$defs/FUN"}          # the function of the parent block it takes on
+  serves:                                            # product level only (validator rule): the scenarios served
+    type: array
+    items: {$ref: "_common.yaml#/$defs/ANALYSIS"}
+  rationale: {$ref: "_common.yaml#/$defs/text"}      # optional; must not restate links

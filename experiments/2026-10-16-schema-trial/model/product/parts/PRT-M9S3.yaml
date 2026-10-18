@@ -1,0 +1,5 @@
+id: PRT-M9S3
+status: draft
+name: Agent Definition
+purpose: |
+  Holds and admits what states each agent, and gives positions to the boundaries that ask.

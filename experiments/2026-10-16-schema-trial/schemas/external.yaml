@@ -1,0 +1,9 @@
+title: external
+type: object
+additionalProperties: false
+required: [id, status, name, definition]
+properties:
+  id: {$ref: "_common.yaml#/$defs/EXT"}
+  status: {$ref: "_common.yaml#/$defs/status"}
+  name: {$ref: "_common.yaml#/$defs/text"}           # a role or a service, never a person's name
+  definition: {$ref: "_common.yaml#/$defs/text"}

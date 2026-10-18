@@ -1,0 +1,12 @@
+title: risk
+type: object
+additionalProperties: false
+required: [id, status, statement, threatens]
+properties:
+  id: {$ref: "_common.yaml#/$defs/RSK"}
+  status: {$ref: "_common.yaml#/$defs/status"}       # answered / accepted / open are computed
+  statement: {$ref: "_common.yaml#/$defs/text"}      # what can go wrong; more fields wait for the risk method
+  threatens:
+    type: array
+    minItems: 1
+    items: {oneOf: [{$ref: "_common.yaml#/$defs/FUN"}, {$ref: "_common.yaml#/$defs/PRT"}, {$ref: "_common.yaml#/$defs/IFC"}]}

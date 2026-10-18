@@ -1,0 +1,12 @@
+id: PRF-5B9E
+status: draft
+title: Correctness of answers on a held-out set
+method: test
+covers:
+- REQ-9ZT2
+criterion:
+  pass: |
+    The lower bound of the correct result rate over the held-out set meets the requirement.
+  sample_min: TBD
+  confidence: 0.95
+  bound: lower

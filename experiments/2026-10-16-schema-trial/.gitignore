@@ -1,0 +1,5 @@
+__pycache__/
+id_map.json
+layout-sim/models/
+layout-sim/trials/
+layout-sim/mergework/

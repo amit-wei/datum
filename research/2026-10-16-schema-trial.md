@@ -3,7 +3,8 @@
 Draft schemas for the 9 v0 types were written as JSON Schema in YAML, 21 rows of the
 Pendentive model (commit `1211f9d`) were converted into them, and a draft validator was
 run. Then a blind test asked whether requirements can be understood without a rationale.
-The schemas and the validator stay outside the repository until agreed in full.
+The draft schemas, the validator and the converted rows are kept as the trial's rig in
+`experiments/2026-10-16-schema-trial/`; they are not the agreed schemas.
 VERIFIED means seen in this trial. INFERRED means our reading.
 
 ## Conversion findings

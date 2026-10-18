@@ -13,6 +13,7 @@ Rules for agents (and people) changing this repository. Keep this file short.
 | `docs/decisions/` | Decisions about the library, one file each |
 | `docs/out-of-scope/` | Rejected concepts, one file each, with the reason |
 | `research/` | Dated research summaries |
+| `experiments/` | Dated experiment rigs and their raw outputs, one folder each (`YYYY-MM-DD-<name>/`) with a README: question, method, result |
 
 ## Rules
 

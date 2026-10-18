@@ -1,0 +1,22 @@
+id: DEC-GJ09
+status: agreed
+date: '2026-09-20'
+decision: |
+  Each declared resource has one owner: only one position admits the acts on it, and the platform refuses a position, or its conferral, that admits an act another position already admits. An agent that needs such an act asks the owner. The platform does not detect contention.
+options:
+- option: Detect contention at admission
+  against: The agent must know the instance before it acts.
+- option: Detect contention at the act
+  against: Needs a record of what is consumed, which has no place.
+- option: Detect contention on a schedule
+  against: Finds the collision after both acts occurred.
+- option: One owner per declared resource
+  chosen: true
+  for: |
+    Removes the condition instead of finding it; reuses positions and the existing request path.
+reason: |
+  Ownership removes the condition instead of preventing it or finding it. The refusal of a second position makes it a property of the platform, not an arrangement of the configuration.
+reverses_if: |
+  A declared resource is found that two positions must both admit the acts on.
+drivers:
+- REQ-TQM8

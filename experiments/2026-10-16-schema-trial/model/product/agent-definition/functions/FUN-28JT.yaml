@@ -1,0 +1,6 @@
+id: FUN-28JT
+status: draft
+parent: FUN-97KB
+name: Definition Admission
+definition: |
+  Accepts what states an agent when it meets the contract, and refuses it when it does not.

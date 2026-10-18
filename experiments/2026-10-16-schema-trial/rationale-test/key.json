@@ -1,0 +1,122 @@
+[
+ {
+  "n": 1,
+  "id": "REQ-IN-003",
+  "type": "functional",
+  "rationale": "Data that a person moves arrives late, or does not arrive."
+ },
+ {
+  "n": 2,
+  "id": "REQ-ST-017",
+  "type": "functional",
+  "rationale": "REQ-PL-024. Agent Definition declares the position and what it admits, and this boundary refuses (DEC-019)."
+ },
+ {
+  "n": 3,
+  "id": "REQ-IN-014",
+  "type": "functional",
+  "rationale": "DEC-013 makes such a change need the authorization of the user. Only Ingestion holds the definition before the change and after it, so only Ingestion can see that a change widens. Authorization holds the class of the action and the gate. Dropped: DEC-112 puts the gate in this system, and REQ-IN-030 refuses the widening that this row only reported."
+ },
+ {
+  "n": 4,
+  "id": "REQ-AU-016",
+  "type": "functional",
+  "rationale": "REQ-AD-037 states the same for what states an agent. REQ-PL-022 names the declared classes and the parties that count as the user (DEC-157). DEC-128 closes OPN-040: this system gives the copy, and External Access carries it and keeps it."
+ },
+ {
+  "n": 5,
+  "id": "REQ-ST-038",
+  "type": "functional",
+  "rationale": "REQ-PL-029 refuses a writer that the caller supplies, and REQ-ST-037 states it instead. To refuse and not to ignore, because a caller that supplied a writer and got no report believes that the platform holds what it sent, and REQ-ST-073 gives the writer each write that the system refuses. Rule 1 keeps this apart from REQ-ST-037: one row states the writer and one row refuses the writer that a caller states."
+ },
+ {
+  "n": 6,
+  "id": "REQ-IA-031",
+  "type": "functional",
+  "rationale": "DEC-120. This system holds the state that it needs for its own work. Given to an agent, that state becomes a fifth place that the user cannot see, limit or remove, which DEC-024 was written to prevent. OPN-067. The exchange so far, which this system gives at the start of a run (REQ-IA-041), is what the agent of the exchange already had, and REQ-RN-024 discards it, so it is not this state."
+ },
+ {
+  "n": 7,
+  "id": "REQ-IA-015",
+  "type": "functional",
+  "rationale": "OPN-075. The unit of a message states the means by which it is delivered, and the set of means is not fixed at this level. That means is an item of its own, apart from whether the user is told when the unit closes, which REQ-WC-089 makes false for a message (OPN-075)."
+ },
+ {
+  "n": 8,
+  "id": "REQ-AU-018",
+  "type": "functional",
+  "rationale": "REQ-PL-031. REQ-AU-003 refuses the change until the platform records an affirmative answer, which gates an act that nothing stated."
+ },
+ {
+  "n": 9,
+  "id": "REQ-ST-061",
+  "type": "interface",
+  "rationale": "DEC-121. Interaction is the only writer of an exchange. Without this, a writer whose position admits a write to life state can write an exchange that names another agent, and a reader takes it as what the user said."
+ },
+ {
+  "n": 10,
+  "id": "REQ-EX-051",
+  "type": "interface",
+  "rationale": "DEC-129 and DEC-177. REQ-EX-029 refuses a delivery that it cannot confirm, and REQ-EX-028 gives Ingestion each one that it accepts. INT-PL-137."
+ },
+ {
+  "n": 11,
+  "id": "REQ-EX-040",
+  "type": "interface",
+  "rationale": "DEC-165. The cost of a call to a model is its usage at the cost that Agent Definition holds (REQ-AD-044). The cost of another metered service is what its connection states (REQ-EX-043)."
+ },
+ {
+  "n": 12,
+  "id": "REQ-AC-040",
+  "type": "interface",
+  "rationale": "DEC-071 and DEC-125. REQ-EX-039 refuses the removal of a connection that an act names, and only this system holds the acts."
+ },
+ {
+  "n": 13,
+  "id": "REQ-IA-020",
+  "type": "safety",
+  "rationale": "RSK-IA-004. REQ-IA-017 protects an approval and does not protect what an exchange discloses or the work that it raises. A client left open is the common cause, and this bounds how long it stays open."
+ },
+ {
+  "n": 14,
+  "id": "REQ-SO-045",
+  "type": "safety",
+  "rationale": "RSK-SO-008. A fault that stops many units at once, such as a model that does not answer, would otherwise give the user one notice for each unit."
+ },
+ {
+  "n": 15,
+  "id": "REQ-WC-033",
+  "type": "safety",
+  "rationale": "A backlog fails nothing, so nothing reports it. The count is what makes lateness visible before the platform is unusable. A count is a measure and not a condition (MET-027), so Self-Observation holds it and a threshold escalates it (REQ-SO-021). INT-PL-121."
+ },
+ {
+  "n": 16,
+  "id": "REQ-IA-056",
+  "type": "safety",
+  "rationale": "RSK-IA-012. When Self-Observation stops, the state that it gave last stays in the view, and its time shows that it is old. DEC-182 tells the user from outside the host."
+ },
+ {
+  "n": 17,
+  "id": "REQ-AD-015",
+  "type": "performance",
+  "rationale": "Every read and every write at every boundary waits for this answer (DEC-019), so this is the one part of the platform that is on the path of all of them. The value depends on the host and on what a boundary needs, and neither is known. REQ-ST-028 carries the same TBD for a query over life state."
+ },
+ {
+  "n": 18,
+  "id": "REQ-ST-025",
+  "type": "performance",
+  "rationale": "A copy that nobody restored is not a copy, and RSK-ST-004 is found only by restoring. REQ-ST-020 is the capability to restore; this requirement is how often the platform proves that it still works. The interval depends on what a restoration costs on this host, which is not yet known."
+ },
+ {
+  "n": 19,
+  "id": "REQ-PL-043",
+  "type": "quality",
+  "rationale": "DEC-187. Some work cannot end without the user or an external service, and a true reason is then the right outcome. Judged on the end state against the goal of each task. Enablers held under other rows: REQ-RN-017, REQ-RN-026, REQ-RN-031 and REQ-RN-032. That an agent ended its run (REQ-RN-020) is its claim. A raiser can check it against the state, which it can read (REQ-ST-014, REQ-SO-011), and whether it does is measured here."
+ },
+ {
+  "n": 20,
+  "id": "REQ-PL-051",
+  "type": "quality",
+  "rationale": "DEC-187. FUN-PL-01 holds the data and serves it. How well an answer is served what it needs is the quality: published assistants lose much of their accuracy over a long history (LongMemEval, arXiv 2410.10813). Enablers held under other rows: REQ-IA-010 and REQ-RN-035."
+ }
+]

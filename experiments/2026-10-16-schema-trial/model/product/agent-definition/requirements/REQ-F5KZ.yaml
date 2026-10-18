@@ -1,0 +1,16 @@
+id: REQ-F5KZ
+status: draft
+pattern: ubiquitous
+of: FUN-NWJ4
+parent: REQ-7TAN
+statement: The system shall give a position within {measure}.
+measure:
+  metric: position_lookup_latency
+  definition: From a boundary asking for a position to the position received.
+  unit: ms
+  bounds:
+  - statistic: TBD
+    op: <=
+    value: TBD
+rationale: |
+  Every read and every write at every boundary waits for this answer, so it is on the path of all of them. The value depends on the host and on what a boundary needs, and neither is known.

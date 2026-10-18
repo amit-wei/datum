@@ -1,0 +1,43 @@
+title: requirement
+type: object
+additionalProperties: false
+required: [id, status, statement, pattern]
+properties:
+  id: {$ref: "_common.yaml#/$defs/REQ"}
+  status: {$ref: "_common.yaml#/$defs/status"}
+  statement: {$ref: "_common.yaml#/$defs/text"}      # EARS; holds "{measure}" exactly once iff measure exists
+  pattern: {enum: [ubiquitous, event, state, unwanted, optional, compound, none]}  # none = validator warning
+  measure:
+    type: object
+    additionalProperties: false
+    required: [metric, unit, bounds]
+    properties:
+      metric: {type: string, pattern: "^[a-z][a-z0-9_]*$"}
+      definition: {$ref: "_common.yaml#/$defs/text"}  # what exactly is measured, inline in v0
+      unit: {type: string}
+      bounds:
+        type: array
+        minItems: 1
+        items:
+          type: object
+          additionalProperties: false
+          required: [statistic, op, value]
+          properties:
+            statistic: {enum: [value, mean, p50, p90, p95, p99, max, min, proportion, rate, TBD]}
+            op: {enum: ["<=", "<", ">=", ">", "=="]}
+            value: {$ref: "_common.yaml#/$defs/tbd_number"}
+  # reasons to exist: at least one
+  of: {oneOf: [{$ref: "_common.yaml#/$defs/FUN"}, {$ref: "_common.yaml#/$defs/IFC"}]}
+  parent: {$ref: "_common.yaml#/$defs/REQ"}
+  justified_by: {$ref: "_common.yaml#/$defs/DEC"}
+  answers: {$ref: "_common.yaml#/$defs/RSK"}
+  source: {enum: [builder]}                          # a role, never a name
+  rationale: {$ref: "_common.yaml#/$defs/text"}      # optional; required when measure exists; must not restate links
+anyOf:
+  - required: [of]
+  - required: [parent]
+  - required: [justified_by]
+  - required: [answers]
+  - required: [source]
+dependentRequired:
+  measure: [rationale]

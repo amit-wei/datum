@@ -1,0 +1,10 @@
+id: REQ-6CQ6
+status: draft
+pattern: unwanted
+of: FUN-28JT
+parent: REQ-43DZ
+justified_by: DEC-VMXX
+statement: |
+  If what states an agent does not state each part that a definition must state, then the system shall refuse it.
+rationale: |
+  The system refuses on the parts and not on what they say, because the content of an identity stays outside the model.

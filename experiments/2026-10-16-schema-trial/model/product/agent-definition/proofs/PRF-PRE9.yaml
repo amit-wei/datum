@@ -1,0 +1,10 @@
+id: PRF-PRE9
+status: draft
+title: Admission of agent definitions
+method: test
+covers:
+- REQ-6CQ6
+- REQ-QKFB
+criterion:
+  pass: |
+    Each definition in a set that omits one required part, and a definition that names an undeclared position, is refused. A complete definition that names a declared position is admitted.

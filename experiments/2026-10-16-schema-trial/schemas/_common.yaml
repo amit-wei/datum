@@ -1,0 +1,15 @@
+# Shared definitions. ID = type prefix + 4 Crockford base32 characters.
+$defs:
+  status: {enum: [draft, agreed, retired]}
+  FUN: {type: string, pattern: "^FUN-[0-9A-HJKMNP-TV-Z]{4}$"}
+  REQ: {type: string, pattern: "^REQ-[0-9A-HJKMNP-TV-Z]{4}$"}
+  PRF: {type: string, pattern: "^PRF-[0-9A-HJKMNP-TV-Z]{4}$"}
+  PRT: {type: string, pattern: "^PRT-[0-9A-HJKMNP-TV-Z]{4}$"}
+  IFC: {type: string, pattern: "^IFC-[0-9A-HJKMNP-TV-Z]{4}$"}
+  UNT: {type: string, pattern: "^UNT-[0-9A-HJKMNP-TV-Z]{4}$"}
+  DEC: {type: string, pattern: "^DEC-[0-9A-HJKMNP-TV-Z]{4}$"}
+  RSK: {type: string, pattern: "^RSK-[0-9A-HJKMNP-TV-Z]{4}$"}
+  EXT: {type: string, pattern: "^EXT-[0-9A-HJKMNP-TV-Z]{4}$"}
+  ANALYSIS: {type: string, pattern: "^(SCN|SPK|RES)-[0-9A-HJKMNP-TV-Z]{4}$"}
+  text: {type: string, minLength: 1}
+  tbd_number: {oneOf: [{type: number}, {const: TBD}]}

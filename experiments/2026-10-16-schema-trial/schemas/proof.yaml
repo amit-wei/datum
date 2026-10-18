@@ -1,0 +1,23 @@
+title: proof
+type: object
+additionalProperties: false
+required: [id, status, title, method, covers, criterion]
+properties:
+  id: {$ref: "_common.yaml#/$defs/PRF"}
+  status: {$ref: "_common.yaml#/$defs/status"}
+  title: {$ref: "_common.yaml#/$defs/text"}
+  method: {enum: [inspection, analysis, demonstration, test]}
+  covers:
+    type: array
+    minItems: 1
+    items: {$ref: "_common.yaml#/$defs/REQ"}
+  criterion:
+    type: object
+    additionalProperties: false
+    required: [pass]
+    properties:
+      pass: {$ref: "_common.yaml#/$defs/text"}       # the pass condition; refers to a requirement's measure, never copies it
+      sample_min: {$ref: "_common.yaml#/$defs/tbd_number"}   # statistical criteria only
+      confidence: {$ref: "_common.yaml#/$defs/tbd_number"}
+      bound: {enum: [lower, upper]}
+      conditions: {$ref: "_common.yaml#/$defs/text"} # setup the result depends on

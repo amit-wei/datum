@@ -1,0 +1,13 @@
+title: part
+type: object
+additionalProperties: false
+required: [id, status, name, purpose]
+properties:
+  id: {$ref: "_common.yaml#/$defs/PRT"}
+  status: {$ref: "_common.yaml#/$defs/status"}
+  name: {$ref: "_common.yaml#/$defs/text"}
+  purpose: {$ref: "_common.yaml#/$defs/text"}        # one sentence; its functions say the rest
+  units:                                             # required iff the part has no children in the model (validator rule)
+    type: array
+    items: {$ref: "_common.yaml#/$defs/UNT"}
+  # containment comes from the folder; no parent field

@@ -1,0 +1,40 @@
+{"task": "E1-status", "lay": "A", "model": "haiku", "rep": 0, "grade": "OK", "turns": 4, "cost": 0.0027868000000000003, "in_tok": 83133, "out_tok": 689, "secs": 10}
+{"task": "E1-status", "lay": "B", "model": "haiku", "rep": 0, "grade": "OK", "turns": 5, "cost": 0.0031777899999999998, "in_tok": 85269, "out_tok": 943, "secs": 10}
+{"task": "E2-add", "lay": "A", "model": "haiku", "rep": 0, "grade": "OK", "turns": 12, "cost": 0.006827899999999999, "in_tok": 181699, "out_tok": 3717, "secs": 26}
+{"task": "E2-add", "lay": "B", "model": "haiku", "rep": 0, "grade": "OK", "turns": 7, "cost": 0.00557925, "in_tok": 164180, "out_tok": 3027, "secs": 24}
+{"task": "E3-move", "lay": "A", "model": "haiku", "rep": 0, "grade": "OK", "turns": 4, "cost": 0.00414029, "in_tok": 93699, "out_tok": 1510, "secs": 13}
+{"task": "E3-move", "lay": "B", "model": "haiku", "rep": 0, "grade": "OK", "turns": 10, "cost": 0.007462360000000001, "in_tok": 210334, "out_tok": 4281, "secs": 32}
+{"task": "E4-query", "lay": "A", "model": "haiku", "rep": 0, "grade": "TP=6 FP=0 FN=0 unchanged", "turns": 12, "cost": 0.005643460000000001, "in_tok": 91914, "out_tok": 3238, "secs": 23}
+{"task": "E4-query", "lay": "B", "model": "haiku", "rep": 0, "grade": "TP=6 FP=0 FN=0 unchanged", "turns": 5, "cost": 0.0056234, "in_tok": 74509, "out_tok": 2713, "secs": 17}
+{"task": "E1-status", "lay": "A", "model": "haiku", "rep": 1, "grade": "OK", "turns": 5, "cost": 0.00338621, "in_tok": 83694, "out_tok": 805, "secs": 11}
+{"task": "E1-status", "lay": "B", "model": "haiku", "rep": 1, "grade": "OK", "turns": 5, "cost": 0.00364807, "in_tok": 85193, "out_tok": 891, "secs": 11}
+{"task": "E2-add", "lay": "A", "model": "haiku", "rep": 1, "grade": "OK", "turns": 8, "cost": 0.00653309, "in_tok": 161406, "out_tok": 2348, "secs": 19}
+{"task": "E2-add", "lay": "B", "model": "haiku", "rep": 1, "grade": "OK", "turns": 12, "cost": 0.00810286, "in_tok": 277670, "out_tok": 3819, "secs": 36}
+{"task": "E3-move", "lay": "A", "model": "haiku", "rep": 1, "grade": "OK", "turns": 4, "cost": 0.00426058, "in_tok": 90340, "out_tok": 1323, "secs": 12}
+{"task": "E3-move", "lay": "B", "model": "haiku", "rep": 1, "grade": "OK", "turns": 10, "cost": 0.00836988, "in_tok": 238143, "out_tok": 4276, "secs": 34}
+{"task": "E4-query", "lay": "A", "model": "haiku", "rep": 1, "grade": "TP=6 FP=0 FN=0 unchanged", "turns": 13, "cost": 0.006472540000000001, "in_tok": 76838, "out_tok": 3523, "secs": 20}
+{"task": "E4-query", "lay": "B", "model": "haiku", "rep": 1, "grade": "TP=6 FP=0 FN=0 unchanged", "turns": 4, "cost": 0.0050075599999999994, "in_tok": 96894, "out_tok": 1897, "secs": 14}
+{"task": "E1-status", "lay": "A", "model": "haiku", "rep": 2, "grade": "OK", "turns": 4, "cost": 0.00325238, "in_tok": 83045, "out_tok": 640, "secs": 10}
+{"task": "E1-status", "lay": "B", "model": "haiku", "rep": 2, "grade": "OK", "turns": 4, "cost": 0.0034998900000000007, "in_tok": 84843, "out_tok": 762, "secs": 8}
+{"task": "E2-add", "lay": "A", "model": "haiku", "rep": 2, "grade": "OK", "turns": 7, "cost": 0.00709907, "in_tok": 169841, "out_tok": 2028, "secs": 21}
+{"task": "E2-add", "lay": "B", "model": "haiku", "rep": 2, "grade": "OK", "turns": 11, "cost": 0.006962830000000001, "in_tok": 215150, "out_tok": 3403, "secs": 31}
+{"task": "E3-move", "lay": "A", "model": "haiku", "rep": 2, "grade": "OK", "turns": 6, "cost": 0.00452757, "in_tok": 91634, "out_tok": 1700, "secs": 14}
+{"task": "E3-move", "lay": "B", "model": "haiku", "rep": 2, "grade": "OK", "turns": 13, "cost": 0.00872429, "in_tok": 230975, "out_tok": 5181, "secs": 36}
+{"task": "E4-query", "lay": "A", "model": "haiku", "rep": 2, "grade": "TP=6 FP=0 FN=0 unchanged", "turns": 17, "cost": 0.00798251, "in_tok": 173299, "out_tok": 4724, "secs": 29}
+{"task": "E4-query", "lay": "B", "model": "haiku", "rep": 2, "grade": "TP=6 FP=0 FN=0 unchanged", "turns": 7, "cost": 0.00818346, "in_tok": 171051, "out_tok": 4252, "secs": 29}
+{"task": "E1-status", "lay": "A", "model": "sonnet", "rep": 0, "grade": "OK", "turns": 4, "cost": 0.05205920000000001, "in_tok": 79379, "out_tok": 472, "secs": 11}
+{"task": "E1-status", "lay": "B", "model": "sonnet", "rep": 0, "grade": "OK", "turns": 3, "cost": 0.049747200000000005, "in_tok": 59957, "out_tok": 412, "secs": 11}
+{"task": "E2-add", "lay": "A", "model": "sonnet", "rep": 0, "grade": "OK", "turns": 6, "cost": 0.0750863, "in_tok": 110456, "out_tok": 1253, "secs": 22}
+{"task": "E2-add", "lay": "B", "model": "sonnet", "rep": 0, "grade": "OK", "turns": 8, "cost": 0.1809354, "in_tok": 224866, "out_tok": 1475, "secs": 29}
+{"task": "E3-move", "lay": "A", "model": "sonnet", "rep": 0, "grade": "OK", "turns": 3, "cost": 0.05832570000000001, "in_tok": 63955, "out_tok": 437, "secs": 13}
+{"task": "E3-move", "lay": "B", "model": "sonnet", "rep": 0, "grade": "OK", "turns": 8, "cost": 0.0781892, "in_tok": 105834, "out_tok": 1801, "secs": 17}
+{"task": "E4-query", "lay": "A", "model": "sonnet", "rep": 0, "grade": "TP=6 FP=0 FN=0 unchanged", "turns": 2, "cost": 0.047748, "in_tok": 39702, "out_tok": 509, "secs": 6}
+{"task": "E4-query", "lay": "B", "model": "sonnet", "rep": 0, "grade": "TP=6 FP=0 FN=0 unchanged", "turns": 4, "cost": 0.0655021, "in_tok": 83266, "out_tok": 811, "secs": 15}
+{"task": "E1-status", "lay": "A", "model": "sonnet", "rep": 1, "grade": "OK", "turns": 4, "cost": 0.0520192, "in_tok": 79379, "out_tok": 468, "secs": 11}
+{"task": "E1-status", "lay": "B", "model": "sonnet", "rep": 1, "grade": "OK", "turns": 3, "cost": 0.049425000000000004, "in_tok": 59910, "out_tok": 390, "secs": 10}
+{"task": "E2-add", "lay": "A", "model": "sonnet", "rep": 1, "grade": "OK", "turns": 9, "cost": 0.08512639999999999, "in_tok": 136745, "out_tok": 1305, "secs": 22}
+{"task": "E2-add", "lay": "B", "model": "sonnet", "rep": 1, "grade": "OK", "turns": 8, "cost": 0.1825741, "in_tok": 225162, "out_tok": 1531, "secs": 30}
+{"task": "E3-move", "lay": "A", "model": "sonnet", "rep": 1, "grade": "OK", "turns": 4, "cost": 0.0730446, "in_tok": 91924, "out_tok": 756, "secs": 12}
+{"task": "E3-move", "lay": "B", "model": "sonnet", "rep": 1, "grade": "OK", "turns": 9, "cost": 0.0862983, "in_tok": 128956, "out_tok": 2174, "secs": 27}
+{"task": "E4-query", "lay": "A", "model": "sonnet", "rep": 1, "grade": "TP=6 FP=0 FN=0 unchanged", "turns": 2, "cost": 0.047670199999999996, "in_tok": 39682, "out_tok": 510, "secs": 11}
+{"task": "E4-query", "lay": "B", "model": "sonnet", "rep": 1, "grade": "TP=6 FP=0 FN=0 unchanged", "turns": 5, "cost": 0.06103180000000001, "in_tok": 81795, "out_tok": 920, "secs": 11}

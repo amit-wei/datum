@@ -1,0 +1,98 @@
+{
+ "status of 2 random reqs": {
+  "A": {
+   "conflict": 0,
+   "clean-ok": 10,
+   "clean-bad": 0
+  },
+  "B": {
+   "conflict": 0,
+   "clean-ok": 10,
+   "clean-bad": 0
+  }
+ },
+ "status of 2 adjacent reqs": {
+  "A": {
+   "conflict": 0,
+   "clean-ok": 10,
+   "clean-bad": 0
+  },
+  "B": {
+   "conflict": 0,
+   "clean-ok": 10,
+   "clean-bad": 0
+  }
+ },
+ "status vs rationale, same req": {
+  "A": {
+   "conflict": 0,
+   "clean-ok": 10,
+   "clean-bad": 0
+  },
+  "B": {
+   "conflict": 0,
+   "clean-ok": 10,
+   "clean-bad": 0
+  }
+ },
+ "same field, same req": {
+  "A": {
+   "conflict": 10,
+   "clean-ok": 0,
+   "clean-bad": 0
+  },
+  "B": {
+   "conflict": 10,
+   "clean-ok": 0,
+   "clean-bad": 0
+  }
+ },
+ "both add, distinct ids": {
+  "A": {
+   "conflict": 0,
+   "clean-ok": 1,
+   "clean-bad": 0
+  },
+  "B": {
+   "conflict": 1,
+   "clean-ok": 0,
+   "clean-bad": 0
+  }
+ },
+ "both add, same next id": {
+  "A": {
+   "conflict": 1,
+   "clean-ok": 0,
+   "clean-bad": 0
+  },
+  "B": {
+   "conflict": 1,
+   "clean-ok": 0,
+   "clean-bad": 0
+  }
+ },
+ "move vs status, same req": {
+  "A": {
+   "conflict": 0,
+   "clean-ok": 10,
+   "clean-bad": 0
+  },
+  "B": {
+   "conflict": 10,
+   "clean-ok": 0,
+   "clean-bad": 0
+  }
+ },
+ "move one vs add one": {
+  "A": {
+   "conflict": 0,
+   "clean-ok": 10,
+   "clean-bad": 0
+  },
+  "B": {
+   "conflict": 1,
+   "clean-ok": 9,
+   "clean-bad": 0
+  }
+ }
+}

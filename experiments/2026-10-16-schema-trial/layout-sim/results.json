@@ -1,0 +1,1310 @@
+{
+ "small": {
+  "tasks": {
+   "T1 read block inputs (Read/file)": [
+    {
+     "calls": 26,
+     "in_tok": 4303,
+     "ctx_tok": 5863,
+     "out_tok": 0,
+     "notes": []
+    },
+    {
+     "calls": 3,
+     "in_tok": 4263,
+     "ctx_tok": 4443,
+     "out_tok": 0,
+     "notes": []
+    }
+   ],
+   "T1 read block inputs (A: one cat)": [
+    {
+     "calls": 1,
+     "in_tok": 3300,
+     "ctx_tok": 3360,
+     "out_tok": 15,
+     "notes": []
+    },
+    {
+     "calls": 3,
+     "in_tok": 4263,
+     "ctx_tok": 4443,
+     "out_tok": 0,
+     "notes": []
+    }
+   ],
+   "T2 edit one status": [
+    {
+     "calls": 2,
+     "in_tok": 179,
+     "ctx_tok": 299,
+     "out_tok": 7,
+     "notes": []
+    },
+    {
+     "calls": 3,
+     "in_tok": 204,
+     "ctx_tok": 384,
+     "out_tok": 16,
+     "notes": []
+    }
+   ],
+   "T3 add 5 requirements": [
+    {
+     "calls": 6,
+     "in_tok": 322,
+     "ctx_tok": 682,
+     "out_tok": 666,
+     "notes": []
+    },
+    {
+     "calls": 3,
+     "in_tok": 569,
+     "ctx_tok": 749,
+     "out_tok": 830,
+     "notes": []
+    }
+   ],
+   "T4 reverse links (16 hits, grep)": [
+    {
+     "calls": 1,
+     "in_tok": 319,
+     "ctx_tok": 379,
+     "out_tok": 0,
+     "notes": []
+    },
+    {
+     "calls": 17,
+     "in_tok": 5109,
+     "ctx_tok": 6129,
+     "out_tok": 0,
+     "notes": []
+    }
+   ],
+   "T4 reverse links (B: grep -B25)": [
+    {
+     "calls": 1,
+     "in_tok": 319,
+     "ctx_tok": 379,
+     "out_tok": 0,
+     "notes": []
+    },
+    {
+     "calls": 1,
+     "in_tok": 8632,
+     "ctx_tok": 8692,
+     "out_tok": 0,
+     "notes": []
+    }
+   ],
+   "T4 reverse links (B: awk one-liner)": [
+    {
+     "calls": 1,
+     "in_tok": 319,
+     "ctx_tok": 379,
+     "out_tok": 0,
+     "notes": []
+    },
+    {
+     "calls": 1,
+     "in_tok": 282,
+     "ctx_tok": 342,
+     "out_tok": 35,
+     "notes": []
+    }
+   ],
+   "T5 trace REQ->proof->test": [
+    {
+     "calls": 3,
+     "in_tok": 168,
+     "ctx_tok": 348,
+     "out_tok": 0,
+     "notes": []
+    },
+    {
+     "calls": 3,
+     "in_tok": 248,
+     "ctx_tok": 428,
+     "out_tok": 0,
+     "notes": []
+    }
+   ],
+   "T6 review level-1 (grep)": [
+    {
+     "calls": 2,
+     "in_tok": 1052,
+     "ctx_tok": 1172,
+     "out_tok": 0,
+     "notes": []
+    },
+    {
+     "calls": 2,
+     "in_tok": 1958,
+     "ctx_tok": 2078,
+     "out_tok": 0,
+     "notes": []
+    }
+   ],
+   "T6 review level-1 (read all; A cat)": [
+    {
+     "calls": 1,
+     "in_tok": 6781,
+     "ctx_tok": 6841,
+     "out_tok": 15,
+     "notes": []
+    },
+    {
+     "calls": 4,
+     "in_tok": 8150,
+     "ctx_tok": 8390,
+     "out_tok": 0,
+     "notes": []
+    }
+   ],
+   "T7 move requirement": [
+    {
+     "calls": 3,
+     "in_tok": 179,
+     "ctx_tok": 359,
+     "out_tok": 29,
+     "notes": []
+    },
+    {
+     "calls": 5,
+     "in_tok": 394,
+     "ctx_tok": 694,
+     "out_tok": 386,
+     "notes": []
+    }
+   ],
+   "T8 supersede decision": [
+    {
+     "calls": 4,
+     "in_tok": 782,
+     "ctx_tok": 1022,
+     "out_tok": 716,
+     "notes": []
+    },
+    {
+     "calls": 6,
+     "in_tok": 1116,
+     "ctx_tok": 1476,
+     "out_tok": 842,
+     "notes": []
+    }
+   ]
+  },
+  "info": {
+   "block": "product/ev-block",
+   "req": "REQ-EV-009",
+   "hot": "REQ-PL-001"
+  },
+  "files": {
+   "A": {
+    "files": 101,
+    "total_kb": 82,
+    "max_kb": 2.9,
+    "max_lines": 48,
+    "over_read_limit": 0
+   },
+   "B": {
+    "files": 17,
+    "total_kb": 86,
+    "max_kb": 40.8,
+    "max_lines": 637,
+    "over_read_limit": 0
+   }
+  }
+ },
+ "medium": {
+  "tasks": {
+   "T1 read block inputs (Read/file)": [
+    {
+     "calls": 27,
+     "in_tok": 4973,
+     "ctx_tok": 6593,
+     "out_tok": 0,
+     "notes": []
+    },
+    {
+     "calls": 3,
+     "in_tok": 5422,
+     "ctx_tok": 5602,
+     "out_tok": 0,
+     "notes": []
+    }
+   ],
+   "T1 read block inputs (A: one cat)": [
+    {
+     "calls": 1,
+     "in_tok": 3904,
+     "ctx_tok": 3964,
+     "out_tok": 15,
+     "notes": []
+    },
+    {
+     "calls": 3,
+     "in_tok": 5422,
+     "ctx_tok": 5602,
+     "out_tok": 0,
+     "notes": []
+    }
+   ],
+   "T2 edit one status": [
+    {
+     "calls": 2,
+     "in_tok": 188,
+     "ctx_tok": 308,
+     "out_tok": 7,
+     "notes": []
+    },
+    {
+     "calls": 3,
+     "in_tok": 210,
+     "ctx_tok": 390,
+     "out_tok": 16,
+     "notes": []
+    }
+   ],
+   "T3 add 5 requirements": [
+    {
+     "calls": 6,
+     "in_tok": 364,
+     "ctx_tok": 724,
+     "out_tok": 701,
+     "notes": []
+    },
+    {
+     "calls": 3,
+     "in_tok": 614,
+     "ctx_tok": 794,
+     "out_tok": 828,
+     "notes": []
+    }
+   ],
+   "T4 reverse links (31 hits, grep)": [
+    {
+     "calls": 1,
+     "in_tok": 681,
+     "ctx_tok": 741,
+     "out_tok": 0,
+     "notes": []
+    },
+    {
+     "calls": 31,
+     "in_tok": 10282,
+     "ctx_tok": 12142,
+     "out_tok": 0,
+     "notes": []
+    }
+   ],
+   "T4 reverse links (B: grep -B25)": [
+    {
+     "calls": 1,
+     "in_tok": 681,
+     "ctx_tok": 741,
+     "out_tok": 0,
+     "notes": []
+    },
+    {
+     "calls": 1,
+     "in_tok": 19100,
+     "ctx_tok": 19160,
+     "out_tok": 0,
+     "notes": []
+    }
+   ],
+   "T4 reverse links (B: awk one-liner)": [
+    {
+     "calls": 1,
+     "in_tok": 681,
+     "ctx_tok": 741,
+     "out_tok": 0,
+     "notes": []
+    },
+    {
+     "calls": 1,
+     "in_tok": 531,
+     "ctx_tok": 591,
+     "out_tok": 35,
+     "notes": []
+    }
+   ],
+   "T5 trace REQ->proof->test": [
+    {
+     "calls": 3,
+     "in_tok": 146,
+     "ctx_tok": 326,
+     "out_tok": 0,
+     "notes": []
+    },
+    {
+     "calls": 3,
+     "in_tok": 232,
+     "ctx_tok": 412,
+     "out_tok": 0,
+     "notes": []
+    }
+   ],
+   "T6 review level-1 (grep)": [
+    {
+     "calls": 2,
+     "in_tok": 6051,
+     "ctx_tok": 6171,
+     "out_tok": 0,
+     "notes": []
+    },
+    {
+     "calls": 2,
+     "in_tok": 11178,
+     "ctx_tok": 11298,
+     "out_tok": 0,
+     "notes": []
+    }
+   ],
+   "T6 review level-1 (read all; A cat)": [
+    {
+     "calls": 1,
+     "in_tok": 38904,
+     "ctx_tok": 38964,
+     "out_tok": 15,
+     "notes": []
+    },
+    {
+     "calls": 22,
+     "in_tok": 46652,
+     "ctx_tok": 47972,
+     "out_tok": 0,
+     "notes": []
+    }
+   ],
+   "T7 move requirement": [
+    {
+     "calls": 3,
+     "in_tok": 188,
+     "ctx_tok": 368,
+     "out_tok": 29,
+     "notes": []
+    },
+    {
+     "calls": 5,
+     "in_tok": 396,
+     "ctx_tok": 696,
+     "out_tok": 401,
+     "notes": []
+    }
+   ],
+   "T8 supersede decision": [
+    {
+     "calls": 4,
+     "in_tok": 515,
+     "ctx_tok": 755,
+     "out_tok": 465,
+     "notes": []
+    },
+    {
+     "calls": 6,
+     "in_tok": 813,
+     "ctx_tok": 1173,
+     "out_tok": 586,
+     "notes": []
+    }
+   ]
+  },
+  "info": {
+   "block": "product/wb-block",
+   "req": "REQ-WB-012",
+   "hot": "REQ-PL-009"
+  },
+  "files": {
+   "A": {
+    "files": 1515,
+    "total_kb": 1238,
+    "max_kb": 3.8,
+    "max_lines": 59,
+    "over_read_limit": 0
+   },
+   "B": {
+    "files": 202,
+    "total_kb": 1300,
+    "max_kb": 624.9,
+    "max_lines": 9676,
+    "over_read_limit": 1
+   }
+  }
+ },
+ "large": {
+  "tasks": {
+   "T1 read block inputs (Read/file)": [
+    {
+     "calls": 25,
+     "in_tok": 4501,
+     "ctx_tok": 6001,
+     "out_tok": 0,
+     "notes": []
+    },
+    {
+     "calls": 3,
+     "in_tok": 4326,
+     "ctx_tok": 4506,
+     "out_tok": 0,
+     "notes": []
+    }
+   ],
+   "T1 read block inputs (A: one cat)": [
+    {
+     "calls": 1,
+     "in_tok": 3463,
+     "ctx_tok": 3523,
+     "out_tok": 15,
+     "notes": []
+    },
+    {
+     "calls": 3,
+     "in_tok": 4326,
+     "ctx_tok": 4506,
+     "out_tok": 0,
+     "notes": []
+    }
+   ],
+   "T2 edit one status": [
+    {
+     "calls": 2,
+     "in_tok": 177,
+     "ctx_tok": 297,
+     "out_tok": 7,
+     "notes": []
+    },
+    {
+     "calls": 3,
+     "in_tok": 205,
+     "ctx_tok": 385,
+     "out_tok": 16,
+     "notes": []
+    }
+   ],
+   "T3 add 5 requirements": [
+    {
+     "calls": 6,
+     "in_tok": 427,
+     "ctx_tok": 787,
+     "out_tok": 649,
+     "notes": []
+    },
+    {
+     "calls": 3,
+     "in_tok": 695,
+     "ctx_tok": 875,
+     "out_tok": 792,
+     "notes": []
+    }
+   ],
+   "T4 reverse links (19 hits, grep)": [
+    {
+     "calls": 1,
+     "in_tok": 562,
+     "ctx_tok": 622,
+     "out_tok": 0,
+     "notes": []
+    },
+    {
+     "calls": 21,
+     "in_tok": 8768,
+     "ctx_tok": 10028,
+     "out_tok": 0,
+     "notes": []
+    }
+   ],
+   "T4 reverse links (B: grep -B25)": [
+    {
+     "calls": 1,
+     "in_tok": 562,
+     "ctx_tok": 622,
+     "out_tok": 0,
+     "notes": []
+    },
+    {
+     "calls": 1,
+     "in_tok": 16369,
+     "ctx_tok": 16429,
+     "out_tok": 0,
+     "notes": []
+    }
+   ],
+   "T4 reverse links (B: awk one-liner)": [
+    {
+     "calls": 1,
+     "in_tok": 562,
+     "ctx_tok": 622,
+     "out_tok": 0,
+     "notes": []
+    },
+    {
+     "calls": 1,
+     "in_tok": 389,
+     "ctx_tok": 449,
+     "out_tok": 35,
+     "notes": []
+    }
+   ],
+   "T5 trace REQ->proof->test": [
+    {
+     "calls": 3,
+     "in_tok": 184,
+     "ctx_tok": 364,
+     "out_tok": 0,
+     "notes": []
+    },
+    {
+     "calls": 3,
+     "in_tok": 295,
+     "ctx_tok": 475,
+     "out_tok": 0,
+     "notes": []
+    }
+   ],
+   "T6 review level-1 (grep)": [
+    {
+     "calls": 2,
+     "in_tok": 5241,
+     "ctx_tok": 5361,
+     "out_tok": 0,
+     "notes": []
+    },
+    {
+     "calls": 2,
+     "in_tok": 9686,
+     "ctx_tok": 9806,
+     "out_tok": 0,
+     "notes": []
+    }
+   ],
+   "T6 review level-1 (read all; A cat)": [
+    {
+     "calls": 1,
+     "in_tok": 33784,
+     "ctx_tok": 33844,
+     "out_tok": 15,
+     "notes": []
+    },
+    {
+     "calls": 23,
+     "in_tok": 40495,
+     "ctx_tok": 41875,
+     "out_tok": 0,
+     "notes": []
+    }
+   ],
+   "T7 move requirement": [
+    {
+     "calls": 3,
+     "in_tok": 177,
+     "ctx_tok": 357,
+     "out_tok": 29,
+     "notes": []
+    },
+    {
+     "calls": 5,
+     "in_tok": 380,
+     "ctx_tok": 680,
+     "out_tok": 371,
+     "notes": []
+    }
+   ],
+   "T8 supersede decision": [
+    {
+     "calls": 4,
+     "in_tok": 1030,
+     "ctx_tok": 1270,
+     "out_tok": 946,
+     "notes": []
+    },
+    {
+     "calls": 6,
+     "in_tok": 1357,
+     "ctx_tok": 1717,
+     "out_tok": 1063,
+     "notes": []
+    }
+   ]
+  },
+  "info": {
+   "block": "product/mw-block/zp-block",
+   "req": "REQ-ZP-013",
+   "hot": "REQ-CD-023"
+  },
+  "files": {
+   "A": {
+    "files": 10000,
+    "total_kb": 8130,
+    "max_kb": 3.9,
+    "max_lines": 60,
+    "over_read_limit": 0
+   },
+   "B": {
+    "files": 1234,
+    "total_kb": 8538,
+    "max_kb": 1286.2,
+    "max_lines": 19959,
+    "over_read_limit": 13
+   }
+  }
+ },
+ "wide": {
+  "tasks": {
+   "T1 read block inputs (Read/file)": [
+    {
+     "calls": 12,
+     "in_tok": 1950,
+     "ctx_tok": 2670,
+     "out_tok": 0,
+     "notes": []
+    },
+    {
+     "calls": 3,
+     "in_tok": 2372,
+     "ctx_tok": 2552,
+     "out_tok": 0,
+     "notes": []
+    }
+   ],
+   "T1 read block inputs (A: one cat)": [
+    {
+     "calls": 1,
+     "in_tok": 1509,
+     "ctx_tok": 1569,
+     "out_tok": 15,
+     "notes": []
+    },
+    {
+     "calls": 3,
+     "in_tok": 2372,
+     "ctx_tok": 2552,
+     "out_tok": 0,
+     "notes": []
+    }
+   ],
+   "T2 edit one status": [
+    {
+     "calls": 2,
+     "in_tok": 189,
+     "ctx_tok": 309,
+     "out_tok": 7,
+     "notes": []
+    },
+    {
+     "calls": 3,
+     "in_tok": 216,
+     "ctx_tok": 396,
+     "out_tok": 16,
+     "notes": []
+    }
+   ],
+   "T3 add 5 requirements": [
+    {
+     "calls": 6,
+     "in_tok": 212,
+     "ctx_tok": 572,
+     "out_tok": 710,
+     "notes": []
+    },
+    {
+     "calls": 3,
+     "in_tok": 385,
+     "ctx_tok": 565,
+     "out_tok": 859,
+     "notes": []
+    }
+   ],
+   "T4 reverse links (95 hits, grep)": [
+    {
+     "calls": 1,
+     "in_tok": 1803,
+     "ctx_tok": 1863,
+     "out_tok": 0,
+     "notes": []
+    },
+    {
+     "calls": 96,
+     "in_tok": 31462,
+     "ctx_tok": 37222,
+     "out_tok": 0,
+     "notes": []
+    }
+   ],
+   "T4 reverse links (B: grep -B25)": [
+    {
+     "calls": 1,
+     "in_tok": 1803,
+     "ctx_tok": 1863,
+     "out_tok": 0,
+     "notes": []
+    },
+    {
+     "calls": 1,
+     "in_tok": 53899,
+     "ctx_tok": 53959,
+     "out_tok": 0,
+     "notes": []
+    }
+   ],
+   "T4 reverse links (B: awk one-liner)": [
+    {
+     "calls": 1,
+     "in_tok": 1803,
+     "ctx_tok": 1863,
+     "out_tok": 0,
+     "notes": []
+    },
+    {
+     "calls": 1,
+     "in_tok": 1704,
+     "ctx_tok": 1764,
+     "out_tok": 35,
+     "notes": []
+    }
+   ],
+   "T5 trace REQ->proof->test": [
+    {
+     "calls": 3,
+     "in_tok": 148,
+     "ctx_tok": 328,
+     "out_tok": 0,
+     "notes": []
+    },
+    {
+     "calls": 3,
+     "in_tok": 225,
+     "ctx_tok": 405,
+     "out_tok": 0,
+     "notes": []
+    }
+   ],
+   "T6 review level-1 (grep)": [
+    {
+     "calls": 2,
+     "in_tok": 16958,
+     "ctx_tok": 17078,
+     "out_tok": 0,
+     "notes": []
+    },
+    {
+     "calls": 2,
+     "in_tok": 31533,
+     "ctx_tok": 31653,
+     "out_tok": 0,
+     "notes": []
+    }
+   ],
+   "T6 review level-1 (read all; A cat)": [
+    {
+     "calls": 1,
+     "in_tok": 110917,
+     "ctx_tok": 110977,
+     "out_tok": 15,
+     "notes": []
+    },
+    {
+     "calls": 108,
+     "in_tok": 132982,
+     "ctx_tok": 139462,
+     "out_tok": 0,
+     "notes": []
+    }
+   ],
+   "T7 move requirement": [
+    {
+     "calls": 3,
+     "in_tok": 189,
+     "ctx_tok": 369,
+     "out_tok": 29,
+     "notes": []
+    },
+    {
+     "calls": 5,
+     "in_tok": 404,
+     "ctx_tok": 704,
+     "out_tok": 392,
+     "notes": []
+    }
+   ],
+   "T8 supersede decision": [
+    {
+     "calls": 4,
+     "in_tok": 882,
+     "ctx_tok": 1122,
+     "out_tok": 808,
+     "notes": []
+    },
+    {
+     "calls": 6,
+     "in_tok": 1205,
+     "ctx_tok": 1565,
+     "out_tok": 926,
+     "notes": []
+    }
+   ]
+  },
+  "info": {
+   "block": "product/xu-block",
+   "req": "REQ-XU-006",
+   "hot": "REQ-PL-010"
+  },
+  "files": {
+   "A": {
+    "files": 1515,
+    "total_kb": 1228,
+    "max_kb": 3.8,
+    "max_lines": 58,
+    "over_read_limit": 0
+   },
+   "B": {
+    "files": 308,
+    "total_kb": 1290,
+    "max_kb": 614.9,
+    "max_lines": 9575,
+    "over_read_limit": 1
+   }
+  }
+ },
+ "deep": {
+  "tasks": {
+   "T1 read block inputs (Read/file)": [
+    {
+     "calls": 15,
+     "in_tok": 2567,
+     "ctx_tok": 3467,
+     "out_tok": 0,
+     "notes": []
+    },
+    {
+     "calls": 3,
+     "in_tok": 2776,
+     "ctx_tok": 2956,
+     "out_tok": 0,
+     "notes": []
+    }
+   ],
+   "T1 read block inputs (A: one cat)": [
+    {
+     "calls": 1,
+     "in_tok": 1879,
+     "ctx_tok": 1939,
+     "out_tok": 15,
+     "notes": []
+    },
+    {
+     "calls": 3,
+     "in_tok": 2776,
+     "ctx_tok": 2956,
+     "out_tok": 0,
+     "notes": []
+    }
+   ],
+   "T2 edit one status": [
+    {
+     "calls": 2,
+     "in_tok": 210,
+     "ctx_tok": 330,
+     "out_tok": 7,
+     "notes": []
+    },
+    {
+     "calls": 3,
+     "in_tok": 240,
+     "ctx_tok": 420,
+     "out_tok": 16,
+     "notes": []
+    }
+   ],
+   "T3 add 5 requirements": [
+    {
+     "calls": 6,
+     "in_tok": 302,
+     "ctx_tok": 662,
+     "out_tok": 804,
+     "notes": []
+    },
+    {
+     "calls": 3,
+     "in_tok": 482,
+     "ctx_tok": 662,
+     "out_tok": 962,
+     "notes": []
+    }
+   ],
+   "T4 reverse links (16 hits, grep)": [
+    {
+     "calls": 1,
+     "in_tok": 514,
+     "ctx_tok": 574,
+     "out_tok": 0,
+     "notes": []
+    },
+    {
+     "calls": 18,
+     "in_tok": 7446,
+     "ctx_tok": 8526,
+     "out_tok": 0,
+     "notes": []
+    }
+   ],
+   "T4 reverse links (B: grep -B25)": [
+    {
+     "calls": 1,
+     "in_tok": 514,
+     "ctx_tok": 574,
+     "out_tok": 0,
+     "notes": []
+    },
+    {
+     "calls": 1,
+     "in_tok": 11806,
+     "ctx_tok": 11866,
+     "out_tok": 0,
+     "notes": []
+    }
+   ],
+   "T4 reverse links (B: awk one-liner)": [
+    {
+     "calls": 1,
+     "in_tok": 514,
+     "ctx_tok": 574,
+     "out_tok": 0,
+     "notes": []
+    },
+    {
+     "calls": 1,
+     "in_tok": 288,
+     "ctx_tok": 348,
+     "out_tok": 35,
+     "notes": []
+    }
+   ],
+   "T5 trace REQ->proof->test": [
+    {
+     "calls": 3,
+     "in_tok": 227,
+     "ctx_tok": 407,
+     "out_tok": 0,
+     "notes": []
+    },
+    {
+     "calls": 3,
+     "in_tok": 320,
+     "ctx_tok": 500,
+     "out_tok": 0,
+     "notes": []
+    }
+   ],
+   "T6 review level-1 (grep)": [
+    {
+     "calls": 2,
+     "in_tok": 617,
+     "ctx_tok": 737,
+     "out_tok": 0,
+     "notes": []
+    },
+    {
+     "calls": 2,
+     "in_tok": 1184,
+     "ctx_tok": 1304,
+     "out_tok": 0,
+     "notes": []
+    }
+   ],
+   "T6 review level-1 (read all; A cat)": [
+    {
+     "calls": 1,
+     "in_tok": 3878,
+     "ctx_tok": 3938,
+     "out_tok": 15,
+     "notes": []
+    },
+    {
+     "calls": 3,
+     "in_tok": 4657,
+     "ctx_tok": 4837,
+     "out_tok": 0,
+     "notes": []
+    }
+   ],
+   "T7 move requirement": [
+    {
+     "calls": 3,
+     "in_tok": 210,
+     "ctx_tok": 390,
+     "out_tok": 29,
+     "notes": []
+    },
+    {
+     "calls": 5,
+     "in_tok": 441,
+     "ctx_tok": 741,
+     "out_tok": 440,
+     "notes": []
+    }
+   ],
+   "T8 supersede decision": [
+    {
+     "calls": 4,
+     "in_tok": 920,
+     "ctx_tok": 1160,
+     "out_tok": 844,
+     "notes": []
+    },
+    {
+     "calls": 6,
+     "in_tok": 1270,
+     "ctx_tok": 1630,
+     "out_tok": 984,
+     "notes": []
+    }
+   ]
+  },
+  "info": {
+   "block": "product/wj-block/xt-block/dm-block/ww-block/yz-block",
+   "req": "REQ-YZ-006",
+   "hot": "REQ-XT-002"
+  },
+  "files": {
+   "A": {
+    "files": 1515,
+    "total_kb": 1231,
+    "max_kb": 3.8,
+    "max_lines": 58,
+    "over_read_limit": 0
+   },
+   "B": {
+    "files": 313,
+    "total_kb": 1293,
+    "max_kb": 614.5,
+    "max_lines": 9543,
+    "over_read_limit": 1
+   }
+  }
+ },
+ "fat": {
+  "tasks": {
+   "T1 read block inputs (Read/file)": [
+    {
+     "calls": 217,
+     "in_tok": 41648,
+     "ctx_tok": 54668,
+     "out_tok": 0,
+     "notes": []
+    },
+    {
+     "calls": 4,
+     "in_tok": 39300,
+     "ctx_tok": 39540,
+     "out_tok": 0,
+     "notes": [
+      "2000-line truncation"
+     ]
+    }
+   ],
+   "T1 read block inputs (A: one cat)": [
+    {
+     "calls": 1,
+     "in_tok": 32681,
+     "ctx_tok": 32741,
+     "out_tok": 15,
+     "notes": []
+    },
+    {
+     "calls": 4,
+     "in_tok": 39300,
+     "ctx_tok": 39540,
+     "out_tok": 0,
+     "notes": [
+      "2000-line truncation"
+     ]
+    }
+   ],
+   "T2 edit one status": [
+    {
+     "calls": 2,
+     "in_tok": 201,
+     "ctx_tok": 321,
+     "out_tok": 7,
+     "notes": []
+    },
+    {
+     "calls": 3,
+     "in_tok": 222,
+     "ctx_tok": 402,
+     "out_tok": 16,
+     "notes": []
+    }
+   ],
+   "T3 add 5 requirements": [
+    {
+     "calls": 6,
+     "in_tok": 2990,
+     "ctx_tok": 3350,
+     "out_tok": 761,
+     "notes": []
+    },
+    {
+     "calls": 3,
+     "in_tok": 4481,
+     "ctx_tok": 4661,
+     "out_tok": 889,
+     "notes": []
+    }
+   ],
+   "T4 reverse links (50 hits, grep)": [
+    {
+     "calls": 1,
+     "in_tok": 1019,
+     "ctx_tok": 1079,
+     "out_tok": 0,
+     "notes": []
+    },
+    {
+     "calls": 50,
+     "in_tok": 16756,
+     "ctx_tok": 19756,
+     "out_tok": 0,
+     "notes": []
+    }
+   ],
+   "T4 reverse links (B: grep -B25)": [
+    {
+     "calls": 1,
+     "in_tok": 1019,
+     "ctx_tok": 1079,
+     "out_tok": 0,
+     "notes": []
+    },
+    {
+     "calls": 1,
+     "in_tok": 32444,
+     "ctx_tok": 32504,
+     "out_tok": 0,
+     "notes": []
+    }
+   ],
+   "T4 reverse links (B: awk one-liner)": [
+    {
+     "calls": 1,
+     "in_tok": 1019,
+     "ctx_tok": 1079,
+     "out_tok": 0,
+     "notes": []
+    },
+    {
+     "calls": 1,
+     "in_tok": 872,
+     "ctx_tok": 932,
+     "out_tok": 35,
+     "notes": []
+    }
+   ],
+   "T5 trace REQ->proof->test": [
+    {
+     "calls": 3,
+     "in_tok": 267,
+     "ctx_tok": 447,
+     "out_tok": 0,
+     "notes": []
+    },
+    {
+     "calls": 3,
+     "in_tok": 487,
+     "ctx_tok": 667,
+     "out_tok": 0,
+     "notes": []
+    }
+   ],
+   "T6 review level-1 (grep)": [
+    {
+     "calls": 2,
+     "in_tok": 8567,
+     "ctx_tok": 8687,
+     "out_tok": 0,
+     "notes": []
+    },
+    {
+     "calls": 2,
+     "in_tok": 16292,
+     "ctx_tok": 16412,
+     "out_tok": 0,
+     "notes": []
+    }
+   ],
+   "T6 review level-1 (read all; A cat)": [
+    {
+     "calls": 1,
+     "in_tok": 56627,
+     "ctx_tok": 56687,
+     "out_tok": 15,
+     "notes": []
+    },
+    {
+     "calls": 22,
+     "in_tok": 67709,
+     "ctx_tok": 69029,
+     "out_tok": 0,
+     "notes": [
+      "2000-line truncation"
+     ]
+    }
+   ],
+   "T7 move requirement": [
+    {
+     "calls": 3,
+     "in_tok": 201,
+     "ctx_tok": 381,
+     "out_tok": 29,
+     "notes": []
+    },
+    {
+     "calls": 5,
+     "in_tok": 433,
+     "ctx_tok": 733,
+     "out_tok": 405,
+     "notes": []
+    }
+   ],
+   "T8 supersede decision": [
+    {
+     "calls": 4,
+     "in_tok": 459,
+     "ctx_tok": 699,
+     "out_tok": 413,
+     "notes": []
+    },
+    {
+     "calls": 6,
+     "in_tok": 770,
+     "ctx_tok": 1130,
+     "out_tok": 548,
+     "notes": []
+    }
+   ]
+  },
+  "info": {
+   "block": "product/vc-block",
+   "req": "REQ-VC-104",
+   "hot": "REQ-PL-004"
+  },
+  "files": {
+   "A": {
+    "files": 1515,
+    "total_kb": 1219,
+    "max_kb": 3.8,
+    "max_lines": 58,
+    "over_read_limit": 0
+   },
+   "B": {
+    "files": 207,
+    "total_kb": 1280,
+    "max_kb": 602.2,
+    "max_lines": 9406,
+    "over_read_limit": 2
+   }
+  }
+ }
+}
