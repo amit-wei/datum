@@ -209,6 +209,7 @@ def main():
     p.add_argument("--max-failures", type=int, default=3)
     p.add_argument("--jobs", type=int, default=1)
     p.add_argument("--judge", default="haiku")
+    p.add_argument("--index", default=None, help="local file mapping runs to transcripts")
     p.add_argument("--out", default=os.path.join(HERE, "results", "runs.jsonl"))
     args = p.parse_args()
     queries = load_queries()
@@ -249,6 +250,10 @@ def main():
                 return
             state["failures"] = 0
             record.pop("failure")
+            if args.index:  # a local map from runs to their transcripts, for rejudging
+                with open(args.index, "a") as f:
+                    f.write(json.dumps({"query": query["id"], "variant": variant, "model": model,
+                                        "work": os.path.dirname(transcript)}) + "\n")
             with open(args.out, "a") as f:
                 f.write(json.dumps(record) + "\n")
             state["total"] += record["cost_usd"] or 0

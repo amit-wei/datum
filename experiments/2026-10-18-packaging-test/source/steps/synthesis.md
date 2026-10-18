@@ -29,7 +29,6 @@ In this order (IEEE 1220):
 {{use deployment-view: Once parts exist: which parts share a unit; every extra unit needs a decision.}}
 {{use architectural-risk-pass: After the parts and interfaces exist: unsafe control actions, and STRIDE on every interface that crosses a trust boundary.}}
 {{use applying-stopping-rule: For every part: stop, or queue it for its own level.}}
-{{use writing-decisions: For every choice made above.}}
 
 ## End condition
 

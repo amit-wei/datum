@@ -15,7 +15,7 @@ steps), was dropped after the Sonnet pilot: Claude Code refuses to load such a s
 through the Skill tool and tells the agent to ask the user to run it.
 
 The description text is the same in both variants; in R it is the step's pointer line.
-All 19 planned techniques, 9 steps (the router `datum` among them) and 6 per-step
+All 18 planned techniques, 9 steps (the router `datum` among them) and 6 per-step
 reviewer agents are present; only the router, 3 steps and 8 techniques have real
 bodies, the rest are stubs. Runs happen in the
 builder's real setup, with their other skills listed.

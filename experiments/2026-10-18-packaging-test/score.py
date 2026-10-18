@@ -51,7 +51,7 @@ MAKERS = [
     (r"/functions/FUN-", {"writing-functions"}),
     (r"/requirements/REQ-", {"writing-requirements", "allocating-requirements"}),
     (r"/proofs/PRF-", {"writing-proofs"}),
-    (r"/decisions/DEC-", {"trade-study", "writing-decisions"}),
+    (r"/decisions/DEC-", {"trade-study"}),
     (r"/risks/RSK-", {"losses-and-hazards", "architectural-risk-pass"}),
     (r"/interfaces/IFC-", {"defining-interfaces"}),
     (r"/analysis/SCN-", {"writing-scenarios"}),
