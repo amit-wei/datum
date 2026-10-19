@@ -125,17 +125,49 @@ Starting set of triggers (agreed 2026-10-16; revised with use, like everything h
   - Verdicts are computed: requirement → proofs (declared on the proof) → cases
     (declared in the code) → results.
 
+## Rigour in v0.1.0 (agreed 2026-10-19, #21)
+
+v0.1.0 is an alpha: the minimum to take a greenfield repo to a software product with
+datum.
+
+- **One profile, not named as one.** It is built into the skills; choosing or switching
+  profiles waits for #5 and #17.
+- **The full default as designed.** Nothing is cut before a test shows it does not pay;
+  if it feels slow, that is a finding.
+- **Risk:** STPA (all four steps) and STRIDE, as in Risk in the engine. No FMEA.
+- **No profile skips an engine step**, in v0.1.0 or later. Rigour changes what happens
+  inside a step (which techniques are forced, how deep the review goes), never which
+  steps run.
+
 ## Risk in the engine (agreed 2026-10-17)
 
-Risk is a technique, not a step of its own. It appears twice per level, as in ARP4761
-(`research/2026-10-risk-methods.md`):
+Risk is a technique, not a step of its own. It appears twice in every part, as in
+ARP4761 (`research/2026-10-risk-methods.md`). Revised 2026-10-19 (#21): STPA runs whole
+at every part, split across the two places; no level exception.
 
-- **In functional analysis:** losses and hazards (STPA step 1). Some functions are
-  dangerous whatever the design. Requirements answer them in the requirements step.
-- **After synthesis:** STPA unsafe control actions and loss scenarios on the control
-  structure, which exists only once there are parts; STRIDE (spoofing, tampering,
-  repudiation, information disclosure, denial of service, elevation of privilege) on
-  every interface that crosses a trust boundary. They generate derived requirements.
+- **In functional analysis:** STPA step 1. At the top part: the losses and the product's
+  hazards. Below: only the hazards this part's functions introduce, usually none; each
+  hazard links to at least one loss, so losses (top part only) are the one link that
+  crosses levels. Inherited hazards are not listed again: they arrive answered, as
+  flowed-down requirements.
+- **In synthesis, the architectural risk pass** (after `defining-interfaces` and
+  `deployment-view`): STPA steps 2–4 (control structure among the children, unsafe
+  control actions, loss scenarios) and STRIDE (spoofing, tampering, repudiation,
+  information disclosure, denial of service, elevation of privilege) on every interface
+  that crosses a trust boundary. The pass runs in every part's synthesis; with nothing
+  to find, it records so. They generate derived requirements.
+- **Answering:** a hazard is answered by requirements at its own level (`answers: RSK`),
+  or accepted by an ADR. Those requirements flow down with `parent: REQ` like any other;
+  the trace from a child requirement to the hazard is computed through its parents.
+- **No new artifacts for the views.** STPA's control structure and STRIDE's data-flow
+  diagram are generated from parts, units, externals and interfaces. The control
+  structure needs one field per interface item (control, feedback or data; the item
+  already names its sender). Form in #18.
+- **Trust boundary:** an interface is presumed to cross one when either end is an
+  external or its ends sit in different units; the builder can mark others. A part
+  that spans units before it is decomposed is presumed to cross.
+- STPA is safety engineering (Leveson), not a software convention; its skill explains it
+  rather than assumes it.
 - **FMEA is not in the default profile**, only in the critical one (interface FMEA).
   Corrects the earlier draft, which named FMEA on parts and interfaces.
 - Requirements that interact can create risk (Pendentive's exactly-once rules made
@@ -410,12 +442,13 @@ One mechanism, no explicit "reopen" command:
 functions dropped 2026-10-18: nothing consumes them yet), complete for its scope, plus
 the losses it could cause. Techniques: `grilling` (forced at the start of every part), `research` (triggered by an unfamiliar domain or a possible existing
 solution; subagent), `writing-scenarios` (forced at product level), `writing-functions`,
-`losses-and-hazards` (forced at product level; below, when a function can cause a loss),
+`losses-and-hazards` (STPA step 1, forced at every part; below the top, only the hazards
+the part introduces; see Risk in the engine),
 `running-a-spike` (doubt about feasibility; subagent). At product level the weight is
 on grilling and scenarios; below, on writing functions. End condition: every scenario
 step is done by some function; every function serves a scenario (product) or a parent
 function (below); every elicited need is in a scenario or marked out of scope; losses
-are listed; no feasibility doubt without a spike or a TBD issue; closing review clean.
+are listed (top part) and every hazard links to a loss; no feasibility doubt without a spike or a TBD issue; closing review clean.
 
 **Requirements.** Goal: the requirements that say each function is attained, and how
 well where the builder, a hazard or a budget cares; plus constraints and allocated
@@ -620,6 +653,7 @@ and functions.
 | Q-4 | Pilots. Agreed 2026-10-16: the first real use of datum v0 is Pendentive's re-scoped v1, run from datum's intake with the existing Pendentive model as reference material, not migrated. While formats are designed, they are tested against real Pendentive rows. Small client projects later |
 | Q-5 | Artifact storage, IDs, link model. Settled 2026-10-16: see Types, Links, IDs and references |
 | Q-6 | GitHub: agreed in principle. Repo files are authoritative (model, decisions, proofs, evidence index; open questions are issues plus a `TBD`, see Types); issues hold intake and work; a milestone holds an increment's scope and work, a release closes it (see Increments); evidence is committed because CI retention is 90 days. Details open |
+| Q-7 | How a child's STPA keeps to the hazards it introduces: without restating inherited ones, and without missing a new one that looks like an inherited one. Possibly an experiment. #23 |
 
 ## Landscape in one paragraph
 
