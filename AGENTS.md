@@ -27,6 +27,8 @@ Rules for agents (and people) changing this repository. Keep this file short.
    was seen) or INFERRED.
 5. **When a skill is added, renamed, removed or changes how it fits a workflow, update
    the router skill** so its map stays true.
+6. **A change to the library traces to an intake line in `docs/product.md` or to an open
+   issue.** Otherwise, open the issue first.
 
 ## Hard boundary
 
