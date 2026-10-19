@@ -155,7 +155,7 @@ A type is in v0 only if an engine step makes it and a step or check uses it (P9)
 | part | 3 Synthesis | the next level (each part runs the engine in turn) |
 | interface | 3 Synthesis | proofs at its level |
 | unit | 3 Synthesis (deployment view, P12) | the rule that an extra unit cites a decision |
-| decision | 3 Synthesis (trade study), and any recorded choice | derived requirements, units, impact analysis |
+| decision (`ADR-`) | 3 Synthesis (trade study), and any recorded choice | derived requirements, units, impact analysis |
 | risk | the two risk passes | the requirements that answer it |
 | external | product-level functional analysis (the context: the user, the host, outside services) | interfaces (`between`); generated views such as a README or an installer |
 
@@ -214,10 +214,10 @@ command), never stored.
   own level's proofs (see Verification). When a parent changes, its computed children are
   revisited.
 - **A requirement has at least one reason to exist**, any of: `of: FUN` (the function it
-  constrains), `parent: REQ`, `justified_by: DEC`, `answers: RSK`, `source: builder`.
+  constrains), `parent: REQ`, `justified_by: ADR`, `answers: RSK`, `source: builder`.
   None is an error.
 - **Proofs** store `covers: [REQ]`. Cases name their proof; a proof does not list cases.
-- **Decisions** store `supersedes: DEC` (the old one's state is computed) and
+- **Decisions** store `supersedes: ADR` (the old one's state is computed) and
   `drivers: [REQ]`, the requirements it serves, for impact analysis. Revising a decision
   is one new entry (L5).
 - **Interfaces** store `between:` their two ends (part or external) and live in the folder
@@ -225,7 +225,7 @@ command), never stored.
   A requirement's `of:` may name a function or an interface. A unified interface style
   is a decision at the higher level that the children follow.
 - **Units:** every part with no children in the model stores `units:`; a parent's units
-  are computed from its children. A unit stores `justified_by: DEC`, except the default
+  are computed from its children. A unit stores `justified_by: ADR`, except the default
   unit.
 - **Risks** store only `threatens:` (function, part or interface). Requirements store
   `answers: RSK`; a decision may store `accepts: [RSK]` and must state the consequence
@@ -283,6 +283,8 @@ them.
 - The file name is the ID. An ID never changes and is never reused. A move is `git mv`.
 - Links name IDs only, never paths. Analysis outputs get IDs the same way (`ELI-`,
   `SCN-`, `SPK-`, `RES-`).
+- Decisions use the prefix `ADR-` (agreed 2026-10-19, #20), the name developers know,
+  for every recorded choice, not only synthesis ones; their folder stays `decisions/`.
 - Only decisions are superseded. Other artifacts are edited in place (git is their
   history) or set to `retired`; nothing is deleted.
 

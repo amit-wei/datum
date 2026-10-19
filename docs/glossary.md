@@ -22,7 +22,7 @@ synonyms; a reviewer flags any other. Add a term when it first appears in a skil
 | case | An executable piece (a test, an eval run, a script) that implements a proof |
 | evidence | The result of running a proof's cases at a commit |
 | verified | The evidence passes at the version's commit |
-| decision | A choice with the alternatives considered and the reason |
+| decision, ADR | A choice with the alternatives considered and the reason, recorded with the prefix `ADR-` (architecture decision record, the software name). One type for every recorded choice |
 | interface | What crosses between two parts, or between a part and something outside |
 | engine step | One of the five steps every part runs: functional analysis, requirements, synthesis, design evaluation, cases |
 | technique | How to do one thing well inside a step; a skill of its own |
