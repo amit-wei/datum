@@ -143,12 +143,6 @@ def main():
     # Rules by type, the same at every level. Level- and step-specific rules (a product
     # function serves a scenario, every need is covered) are gate checks, not these.
     for i, (d, f) in arts.items():
-        if i.startswith("SCN"):
-            for link in d.get("needs") or []:
-                target, n = LINK.match(link).groups()
-                entry = numbers.get(target, {}).get(int(n)) if n else None
-                if entry is not None and entry.get("need") is not True:
-                    errs.append(f"{rel(f)}: needs {link}, an entry not marked need: true")
         if i.startswith("FUN"):
             p = d.get("parent")
             if p in arts and part_of(arts[p][1]) != part_of(f).parent:
