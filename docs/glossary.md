@@ -7,10 +7,10 @@ synonyms; a reviewer flags any other. Add a term when it first appears in a skil
 |---|---|
 | builder | The person who builds the product with datum and decides what is theirs to decide |
 | part | A node of the product's tree. Every part runs the same engine steps |
-| top part, product | The root part, `model/product/` |
+| top part, product | The root part, `datum/model/product/` |
 | leaf part | A part that meets the stopping rule: built or bought as one thing |
 | unit | Something that runs separately (a process, a service); it hosts one or more parts |
-| model | Everything under `model/`: the artifacts of every part |
+| model | Everything under `datum/model/`: the artifacts of every part |
 | artifact | One file of the model, named by its ID |
 | ID | A type prefix and 4 Crockford base32 characters (`REQ-7K3Q`) |
 | need | What the builder wants, drawn out by grilling into an elicitation record |

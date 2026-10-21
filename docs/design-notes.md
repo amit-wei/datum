@@ -214,12 +214,18 @@ A type is in v0 only if an engine step makes it and a step or check uses it (P9)
   lowest-level part runs in one unit; an interface that crosses units gains a
   transport, a format and failure modes.
 - **File layout (agreed):** one file per artifact, in a folder per part per type, under
-  one root, e.g. `model/product/agent-runtime/requirements/REQ-7K3Q.yaml`. Chosen over one YAML file per part per type
+  one root, e.g. `datum/model/product/agent-runtime/requirements/REQ-7K3Q.yaml`. Chosen over one YAML file per part per type
   on agent cost, merges and tool limits, with equal accuracy
   (`research/2026-10-16-layout-simulation.md`). The content is YAML throughout: prose is in
   fields (`statement`, `rationale`) that a schema can require. Policy: structure where
   possible, until a need for unstructured content is shown.
-- **Deployment view:** `model/deployment/units/`, beside `model/product/`. Not
+- **Root folder** (agreed 2026-10-21): everything datum writes in a builder's repo is
+  under one visible `datum/` folder: the model in `datum/model/`, later the config file
+  (#17) beside it. `model/` alone clashes with the code's own folders (ML models, MVC);
+  `.datum/` was preferred but dropped because search tools may skip hidden folders
+  (VERIFIED for ripgrep's default; INFERRED for Claude Code's own tools). Datum's
+  scripts and schemas ship in the plugin, never in the builder's repo.
+- **Deployment view:** `datum/model/deployment/units/`, beside `datum/model/product/`. Not
   `deployment/` at the root, where a codebase keeps its deploy configuration.
 
 ## Links (agreed 2026-10-16)
@@ -330,7 +336,7 @@ Build and verify), *answered*
 build (P4); code ahead of the model is the defect. Per-type states beyond these: open.
 
 **Step state** (agreed 2026-10-17). Closing a step is a decision of the builder, so it is
-stored: one file per part, `model/<part>/steps.yaml`, with a fixed schema the
+stored: one file per part, `datum/model/<part>/steps.yaml`, with a fixed schema the
 validator checks, e.g. `functional-analysis: {closed_at: <commit>}`. *Stale* is
 computed: model files of the part changed after the closing commit. The router reads
 these files; GitHub issues hold the queue of work and never mirror model state.
@@ -391,7 +397,7 @@ Settles Q-3. Evidence: `research/2026-10-skill-granularity.md`,
 - **A technique is loaded before its output is produced** (agreed 2026-10-18): before
   writing or changing an artifact, a record or a looked-up fact, the agent loads the
   technique that makes it. A question gets an answer grounded in the model and an offer
-  to run the technique. A hook that enforces this on writes under `model/` is parked.
+  to run the technique. A hook that enforces this on writes under `datum/model/` is parked.
 - **Reviewers are per step, not per type** (agreed 2026-10-18): one reviewer per engine
   step, against that step's end condition, the quality references and the stance. Each is
   an agent in `agents/`, not a skill: the review is always done by a subagent, and an

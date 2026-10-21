@@ -1,6 +1,6 @@
 ---
 name: datum
-description: Use when starting, resuming or steering work on a product built with datum (a model/ folder of functions, requirements and parts), when the builder describes something new to build, when it is unclear which step comes next, or when it must be judged whether something is done or ready. Reads the state on disk and loads the next engine step. Not for a question about datum itself, an edit that changes no meaning, or how the builder likes to work.
+description: Use when starting, resuming or steering work on a product built with datum (a datum/model/ folder of functions, requirements and parts), when the builder describes something new to build, when it is unclear which step comes next, or when it must be judged whether something is done or ready. Reads the state on disk and loads the next engine step. Not for a question about datum itself, an edit that changes no meaning, or how the builder likes to work.
 ---
 
 # datum: where are we, and what comes next
@@ -30,14 +30,14 @@ description: Use when starting, resuming or steering work on a product built wit
 
 ## The model on disk
 
-- Everything is under `model/`. The product is the top part, `model/product/`; every other part has
+- Everything is under `datum/model/`. The product is the top part, `datum/model/product/`; every other part has
   its own folder below its parent, named in the parent's `parts.yaml`.
 - A part holds `functions/`, `requirements/`, `proofs/`, `interfaces/`, `decisions/`,
   `risks/` and `analysis/` (elicitation records `ELI-`, scenarios `SCN-`, spike results
   `SPK-`, research `RES-`), one YAML file per artifact, named by its ID.
 - An ID is a type prefix and 4 Crockford base32 characters (`REQ-7K3Q`). Links name IDs,
   never paths.
-- `model/<part>/steps.yaml` records the engine steps the builder has closed, e.g.
+- `datum/model/<part>/steps.yaml` records the engine steps the builder has closed, e.g.
   `functional-analysis: {closed_at: <commit>}`.
 - States a person decides: `draft`, `agreed`, `retired`. Everything else is computed.
 - An increment's scope (function IDs, and deferrals with their reasons) is in the
@@ -54,15 +54,15 @@ description: Use when starting, resuming or steering work on a product built wit
 2. **First contact.** If the project's `CLAUDE.md` (or `AGENTS.md`) lacks the line
    "This project is built with datum. Load the `datum` skill before any work in this
    project.", offer to add it; without it, later sessions skip datum.
-3. **No `model/` folder** and the builder describes something to build: load the step
+3. **No `datum/model/` folder** and the builder describes something to build: load the step
    `functional-analysis` for the product.
 4. **Otherwise find the work.** For every part, read `steps.yaml` and compute what is
    open or stale:
    - A step is open when it is not in `steps.yaml`.
    - A step is stale when its part's files changed after its `closed_at` commit
-     (`git diff --name-only <closed_at> -- model/<part>/`); every later step of that
+     (`git diff --name-only <closed_at> -- datum/model/<part>/`); every later step of that
      part is then stale too, and so is every part whose files link to a changed ID.
-   - Pick the highest stale or open part (closest to `model/product/`), at its earliest
+   - Pick the highest stale or open part (closest to `datum/model/product/`), at its earliest
      such step, in the order of the map below.
 5. **If the request clearly belongs elsewhere,** say so and go there: a new capability
    reopens the product's functional analysis; a value a part cannot meet goes up

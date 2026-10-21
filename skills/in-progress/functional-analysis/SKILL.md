@@ -37,7 +37,7 @@ is the current increment.
 ## Inputs
 
 - **The product:** the builder's needs and constraints, drawn out by grilling into an
-  elicitation record (`ELI-` in `model/product/analysis/`).
+  elicitation record (`ELI-` in `datum/model/product/analysis/`).
 - **Any other part:** what the parent's synthesis gave it: the parent functions it
   `contributes_to`, the requirements written into its `requirements/` folder, and the
   interfaces that name it; plus what grilling draws out.
@@ -86,5 +86,5 @@ A question gets an answer grounded in the model and an offer to run the techniqu
   and run the agent again. A finding you reject that the reviewer upholds goes to the
   builder.
 
-The builder closes the step. On their word, record it in `model/<part>/steps.yaml` as
+The builder closes the step. On their word, record it in `datum/model/<part>/steps.yaml` as
 `functional-analysis: {closed_at: <commit>}`.
