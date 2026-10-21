@@ -32,4 +32,5 @@ synonyms; a reviewer flags any other. Add a term when it first appears in a skil
 | increment | A usable, verified addition of capability: a set of functions plus deferrals |
 | stub | A stand-in for an out-of-scope part, derived from its interface |
 | finding | What a reviewer reports: blocking, should fix, or a note |
-| loss, hazard | Open: their form is being explored |
+| loss | What must never happen to the builder, a user or a third party; `LOS-`, at the top part only |
+| hazard | A state of a part that, under bad conditions, leads to a loss; `HAZ-`, linked to at least one loss |

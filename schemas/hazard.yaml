@@ -1,0 +1,16 @@
+title: hazard
+type: object
+additionalProperties: false
+required: [id, status, statement, losses, arises_from]
+properties:
+  id: {$ref: "_common.yaml#/$defs/HAZ"}
+  status: {$ref: "_common.yaml#/$defs/status"}
+  statement: {$ref: "_common.yaml#/$defs/text"}      # a state of the part that, under bad conditions, leads to a loss
+  losses:
+    type: array
+    minItems: 1
+    items: {$ref: "_common.yaml#/$defs/LOS"}
+  arises_from:                                       # the functions of this part that introduce it
+    type: array
+    minItems: 1
+    items: {$ref: "_common.yaml#/$defs/FUN"}

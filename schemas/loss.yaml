@@ -1,0 +1,17 @@
+title: loss
+type: object
+additionalProperties: false
+required: [id, status, statement, to, from]
+properties:
+  id: {$ref: "_common.yaml#/$defs/LOS"}
+  status: {$ref: "_common.yaml#/$defs/status"}
+  statement: {$ref: "_common.yaml#/$defs/text"}      # what must never happen
+  to:                                                # who it happens to
+    type: array
+    minItems: 1
+    uniqueItems: true
+    items: {enum: [user, builder, third party]}
+  from:                                              # the elicitation entries it was drawn from
+    type: array
+    minItems: 1
+    items: {$ref: "_common.yaml#/$defs/ELI_entry"}

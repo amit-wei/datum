@@ -156,7 +156,21 @@ at every part, split across the two places; no level exception.
   information disclosure, denial of service, elevation of privilege) on every interface
   that crosses a trust boundary. The pass runs in every part's synthesis; with nothing
   to find, it records so. They generate derived requirements.
-- **Answering:** a hazard is answered by requirements at its own level (`answers: RSK`),
+- **Form (agreed 2026-10-21, #18).** A loss is `LOS-`, one file per loss, in
+  `product/analysis/` only: the statement (what must never happen), who it happens to
+  (`to`: user, builder, third party) and `from: [ELI-XXXX#n]`. Every loss is reached
+  by at least one hazard; a harm the product cannot lead to is not a loss, and its entry
+  is marked `out_of_scope` with the reason. It gets its own ID because
+  hazards at every level link to it. A hazard is `HAZ-`, in its part's `analysis/`: the
+  statement (a state of the part that, under bad conditions, leads to a loss),
+  `losses: [LOS]` (at least one) and `arises_from: [FUN]`. `HAZ-`, not `RSK-`: it says
+  what it is, and leaves `RSK-` free for a profile whose risk assessment needs it. The
+  form of STRIDE threats is settled with synthesis. Needs stay numbered entries in the
+  elicitation record (`ELI-XXXX#n`): they turn into scenarios and functions, and add
+  nothing to a model that is built correctly. A need or loss that goes no further
+  stays in the record with `out_of_scope: <reason>`. The interface item's control, feedback or
+  data field is deferred to synthesis.
+- **Answering:** a hazard is answered by requirements at its own level (`answers: HAZ`),
   or accepted by an ADR. Those requirements flow down with `parent: REQ` like any other;
   the trace from a child requirement to the hazard is computed through its parents.
 - **No new artifacts for the views.** STPA's control structure and STRIDE's data-flow
@@ -254,7 +268,7 @@ command), never stored.
   own level's proofs (see Verification). When a parent changes, its computed children are
   revisited.
 - **A requirement has at least one reason to exist**, any of: `of: FUN` (the function it
-  constrains), `parent: REQ`, `justified_by: ADR`, `answers: RSK`, `source: builder`.
+  constrains), `parent: REQ`, `justified_by: ADR`, `answers: HAZ`, `source: builder`.
   None is an error.
 - **Proofs** store `covers: [REQ]`. Cases name their proof; a proof does not list cases.
 - **Decisions** store `supersedes: ADR` (the old one's state is computed) and
@@ -267,10 +281,10 @@ command), never stored.
 - **Units:** every part with no children in the model stores `units:`; a parent's units
   are computed from its children. A unit stores `justified_by: ADR`, except the default
   unit.
-- **Risks** store only `threatens:` (function, part or interface). Requirements store
-  `answers: RSK`; a decision may store `accepts: [RSK]` and must state the consequence
-  accepted. A risk is computed as answered, accepted or open. All other risk fields wait
-  for the design of the risk passes.
+- **Hazards** store `losses: [LOS]` and `arises_from: [FUN]` (Risk in the engine,
+  revised 2026-10-21). Requirements store `answers: HAZ`; a decision may store
+  `accepts: [HAZ]` and must state the consequence accepted. A hazard is computed as
+  answered, accepted or open. Threats wait for the design of synthesis's risk pass.
 - **Open:** whether design evaluation's
   "every requirement is handled" can be computed without `allocated_to`: own proof at its
   level, or children written at synthesis, or reach through its function's children.
@@ -609,7 +623,7 @@ Settles Q-1 and #2.
   contributing parts (`contributes_to`) → interfaces. No rule makes the first increment
   product-level: before it, nothing below the product level exists.
 - **Deferrals** each carry a reason. Deferring a requirement that answers a hazard needs
-  a decision with `accepts: [RSK]` in the model. Nothing in scope is dropped silently
+  a decision with `accepts: [HAZ]` in the model. Nothing in scope is dropped silently
   (L4).
 - **Where it lives (GitHub, accepted for now).** The scope is in the milestone
   description, in a fixed structure a script reads: function IDs, and deferrals with

@@ -6,6 +6,7 @@ skills:
   - functional-analysis
   - writing-functions
   - writing-scenarios
+  - losses-and-hazards
 ---
 
 # Review: functional analysis
@@ -15,8 +16,8 @@ the author's summary: check the model itself. You read and report; you never edi
 file. Use Bash only to read (`git diff`, `git log`, the validator).
 
 The preloaded skills are your references: `functional-analysis` holds the stance and
-the end condition, `writing-functions` and `writing-scenarios` the rules for each
-artifact. Cite the rule behind every finding.
+the end condition, `writing-functions`, `writing-scenarios` and `losses-and-hazards`
+the rules for each artifact. Cite the rule behind every finding.
 
 ## What you are given
 
@@ -35,16 +36,25 @@ author fixed or rejected and why.
    - every scenario step done by the product → a function that serves it (product)
    - every parent function the part contributes to → its child functions (other parts)
    - every obligation found in step 1 → a function, or an issue
+   - every entry marked `loss: true` → a loss, or `out_of_scope` with a reason that
+     holds (product)
+   - every loss → a hazard that reaches it (product)
+   - every function → considered for the hazards it introduces; name any state it
+     could reach that leads to a loss and has no hazard
 3. **Check each function** against the rules in `writing-functions`: what is and is not
    a function, the six rules, the file fields. Then run its search for what is missing
    (first use, startup and shutdown, outside systems failing, bad input, backup and
    export, other stakeholders) and report what has no answer.
-4. **Check each scenario** against the rules in `writing-scenarios`, and whether
+4. **Check losses and hazards** against the rules in `losses-and-hazards`: losses only
+   in the product's folder, free of causes; each hazard a state of this part, not a
+   cause or a loss; below the product, no hazard that restates one a parent
+   requirement already answers.
+5. **Check each scenario** against the rules in `writing-scenarios`, and whether
    failure journeys exist for the failures that matter.
-5. **Look for overbuilding:** a function or scenario that nothing asks for.
-6. **Run the validator,** `uv run "${CLAUDE_PLUGIN_ROOT}/scripts/validate.py"`, and report its errors as blocking
+6. **Look for overbuilding:** a function or scenario that nothing asks for.
+7. **Run the validator,** `uv run "${CLAUDE_PLUGIN_ROOT}/scripts/validate.py"`, and report its errors as blocking
    and its warnings as should fix.
-7. **Check the builder's agreement:** the end condition needs the builder to agree the
+8. **Check the builder's agreement:** the end condition needs the builder to agree the
    set of functions covers what they expect. If the record shows no such agreement,
    that is a blocking finding.
 

@@ -17,3 +17,5 @@ properties:
         question: {$ref: "_common.yaml#/$defs/text"}
         answer: {$ref: "_common.yaml#/$defs/text"}   # the builder's own words
         need: {type: boolean}
+        loss: {type: boolean}                         # the answer names something that must never happen
+        out_of_scope: {$ref: "_common.yaml#/$defs/text"}  # why this need or loss goes no further

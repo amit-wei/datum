@@ -65,9 +65,11 @@ echo "ELI-$(LC_ALL=C tr -dc '0-9A-HJKMNP-TV-Z' </dev/urandom | head -c 4)"
 ```
 
 Each entry is numbered and holds the question and the builder's answer in their own
-words. An entry that states a need says so; scenarios and functions link to it as
-`ELI-XXXX` with the entry number. When an answer fills a field elsewhere (a value, a
-choice), write it there too, and cite the entry.
+words. An entry that states a need says so (`need: true`), and so does one that names
+something that must never happen (`loss: true`); scenarios, functions and losses link
+to it as `ELI-XXXX` with the entry number. When an answer fills a field elsewhere (a
+value, a choice), write it there too, and cite the entry. A need or loss the builder
+puts out of scope stays in the record with `out_of_scope: <reason>`.
 
 An example, for illustration only:
 
@@ -80,7 +82,7 @@ entries:
     answer: "Just me. A coach might look at it later but that's not now."
     need: true
   - n: 2
-    question: When you say the plan should be safe, what would unsafe look like?
-    answer: "Jumping my weekly load by a lot after a week off."
-    need: true
+    question: What is the worst thing the app could do to you?
+    answer: "Lose my logbook. That's years of sessions I can't get back."
+    loss: true
 ```

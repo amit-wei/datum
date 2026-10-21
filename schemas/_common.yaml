@@ -5,6 +5,8 @@ $defs:
   FUN: {type: string, pattern: "^FUN-[0-9A-HJKMNP-TV-Z]{4}$"}
   SCN: {type: string, pattern: "^SCN-[0-9A-HJKMNP-TV-Z]{4}$"}
   ELI: {type: string, pattern: "^ELI-[0-9A-HJKMNP-TV-Z]{4}$"}
+  LOS: {type: string, pattern: "^LOS-[0-9A-HJKMNP-TV-Z]{4}$"}
+  HAZ: {type: string, pattern: "^HAZ-[0-9A-HJKMNP-TV-Z]{4}$"}
   SCN_step: {type: string, pattern: "^SCN-[0-9A-HJKMNP-TV-Z]{4}#[1-9][0-9]*$"}
   ELI_entry: {type: string, pattern: "^ELI-[0-9A-HJKMNP-TV-Z]{4}#[1-9][0-9]*$"}
   n: {type: integer, minimum: 1}

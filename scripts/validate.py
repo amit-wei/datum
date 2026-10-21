@@ -20,7 +20,7 @@ ROOT = Path(".datum/model")
 SCHEMAS = Path(__file__).resolve().parent.parent / "schemas"
 ID = r"[A-Z]{3}-[0-9A-HJKMNP-TV-Z]{4}"
 LINK = re.compile(rf"^({ID})(?:#([1-9][0-9]*))?$")
-BY_PREFIX = {"FUN": "function", "SCN": "scenario", "ELI": "elicitation"}
+BY_PREFIX = {"FUN": "function", "SCN": "scenario", "ELI": "elicitation", "LOS": "loss", "HAZ": "hazard"}
 UNCHECKED = {"SPK", "RES"}  # no schema yet: their step brings one
 
 

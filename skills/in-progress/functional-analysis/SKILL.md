@@ -1,6 +1,6 @@
 ---
 name: functional-analysis
-description: Use when a part's functions are not yet known or have to change - a new product idea, a new capability the existing functions do not cover, or a part the parent's synthesis has just created. Engine step 1 of datum for every part; produces functions and scenarios. Not for writing what must hold for a function (use requirements) or choosing parts (use synthesis).
+description: Use when a part's functions are not yet known or have to change - a new product idea, a new capability the existing functions do not cover, or a part the parent's synthesis has just created. Engine step 1 of datum for every part; produces functions, scenarios, losses and hazards. Not for writing what must hold for a function (use requirements) or choosing parts (use synthesis).
 ---
 
 # Functional analysis (engine step 1)
@@ -52,6 +52,8 @@ it here: open an issue on the part that owns it and raise it with the builder.
 - `FUN-` files in the part's `functions/` folder, each with `serves` (the product) or
   a `parent` function (any other part).
 - `SCN-` files in `analysis/`, for the product.
+- `LOS-` files in `analysis/`, for the product; `HAZ-` files in `analysis/`, for every
+  part that introduces a hazard.
 - Records of the techniques used (`ELI-`, `RES-`, `SPK-`) in `analysis/`.
 
 ## Techniques
@@ -68,7 +70,9 @@ A question gets an answer grounded in the model and an offer to run the techniqu
 4. `writing-functions`: for every part. In the product after the scenarios;
    in a part, from the parent functions it contributes to. It holds the rules for what
    is and is not a function (a property, an interface, a guard, a mechanism are not).
-5. `running-a-spike`: when there is a doubt that a function is feasible. In a
+5. `losses-and-hazards`: forced at every part, after `writing-functions`. Losses at the
+   product only; hazards wherever the part's own functions introduce them.
+6. `running-a-spike`: when there is a doubt that a function is feasible. In a
    subagent, time-boxed, with a written question.
 
 ## End condition
@@ -77,7 +81,10 @@ A question gets an answer grounded in the model and an offer to run the techniqu
   expect this part to do.
 - Every scenario step is done by some function.
 - Every function serves a scenario (product) or a parent function (a part).
-- Every elicited need is in a scenario, or marked out of scope with a reason.
+- Every elicited need is in a scenario, or marked `out_of_scope` with a reason.
+- Every function has been checked for hazards it introduces.
+- Every elicited loss is a `LOS-` file, or marked `out_of_scope` with a reason; every
+  loss is reached by at least one hazard (product).
 - Every obligation found in the inputs is met by a function or raised as an issue.
 - No feasibility doubt is left without a spike or a `TBD` with an issue.
 - The validator is clean (no errors): `uv run "${CLAUDE_PLUGIN_ROOT}/scripts/validate.py"`.
