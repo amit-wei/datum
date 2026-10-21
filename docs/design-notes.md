@@ -399,11 +399,14 @@ Settles Q-3. Evidence: `research/2026-10-skill-granularity.md`,
   `verify` have no reviewer agent (agreed 2026-10-18): they close on computed checks
   (scope coverage, stubs on the demonstrated path, evidence at one commit) and the
   builder's word.
-- **Script runtime** (agreed 2026-10-18): plain shell for trivial pieces (IDs, staleness
-  through `git diff`); everything else Python with the standard library only, run with
-  `python3` and no packages, so it works whatever the project's stack (P3). Later
-  option: a datum package for `uvx`/`pipx`, which then becomes a requirement for
-  running datum.
+- **Script runtime** (revised 2026-10-21): plain shell for trivial pieces (IDs, staleness
+  through `git diff`); everything else Python scripts that declare their packages inline
+  (PEP 723) and run with `uv run`, so PyYAML and jsonschema are used, not rewritten.
+  `uv` is a requirement for running datum; the router checks for it and says how to
+  install it. The 2026-10-18 position (standard library only, no packages) cited P3, but
+  P3 keeps datum off the product's stack, not off packages; its real cost was a YAML
+  parser and a schema checker of our own, both easy to get subtly wrong. Packages run in
+  uv's cache and never touch the project. Later option: a datum package for `uvx`.
 - **Scripts for agents** are written when a step needs one, as with types (P9).
   Candidates: validate, stale, trace (links up and down from an ID), coverage (every
   parent has a child, every function a requirement, every requirement a proof).
