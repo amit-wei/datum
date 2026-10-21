@@ -1,0 +1,16 @@
+title: step state of a part
+type: object
+additionalProperties: false
+properties:
+  functional-analysis: {$ref: "#/$defs/closed"}
+  requirements: {$ref: "#/$defs/closed"}
+  synthesis: {$ref: "#/$defs/closed"}
+  design-evaluation: {$ref: "#/$defs/closed"}
+  cases: {$ref: "#/$defs/closed"}
+$defs:
+  closed:
+    type: object
+    additionalProperties: false
+    required: [closed_at]
+    properties:
+      closed_at: {$ref: "_common.yaml#/$defs/commit"}

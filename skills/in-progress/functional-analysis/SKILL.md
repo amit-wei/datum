@@ -80,7 +80,8 @@ A question gets an answer grounded in the model and an offer to run the techniqu
 - Every elicited need is in a scenario, or marked out of scope with a reason.
 - Every obligation found in the inputs is met by a function or raised as an issue.
 - No feasibility doubt is left without a spike or a `TBD` with an issue.
-- The validator is clean.
+- The validator is clean (no errors): `uv run "${CLAUDE_PLUGIN_ROOT}/scripts/validate.py"`. Its warnings name
+  uncovered needs and unserved steps; answer each.
 - The closing review is clean: run the `review-functional-analysis` agent with the
   part's path. Fix each blocking and should-fix finding, or reject it with a reason,
   and run the agent again. A finding you reject that the reviewer upholds goes to the

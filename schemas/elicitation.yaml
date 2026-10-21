@@ -1,0 +1,19 @@
+title: elicitation record
+type: object
+additionalProperties: false
+required: [id, date, entries]
+properties:
+  id: {$ref: "_common.yaml#/$defs/ELI"}
+  date: {$ref: "_common.yaml#/$defs/date"}
+  entries:
+    type: array
+    minItems: 1
+    items:
+      type: object
+      additionalProperties: false
+      required: [n, question, answer]
+      properties:
+        n: {$ref: "_common.yaml#/$defs/n"}           # unique, never renumbered: scenarios link to it
+        question: {$ref: "_common.yaml#/$defs/text"}
+        answer: {$ref: "_common.yaml#/$defs/text"}   # the builder's own words
+        need: {type: boolean}

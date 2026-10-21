@@ -53,7 +53,9 @@ description: Use when starting, resuming or steering work on a product built wit
    because the answer depends on the model's state and the step's techniques.
 2. **First contact.** If the project's `CLAUDE.md` (or `AGENTS.md`) lacks the line
    "This project is built with datum. Load the `datum` skill before any work in this
-   project.", offer to add it; without it, later sessions skip datum.
+   project.", offer to add it; without it, later sessions skip datum. If `uv --version`
+   fails, datum's scripts cannot run: tell the builder to install uv
+   (https://docs.astral.sh/uv/) before going on.
 3. **No `datum/model/` folder** and the builder describes something to build: load the step
    `functional-analysis` for the product.
 4. **Otherwise find the work.** For every part, read `steps.yaml` and compute what is

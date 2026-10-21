@@ -59,7 +59,7 @@ name: Log a run and get the next session
 kind: main
 trigger: The user finishes a run.
 steps:
-  - {n: 1, by: user, what: Enters the run's distance, time and how hard it felt.}
+  - {n: 1, by: user, what: "Enters the run's distance, time and how hard it felt."}
   - {n: 2, by: product, what: Adds the run to the user's log.}
   - {n: 3, by: product, what: Proposes the next session.}
   - {n: 4, by: user, what: Accepts the session or changes it.}

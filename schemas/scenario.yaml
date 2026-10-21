@@ -1,0 +1,27 @@
+title: scenario
+type: object
+additionalProperties: false
+required: [id, status, name, kind, trigger, steps, outcome, needs]
+properties:
+  id: {$ref: "_common.yaml#/$defs/SCN"}
+  status: {$ref: "_common.yaml#/$defs/status"}
+  name: {$ref: "_common.yaml#/$defs/text"}
+  kind: {enum: [main, variation, failure]}
+  trigger: {$ref: "_common.yaml#/$defs/text"}
+  preconditions: {$ref: "_common.yaml#/$defs/text"}
+  steps:
+    type: array
+    minItems: 1
+    items:
+      type: object
+      additionalProperties: false
+      required: [n, by, what]
+      properties:
+        n: {$ref: "_common.yaml#/$defs/n"}           # unique, never renumbered: functions link to it
+        by: {$ref: "_common.yaml#/$defs/text"}
+        what: {$ref: "_common.yaml#/$defs/text"}
+  outcome: {$ref: "_common.yaml#/$defs/text"}
+  needs:                                             # entries that state a need (validator rule)
+    type: array
+    minItems: 1
+    items: {$ref: "_common.yaml#/$defs/ELI_entry"}

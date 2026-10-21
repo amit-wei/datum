@@ -76,7 +76,7 @@ id: ELI-3RWN
 date: 2026-10-18
 entries:
   - n: 1
-    question: Who logs the sessions: the athlete, the coach, or both?
+    question: "Who logs the sessions: the athlete, the coach, or both?"
     answer: "Just me. A coach might look at it later but that's not now."
     need: true
   - n: 2

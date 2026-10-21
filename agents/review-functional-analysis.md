@@ -42,7 +42,8 @@ author fixed or rejected and why.
 4. **Check each scenario** against the rules in `writing-scenarios`, and whether
    failure journeys exist for the failures that matter.
 5. **Look for overbuilding:** a function or scenario that nothing asks for.
-6. **Run the validator** if it is available, and report its errors as blocking.
+6. **Run the validator,** `uv run "${CLAUDE_PLUGIN_ROOT}/scripts/validate.py"`, and report its errors as blocking
+   and its warnings as should fix.
 7. **Check the builder's agreement:** the end condition needs the builder to agree the
    set of functions covers what they expect. If the record shows no such agreement,
    that is a blocking finding.
