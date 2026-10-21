@@ -21,7 +21,7 @@ properties:
         by: {$ref: "_common.yaml#/$defs/text"}
         what: {$ref: "_common.yaml#/$defs/text"}
   outcome: {$ref: "_common.yaml#/$defs/text"}
-  needs:                                             # entries that state a need (validator rule)
+  needs:                                             # entries marked need: true (validator rule)
     type: array
     minItems: 1
     items: {$ref: "_common.yaml#/$defs/ELI_entry"}

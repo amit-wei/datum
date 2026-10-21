@@ -16,7 +16,7 @@ from jsonschema import Draft202012Validator
 from referencing import Registry
 from referencing.jsonschema import DRAFT202012
 
-ROOT = Path("datum/model")
+ROOT = Path(".datum/model")
 SCHEMAS = Path(__file__).resolve().parent.parent / "schemas"
 ID = r"[A-Z]{3}-[0-9A-HJKMNP-TV-Z]{4}"
 LINK = re.compile(rf"^({ID})(?:#([1-9][0-9]*))?$")
@@ -140,48 +140,19 @@ def main():
             elif n and int(n) not in numbers.get(target, {}):
                 errs.append(f"{rel(f)}: {link}: {target} has no number {n}")
 
-    # Rules by type.
-    product = model / "product"
-    needed = {}  # ELI entry -> covered by a scenario
-    served = {}  # product scenario step -> served by a function
-    for i, (d, f) in arts.items():
-        if i.startswith("ELI"):
-            for n, e in numbers.get(i, {}).items():
-                if e.get("need") is True:
-                    needed[f"{i}#{n}"] = False
-        if i.startswith("SCN"):
-            for n, s in numbers.get(i, {}).items():
-                if s.get("by") == "product":
-                    served[f"{i}#{n}"] = False
+    # Rules by type, the same at every level. Level- and step-specific rules (a product
+    # function serves a scenario, every need is covered) are gate checks, not these.
     for i, (d, f) in arts.items():
         if i.startswith("SCN"):
             for link in d.get("needs") or []:
-                if link in needed:
-                    needed[link] = True
-                elif (m := LINK.match(link)) and m.group(2) and int(m.group(2)) in numbers.get(m.group(1), {}):
+                target, n = LINK.match(link).groups()
+                entry = numbers.get(target, {}).get(int(n)) if n else None
+                if entry is not None and entry.get("need") is not True:
                     errs.append(f"{rel(f)}: needs {link}, an entry not marked need: true")
         if i.startswith("FUN"):
-            at_product = part_of(f) == product
-            if at_product and "parent" in d:
-                errs.append(f"{rel(f)}: a product function has no parent function")
-            if at_product and not d.get("serves"):
-                errs.append(f"{rel(f)}: a product function serves no scenario step")
-            if not at_product and "serves" in d:
-                errs.append(f"{rel(f)}: only product functions serve scenario steps; use parent")
-            if not at_product and "parent" not in d:
-                errs.append(f"{rel(f)}: no parent function (the parent part's function it takes on)")
             p = d.get("parent")
             if p in arts and part_of(arts[p][1]) != part_of(f).parent:
                 errs.append(f"{rel(f)}: parent {p} is not a function of the parent part")
-            for link in d.get("serves") or []:
-                if link in served:
-                    served[link] = True
-    for link, ok in sorted(needed.items()):
-        if not ok:
-            warns.append(f"{link}: a need no scenario covers")
-    for link, ok in sorted(served.items()):
-        if not ok:
-            warns.append(f"{link}: a product step no function serves")
 
     print(f"ERRORS {len(errs)}")
     for e in errs:

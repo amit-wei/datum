@@ -7,9 +7,9 @@ properties:
   status: {$ref: "_common.yaml#/$defs/status"}
   name: {$ref: "_common.yaml#/$defs/text"}           # the verb and object
   definition: {$ref: "_common.yaml#/$defs/text"}     # what is done, for whom, with what result
-  serves:                                            # the product (validator rule): the scenario steps it does
+  serves:                                            # the scenario steps it does; a gate requires it at the product
     type: array
     minItems: 1
     items: {$ref: "_common.yaml#/$defs/SCN_step"}
-  parent: {$ref: "_common.yaml#/$defs/FUN"}          # any other part (validator rule): the parent part's function
+  parent: {$ref: "_common.yaml#/$defs/FUN"}          # the parent part's function it takes on
   rationale: {$ref: "_common.yaml#/$defs/text"}      # optional; must not restate links

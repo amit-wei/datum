@@ -39,7 +39,7 @@ the product. A scenario is `draft` until they agree.
 
 ## The file
 
-One file per scenario in `datum/model/product/analysis/`, named by its ID. Make the ID with:
+One file per scenario in `.datum/model/product/analysis/`, named by its ID. Make the ID with:
 
 ```
 echo "SCN-$(LC_ALL=C tr -dc '0-9A-HJKMNP-TV-Z' </dev/urandom | head -c 4)"

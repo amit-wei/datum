@@ -37,7 +37,7 @@ is the current increment.
 ## Inputs
 
 - **The product:** the builder's needs and constraints, drawn out by grilling into an
-  elicitation record (`ELI-` in `datum/model/product/analysis/`).
+  elicitation record (`ELI-` in `.datum/model/product/analysis/`).
 - **Any other part:** what the parent's synthesis gave it: the parent functions it
   `contributes_to`, the requirements written into its `requirements/` folder, and the
   interfaces that name it; plus what grilling draws out.
@@ -80,12 +80,11 @@ A question gets an answer grounded in the model and an offer to run the techniqu
 - Every elicited need is in a scenario, or marked out of scope with a reason.
 - Every obligation found in the inputs is met by a function or raised as an issue.
 - No feasibility doubt is left without a spike or a `TBD` with an issue.
-- The validator is clean (no errors): `uv run "${CLAUDE_PLUGIN_ROOT}/scripts/validate.py"`. Its warnings name
-  uncovered needs and unserved steps; answer each.
+- The validator is clean (no errors): `uv run "${CLAUDE_PLUGIN_ROOT}/scripts/validate.py"`.
 - The closing review is clean: run the `review-functional-analysis` agent with the
   part's path. Fix each blocking and should-fix finding, or reject it with a reason,
   and run the agent again. A finding you reject that the reviewer upholds goes to the
   builder.
 
-The builder closes the step. On their word, record it in `datum/model/<part>/steps.yaml` as
+The builder closes the step. On their word, record it in `.datum/model/<part>/steps.yaml` as
 `functional-analysis: {closed_at: <commit>}`.
