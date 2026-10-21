@@ -311,6 +311,12 @@ them.
 - **The validator** checks invariants true of every artifact on every commit. Its rules
   are the same at every level and for every artifact of a type; an exception needs a
   very good reason.
+- **The validator checks mechanics, never quality** (agreed 2026-10-21): that files
+  parse, fit their schema and are named by their ID; that IDs are unique; that links,
+  `#n` included, resolve; that numbers are unique; that a link's target sits where the
+  structure says (a `parent` function in the part above). Whether the model is good or
+  complete is for gate checks and the reviewer. A rule that judges does not go in, so the
+  validator stays small (Pendentive's grew to 672 lines, audit L8).
 - **Gate checks** run when an engine step is closed (P11). Level- or step-specific rules
   live there, e.g. product functions serve a scenario before product-level functional
   analysis closes (P13). `serves:` is an ordinary optional field at every level.
