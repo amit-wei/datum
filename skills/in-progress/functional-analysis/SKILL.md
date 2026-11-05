@@ -94,4 +94,4 @@ A question gets an answer grounded in the model and an offer to run the techniqu
   builder.
 
 The builder closes the step. On their word, record it in `.datum/model/<part>/steps.yaml` as
-`functional-analysis: {closed_at: <commit>}`.
+`functional-analysis: {closed_at: "<commit>"}`.

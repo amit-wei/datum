@@ -359,7 +359,7 @@ build (P4); code ahead of the model is the defect. Per-type states beyond these:
 
 **Step state** (agreed 2026-10-17). Closing a step is a decision of the builder, so it is
 stored: one file per part, `.datum/model/<part>/steps.yaml`, with a fixed schema the
-validator checks, e.g. `functional-analysis: {closed_at: <commit>}`. *Stale* is
+validator checks, e.g. `functional-analysis: {closed_at: "<commit>"}`. *Stale* is
 computed: model files of the part changed after the closing commit. The router reads
 these files; GitHub issues hold the queue of work and never mirror model state.
 

@@ -38,7 +38,7 @@ description: Use when starting, resuming or steering work on a product built wit
 - An ID is a type prefix and 4 Crockford base32 characters (`REQ-7K3Q`). Links name IDs,
   never paths.
 - `.datum/model/<part>/steps.yaml` records the engine steps the builder has closed, e.g.
-  `functional-analysis: {closed_at: <commit>}`.
+  `functional-analysis: {closed_at: "<commit>"}`.
 - States a person decides: `draft`, `agreed`, `retired`. Everything else is computed.
 - An increment's scope (function IDs, and deferrals with their reasons) is in the
   description of its GitHub milestone. Open questions and work are GitHub issues; they
