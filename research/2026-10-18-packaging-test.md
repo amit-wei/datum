@@ -30,13 +30,13 @@ in a cloud session, about $27.
   12 and 13): P2, N3, N6, N9, and P1 among the training ones. On the four clean
   validation queries plus N2 (P4, P8, P11, N2, N8), S still leads: Sonnet 9/15 against
   7/15, Haiku 9/15 against 6/15. VERIFIED; the margin is small.
-- The cloud session did not list the builder's other skills. Locally, S lists 58
+- The cloud session did not list the other installed skills. Locally, S lists 58
   skills and may overflow the listing budget. A local check of the five clean
   validation queries on Sonnet, one run each: see Decision.
 
 ## Decision
 
-**Techniques are separate skills (S).** In the builder's own setup (58 skills listed in
+**Techniques are separate skills (S).** In a real local setup (58 skills listed in
 S), the five clean validation queries on Sonnet, once each, gave S 3/5 and R 2/5
 (`results/local-check.jsonl`; one unreadable verdict re-judged). VERIFIED. The full
 listing did not cost S its lead, so the listing budget is not shown to bite at this
@@ -107,7 +107,7 @@ These matter beyond packaging; every skill datum ships should respect them.
     from memory instead of loading research. Keep tools visible and refuse them when
     called. VERIFIED (pilots 1 and 2).
 15. **A Haiku judge is noise.** Re-judging 10 runs three times gave differing verdicts
-    on 4; a Sonnet judge agreed with the builder on 8 of 10, and the 2 disagreements
+    on 4; a Sonnet judge agreed with the hand marks on 8 of 10, and the 2 disagreements
     came from an ambiguous Outcome. Outcomes must be unambiguous. The judge also
     returned unreadable output once in about 290 calls; re-judge those. VERIFIED.
 16. **Pilot on training queries only.** Tuning skill text after pilots on validation

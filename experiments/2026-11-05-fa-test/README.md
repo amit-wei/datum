@@ -66,7 +66,7 @@ the baseline: 5/6 against 3/6 on validation by the judge, narrower by hand (4 or
 - Datum's value at this step is process discipline: it stops the agent acting early or
   overbuilding, and it keeps the work moving. Asked directly to spot something, plain
   Sonnet does about as well, reading a model already well structured. Asked only to carry
-  on, the baseline stalled and never checked for hazards. The builder's theory is that
+  on, the baseline stalled and never checked for hazards. The working theory is that
   discipline here pays off in synthesis and building, which this test does not reach.
 - **Techniques work when loaded; loading is the weak point.** In the last rerun all four
   runs that loaded `losses-and-hazards` did the right thing, by hand: three found the new

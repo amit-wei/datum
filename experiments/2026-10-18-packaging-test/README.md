@@ -42,7 +42,7 @@ folder: they hold the runner's own setup and never enter the repository.
    technique is loaded before its output is produced; questions may be answered
    directly.
 5. **A Haiku judge is noise:** re-judging 10 runs three times gave differing verdicts on
-   4. The builder's marks agreed with Sonnet on 8 of 10 and the two disagreements were an
+   4. The hand marks agreed with Sonnet on 8 of 10 and the two disagreements were an
    ambiguous Outcome (N5, since reworded). The judge is now Sonnet.
 6. **Known failure, kept: P12.** Asked "are we done with requirements?" with a product
    budget (`REQ-B4DG`) not flowed down to the parts, every run (S and R, before and after
@@ -52,7 +52,7 @@ folder: they hold the runner's own setup and never enter the repository.
    finding for the real skills, not a packaging one (issue #15).
 
 **Result:** techniques as separate skills (S). The full run (276 runs, `results/runs.jsonl`)
-and a local check in the builder's setup (`results/local-check.jsonl`) both favour S by a
+and a local check in a real setup (`results/local-check.jsonl`) both favour S by a
 small margin. Analysis, the decision and 17 lessons for writing skills:
 `research/2026-10-18-packaging-test.md`. A smoke test (P3 and P10 on Haiku 5.5, one run per variant,
 $0.04 in total) checked the rig end to end and found the fixture bug now fixed. In

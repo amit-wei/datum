@@ -5,7 +5,7 @@ model format does not exist yet. Started 2026-10-14.
 
 ## Intake
 
-Condensed from the builder, 2026-10-14.
+Condensed from the kickoff, 2026-10-14.
 
 | # | Intake |
 |---|---|
@@ -18,7 +18,7 @@ Condensed from the builder, 2026-10-14.
 | I7 | Fast enough for rapid small client projects, deep enough for Pendentive |
 | I8 | Rigour tailored to risk tolerance in a structured, traceable way; later, compliance profiles for real standards |
 | I9 | Attractive, explorable views of the model |
-| I10 | Open source; the builder first |
+| I10 | Open source; its author first |
 | I11 | The builder's review is structured (not necessarily minimised) |
 | I12 | Decomposition follows rules: how to decompose and when to stop is not each agent's call |
 | I13 | Adopt into existing codebases (brownfield) — in scope, later |

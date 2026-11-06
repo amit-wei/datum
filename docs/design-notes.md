@@ -21,7 +21,7 @@ requirements, 177 interface rows, 198 decisions, 117 open questions, and no code
 
 | # | Position | State |
 |---|---|---|
-| P1 | Audience: the builder first; later solo devs; later small teams | agreed |
+| P1 | Audience: its author first; later solo devs; later small teams | agreed |
 | P2 | Claude Code first; the method in portable formats (Agent Skills, AGENTS.md, plain files); hooks and subagents as a Claude-specific enforcement layer | agreed |
 | P3 | Stack-agnostic. Stack, toolchain and conventions are an **output** of the workflow (a synthesis decision), not an input. The input is "what do you want to do" | agreed |
 | P4 | The model may contain what the code does not have yet, if its state says so. Model and code agree for built items | agreed in concept |
@@ -389,7 +389,7 @@ Settles Q-3. Evidence: `research/2026-10-skill-granularity.md`,
 - **Every skill is invocable by the builder.** Ideally only `datum` is invoked.
 - **Packaging: each technique is its own skill** (agreed 2026-10-18, by test). Against
   reference files inside the steps, separate skills won on the validation queries on
-  Sonnet and Haiku and in the builder's own setup, by a small margin, and need no
+  Sonnet and Haiku and in a real local setup, by a small margin, and need no
   copies. A skill hidden with `disable-model-invocation` cannot be called by a step.
   Evidence and caveats: `research/2026-10-18-packaging-test.md`.
 - **Lessons for writing skills** are in that note (17, each labelled); read them before

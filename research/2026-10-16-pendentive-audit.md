@@ -11,7 +11,7 @@ of what it means for datum.
   235 decisions, 117 open questions. No code. The validator is clean.
 - Verdict: "Change course. Do not stop." The thinking is careful, but the specification
   has outgrown what it serves.
-- The audit took the February 2027 date as fixed. The builder states it is arbitrary, so
+- The audit took the February 2027 date as fixed. That date is arbitrary, so
   the schedule findings weigh less than the audit says.
 
 ## Failures of the method, and what they mean for datum
@@ -25,7 +25,7 @@ of what it means for datum.
 | L5 | 42 of 200 design decisions restate an earlier one, each with a seven-step supersession. A system was kept separate partly because folding it in "supersedes about nine decisions": "a cost of the method, not of the design" | Revising a decision must be cheap in the format |
 | L6 | The USD 50 budget is verified by Analysis and no analysis exists. The audit's first step is to measure one agent turn in a prototype. "Let code answer the open questions" | The engine needs throwaway experiments (spikes) whose result, not code, enters the model |
 | L7 | About 100 safety requirements answer risks scored by likelihood and detection anchors that, with no code and no operation, are guesses | Before anything runs, likelihood scores are weak evidence. Open: rank by severity alone until there is evidence |
-| L8 | A 672-line validator and a 136-line auditor brief, maintained by the one builder. A fixed internal vocabulary makes rows opaque; the audit asks for a glossary | Grow tooling only with a named consumer (P9); prefer plain names |
+| L8 | A 672-line validator and a 136-line auditor brief, maintained by one person. A fixed internal vocabulary makes rows opaque; the audit asks for a glossary | Grow tooling only with a named consumer (P9); prefer plain names |
 | L9 | The convention `Constraint: <name>` put the user's name into a field of every constraint row of a public repository | No format field may invite a name. A validator check can refuse a list of known strings |
 | L10 | Decisions about the provider landscape of autumn 2026 will be revisited by February; a model that costs a supersession cascade per change lags the ground | Same as L5: decisions about a fast-moving field must be cheap to revise |
 

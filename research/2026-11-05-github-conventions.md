@@ -1,6 +1,6 @@
 # A GitHub convention for this repository (2026-11-05)
 
-Research for issue #22. A proposal for the builder to decide on: nothing here is agreed
+Research for issue #22. A proposal to decide on: nothing here is agreed
 yet.
 
 Each claim is VERIFIED (a primary source was seen) or INFERRED. The audit was done
@@ -56,7 +56,7 @@ the end of this note).
 
 | # | Finding | Effect |
 |---|---|---|
-| A1 | `AGENTS.md`, `CLAUDE.md`, `README.md` and `docs/` never mention handoffs or a session routine. The routine lives only in the builder's private agent memory | An agent without that memory, such as a cloud session, does not know where to start |
+| A1 | `AGENTS.md`, `CLAUDE.md`, `README.md` and `docs/` never mention handoffs or a session routine. The routine lives only in a private agent memory | An agent without that memory, such as a cloud session, does not know where to start |
 | A2 | #6 cannot close: "the handoffs" and "the skills" share one issue, with 10 comments and 0 sub-issues | Its progress cannot be read, and it holds the plan for most remaining work |
 | A3 | Only 5 of the 10 comments on #6 are handoffs. One non-handoff comment came shortly before the session 7 handoff | INFERRED: "read the latest comment" can land on the wrong one |
 | A4 | Handoffs hold agreed content found nowhere else. The experiment README points to them for the test design. "Each step brings its own schemas" was not found in `docs/design-notes.md` or `AGENTS.md` | The repo's own rule says files are the record and losing GitHub loses only discussion (Q-6). That is not true today |
@@ -131,7 +131,7 @@ description is fine here (INFERRED).
 | Milestone | One per planned release. Every open issue has a milestone or `parked`. No due dates | A9, A12 |
 | Label | `parked` only. Other default labels stay, unused | A9 |
 | Commit message | `Refs #N` in the body, or `Closes #N` on the commit that finishes the issue | A7, A10 |
-| Handoff file | `docs/handoff.md`: branch, last commit, pushed or not, in flight, next in order by issue number, what waits on the builder | A1, A2, A3 |
+| Handoff file | `docs/handoff.md`: branch, last commit, pushed or not, in flight, next in order by issue number, what waits on a decision | A1, A2, A3 |
 | Release | A tag plus written notes, created when a milestone closes. Nothing before that | A version with no fixed point (INFERRED) |
 
 **Leave unused**
@@ -142,7 +142,7 @@ description is fine here (INFERRED).
 | Assignees | One human, and agents act under the same account, so an assignee says nothing |
 | Issue types | Not available on a personal account |
 | Extra labels (type, priority) | No failure needs them. Priority is the order in the handoff |
-| Issue forms and templates | One builder writes the issues |
+| Issue forms and templates | One person writes the issues |
 | Pinned issues, Discussions, wiki | Each would be another place to look |
 | Automation | Nothing above needs it. `Closes #N` is already built in |
 
@@ -181,11 +181,11 @@ An issue is closed only when all of these hold:
 2. **It says where.** The closing commit or comment names the file or commit that holds
    the outcome.
 3. **Nothing is left in it.** Every leftover has its own issue, named in the closing note.
-4. **The builder agreed.** The builder pushes, or says so in the session. Agents do not
+4. **It was agreed.** The push is the agreement, or it is said in the session. Agents do not
    close on their own view that the work is done.
 
 The usual way is `Closes #N` in the last commit, so the issue closes by itself when the
-builder's push reaches `main`. That gives 1 and 4 for free. An issue with no commit uses
+push reaches `main`. That gives 1 and 4 for free. An issue with no commit uses
 `gh issue close <n> --comment "..."`. A dropped issue closes as `not planned`, and a
 rejected idea also gets a file in `docs/out-of-scope/` (rule 3).
 
@@ -207,7 +207,7 @@ issue, then rewrite `docs/handoff.md` and commit it last. Keep it to one screen.
 - Every open issue has a milestone or the label `parked`.
 - Every commit names its issue: `Refs #N`, or `Closes #N` on the last one.
 - An issue closes when its outcome is on GitHub's `main`, the closing note says where,
-  leftovers have their own issues, and the builder agreed.
+  leftovers have their own issues, and it was agreed.
 - A later finding gets a new issue. Reopen only a mistaken close.
 ```
 
@@ -215,7 +215,7 @@ issue, then rewrite `docs/handoff.md` and commit it last. Keep it to one screen.
 
 | # | Step | Size |
 |---|---|---|
-| 1 | Push `main`, so #18's commit is on GitHub (A7) | 1 push, by the builder |
+| 1 | Push `main`, so #18's commit is on GitHub (A7) | 1 push |
 | 2 | Add the sections above to `AGENTS.md` | 1 file edit |
 | 3 | Write `docs/handoff.md` from the session 8 handoff and today's state, then add a pointer comment on #6 | 1 new file, 1 comment |
 | 4 | Sort #5, #22 and #23 into a milestone or `parked` | 3 issue edits |
@@ -229,7 +229,7 @@ issue, then rewrite `docs/handoff.md` and commit it last. Keep it to one screen.
 At the first release, as part of normal work: close the milestone, create the tag and
 release with written notes. Check then that creating a release works as the docs say.
 
-## Open choices for the builder
+## Open choices
 
 1. **Where handoffs live.** Recommended: `docs/handoff.md`. The alternative is a dedicated
    issue that never closes. It is visible from any branch, even before a push, but it
@@ -240,14 +240,14 @@ release with written notes. Check then that creating a release works as the docs
    notes stop being enough. The alternative keeps the rule and starts the folder with this
    convention as its first file, with no back-fill, which leaves decisions in two places.
    Confidence: medium.
-3. **Pull requests.** Recommended: none for now. The builder's push already acts as the
+3. **Pull requests.** Recommended: none for now. The push already acts as the
    gate. Reconsider at the first outside contributor or when CI runs. The cost is that
    release notes are written by hand. A pull request would give a page for reviewing agent
    work before it reaches `main`, which may matter more once code is being built.
    Confidence: medium.
 4. **#6: keep or replace.** Recommended: keep it as the parent, since its body still fits.
    The alternative closes it and opens a clean parent. Confidence: high.
-5. **Which leftovers belong in v0.1.0** (step 6). This needs the builder's judgement, and
+5. **Which leftovers belong in v0.1.0** (step 6). This needs a judgement call, and
    no recommendation is offered for each. Lean: reviewer preload in v0.1.0 because the
    reviewer depends on it, the others `parked`. Confidence: low.
 6. **The due date.** Recommended: remove it. If it helps as a personal target, keep it and
