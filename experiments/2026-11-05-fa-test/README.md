@@ -45,10 +45,11 @@ the temporary folder.
 ## Result
 
 Finished 2026-11-06, about $10.80, over the $3-5 budget because of three reruns. Mostly
-one run per behaviour, so this gives a direction, not a measurement. Every Sonnet verdict
-below was read by hand as well as judged.
+one run per behaviour, so this gives a direction, not a measurement. Validation and rerun
+verdicts were read by hand as well as judged, from each run's final message. On the train
+set only B8 and B14 were; the others rest on the judge and its stated reason.
 
-**Datum against the baseline (Sonnet, read by hand):**
+**Datum against the baseline (Sonnet):**
 
 | Result | Behaviours |
 |---|---|
@@ -85,7 +86,7 @@ datum; `writing-functions` still contradicts itself ("look for what is missing" 
 could run the validator itself (`score.py`'s check after the run found no errors).
 
 **Lessons for the next step's test:**
-- The judge erred in both directions, about one verdict in ten. Read the runs.
+- The judge erred in both directions: at least four wrong verdicts among the runs read. Read the runs.
 - Most reruns traced to the test, not the skills: refused tools, an open step in a
   fixture, a fixture with gaps of its own, a prompt that named the behaviour. Walk each
   fixture through the step's end condition before spending on runs.
