@@ -136,11 +136,11 @@ C = dict(B)
 C.update(FUNCTIONS)
 C[f"{P}/analysis/ELI-2Q7M.yaml"] = ELI + SEASON
 
-# The product closed through design evaluation, the child not started.
+# The product closed through cases, the child not started.
 D = dict(B)
 D.update(FUNCTIONS)
 D.update({
-    f"{P}/steps.yaml": closed("functional-analysis", "requirements", "synthesis", "design-evaluation"),
+    f"{P}/steps.yaml": closed("functional-analysis", "requirements", "synthesis", "design-evaluation", "cases"),
     f"{P}/analysis/ELI-2Q7M.yaml": ELI + SEASON_OUT + INJURY,
     f"{P}/analysis/LOS-8D2F.yaml": """id: LOS-8D2F
 status: agreed
@@ -243,8 +243,18 @@ definition: Chooses strength, endurance or technique as the next focus, whicheve
 """,
 })
 
+# D3: as D2 with one more function, which brings a hazard that looks inherited but is not:
+# hard exercises on the same fingers can injure within the weekly limit of REQ-Z3NP.
+D3 = dict(D2)
+D3[f"{SE}/functions/FUN-E4HX.yaml"] = """id: FUN-E4HX
+status: agreed
+parent: FUN-7SGT
+name: Choose the next exercise
+definition: Chooses the exercise for the next session, such as fingerboard hangs, to fit the next focus.
+"""
+
 CLAUDE_MD = "This project is built with datum. Load the `datum` skill before any work in this project.\n"
-FIXTURES = {"A": {}, "B": B, "C": C, "D1": D1, "D2": D2}
+FIXTURES = {"A": {}, "B": B, "C": C, "D1": D1, "D2": D2, "D3": D3}
 for name, fixture in FIXTURES.items():
     if fixture:
         fixture["CLAUDE.md"] = CLAUDE_MD
