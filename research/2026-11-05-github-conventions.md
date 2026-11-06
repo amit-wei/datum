@@ -3,6 +3,10 @@
 Research for issue #22. A proposal to decide on: nothing here is agreed
 yet.
 
+**Decided 2026-11-06:** see `docs/design-notes.md` (This repository on GitHub) and
+`AGENTS.md`. Mostly as proposed. Changes: no milestone and no `parked` is allowed and
+means not sorted yet; the ten default labels were deleted; issues never carry build order.
+
 Each claim is VERIFIED (a primary source was seen) or INFERRED. The audit was done
 read-only with `gh`, `git` and repo searches on 2026-11-05. Documentation pages were read
 through a summarising fetch, so exact wording should be checked before it is quoted. This

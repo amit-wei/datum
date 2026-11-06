@@ -1,7 +1,7 @@
 # Functional-analysis test (2026-11-05)
 
 **Question:** does the functional-analysis step, with its techniques, beat no skills at
-all on the same fixtures? Issue #6; design in its 2026-10-18 and 2026-10-21 handoffs.
+all on the same fixtures? Issue #6; agreed design below.
 
 **Method:** one turn per query, each fixture frozen just before the behaviour.
 
@@ -41,6 +41,24 @@ python3 score.py
 
 Baseline: the same fixture with no plugin and no CLAUDE.md line. Raw transcripts stay in
 the temporary folder.
+
+## Agreed design
+
+Moved from the 2026-10-18 and 2026-10-21 handoffs on #6. The behaviours above replace the
+earlier list.
+
+- Variants: datum against a no-skill baseline, run once per step and reused. A stance-off
+  variant runs once for the whole library, not per step.
+- Baseline: same fixtures, no plugin, no CLAUDE.md line; judged on substance only. Format
+  compliance is a datum-only mechanical check, not part of the comparison.
+- A simulated builder can come later for one end-to-end run.
+- Budget about 3-5 USD per step: mechanical checks wherever the outcome is checkable, the
+  Sonnet judge only where judgement is needed; pilots on Haiku with one repeat; full 3
+  repeats only on a step's final version; pilot on training queries, hold out validation.
+- One query per behaviour; Haiku pilots on training; a light Sonnet check. The real
+  validation is building something with datum.
+- Rig based on `experiments/2026-10-18-packaging-test` (run.py, score.py, judge). Fixtures
+  rebuilt on the climbing-log example, each validator-clean.
 
 ## Result
 

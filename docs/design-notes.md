@@ -335,6 +335,11 @@ them.
 - **Gate checks** run when an engine step is closed (P11). Level- or step-specific rules
   live there, e.g. product functions serve a scenario before product-level functional
   analysis closes (P13). `serves:` is an ordinary optional field at every level.
+- **Each step brings its own schemas and validator rules** (agreed 2026-10-21). When a
+  step skill is drafted, the types it writes get their schema and their cross-file rules
+  (links, `#n` references, gates) in the same piece of work. Types no built step writes
+  yet stay unported; the trial drafts in `experiments/2026-10-16-schema-trial` are the
+  record, not the source.
 
 ## IDs and references (agreed 2026-10-16)
 
@@ -677,6 +682,26 @@ and functions.
   implementation cost and time while staying accurate. No parallel control runs (solo
   builder). At most passive telemetry the workflow logs anyway.
 
+## This repository on GitHub (agreed 2026-11-06, #22)
+
+For this repository only: it says nothing about what datum tells its users. The rules are
+in `AGENTS.md` (Issues, Sessions), the audit behind them in
+`research/2026-11-05-github-conventions.md`, and the features not used in
+`docs/out-of-scope/github-features.md`.
+
+- **Structure.** The milestone holds everything a release needs, infrastructure included.
+  #6 is the parent of the engine steps, each step is the parent of its pieces, and #24
+  does the same for build skills. Step parents exist from the start so the milestone shows
+  its real size; their children are added when the step is reached.
+- **Handoffs** live in `docs/handoff.md`. The older ones stay on #6 as a record.
+- **Decisions** live in these notes. `docs/decisions/` comes back only if these notes stop
+  being enough.
+- **Pull requests:** none, since the push is the gate. Branches are fine. Revisit at the
+  first outside contributor, when CI runs, or when agents write product code that should
+  be reviewed before it reaches `main`.
+- **Releases:** one milestone per planned release, with no due date. When a milestone
+  closes, make a tag with notes written by hand: generated notes need pull requests.
+
 ## Open questions
 
 | # | Question |
@@ -686,7 +711,7 @@ and functions.
 | Q-3 | Skill granularity. Settled 2026-10-17 in concept: see Skills. Packaging (technique as skill or as reference) is decided by a test in #6 |
 | Q-4 | Pilots. Agreed 2026-10-16: the first real use of datum v0 is Pendentive's re-scoped v1, run from datum's intake with the existing Pendentive model as reference material, not migrated. While formats are designed, they are tested against real Pendentive rows. Small client projects later |
 | Q-5 | Artifact storage, IDs, link model. Settled 2026-10-16: see Types, Links, IDs and references |
-| Q-6 | GitHub: agreed in principle. Repo files are authoritative (model, decisions, proofs, evidence index; open questions are issues plus a `TBD`, see Types); issues hold intake and work; a milestone holds an increment's scope and work, a release closes it (see Increments); evidence is committed because CI retention is 90 days. Details open |
+| Q-6 | GitHub: agreed in principle. Repo files are authoritative (model, decisions, proofs, evidence index; open questions are issues plus a `TBD`, see Types); issues hold intake and work; a milestone holds an increment's scope and work, a release closes it (see Increments); evidence is committed because CI retention is 90 days. For this repository, settled: see This repository on GitHub. What datum tells its users: details open |
 | Q-7 | How a child's STPA keeps to the hazards it introduces: without restating inherited ones, and without missing a new one that looks like an inherited one. Possibly an experiment. #23 |
 
 ## Landscape in one paragraph
