@@ -42,19 +42,52 @@ python3 score.py
 Baseline: the same fixture with no plugin and no CLAUDE.md line. Raw transcripts stay in
 the temporary folder.
 
-**Result (2026-11-05, about $7.80, verdicts read by hand as well as judged):**
+## Result
 
-- Train on Sonnet: datum 7/8, baseline 3/8 after correcting one judge error. Validation
-  on Sonnet: datum 5/6 by the judge, baseline 3/6 by the judge and 4 or 5 by hand; B2's
-  datum fail came from test faults and passed 3/3 on rerun.
-- Datum's clear wins are process discipline (B1, B5, B10, B12, B13). On pure analysis
-  (B3, B6, B11, B14) plain Sonnet did about as well, reading a model already well
-  structured. The builder's theory: discipline here pays off in synthesis and building,
-  which this test does not reach.
-- The judge erred in both directions; read the runs.
-- **#23 not shown.** B11r passed 1/3 and B14r 0/3: with a neutral prompt all six datum
-  runs grilled again, though the part already had its elicitation record and functions,
-  so they never reached hazards. The first-run passes (3/3 each) came from a prompt that
-  asked for hazards, and the baseline did as well there.
-- Open: the step cannot tell that grilling is done; one Bash call per rerun was still
-  refused; B8, a bare question, never entered datum.
+Finished 2026-11-06, about $10.80, over the $3-5 budget because of three reruns. Mostly
+one run per behaviour, so this gives a direction, not a measurement. Every Sonnet verdict
+below was read by hand as well as judged.
+
+**Datum against the baseline (Sonnet, read by hand):**
+
+| Result | Behaviours |
+|---|---|
+| Datum clearly better | B1, B5, B10, B12, B13, B14r |
+| Datum ahead, not clean | B11r (1/3 against 0/1) |
+| Tied | B2, B3, B4, B6, B7 |
+| Disputed | B9 (the baseline changed nothing, but gave a firm answer) |
+| Both failed | B8 |
+
+Datum was behind on none once the test's faults were fixed. On the decision rule it beats
+the baseline: 5/6 against 3/6 on validation by the judge, narrower by hand (4 or 5).
+
+**What it shows:**
+- Datum's value at this step is process discipline: it stops the agent acting early or
+  overbuilding, and it keeps the work moving. Asked directly to spot something, plain
+  Sonnet does about as well, reading a model already well structured. Asked only to carry
+  on, the baseline stalled and never checked for hazards. The builder's theory is that
+  discipline here pays off in synthesis and building, which this test does not reach.
+- **Techniques work when loaded; loading is the weak point.** In the last rerun all four
+  runs that loaded `losses-and-hazards` did the right thing, by hand: three found the new
+  hazard, and one applied the cause rule to write nothing. The two that skipped it, both
+  B11r, offered a wrong load estimate as a candidate hazard. B8 and Haiku's B1 are the
+  same kind of miss.
+
+**#23:** the rule (three of three on B11r and B14r) is not met. By hand B14r passed 3/3
+and B11r 1/3.
+
+**Changed by this test:** grilling is forced only when a part has no elicitation record;
+the same state by another cause is not a new hazard; `closed_at` is quoted.
+
+**Still open:** forced techniques do not always load; a bare question (B8) does not enter
+datum; `writing-functions` still contradicts itself ("look for what is missing" against
+"Needed"), though B12 passed; the rig still refuses compound shell commands, so no run
+could run the validator itself (`score.py`'s check after the run found no errors).
+
+**Lessons for the next step's test:**
+- The judge erred in both directions, about one verdict in ten. Read the runs.
+- Most reruns traced to the test, not the skills: refused tools, an open step in a
+  fixture, a fixture with gaps of its own, a prompt that named the behaviour. Walk each
+  fixture through the step's end condition before spending on runs.
+- A one-turn test stops at the first thing the agent must ask, so the fixture has to be
+  clean up to the behaviour under test.

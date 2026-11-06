@@ -55,7 +55,10 @@ three times, baseline once, on Sonnet. #23's rule now reads on B11r and B14r.
 
 A second rerun of B11r and B14r follows (`results/rerun2-sonnet.jsonl`), because all six
 datum runs in the first grilled a part already grilled. The step now forces grilling only
-when a part has no elicitation record.
+when a part has no elicitation record. No run grilled again, but all stopped at a fixture
+fault: D2 and D3 had no function for the reason or the load, so the agent rightly raised
+those obligations first. A third and last rerun follows on completed fixtures
+(`results/rerun3-sonnet.jsonl`).
 
 | # | Split | Fixture | Prompt | Expected | Must not | Outcome |
 |---|---|---|---|---|---|---|

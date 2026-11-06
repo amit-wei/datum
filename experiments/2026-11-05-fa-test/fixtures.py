@@ -228,6 +228,10 @@ entries:
     question: How should it choose what comes next?
     answer: "Strength, endurance or technique, whichever I've neglected."
     need: true
+  - n: 3
+    question: What should it hand you?
+    answer: "The focus, how much to do that week, and why."
+    need: true
 """,
     f"{SE}/functions/FUN-6QWB.yaml": """id: FUN-6QWB
 status: agreed
@@ -241,11 +245,25 @@ parent: FUN-7SGT
 name: Pick the next focus
 definition: Chooses strength, endurance or technique as the next focus, whichever was trained least.
 """,
+    f"{SE}/functions/FUN-K2MV.yaml": """id: FUN-K2MV
+status: agreed
+parent: FUN-7SGT
+name: Propose the weekly load
+definition: Proposes how much the climber should do in the coming week for the chosen focus.
+""",
+    f"{SE}/functions/FUN-R7TD.yaml": """id: FUN-R7TD
+status: agreed
+parent: FUN-7SGT
+name: State the reason
+definition: Says why this focus and load were chosen, from the climber's recent sessions.
+""",
 })
 
 # D3: as D2 with one more function, which brings a hazard that looks inherited but is not:
 # hard exercises on the same fingers can injure within the weekly limit of REQ-Z3NP.
 D3 = dict(D2)
+D3[f"{SE}/analysis/ELI-7VCX.yaml"] = D2[f"{SE}/analysis/ELI-7VCX.yaml"].replace(
+    "The focus, how much", "The focus, an exercise for it, how much")
 D3[f"{SE}/functions/FUN-E4HX.yaml"] = """id: FUN-E4HX
 status: agreed
 parent: FUN-7SGT
