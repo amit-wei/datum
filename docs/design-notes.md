@@ -403,7 +403,8 @@ Settles Q-3. Evidence: `research/2026-10-skill-granularity.md`,
   read the same reference.
 - **Grilling** is one technique at every level. Forced at the start of every part's
   functional analysis that has no elicitation record yet (corrected 2026-10-18, was product
-  only; revised 2026-11-06, the record shows grilling is done, as `steps.yaml` closes only with the step). Afterwards, at any level and after any technique, triggered when
+  only; revised 2026-11-06, the record shows grilling is done, as `steps.yaml` closes only with the step;
+  evidence in `research/2026-11-05-fa-test.md`). Afterwards, at any level and after any technique, triggered when
   a finding can be settled only by the builder: a preference, a priority, a premise, a
   trade between goals.
 - **Every step ends in a review loop** with a subagent that did not do the work,
