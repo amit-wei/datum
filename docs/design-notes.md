@@ -401,8 +401,9 @@ Settles Q-3. Evidence: `research/2026-10-skill-granularity.md`,
   Sources live in the research note behind the skill, not in the skill: the agent does
   not use them, and they cost context on every load (agreed 2026-10-18). The writing and the reviewing technique of a type
   read the same reference.
-- **Grilling** is one technique at every level. Forced once at the start of every part's
-  functional analysis (corrected 2026-10-18; was product only). Afterwards, at any level and after any technique, triggered when
+- **Grilling** is one technique at every level. Forced at the start of every part's
+  functional analysis that has no elicitation record yet (corrected 2026-10-18, was product
+  only; revised 2026-11-06, the record shows grilling is done, as `steps.yaml` closes only with the step). Afterwards, at any level and after any technique, triggered when
   a finding can be settled only by the builder: a preference, a priority, a premise, a
   trade between goals.
 - **Every step ends in a review loop** with a subagent that did not do the work,
@@ -472,7 +473,7 @@ One mechanism, no explicit "reopen" command:
 
 **Functional analysis.** Goal: the functions of this part (flows between
 functions dropped 2026-10-18: nothing consumes them yet), complete for its scope, plus
-the losses it could cause. Techniques: `grilling` (forced at the start of every part), `research` (triggered by an unfamiliar domain or a possible existing
+the losses it could cause. Techniques: `grilling` (forced at the start of every part with no elicitation record), `research` (triggered by an unfamiliar domain or a possible existing
 solution; subagent), `writing-scenarios` (forced at product level), `writing-functions`,
 `losses-and-hazards` (STPA step 1, forced at every part; below the top, only the hazards
 the part introduces; see Risk in the engine),

@@ -1,6 +1,6 @@
 ---
 name: grilling
-description: Use at the start of every part's functional analysis, and whenever something only the builder can settle is open - a need, a preference, a priority, a premise, a value only they know, a trade between goals, or a reviewer finding the builder must decide. Keeps the builder's view of the part and yours the same. Not for facts that can be looked up (use research) or values that can be measured (use running-a-spike).
+description: Use at the start of a part's functional analysis when the part has no elicitation record, and whenever something only the builder can settle is open - a need, a preference, a priority, a premise, a value only they know, a trade between goals, or a reviewer finding the builder must decide. Keeps the builder's view of the part and yours the same. Not for facts that can be looked up (use research) or values that can be measured (use running-a-spike).
 ---
 
 # Grilling

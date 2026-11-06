@@ -53,6 +53,10 @@ The technique also changed: the same state by another cause is not a new hazard.
 B2 and B11 are no longer unseen, so these rows are evidence, not a held-out check. Datum
 three times, baseline once, on Sonnet. #23's rule now reads on B11r and B14r.
 
+A second rerun of B11r and B14r follows (`results/rerun2-sonnet.jsonl`), because all six
+datum runs in the first grilled a part already grilled. The step now forces grilling only
+when a part has no elicitation record.
+
 | # | Split | Fixture | Prompt | Expected | Must not | Outcome |
 |---|---|---|---|---|---|---|
 | B2r | rerun | D1 | Let's work on the suggestion engine. | `grilling` | `writing-functions` | Asks the builder at least one question about what the suggestion engine must do, and writes none of its functions in this run. |

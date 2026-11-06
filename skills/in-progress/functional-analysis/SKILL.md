@@ -62,8 +62,10 @@ Load a technique before you produce what it produces. Its body holds the convent
 the quality reference and the output format; the lines below only say when it applies.
 A question gets an answer grounded in the model and an offer to run the technique.
 
-1. `grilling`: forced once at the start of a part, before anything is
-   written. Afterwards, whenever a finding can be settled only by the builder.
+1. `grilling`: forced at the start of a part that has no elicitation record in its
+   `analysis/` folder, before anything is written. A part with one has been grilled:
+   carry on from where it stands. Afterwards, whenever a finding can be settled only by
+   the builder.
 2. `research`: when the domain is unfamiliar, or a solution may already exist (buy,
    reuse, or learn from it). Run it in a subagent; keep only the conclusion.
 3. `writing-scenarios`: forced for the product once the needs are drawn out.
