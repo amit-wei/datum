@@ -54,9 +54,15 @@ losses it leads to and the functions that introduce it.
 
 Below the product, a part lists only the hazards its own functions introduce. Most
 introduce none: then write nothing. Do not restate a parent's hazards: they arrive
-answered, as requirements in the part's `requirements/` folder. A new hazard that looks
-like an inherited one is new only if no parent requirement already answers it; check
-those requirements before writing it.
+answered, as requirements in the part's `requirements/` folder. Check those requirements
+before writing a hazard that looks like an inherited one, and ask whether it is a
+different state or the same state by another cause:
+
+- **A different state:** a loss can follow even while the parent requirements hold. It
+  is new: write it.
+- **The same state by another cause:** not a hazard of this part, so write nothing. If
+  no parent requirement covers that cause, the requirement is incomplete: open an issue
+  on the part that owns it.
 
 Not here: answering a hazard (requirements, with `answers: HAZ`), and unsafe control
 actions or loss scenarios (synthesis's risk pass).

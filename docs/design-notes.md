@@ -148,7 +148,8 @@ at every part, split across the two places; no level exception.
 - **In functional analysis:** STPA step 1. At the top part: the losses and the product's
   hazards. Below: only the hazards this part's functions introduce, usually none; each
   hazard links to at least one loss, so losses (top part only) are the one link that
-  crosses levels. Inherited hazards are not listed again: they arrive answered, as
+  crosses levels. A cause of an inherited hazard is not a new hazard: if no parent requirement
+  covers it, it goes up as an issue (agreed 2026-11-05). Inherited hazards are not listed again: they arrive answered, as
   flowed-down requirements.
 - **In synthesis, the architectural risk pass** (after `defining-interfaces` and
   `deployment-view`): STPA steps 2–4 (control structure among the children, unsafe
