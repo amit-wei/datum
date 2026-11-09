@@ -16,5 +16,6 @@ rule: forced only where order matters; everything else named in the end conditio
 through to a small built result first. The theory that functional-analysis discipline pays
 off in synthesis and building is still untested.
 
-**Before the next test:** read lessons 8-17 in `research/2026-11-05-fa-test.md`, and fix
-the rig so runs can run the validator (#38).
+**Before the next test:** read lessons 8-17 in `research/2026-11-05-fa-test.md`. Base the
+rig on `experiments/2026-11-05-fa-test/run.py`: it runs the agent with sandboxed Bash (#38),
+so the validator and the reviewer run. The sandbox needs `bubblewrap` and `socat`.
