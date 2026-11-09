@@ -35,9 +35,12 @@ import time
 from score import load_queries
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-ALLOWED = ["Skill", "Read", "Glob", "Grep", "Agent", "Write", "Edit", "Bash(uv run */scripts/validate.py*)",
-           "Bash(git *)", "Bash(echo *)", "Bash(tr *)", "Bash(head *)", "Bash(cat *)", "Bash(ls *)",
-           "Bash(find *)", "Bash(grep *)", "Bash(cd *)", "Bash(pwd*)"]
+ALLOWED = ["Skill", "Read", "Glob", "Grep", "Agent", "Write", "Edit", "Bash"]
+# Any shell command, inside Claude Code's sandbox (bubblewrap and socat on Linux): writes
+# stay in the run's folder, plus uv's cache so the validator can run (#38).
+SANDBOX = json.dumps({"sandbox": {"enabled": True, "autoAllowBashIfSandboxed": True,
+                                  "allowUnsandboxedCommands": False,
+                                  "filesystem": {"allowWrite": ["~/.cache/uv"]}}})
 PLUGIN = os.path.join(HERE, "plugin")
 
 
@@ -177,7 +180,7 @@ def run_one(query, variant, model, args):
     cmd = ["claude", "-p", query["prompt"], *plugin, "--model", model, "--output-format", "stream-json", "--verbose",
            "--no-session-persistence", "--max-turns", str(args.max_turns),
            "--max-budget-usd", str(args.max_budget),
-           "--permission-mode", "dontAsk", "--allowedTools", *ALLOWED]
+           "--permission-mode", "dontAsk", "--settings", SANDBOX, "--allowedTools", *ALLOWED]
     started = time.time()
     try:
         proc = subprocess.run(cmd, cwd=work, capture_output=True, text=True, timeout=args.timeout)

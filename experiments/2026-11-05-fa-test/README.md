@@ -39,7 +39,8 @@ python3 run.py --split train --models haiku --repeats 1 --tmp DIR    # a pilot
 python3 score.py
 ```
 
-Baseline: the same fixture with no plugin and no CLAUDE.md line. Raw transcripts stay in
+Runs need `bubblewrap` and `socat` (Linux) for the sandbox. Baseline: the same fixture
+with no plugin and no CLAUDE.md line. Raw transcripts stay in
 the temporary folder.
 
 ## Agreed design
@@ -115,6 +116,12 @@ the judge and when read by hand:
 
 The `#23` rule is now met (B11r 3/3). Bash was still refused in places, so no run ran the
 validator.
+
+**Sandbox (2026-11-09, #38):** the rig now allows any shell command inside Claude Code's
+sandbox, which keeps a run's writes in its own folder, plus uv's cache. This needs
+`bubblewrap` and `socat` installed. A trial run of B11r on Sonnet
+(`results/sandbox-trial-sonnet.jsonl`, $0.31) had no refusals. It ran the validator (0
+errors) and the `review-functional-analysis` agent, and it passed when read by hand.
 
 **Lessons for the next step's test:**
 - The judge erred in both directions: at least four wrong verdicts among the runs read. Read the runs.
