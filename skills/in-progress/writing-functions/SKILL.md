@@ -17,15 +17,21 @@ functional-analysis step checks the functions against this file.
 - **Any other part:** for each parent function the part `contributes_to`, ask what this
   part must do so that the parent function is done. Write each answer with
   `parent: <that FUN>`.
-- **Then look for what is missing.** For each of these, write a function, a note that a
-  requirement on an existing function covers it, or ask the builder whether it is out of
-  scope:
+- **Then look for what is missing.** The paths below are often absent from the
+  scenarios and the parent functions. A gap found here is not yet a function: every
+  function must still pass the **Needed** rule.
   - first use, with nothing stored yet
   - startup and shutdown, and an interrupted run
   - each outside system failing or answering wrongly
   - bad or unexpected input
   - backup, restore, export, upgrade
   - what someone other than the main user needs: a maintainer, an admin, a neighbour part
+
+  At the product, settle each gap with the builder: a scenario step (add it with
+  `writing-scenarios`, then write the function that does it), a requirement on an
+  existing function, or out of scope. In any other part, write a function only when a
+  parent function cannot be done without it; otherwise raise the gap as an issue on the
+  parent part.
 
 ## What is a function and what is not
 
