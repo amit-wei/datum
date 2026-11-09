@@ -58,9 +58,11 @@ it here: open an issue on the part that owns it and raise it with the builder.
 
 ## Techniques
 
-Load a technique before you produce what it produces. Its body holds the conventions,
-the quality reference and the output format; the lines below only say when it applies.
-A question gets an answer grounded in the model and an offer to run the technique.
+Load a technique before you produce what it produces, and before you answer a question
+about it. Its body holds the conventions, the quality reference and the output format;
+the lines below only say when it applies. On a question, answer with the technique
+loaded and offer to run it; write nothing until the builder agrees. A forced technique
+runs before anything else is written; the rest are due when the end condition needs them.
 
 1. `grilling`: forced at the start of a part that has no elicitation record in its
    `analysis/` folder, before anything is written. A part with one has been grilled:
@@ -72,8 +74,9 @@ A question gets an answer grounded in the model and an offer to run the techniqu
 4. `writing-functions`: for every part. In the product after the scenarios;
    in a part, from the parent functions it contributes to. It holds the rules for what
    is and is not a function (a property, an interface, a guard, a mechanism are not).
-5. `losses-and-hazards`: forced at every part, after `writing-functions`. Losses at the
-   product only; hazards wherever the part's own functions introduce them.
+5. `losses-and-hazards`: at every part once it has functions; the end condition needs it.
+   Do not name, propose or rule out a loss or a hazard without it loaded: its rules
+   decide what counts as one.
 6. `running-a-spike`: when there is a doubt that a function is feasible. In a
    subagent, time-boxed, with a written question.
 
@@ -84,7 +87,8 @@ A question gets an answer grounded in the model and an offer to run the techniqu
 - Every scenario step is done by some function.
 - Every function serves a scenario (product) or a parent function (a part).
 - Every elicited need is in a scenario, or marked `out_of_scope` with a reason.
-- Every function has been checked for hazards it introduces.
+- Every function has been checked, with `losses-and-hazards` loaded, for hazards it
+  introduces.
 - Every elicited loss is a `LOS-` file, or marked `out_of_scope` with a reason; every
   loss is reached by at least one hazard (product).
 - Every obligation found in the inputs is met by a function or raised as an issue.

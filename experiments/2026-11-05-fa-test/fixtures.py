@@ -271,7 +271,7 @@ name: Choose the next exercise
 definition: Chooses the exercise for the next session, such as fingerboard hangs, to fit the next focus.
 """
 
-CLAUDE_MD = "This project is built with datum. Load the `datum` skill before any work in this project.\n"
+CLAUDE_MD = "This project is built with datum. Load the `datum` skill before answering any question about this product or doing any work in it.\n"
 FIXTURES = {"A": {}, "B": B, "C": C, "D1": D1, "D2": D2, "D3": D3}
 for name, fixture in FIXTURES.items():
     if fixture:

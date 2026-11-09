@@ -58,7 +58,8 @@ datum runs in the first grilled a part already grilled. The step now forces gril
 when a part has no elicitation record. No run grilled again, but all stopped at a fixture
 fault: D2 and D3 had no function for the reason or the load, so the agent rightly raised
 those obligations first. A third and last rerun follows on completed fixtures
-(`results/rerun3-sonnet.jsonl`).
+(`results/rerun3-sonnet.jsonl`). A fourth rerun, of B11r only, tests the fix for #25
+(`results/rerun4-sonnet.jsonl`); see the README.
 
 | # | Split | Fixture | Prompt | Expected | Must not | Outcome |
 |---|---|---|---|---|---|---|

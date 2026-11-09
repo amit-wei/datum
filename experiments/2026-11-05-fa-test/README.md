@@ -103,6 +103,19 @@ datum; `writing-functions` still contradicts itself ("look for what is missing" 
 "Needed"), though B12 passed; the rig still refuses compound shell commands, so no run
 could run the validator itself (`score.py`'s check after the run found no errors).
 
+**Rerun 4 (2026-11-09, #25):** after the fix for #25, `losses-and-hazards` is no longer
+forced. The step points to it by name, and a loss or hazard may not be named, proposed or
+ruled out without it loaded. B11r ran three times on Sonnet with datum only, which cost
+$0.64 (`results/rerun4-sonnet.jsonl`). All three runs loaded the technique and passed, by
+the judge and when read by hand:
+- One run proposed a different state as a candidate for the person to decide: a big jump
+  in the neglected focus while the total stays under the cap. The Outcome allows this.
+- Two runs wrote no hazard. They raised a short history as a question about the
+  requirement, not as a hazard.
+
+The `#23` rule is now met (B11r 3/3). Bash was still refused in places, so no run ran the
+validator.
+
 **Lessons for the next step's test:**
 - The judge erred in both directions: at least four wrong verdicts among the runs read. Read the runs.
 - Most reruns traced to the test, not the skills: refused tools, an open step in a

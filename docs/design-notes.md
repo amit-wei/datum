@@ -33,7 +33,7 @@ requirements, 177 interface rows, 198 decisions, 117 open questions, and no code
 | P10 | One canonical workflow first; custom composition after it is proven on a real project | agreed |
 | P11 | Autonomy deferred; gates are explicit so they can be loosened later | leaning |
 | P12 | Architecture has two views: logical (parts, interfaces) and deployment (units that run separately, each listing the parts it hosts). One unit by default; every extra unit needs a decision that cites the requirement forcing the boundary (`research/2026-10-16-pendentive-audit.md`, L1) | agreed |
-| P13 | Each engine step draws on a menu of techniques. Conditions (level among them) make a technique encouraged, forced or banned. First entries: end-to-end user scenarios, forced in functional analysis at product level; spikes (see the engine) | agreed in concept |
+| P13 | Each engine step draws on a menu of techniques. Conditions (level among them) make a technique encouraged, forced or banned. Forced only when it must run before something else is written (grilling before anything, scenarios before functions); work due only by closing is left to the end condition, which names the technique (2026-11-09, #25). First entries: end-to-end user scenarios, forced in functional analysis at product level; spikes (see the engine) | agreed in concept |
 | P14 | No code for a part until it is analysed down to the stopping rule. Depth only for the increment's parts (P7); nothing modelled below the stopping rule (no file-level components) | agreed |
 
 ## The level engine (draft, under discussion)
@@ -427,7 +427,10 @@ Settles Q-3. Evidence: `research/2026-10-skill-granularity.md`,
 - **A technique is loaded before its output is produced** (agreed 2026-10-18): before
   writing or changing an artifact, a record or a looked-up fact, the agent loads the
   technique that makes it. A question gets an answer grounded in the model and an offer
-  to run the technique. A hook that enforces this on writes under `.datum/model/` is parked.
+  to run the technique. Since 2026-11-09 (#25) the answer itself is given with the
+  technique loaded, and the step points to the technique instead of paraphrasing it:
+  without the body, runs answered from the step's summary and broke its rules. A hook
+  that enforces this on writes under `.datum/model/` is parked.
 - **Reviewers are per step, not per type** (agreed 2026-10-18): one reviewer per engine
   step, against that step's end condition, the quality references and the stance. Each is
   an agent in `agents/`, not a skill: the review is always done by a subagent, and an
@@ -481,8 +484,8 @@ One mechanism, no explicit "reopen" command:
 functions dropped 2026-10-18: nothing consumes them yet), complete for its scope, plus
 the losses it could cause. Techniques: `grilling` (forced at the start of every part with no elicitation record), `research` (triggered by an unfamiliar domain or a possible existing
 solution; subagent), `writing-scenarios` (forced at product level), `writing-functions`,
-`losses-and-hazards` (STPA step 1, forced at every part; below the top, only the hazards
-the part introduces; see Risk in the engine),
+`losses-and-hazards` (STPA step 1, at every part, due by the end condition; below the
+top, only the hazards the part introduces; see Risk in the engine),
 `running-a-spike` (doubt about feasibility; subagent). At product level the weight is
 on grilling and scenarios; below, on writing functions. End condition: every scenario
 step is done by some function; every function serves a scenario (product) or a parent
