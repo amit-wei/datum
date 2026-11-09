@@ -12,6 +12,9 @@ left for the developer to notice and correct; no fix planned.
 **Next:** #27 (Requirements step). Write its techniques' conditions under the new P13
 rule: forced only where order matters; everything else named in the end condition.
 
+**Unsorted:** #39 (datum using outside skills, such as `frontend-design` at build) has no
+milestone yet.
+
 **Open for decision:** whether to build each remaining step fully, or make a thin pass
 through to a small built result first. The theory that functional-analysis discipline pays
 off in synthesis and building is still untested.
