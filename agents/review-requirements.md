@@ -42,11 +42,12 @@ author fixed or rejected and why.
 3. **Check each requirement** against the rules in `writing-requirements`: what is and
    is not a requirement, one "shall", the EARS pattern named and actually used,
    verifiable, no mechanism, where each value came from, the rationale rule.
-4. **Check each proof** against the rules in `writing-proofs`: the method and its
-   rationale, a pass condition that names the measure and does not copy its value,
-   conditions that provoke an unwanted condition or a hazard's state, a sample for a
-   statistical criterion. Read it as the case author: could you write the test from it
-   alone, and would two authors agree on pass or fail?
+4. **Check each proof** against the rules in `writing-proofs`: a method whose
+   rationale holds (a cheaper method that would do is a should-fix), a pass condition
+   that names the measure and does not copy its value, conditions that provoke an
+   unwanted condition or a hazard's state, a sample for a statistical criterion. Read
+   it as the case author: could you write the test from it alone, and would two
+   authors agree on pass or fail?
 5. **Look for conflicts visible from the requirements alone:** two that cannot both
    hold, a response to one failure that breaks another requirement, a measure that
    another requirement makes impossible, a guarantee that rules out retrying or

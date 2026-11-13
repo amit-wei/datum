@@ -1,7 +1,7 @@
 title: proof
 type: object
 additionalProperties: false
-required: [id, status, title, method, covers, criterion]
+required: [id, status, title, method, rationale, covers, criterion]
 properties:
   id: {$ref: "_common.yaml#/$defs/PRF"}
   status: {$ref: "_common.yaml#/$defs/status"}
@@ -22,4 +22,4 @@ properties:
       confidence: {$ref: "_common.yaml#/$defs/tbd_number"}
       bound: {enum: [lower, upper]}
       conditions: {$ref: "_common.yaml#/$defs/text"} # the setup the result depends on
-  rationale: {$ref: "_common.yaml#/$defs/text"}      # why a method other than test
+  rationale: {$ref: "_common.yaml#/$defs/text"}      # why this method, and why the cheaper ones would not do

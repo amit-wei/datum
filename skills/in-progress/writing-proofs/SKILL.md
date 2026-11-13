@@ -15,14 +15,22 @@ against this file.
 
 | `method` | What is done | Use when |
 |---|---|---|
-| `test` | The part is run under set conditions and the result is checked by a program | The default. Anything a script can provoke and observe |
-| `inspection` | An artifact (code, config, a document, a dependency list) is examined against the criterion | The requirement is about what the product is or contains, not what it does |
+| `test` | The part is run under set conditions and the result is checked by a program | A script can provoke and observe it, and the behaviour can break unnoticed when the code changes |
+| `inspection` | An artifact (code, config, a document, a dependency list) is examined against the criterion | The requirement is about what the part is or contains, not what it does |
 | `analysis` | A calculation or reasoning from a model shows it holds | Running it is impossible or too costly: worst cases, rare conditions, long durations |
 | `demonstration` | A person watches it work and records what they saw | Only a person can judge it, and no proxy can be measured |
 
-Prefer `test`. Every other method needs a `rationale` saying why not a test: manual
-proofs are redone at every release, so a demonstration that could be a scripted test is
-a cost paid again and again.
+No method is the default. Choose the one that gives enough confidence for what this
+requirement guards, at the least cost over the product's life, and give the reason in
+`rationale`, including why the cheaper methods would not do. Weigh:
+
+- **What it guards.** A requirement that answers a hazard warrants more than one about
+  convenience.
+- **Cost now and at every release.** Tests are rerun on every change and each one is
+  code to keep; manual proofs (demonstration, inspection by a person) are redone at
+  every release.
+- **What can change.** A property fixed once (a licence, a dependency, a file format)
+  is shown by inspection; behaviour that later code can break needs a test.
 
 ## The criterion
 
@@ -64,7 +72,7 @@ echo "PRF-$(LC_ALL=C tr -dc '0-9A-HJKMNP-TV-Z' </dev/urandom | head -c 4)"
 Fields: `id`, `status` (`draft` until the builder agrees), `title` (what is shown, in a
 few words), `method`, `covers` (requirements of this part), and `criterion` with `pass`
 and, as needed, `conditions`, `sample_min`, `confidence` and `bound` (`lower` or
-`upper`); `rationale` when the method is not `test`.
+`upper`); and `rationale`, why this method.
 
 Two examples, for illustration only:
 
@@ -73,6 +81,9 @@ id: PRF-2H7B
 status: draft
 title: Plan time on a full season of sessions
 method: test
+rationale: |
+  Plan time drifts as the planner and the logged history grow; only a repeated run
+  catches it, and no analysis of the code predicts it well.
 covers: [REQ-4W8N]
 criterion:
   pass: plan_time meets every bound of REQ-4W8N over the sample.
@@ -87,6 +98,9 @@ id: PRF-8M3E
 status: draft
 title: No heavier session after logged pain
 method: test
+rationale: |
+  Answers an injury hazard, and any change to the planner can break it; inspection of
+  the code would miss a path that raises the load.
 covers: [REQ-9C2T]
 criterion:
   pass: |
