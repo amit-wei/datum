@@ -15,10 +15,11 @@ synthesis #44-#46, design evaluation #47-#48, cases #49 (new step issue; child #
 build #50-#52, intent sheet and hidden suite #53, end-to-end test run #54 (blocked by
 #53). Moved to v0.2.0: #30 increment, #31 FA gate checks, #34 work packages. #39 parked.
 
-**Next:** #53 first: write the deduper's intent sheet and hidden acceptance suite, and
-pre-register the v0.1.0 run (what it introduces, what result shows it works). Then #27's
-children, with conditions under P13: forced only where order matters, everything else
-named in the end condition.
+**Next:** #27's children (#40-#43), with conditions under P13: forced only where order
+matters, everything else named in the end condition. Then the other thin steps. Keep the
+deduper out of skill text and examples: use a different product. #53 (intent sheet and
+hidden suite) comes late, just before the run, written by a fresh agent whose output is
+not read in skill-design sessions; then pre-register #54 and run it.
 
 **Before the next test:** read lessons 8-17 in `research/2026-11-05-fa-test.md`. Base the
 rig on `experiments/2026-11-05-fa-test/run.py`: it runs the agent with sandboxed Bash (#38),
