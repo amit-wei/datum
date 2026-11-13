@@ -67,9 +67,11 @@ loaded and offer to run it; write nothing until the builder agrees. A forced tec
 runs before anything else is written; the rest are due when the end condition needs them.
 
 1. `writing-requirements`: for every function, every hazard and every constraint of the
-   builder. It holds the rules for what is and is not a requirement, and where a value
-   may come from.
-2. `writing-proofs`: for every requirement, once it is written.
+   builder. It holds the three questions to ask of each function, the ways to answer a
+   hazard, the rules for what is and is not a requirement, and the file format.
+2. `writing-proofs`: for every requirement, once it is written. It holds how to choose
+   and justify a method, how to write a criterion a case author can check without
+   asking, and the file format.
 3. **Settling a value:** forced before any value enters a measure. Pick the technique
    that fits where the value comes from, or write `TBD` with an issue that names it:
    - `grilling`: the value or choice is the builder's: how well is good enough, which
@@ -85,8 +87,8 @@ runs before anything else is written; the rest are due when the end condition ne
 - The builder has gone through the requirements and agrees they say what they expect,
   each value included.
 - Every function of the part has at least one requirement `of` it.
-- Every hazard of the part is answered by a requirement, or left open with an issue
-  for synthesis to decide.
+- Every hazard of the part is answered by a requirement, or, where the builder
+  accepts it, left open with an issue for synthesis to record the decision.
 - Every constraint in the elicitation records is a requirement with `source: builder`,
   marked `out_of_scope` with a reason, or, for a choice of technology, left to
   synthesis.
