@@ -1,0 +1,42 @@
+title: requirement
+type: object
+additionalProperties: false
+required: [id, status, statement, pattern]
+properties:
+  id: {$ref: "_common.yaml#/$defs/REQ"}
+  status: {$ref: "_common.yaml#/$defs/status"}
+  statement: {$ref: "_common.yaml#/$defs/text"}      # EARS, one "shall"; holds {measure} exactly once when a measure exists
+  pattern: {enum: [ubiquitous, event, state, unwanted, optional, compound, none]}  # none: a warning
+  measure:                                           # one metric, any number of bounds on it
+    type: object
+    additionalProperties: false
+    required: [metric, unit, bounds]
+    properties:
+      metric: {type: string, pattern: "^[a-z][a-z0-9_]*$"}
+      definition: {$ref: "_common.yaml#/$defs/text"} # what exactly is measured
+      unit: {$ref: "_common.yaml#/$defs/text"}
+      bounds:
+        type: array
+        minItems: 1
+        items:
+          type: object
+          additionalProperties: false
+          required: [statistic, op, value]
+          properties:
+            statistic: {enum: [value, mean, p50, p90, p95, p99, max, min, proportion, rate]}
+            op: {enum: ["<=", "<", ">=", ">", "=="]}
+            value: {$ref: "_common.yaml#/$defs/tbd_number"}
+  # Reasons to exist: at least one. parent, justified_by and of an interface come with synthesis.
+  of: {$ref: "_common.yaml#/$defs/FUN"}              # the function it constrains
+  answers:                                           # the hazards it answers
+    type: array
+    minItems: 1
+    items: {$ref: "_common.yaml#/$defs/HAZ"}
+  source: {enum: [builder]}                          # a constraint; a role, never a name
+  rationale: {$ref: "_common.yaml#/$defs/text"}      # required with a measure; never restates links
+anyOf:
+  - required: [of]
+  - required: [answers]
+  - required: [source]
+dependentRequired:
+  measure: [rationale]

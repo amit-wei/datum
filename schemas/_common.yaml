@@ -7,9 +7,12 @@ $defs:
   ELI: {type: string, pattern: "^ELI-[0-9A-HJKMNP-TV-Z]{4}$"}
   LOS: {type: string, pattern: "^LOS-[0-9A-HJKMNP-TV-Z]{4}$"}
   HAZ: {type: string, pattern: "^HAZ-[0-9A-HJKMNP-TV-Z]{4}$"}
+  REQ: {type: string, pattern: "^REQ-[0-9A-HJKMNP-TV-Z]{4}$"}
+  PRF: {type: string, pattern: "^PRF-[0-9A-HJKMNP-TV-Z]{4}$"}
   SCN_step: {type: string, pattern: "^SCN-[0-9A-HJKMNP-TV-Z]{4}#[1-9][0-9]*$"}
   ELI_entry: {type: string, pattern: "^ELI-[0-9A-HJKMNP-TV-Z]{4}#[1-9][0-9]*$"}
   n: {type: integer, minimum: 1}
   text: {type: string, minLength: 1}
+  tbd_number: {oneOf: [{type: number}, {const: TBD}]}  # TBD is a spike trigger and needs an issue
   date: {type: string, pattern: "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"}
   commit: {type: string, pattern: "^[0-9a-f]{7,40}$"}

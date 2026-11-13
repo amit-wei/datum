@@ -9,6 +9,8 @@ Rules for agents (and people) changing this repository. Keep this file short.
 | `skills/in-progress/` | Skills under development: public, not shipped in the plugin |
 | `skills/<bucket>/` | Released skills (buckets decided when the first skill is released) |
 | `agents/` | Subagents, such as reviewers |
+| `schemas/`, `scripts/` | Model-file schemas and the scripts skills run (the validator); shipped in the plugin |
+| `checks/` | Checks on this repository, not shipped. Run `uv run checks/skill_examples.py` after changing a skill example or a schema |
 | `docs/design-notes.md` | Design positions, each with its state |
 | `docs/glossary.md` | The terms datum uses, one meaning each |
 | `docs/handoff.md` | Where things stand and what is next, rewritten each session |

@@ -20,7 +20,10 @@ ROOT = Path(".datum/model")
 SCHEMAS = Path(__file__).resolve().parent.parent / "schemas"
 ID = r"[A-Z]{3}-[0-9A-HJKMNP-TV-Z]{4}"
 LINK = re.compile(rf"^({ID})(?:#([1-9][0-9]*))?$")
-BY_PREFIX = {"FUN": "function", "SCN": "scenario", "ELI": "elicitation", "LOS": "loss", "HAZ": "hazard"}
+BY_PREFIX = {
+    "FUN": "function", "SCN": "scenario", "ELI": "elicitation", "LOS": "loss", "HAZ": "hazard",
+    "REQ": "requirement", "PRF": "proof",
+}
 UNCHECKED = {"SPK", "RES"}  # no schema yet: their step brings one
 
 
@@ -109,7 +112,10 @@ def main():
                 continue
         for e in validators[kind].iter_errors(d):
             where = "/".join(str(p) for p in e.absolute_path)
-            errs.append(f"{rel(f)}: {where + ': ' if where else ''}{e.message}")
+            msg = e.message
+            if e.validator == "anyOf" and not where and kind == "requirement":
+                msg = "no reason to exist: needs of, answers or source"
+            errs.append(f"{rel(f)}: {where + ': ' if where else ''}{msg}")
         if kind == "steps" or not isinstance(d, dict):
             continue
         if d.get("id") != f.stem:
@@ -142,11 +148,33 @@ def main():
 
     # Rules by type, the same at every level. Level- and step-specific rules (a product
     # function serves a scenario, every need is covered) are gate checks, not these.
+    def same_part(f, link, kind):
+        if link in arts and part_of(arts[link][1]) != part_of(f):
+            errs.append(f"{rel(f)}: {link} is not a {kind} of this part")
+
     for i, (d, f) in arts.items():
         if i.startswith("FUN"):
             p = d.get("parent")
             if p in arts and part_of(arts[p][1]) != part_of(f).parent:
                 errs.append(f"{rel(f)}: parent {p} is not a function of the parent part")
+        elif i.startswith("REQ"):
+            same_part(f, d.get("of"), "function")
+            for h in d.get("answers") or []:
+                same_part(f, h, "hazard")
+            text = d.get("statement")
+            if isinstance(text, str):
+                n = text.count("{measure}")
+                if "measure" in d and n != 1:
+                    errs.append(f"{rel(f)}: statement must hold {{measure}} exactly once (found {n})")
+                elif "measure" not in d and n:
+                    errs.append(f"{rel(f)}: statement holds {{measure}} but there is no measure")
+                if len(re.findall(r"\bshall\b", text, re.I)) > 1:
+                    warns.append(f"{rel(f)}: more than one 'shall': usually two requirements")
+            if d.get("pattern") == "none":
+                warns.append(f"{rel(f)}: pattern none: check whether an EARS pattern fits")
+        elif i.startswith("PRF"):
+            for r in d.get("covers") or []:
+                same_part(f, r, "requirement")
 
     print(f"ERRORS {len(errs)}")
     for e in errs:
