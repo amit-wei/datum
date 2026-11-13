@@ -168,6 +168,10 @@ found wrong at build would mean redoing every step above it.
   answer to every ambiguous need) and a hidden suite written from it. Whoever answers the
   grilling (the developer or a simulated one) answers from the sheet. Datum and a
   no-method baseline are scored on the same suite.
+- **The answers stay out of skill design.** The intent sheet and suite are written late,
+  just before the run, by an agent whose output is not brought into sessions that write
+  skills; they live in the experiment folder, read only by the rig. Skill examples use a
+  different product. Otherwise the skills drift toward the product's hidden answers.
 - **Issues.** One sub-issue per thing built in a step, with the milestone of the version
   that needs it. An issue closes with its version; expanding the thing later is a new
   issue.
