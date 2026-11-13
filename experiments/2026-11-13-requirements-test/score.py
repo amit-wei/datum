@@ -20,7 +20,7 @@ import re
 
 import yaml
 
-from common import EVALUATIONS, HERE, RUNS, VERDICTS, load_queries, read_jsonl
+from common import WORK, EVALUATIONS, HERE, RUNS, VERDICTS, load_queries, read_jsonl
 
 MAKERS = [(r"/requirements/REQ-", "writing-requirements"), (r"/proofs/PRF-", "writing-proofs")]
 
@@ -44,7 +44,7 @@ def checks(query, run):
 
 def subject_ok(run):
     """R5: every requirement statement the run wrote has 'the part' as its subject."""
-    work = os.path.join(HERE, "work", run["run"])
+    work = os.path.join(WORK, run["run"])
     written = {e["name"] for e in run["loads"] if e["kind"] in ("write", "edit")}
     statements = []
     for path in glob.glob(os.path.join(work, ".datum/model/**/requirements/REQ-*.yaml"), recursive=True):

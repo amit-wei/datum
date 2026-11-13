@@ -8,7 +8,8 @@ Rerunning the same command resumes: runs already recorded are skipped, and a run
 failed (a usage limit, an API error) is not recorded, so it is repeated. After three
 failures in a row the batch stops; wait for the limit to reset and rerun.
 
-Each run copies a fixture into its own git repository under work/ (kept, not committed)
+Each run copies a fixture into its own git repository under WORK (common.py; outside
+any repository, kept between sessions)
 and runs `claude -p`, with the datum plugin or, for the baseline, with no plugin and no
 CLAUDE.md line. Variants come from the query's row unless --variants narrows them. One
 line per run goes to results/runs.jsonl: the datum skills and agents loaded, the files
@@ -32,16 +33,27 @@ import threading
 import time
 import uuid
 
-from common import HERE, RUNS, append_jsonl, load_queries, read_jsonl
+from common import HERE, RUNS, WORK, append_jsonl, load_queries, read_jsonl
 
 ALLOWED = ["Skill", "Read", "Glob", "Grep", "Agent", "Write", "Edit", "Bash"]
 # Any shell command, inside Claude Code's sandbox (bubblewrap and socat on Linux): writes
 # stay in the run's folder, plus uv's cache so the validator can run.
-SANDBOX = json.dumps({"sandbox": {"enabled": True, "autoAllowBashIfSandboxed": True,
-                                  "allowUnsandboxedCommands": False,
-                                  "filesystem": {"allowWrite": ["~/.cache/uv"]}}})
-PLUGIN = os.path.join(HERE, "plugin")
-WORK = os.path.join(HERE, "work")
+SANDBOX = {"sandbox": {"enabled": True, "autoAllowBashIfSandboxed": True,
+                       "allowUnsandboxedCommands": False,
+                       "filesystem": {"allowWrite": ["~/.cache/uv"]}}}
+# The plugin and the settings file sit beside the run folders, outside the repository,
+# so no path a run sees leads back to this test. A settings file, not a JSON string:
+# with parallel runs the temp file made from a string vanished mid-run (pilot 3).
+PLUGIN = os.path.join(WORK, "plugin")
+SETTINGS = os.path.join(WORK, "settings.json")
+
+
+def stage():
+    """Copy the freshly built plugin and write the settings file beside the run folders."""
+    os.makedirs(WORK, exist_ok=True)
+    shutil.rmtree(PLUGIN, ignore_errors=True)
+    shutil.copytree(os.path.join(HERE, "plugin"), PLUGIN)
+    json.dump(SANDBOX, open(SETTINGS, "w"))
 
 
 def git(cwd, *args):
@@ -62,7 +74,8 @@ def prepare(fixture, variant, run_id):
     for root, _, files in os.walk(work):
         if "steps.yaml" in files:
             path = os.path.join(root, "steps.yaml")
-            open(path, "w").write(open(path).read().replace("0000000", head))
+            text = open(path).read().replace("0000000", head)
+            open(path, "w").write(text)
     git(work, "add", "-A")
     git(work, "commit", "-q", "--allow-empty", "-m", "record closed steps")
     return work, git(work, "rev-parse", "HEAD")
@@ -123,7 +136,7 @@ def run_one(query, variant, model, args):
     cmd = ["claude", "-p", query["prompt"], *plugin, "--model", model, "--output-format", "stream-json",
            "--verbose", "--no-session-persistence", "--max-turns", str(args.max_turns),
            "--max-budget-usd", str(args.max_budget),
-           "--permission-mode", "dontAsk", "--settings", SANDBOX, "--allowedTools", *ALLOWED]
+           "--permission-mode", "dontAsk", "--settings", SETTINGS, "--allowedTools", *ALLOWED]
     started = time.time()
     try:
         proc = subprocess.run(cmd, cwd=work, capture_output=True, text=True, timeout=args.timeout)
@@ -180,6 +193,7 @@ def main():
     queries = [q for q in queries if q["fixture"].startswith("F")]  # rows with their own runs
     todo = [(q, v, m) for q in queries for v in q["variants"] if not narrow or v in narrow
             for m in args.models.split(",") for _ in range(args.repeats - done[(q["id"], v, m)])]
+    stage()
     print(f"{len(todo)} runs to do, {args.jobs} at a time", flush=True)
     state = {"total": 0.0, "failures": 0, "stop": False}
     lock = threading.Lock()
@@ -206,7 +220,7 @@ def main():
             names = " > ".join(e["name"] + ("!" if e["error"] else "") for e in record["loads"]
                                if e["kind"] in ("skill", "agent", "validator"))
             print(f"{query['id']:4} {variant:8} {model:6} ${record['cost_usd'] or 0:.3f} "
-                  f"{record['turns']} turns [{names or '-'}]  work/{record['run']}", flush=True)
+                  f"{record['turns']} turns [{names or '-'}]  {record['run']}", flush=True)
 
     with concurrent.futures.ThreadPoolExecutor(args.jobs) as pool:
         list(pool.map(one, todo))

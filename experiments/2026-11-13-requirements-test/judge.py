@@ -10,7 +10,7 @@ unreadable and can be rejudged by deleting its line.
 import argparse
 import os
 
-from common import (HERE, RUNS, VERDICTS, OutOfUsage, append_jsonl, ask, changed_files,
+from common import (WORK, HERE, RUNS, VERDICTS, OutOfUsage, append_jsonl, ask, changed_files,
                     last_json, load_queries, read_jsonl, stop)
 
 JUDGE = """You judge one run of an AI agent working on a software project's requirements.
@@ -49,7 +49,7 @@ def main():
                  and r["variant"] in q["variants"] and (q["id"], r["run"]) not in done]
     print(f"{len(todo)} verdicts to do", flush=True)
     for q, source, run in todo:
-        work = os.path.join(HERE, "work", run["run"])
+        work = os.path.join(WORK, run["run"])
         final = open(os.path.join(work, "final.txt")).read()
         diff = changed_files(work, run["base"])
         prompt = JUDGE.format(prompt=source["prompt"], outcome=q["outcome"],

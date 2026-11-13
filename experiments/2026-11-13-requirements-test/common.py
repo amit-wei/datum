@@ -13,6 +13,10 @@ RUNS = os.path.join(RESULTS, "runs.jsonl")
 VERDICTS = os.path.join(RESULTS, "verdicts.jsonl")
 EVALUATIONS = os.path.join(RESULTS, "evaluations.jsonl")
 NAME = re.compile(r"`([a-z0-9-]+)`")
+# Run folders live outside any repository: inside this one, an agent loads the repo's
+# CLAUDE.md and AGENTS.md and can read this test's queries (found in the pilot).
+WORK = os.environ.get("DATUM_TEST_WORK") or os.path.expanduser(
+    "~/.cache/datum-experiments/2026-11-13-requirements-test")
 
 
 def load_queries():

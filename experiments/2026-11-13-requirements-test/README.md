@@ -38,10 +38,13 @@ python3 evaluate.py                             # blind evaluation of R1 pairs
 uv run score.py                                 # the table
 ```
 
-`run.py` writes `results/runs.jsonl` and keeps each run's repository under `work/`
-(transcript, final message, files written); `work/` is not committed, because
-transcripts hold the runner's own setup. `judge.py` and `evaluate.py` read `work/`, so
-they must run on the machine that made the runs. Runs need `bubblewrap` and `socat`
+`run.py` writes `results/runs.jsonl` and keeps each run's repository (transcript, final
+message, files written) under `~/.cache/datum-experiments/2026-11-13-requirements-test/`
+(or `$DATUM_TEST_WORK`), outside any repository. Inside this one, an agent loads the
+repo's CLAUDE.md and AGENTS.md and can read this test's queries: the second pilot's
+baseline did exactly that. Run folders are not committed, because transcripts hold the
+runner's own setup; `judge.py` and `evaluate.py` read them, so they must run on the
+machine that made the runs. Runs need `bubblewrap` and `socat`
 (Linux) for the sandbox, and `uv`.
 
 | File | What it is |
@@ -53,6 +56,20 @@ they must run on the machine that made the runs. Runs need `bubblewrap` and `soc
 | `evaluate.py` | Normalises each R1 set to a plain list, then a blind Sonnet comparison in both orders |
 | `score.py` | The table, datum against the baseline, plus the mechanical checks |
 | `common.py` | Shared helpers |
+
+## Pilots (rig only)
+
+- **Pilot 1** (`results/pilot1-rig-bug.jsonl`): `run.py` emptied each fixture's
+  `steps.yaml` while setting its commit, so functional analysis looked open. Fixed.
+- **Pilot 2** (`results/pilot2-inside-repo.jsonl`): run folders sat inside this
+  repository; the baseline read `README.md` and `queries.md` before writing, and both
+  variants loaded the repo's CLAUDE.md. Run folders moved outside the repository.
+- **Pilot 3** (`results/pilot3-plugin-in-repo.jsonl`): the plugin's path still led into
+  the repository, and one baseline shell call failed because the sandbox settings,
+  passed as a JSON string, became a temp file that vanished with two runs in parallel.
+  The plugin and a settings file are now staged beside the run folders.
+- **Pilot 4** (`results/pilot4-haiku.jsonl`): clean; no path into the repository, no
+  refused or failed tool call, no cap hit.
 
 ## Result
 

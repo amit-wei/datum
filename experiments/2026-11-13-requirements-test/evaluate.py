@@ -14,7 +14,7 @@ skipped; a failed call stops the script without recording anything.
 import argparse
 import os
 
-from common import (EVALUATIONS, HERE, RUNS, OutOfUsage, append_jsonl, ask, changed_files,
+from common import (WORK, EVALUATIONS, HERE, RUNS, OutOfUsage, append_jsonl, ask, changed_files,
                     last_json, read_jsonl, stop)
 
 MODEL_DIR = os.path.join(HERE, "fixtures", "F1", ".datum", "model", "product")
@@ -83,7 +83,7 @@ def main():
         for run in (d, b):
             if run["run"] in normal:
                 continue
-            diff = changed_files(os.path.join(HERE, "work", run["run"]), run["base"])
+            diff = changed_files(os.path.join(WORK, run["run"]), run["base"])
             try:
                 text, cost = ask(NORMALISE.format(files=diff[:80000]), args.model)
             except OutOfUsage as e:
