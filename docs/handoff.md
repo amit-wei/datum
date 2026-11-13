@@ -12,7 +12,13 @@ skill example against its schema; run it after changing either.
 
 **Test in progress (#60):** `experiments/2026-11-13-requirements-test/`, pre-registered
 (README, `queries.md`). Every script resumes after a usage reset: rerun the same command.
-Its README lists the commands in order; check `results/` for how far it got. Runs must
+Its README lists the commands in order; check `results/` for how far it got.
+Stopped at the usage limit on 2026-11-13: R1 done (3+3 runs), R2 datum 2/2 and baseline
+1/2. Resume with `python3 run.py --models sonnet --repeats 2 --queries R2,R3,R6,R8 --jobs 2`,
+then `judge.py`, `evaluate.py`, `uv run score.py`. Notes from reading R1 run 1 by hand
+(not yet findings): datum left expenses per trip `TBD` where the baseline invented 500;
+datum missed input validation and keeping the trip across app restarts; datum used
+"support" as an empty verb. Runs must
 stay on this machine (`work/` holds the transcripts the judge reads). After results: one
 rerun per failed behaviour at most, then record the result in the README and in
 `research/`.
