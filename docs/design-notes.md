@@ -132,12 +132,52 @@ datum.
 
 - **One profile, not named as one.** It is built into the skills; choosing or switching
   profiles waits for #5 and #17.
-- **The full default as designed.** Nothing is cut before a test shows it does not pay;
-  if it feels slow, that is a finding.
+- ~~**The full default as designed.** Nothing is cut before a test shows it does not pay;
+  if it feels slow, that is a finding.~~ Superseded 2026-11-13 by Versions as a ladder of
+  reference products: v0.1.0 is a thin pass, and techniques are deferred to the version
+  whose product needs them, not cut. "If it feels slow, that is a finding" still holds.
 - **Risk:** STPA (all four steps) and STRIDE, as in Risk in the engine. No FMEA.
 - **No profile skips an engine step**, in v0.1.0 or later. Rigour changes what happens
   inside a step (which techniques are forced, how deep the review goes), never which
   steps run.
+
+## Versions as a ladder of reference products (agreed 2026-11-13)
+
+Replaces building each engine step fully before the next. The theory that
+functional-analysis discipline pays off in synthesis and building was untested, and a
+step's output format is fixed by the step that consumes it: built in full, a format
+found wrong at build would mean redoing every step above it.
+
+- **Each version is scoped to one reference product,** taken from needs to verified,
+  running code. A version builds only what its product needs from each step.
+- **v0.1.0 is a thin pass.** Its product has one part (the product is the leaf), so
+  synthesis does not decompose, and each step carries only its core techniques. What the
+  product meets that the thin skills cannot handle is logged as a gap, and gaps feed the
+  next version's scope.
+- **Small products, rich in the method.** Tests cost less the smaller the product, so a
+  product is chosen to exercise as much of the method as it can while staying small: a
+  real loss, a need that is ambiguous until grilled, a numeric requirement, a real stack
+  choice.
+- **Each version gets a fresh product.** Skills are tuned on a version's results, so its
+  product becomes training data. Measuring the next version on the same product would
+  show fit, not generalisation. Earlier products become a regression set: rerun to catch
+  breakage, never counted as evidence of improvement.
+- **Pre-registered.** Before a version is built, it states what it introduces and what
+  result would show it works, as in `experiments/2026-11-05-fa-test`.
+- **Measured by a hidden acceptance suite.** Each product has a private intent sheet (one
+  answer to every ambiguous need) and a hidden suite written from it. Whoever answers the
+  grilling (the developer or a simulated one) answers from the sheet. Datum and a
+  no-method baseline are scored on the same suite.
+- **Issues.** One sub-issue per thing built in a step, with the milestone of the version
+  that needs it. An issue closes with its version; expanding the thing later is a new
+  issue.
+
+**v0.1.0's product:** a duplicate-file finder and safe deduper. It scans a folder tree,
+groups identical files, and replaces copies with hardlinks or moves them to a trash
+folder. Loss: deleting the only copy. Ambiguous needs: which copy is kept, how symlinks
+count, whether dry-run is the default. Numeric requirement: bytes read for files that
+are not duplicates. Chosen from eight candidates (INFERRED, design reasoning only;
+2026-11-13 session).
 
 ## Risk in the engine (agreed 2026-10-17)
 
@@ -683,7 +723,9 @@ and functions.
   interfaces and allocation.
 - **Measuring the thesis.** Key metric: whether compartmentalisation lowers AI
   implementation cost and time while staying accurate. No parallel control runs (solo
-  builder). At most passive telemetry the workflow logs anyway.
+  builder). At most passive telemetry the workflow logs anyway. (2026-11-13: tests now
+  compare datum with a no-method baseline on each version's reference product; see
+  Versions as a ladder of reference products.)
 
 ## This repository on GitHub (agreed 2026-11-06, #22)
 
