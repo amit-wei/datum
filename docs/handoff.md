@@ -3,23 +3,30 @@
 Where things stand and what is next. Rewritten each session, committed last. What was done
 is in `git log`; what was agreed is in `docs/design-notes.md`.
 
-**State (2026-11-13):** Agreed: versions are a ladder of reference products (design
-notes, Versions as a ladder of reference products). v0.1.0 is a thin pass: one
-one-part product, a duplicate-file finder and safe deduper, taken from needs to verified
-code, with each step carrying only its core techniques. Each later version gets a fresh
-product; earlier ones become a regression set. This supersedes "the full default as
-designed" in Rigour in v0.1.0.
+**State (2026-11-13):** The requirements step (#27) is drafted for v0.1.0 and grounded in
+sources (`research/2026-11-13-requirements.md`): `writing-requirements` (#40),
+`writing-proofs` (#41), the `requirements` step (#42), the requirement and proof schemas
+and validator rules (#43), and the `review-requirements` agent (#56). Positions are in
+design notes, Requirements in v0.1.0. `uv run checks/skill_examples.py` validates every
+skill example against its schema; run it after changing either. Not tested by any run
+yet: #54 is the first.
 
-**Issues:** v0.1.0 sub-issues are open, one per thing built: requirements #40-#43,
-synthesis #44-#46, design evaluation #47-#48, cases #49 (new step issue; child #55),
-build #50-#52, intent sheet and hidden suite #53, end-to-end test run #54 (blocked by
-#53). Moved to v0.2.0: #30 increment, #31 FA gate checks, #34 work packages. #39 parked.
+**Issues:** opened #56 (reviewer, under #27), #57 (how requirements flow down into a
+child part, v0.2.0), #58 `research` and #59 `running-a-spike` (both v0.1.0; both steps
+already point to them). #55 renamed Case-author agent. Safety-profile candidates are a
+comment on #5. Under the ladder rule, #40-#43 and #56 stay open until v0.1.0 ships.
 
-**Next:** #27's children (#40-#43), with conditions under P13: forced only where order
-matters, everything else named in the end condition. Then the other thin steps. Keep the
-deduper out of skill text and examples: use a different product. #53 (intent sheet and
-hidden suite) comes late, just before the run, written by a fresh agent whose output is
-not read in skill-design sessions; then pre-register #54 and run it.
+**Next:** the other thin steps: #58 and #59, then synthesis #44-#46, design evaluation
+#47-#48, cases #49 and #55, build #50-#52. Before writing a skill's content, agree its
+method and sources with the builder, research them first, and check the draft against
+the writing guide in `research/2026-10-18-stance.md`. Fewest rules: no forcing and no
+rule unless leaving it out costs more. Requirement statements say "the part", never a
+name. Keep the deduper out of skill text and examples. #53 (intent sheet and hidden
+suite) comes late, written by a fresh agent whose output is not read in skill-design
+sessions; then pre-register #54 and run it.
+
+**Open question for the builder:** `losses-and-hazards` writes hazards as "the product
+holds…"; should hazard statements also say "the part"?
 
 **Before the next test:** read lessons 8-17 in `research/2026-11-05-fa-test.md`. Base the
 rig on `experiments/2026-11-05-fa-test/run.py`: it runs the agent with sandboxed Bash (#38),
