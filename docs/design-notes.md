@@ -183,6 +183,33 @@ count, whether dry-run is the default. Numeric requirement: bytes read for files
 are not duplicates. Chosen from eight candidates (INFERRED, design reasoning only;
 2026-11-13 session).
 
+## Requirements in v0.1.0 (agreed 2026-11-13, #27)
+
+- **A proof is its own file,** `PRF-` in the part's `proofs/` folder, storing
+  `covers: [REQ]`, as in Types and Links. Cases name a proof ID, and one proof may cover
+  several requirements.
+- **Reasons to exist in v0.1.0:** `of: FUN`, `answers: [HAZ]` and `source: builder`.
+  `parent: REQ`, `justified_by: ADR` and `of: IFC` come from synthesis and enter the
+  schema with the step that writes them. `answers` is a list: one requirement may answer
+  several hazards.
+- **Requirements handed down from a parent are not settled.** Below the product, most of
+  a part's requirements come from its parent's; how the child's requirements step reads
+  them, and whether the parent's synthesis or the child writes them, is open (#57). A
+  rule making handed-down requirements read-only was considered and not adopted: it
+  does not answer the question. Not needed while the product is the leaf.
+- **The measure is the whole agreed shape** (Fields): metric, optional definition, unit,
+  bounds of `{statistic, op, value}`, `TBD` allowed.
+- **Schemas and scripts ship in the plugin** (`schemas/`, `scripts/` in this repo), never
+  in the builder's repo. The agent's reference for a file is the technique that writes
+  it ("The file" section); the schema enforces it. So the two cannot drift, a check in
+  this repository validates every YAML example in a skill against its schema. Copying
+  schemas into the builder's repo was rejected: the copies drift from the plugin
+  version. A schema change in a later plugin version can fail an existing model;
+  migration is not designed yet.
+- **Coverage is not the validator's** (every function has a requirement, every
+  requirement a proof): it judges completeness, so the reviewer (#56) checks it in
+  v0.1.0.
+
 ## Risk in the engine (agreed 2026-10-17)
 
 Risk is a technique, not a step of its own. It appears twice in every part, as in
