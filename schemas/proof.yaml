@@ -22,3 +22,4 @@ properties:
       confidence: {$ref: "_common.yaml#/$defs/tbd_number"}
       bound: {enum: [lower, upper]}
       conditions: {$ref: "_common.yaml#/$defs/text"} # the setup the result depends on
+  rationale: {$ref: "_common.yaml#/$defs/text"}      # why a method other than test
