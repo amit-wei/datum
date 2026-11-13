@@ -1,0 +1,14 @@
+id: SCN-JAQ3
+status: agreed
+name: Record an expense split evenly
+kind: main
+trigger: The user has paid for something shared with friends.
+preconditions: A trip with its people exists. The phone may have no data connection.
+steps:
+  - {n: 1, by: user, what: "Enters who paid, the amount and what it was for."}
+  - {n: 2, by: user, what: "Picks, from the trip's people, one payer and the people the expense was for, and chooses an even split."}
+  - {n: 3, by: product, what: "Splits the amount evenly among the chosen people."}
+  - {n: 4, by: product, what: "Adds the expense to the record."}
+  - {n: 5, by: product, what: "Shows who now owes whom."}
+outcome: The expense is recorded as it happened and the balances include it.
+needs: [ELI-5KXR#2, ELI-5KXR#4, ELI-5KXR#5, ELI-7MDP#6]

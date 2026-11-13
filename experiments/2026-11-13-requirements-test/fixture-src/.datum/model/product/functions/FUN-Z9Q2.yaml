@@ -1,0 +1,7 @@
+id: FUN-Z9Q2
+status: agreed
+name: Write the settlement as a message
+definition: |
+  Turns the proposed payments into text that the user can send to people who do not
+  have the product.
+serves: [SCN-42TT#3]

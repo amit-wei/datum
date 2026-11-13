@@ -1,0 +1,5 @@
+id: LOS-2WXH
+status: agreed
+statement: A person pays money they do not owe.
+to: [user, third party]
+from: [ELI-5KXR#6]

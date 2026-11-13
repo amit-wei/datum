@@ -1,0 +1,6 @@
+id: FUN-4DFD
+status: agreed
+name: Delete an expense
+definition: |
+  Removes a recorded expense the user picked from the trip's record.
+serves: [SCN-QTA5#2]

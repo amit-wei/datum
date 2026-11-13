@@ -1,0 +1,12 @@
+id: SCN-R9P6
+status: agreed
+name: Exact amounts do not add up to the total
+kind: failure
+trigger: The user enters exact amounts per person that differ from the amount paid.
+steps:
+  - {n: 1, by: user, what: "Enters an expense and exact amounts that do not add up to the amount paid."}
+  - {n: 2, by: product, what: "Tells the user that the amounts differ from the total and by how much."}
+  - {n: 3, by: user, what: "Corrects the amounts."}
+  - {n: 4, by: product, what: "Adds the expense to the record."}
+outcome: The expense is recorded only with amounts that add up to what was paid.
+needs: [ELI-5KXR#5, ELI-5KXR#6]

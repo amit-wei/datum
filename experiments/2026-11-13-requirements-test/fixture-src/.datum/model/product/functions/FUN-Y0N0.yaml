@@ -1,0 +1,7 @@
+id: FUN-Y0N0
+status: agreed
+name: Propose the fewest settling transfers
+definition: |
+  Proposes a set of payments between people that leaves nobody owing or owed, using as
+  few payments as possible.
+serves: [SCN-42TT#2]

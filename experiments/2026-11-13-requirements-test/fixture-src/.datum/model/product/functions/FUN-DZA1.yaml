@@ -1,0 +1,7 @@
+id: FUN-DZA1
+status: agreed
+name: Work out who owes whom
+definition: |
+  Turns the recorded expenses into what each person owes or is owed by each other
+  person.
+serves: [SCN-JAQ3#5, SCN-Y751#4, SCN-9JEM#2, SCN-QTA5#3]

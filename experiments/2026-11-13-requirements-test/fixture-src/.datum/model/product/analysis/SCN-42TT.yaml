@@ -1,0 +1,13 @@
+id: SCN-42TT
+status: agreed
+name: Settle up at the end of the trip
+kind: main
+trigger: The trip or tenancy ends and the user wants everyone to pay back.
+preconditions: At least one expense is recorded.
+steps:
+  - {n: 1, by: user, what: "Asks how to settle."}
+  - {n: 2, by: product, what: "Proposes the fewest transfers that leave everyone in the trip owing nothing and owed nothing."}
+  - {n: 3, by: product, what: "Turns the transfers into plain text the user can paste into any chat app."}
+  - {n: 4, by: user, what: "Sends the message to the others, who do not have the product."}
+outcome: Everyone knows whom to pay and how much, with as few transfers as possible.
+needs: [ELI-5KXR#3, ELI-5KXR#4, ELI-7MDP#3, ELI-7MDP#4, ELI-7MDP#7]

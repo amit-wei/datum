@@ -162,6 +162,12 @@ found wrong at build would mean redoing every step above it.
   product becomes training data. Measuring the next version on the same product would
   show fit, not generalisation. Earlier products become a regression set: rerun to catch
   breakage, never counted as evidence of improvement.
+- **Each thin step is tested before the version's end-to-end run** (agreed 2026-11-13,
+  #60): a failure end to end does not say which step caused it. Datum against a
+  no-skill baseline on the behaviours a baseline can show; datum-only checks for
+  following datum's own skills. Fixtures use a product that is neither the version's
+  product nor the skill examples' product, and a blind evaluator, told nothing about
+  datum, compares the two outputs.
 - **Pre-registered.** Before a version is built, it states what it introduces and what
   result would show it works, as in `experiments/2026-11-05-fa-test`.
 - **Measured by a hidden acceptance suite.** Each product has a private intent sheet (one

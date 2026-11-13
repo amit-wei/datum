@@ -1,0 +1,7 @@
+id: FUN-T3FW
+status: agreed
+name: Report a mismatch between shares and total
+definition: |
+  Tells the user when exact amounts differ from the amount paid, and by how much, so
+  the user can correct them.
+serves: [SCN-R9P6#2]

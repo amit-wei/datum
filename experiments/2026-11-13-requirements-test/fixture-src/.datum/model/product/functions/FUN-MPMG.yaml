@@ -1,0 +1,7 @@
+id: FUN-MPMG
+status: agreed
+name: Split an expense by exact amounts
+definition: |
+  Takes the exact amount the user gives for each picked person as that person's share
+  of the expense.
+serves: [SCN-Y751#3]
