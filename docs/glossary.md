@@ -17,7 +17,12 @@ synonyms; a reviewer flags any other. Add a term when it first appears in a skil
 | scenario | One end-to-end journey from a trigger to an outcome the builder cares about |
 | function | Something a part does, as a verb and its object, independent of how |
 | requirement | What must hold for a function, and how well; or a constraint, or a budget |
+| functional requirement | What result must be seen for a function to be done (NASA's term) |
+| performance requirement | How well a function must be done, with a measure (NASA's term) |
+| unwanted behaviour | What a part must do on bad input, a failure or an interruption; also the EARS pattern for it |
+| measure | The one metric a requirement holds, with its unit and bounds; the statement names it as `{measure}` |
 | proof | The planned verification of requirements: a method and a criterion |
+| case author | Whoever writes the cases from the proofs; never the one who wrote the requirements |
 | method | Inspection, Analysis, Demonstration or Test |
 | case | An executable piece (a test, an eval run, a script) that implements a proof |
 | evidence | The result of running a proof's cases at a commit |

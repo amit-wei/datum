@@ -63,7 +63,7 @@ grilling into an elicitation record (see Skills). Greenfield has no separate int
    the synthesis against the requirements: every requirement allocated, key requirements
    walked through the parts as runtime scenarios. A failure changes the architecture or
    renegotiates a requirement (a recorded decision). Loop to 1–3 until it holds.
-5. **Cases** (added 2026-10-17). The test author writes the executable cases for this
+5. **Cases** (added 2026-10-17). The case author writes the executable cases for this
    level's proofs, as on the left side of the V. The same at every level: a leaf's
    cases test it through the interfaces its parent fixed; a non-leaf's integration
    cases run against stubs until its children exist. See Build and verify.
@@ -208,7 +208,27 @@ are not duplicates. Chosen from eight candidates (INFERRED, design reasoning onl
   A default of `test` was rejected: it invites a suite of thousands of tests that nobody
   chose.
 - **The measure is the whole agreed shape** (Fields): metric, optional definition, unit,
-  bounds of `{statistic, op, value}`, `TBD` allowed.
+  bounds of `{statistic, op, value}`, `TBD` allowed. Every bound is a pass level: no
+  field marks a target apart from a must (Gilb's Goal against Must). Added when a
+  product needs to trade values.
+- **Grounded in sources** (`research/2026-11-13-requirements.md`). Each function is asked
+  three questions, named as the sources name them: **functional** and **performance**
+  (NASA) and **unwanted behaviour** (EARS). Writing rules come from NASA's checklist
+  and the INCOSE guide: needed, stands alone, no word without a test, stated
+  positively, a tolerance that matters.
+- **Hazards: nothing forced.** Per hazard the builder chooses to prevent it (STPA's
+  inverted condition), respond to it (STPA's "if it occurs, then…", the EARS `unwanted`
+  pattern), both, or accept it with a reason. Some hazards are not worth preventing.
+- **No invented values, stricter than NASA.** NASA prefers a best estimate marked TBR;
+  datum writes `TBD` with an issue, because an agent's plausible guess is read later as
+  agreed.
+- **Rigour fits ordinary software.** The default keeps only rules that stop waste: a
+  rationale for every proof's method, an analysis that states its assumptions and worst
+  case (Pendentive L6), a proof runnable in the current increment (L4), no risk to real
+  data. Aerospace rules (safety-critical by test, a risk assessment for analysis-only
+  proofs, two independent analyses) are candidates for a safety profile (#5), not
+  defaults. The four method names are shared with NASA and ECSS; where the lines between
+  them fall is datum's.
 - **Schemas and scripts ship in the plugin** (`schemas/`, `scripts/` in this repo), never
   in the builder's repo. The agent's reference for a file is the technique that writes
   it ("The file" section); the schema enforces it. So the two cannot drift, a check in
@@ -380,8 +400,8 @@ them.
 - **YAML hygiene.** No key or plain value may be a YAML 1.1 boolean word (on, off, yes,
   no); the validator refuses boolean keys.
 - **Requirement statement** follows EARS: `statement` plus `pattern` (ubiquitous, event,
-  state, unwanted, optional, compound, none). The validator warns on `none` and on more
-  than one "shall". A pattern of our own is added only after the pilot shows a recurring
+  state, unwanted, optional, complex, none; `complex` renamed from `compound` on
+  2026-11-13 to match EARS). The validator warns on `none` and on more than one "shall". A pattern of our own is added only after the pilot shows a recurring
   misfit.
 - **Measure.** One metric per requirement, with any number of bounds on it
   (`{statistic, op, value}`, e.g. p95 and p99), like a tolerance band. The statement
@@ -636,7 +656,7 @@ The contract for one leaf part:
 2. **A hook locks the cases;** the implementer cannot edit or delete them (P5).
 3. **The implementer writes code until the cases pass.** It builds nothing that no
    requirement asks for; a need it finds is raised (problems go up). A case it thinks
-   is wrong is raised to the test author, never fixed by the implementer.
+   is wrong is raised to the case author, never fixed by the implementer.
 4. **Review loop** against the part's functions and decisions. Verification cannot
    catch overbuilding or broken conventions: overbuilt code can pass every case.
 5. **Out:** code and passing cases, the IDs listed in the commit or PR.
