@@ -6,39 +6,44 @@ description: Use when a part's functions or hazards have no requirements yet, wh
 # Writing requirements
 
 A requirement says what must hold for a function to count as done: what result is seen,
-how well where someone cares, and what the part does when things go wrong. It is
-verifiable at the level it is written: someone could check it without asking what was
-meant. The reviewer of the requirements step checks the requirements against this file.
+how well where someone cares, and what the part does when things go wrong. Someone who
+never saw the conversation writes the cases from it, so it must stand alone and be
+verifiable at the level it is written. The reviewer of the requirements step checks the
+requirements against this file.
 
 ## Where requirements come from
 
 1. **Each function.** Ask three questions, and write a requirement for each answer that
-   matters:
-   - **Attained:** what result must be seen for the function to be done? "When the
-     climber asks for a plan, the planner shall propose a session that names each
-     exercise and its load."
-   - **How well:** does the builder, a hazard or a budget care about speed, size,
-     accuracy or cost here? Only then write a measure. Otherwise there is no "how well"
-     requirement: do not invent one.
+   matters. Every function needs at least one requirement `of:` it.
+   - **Functional:** what result must be seen for the function to be done? "When the
+     climber asks for the next session, the part shall propose a session that names
+     each exercise and its load."
+   - **Performance:** how well must it be done? Ask only where the builder, a hazard or
+     a budget cares about speed, size, accuracy or cost. Where nobody does, write none
+     and go to the next question.
    - **Unwanted behaviour:** what must the part do on bad input, a missing input, an
      outside system failing, an interrupted run? Write the response, not only the
      detection.
-   Every function needs at least one requirement `of:` it.
-2. **Each hazard of the part.** Ask what must hold so that the hazard's state cannot
-   lead to its loss, or so the part does not enter that state. Write it with
-   `answers: [HAZ]`, and `of:` the function it constrains. If the builder would rather
-   accept the hazard than answer it, that is a decision: leave the hazard open with an
-   issue, for synthesis to record.
+2. **Each hazard of the part.** The builder chooses, per hazard, how to deal with it.
+   Offer the forms that fit, and write the ones they pick with `answers: [HAZ]` and
+   `of:` the function they constrain:
+   - **Prevent:** turn the hazard around into the condition the part keeps. "The part
+     proposes a load the climber cannot take" becomes "the part shall propose only loads
+     within what the climber has recently completed".
+   - **Respond:** "If \<the hazard's state\> occurs, then the \<part\> shall \<detect
+     it and act to prevent or reduce the loss\>": the `unwanted` pattern.
+   - **Accept:** the builder judges the hazard not worth answering. That is a decision
+     with its reason: leave the hazard open with an issue, for synthesis to record.
 3. **The builder's constraints.** A limit the builder sets that no function explains
    ("runs without a network connection") is a requirement with `source: builder`. A
-   choice of technology is not: that is a decision for synthesis, even when the builder
-   already has a preference. Record the preference in the issue or elicitation record.
+   choice of technology is not: write it into the issue or the elicitation record as a
+   preference, for synthesis to decide.
 
 ## What is a requirement and what is not
 
 | It is written as | It is really | Put it in |
 |---|---|---|
-| "The planner shall plan the next session" | the function restated | the result that shows it was done |
+| "The part shall plan the next session" | the function restated | the result that shows it was done |
 | "shall use SQLite", "shall cache plans" | a mechanism | a decision in synthesis |
 | "shall be fast", "shall be easy to use", "shall be robust" | a wish with no test | a measure, or ask the builder what they would check |
 | "shall handle errors" | an empty verb | the condition and the response: "If the log file cannot be read, then…" |
@@ -47,6 +52,8 @@ meant. The reviewer of the requirements step checks the requirements against thi
 
 ## Rules for each requirement
 
+- **Needed.** Ask what is the worst that could happen if it were left out. If nothing,
+  delete it, or ask the builder.
 - **One "shall".** Two "shall"s are two requirements. The validator warns on them.
 - **An EARS pattern.** Write the statement in the pattern that fits and name it:
 
@@ -55,18 +62,29 @@ meant. The reviewer of the requirements step checks the requirements against thi
   | `ubiquitous` | The \<part\> shall \<response\>. |
   | `event` | When \<trigger\>, the \<part\> shall \<response\>. |
   | `state` | While \<state\>, the \<part\> shall \<response\>. |
-  | `unwanted` | If \<unwanted condition\>, then the \<part\> shall \<response\>. |
+  | `unwanted` | If \<trigger\>, then the \<part\> shall \<response\>. |
   | `optional` | Where \<feature is included\>, the \<part\> shall \<response\>. |
-  | `compound` | Two of the above together: "While…, when…, the \<part\> shall…". |
+  | `complex` | More than one keyword, in this order: While, When, If…then. "While \<state\>, if \<trigger\>, then the \<part\> shall…" |
 
   Use `none` only when no pattern fits, and say why in the rationale.
-- **Verifiable.** You can say how it would be shown to hold. If you cannot, rewrite it
-  before going on.
+- **The subject is "the part".** Write "the part shall…", never the part's or the
+  product's name: the requirement then survives a rename or a move to another part.
+- **Stands alone.** In the statement, name things, never "it", "they" or "this".
+  Replace "as appropriate", "where possible", "etc.", "and/or" and "such as"
+  with the actual cases.
+- **Verifiable.** You can say how it would be shown to hold. Words with no test
+  ("fast", "easy", "sufficient", "safe", "robust", "user-friendly") become a measure or
+  a question for the builder. "All", "always" and "never" can be proved only over a
+  stated set: name the set.
+- **Stated positively,** as what the part does. Write "shall not" only when the hazard
+  or the builder names an act the part must never do.
 - **What, not how.** It must stay true if the technology changes.
-- **No invented values.** A number comes from the builder (grilling), from an
-  established source (research), or from a measurement (a spike), settled before it is
-  written. Until then the value is `TBD`, and each `TBD` gets an issue that says how it
-  will be settled.
+- **No invented values.** A number comes from the builder (grilling), an established
+  source (research) or a measurement (a spike), settled before it is written. Until
+  then the value is `TBD`, and each `TBD` gets an issue that says how it will be
+  settled. A plausible guess is read later as agreed, so write `TBD` instead.
+- **A tolerance that matters.** Ask what would happen if the value were doubled. If
+  nothing would, the bound is tighter than anyone needs: loosen it or ask.
 - **The number goes in the measure, once.** The statement holds `{measure}` where the
   value would be; the measure holds the metric, its unit and the bounds. A proof refers
   to the measure and never copies the number.
@@ -90,15 +108,18 @@ optional `definition` of exactly what is measured, `unit`, and `bounds`, each a
 `statistic` from value, mean, p50, p90, p95, p99, max, min, proportion, rate, an `op`
 and a `value` or `TBD`), and `rationale` as above.
 
-Three examples, for illustration only:
+Four examples, for illustration only. The second and third answer one hazard,
+HAZ-6VJR: "the part proposes a load the climber's body cannot take".
+
+A performance requirement:
 
 ```yaml
 id: REQ-4W8N
 status: draft
 pattern: event
 statement: |
-  When the climber asks for the next session, the planner shall propose it within
-  {measure}.
+  When the climber asks for the next session, the part shall propose that session
+  within {measure}.
 measure:
   metric: plan_time
   definition: From the request to the proposed session being shown.
@@ -109,23 +130,53 @@ rationale: The climber asks at the wall, between attempts; past two seconds they
 of: FUN-7K3Q
 ```
 
+Prevent, written as a prohibition because the hazard is an act, with a value not yet
+settled:
+
 ```yaml
 id: REQ-9C2T
 status: draft
-pattern: unwanted
+pattern: ubiquitous
 statement: |
-  If the climber has logged pain in the last session, then the planner shall propose
-  no session with a higher load than that session.
-rationale: Refusing to plan was the obvious alternative; the builder wants a lighter plan instead.
+  The part shall not propose a session whose load exceeds the climber's highest
+  completed load of the last four weeks by more than {measure}.
+measure:
+  metric: load_increase
+  definition: |
+    How far the proposed session's load exceeds the highest completed load of the last
+    four weeks, as a percentage of that load.
+  unit: "%"
+  bounds:
+    - {statistic: max, op: "<=", value: TBD}
+rationale: |
+  A sudden rise in load is the usual path to a finger injury. The safe rise depends on
+  the climber; it is settled by research (issue open).
 of: FUN-7K3Q
 answers: [HAZ-6VJR]
 ```
+
+Respond, in the `complex` pattern, choosing a warning over a block:
+
+```yaml
+id: REQ-3JQE
+status: draft
+pattern: complex
+statement: |
+  While the climber's last logged session records pain, if the climber starts a
+  session with a higher load than that session, then the part shall warn the
+  climber before the first exercise.
+rationale: Blocking the session was the obvious alternative; the builder wants the climber to decide.
+of: FUN-2PXD
+answers: [HAZ-6VJR]
+```
+
+A constraint of the builder:
 
 ```yaml
 id: REQ-1F5D
 status: draft
 pattern: ubiquitous
-statement: The product shall do each of its functions without a network connection.
+statement: The part shall do each of its functions without a network connection.
 rationale: Climbing gyms often have no signal.
 source: builder
 ```
