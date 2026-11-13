@@ -196,7 +196,17 @@ are not duplicates. Chosen from eight candidates (INFERRED, design reasoning onl
   a part's requirements come from its parent's; how the child's requirements step reads
   them, and whether the parent's synthesis or the child writes them, is open (#57). A
   rule making handed-down requirements read-only was considered and not adopted: it
-  does not answer the question. Not needed while the product is the leaf.
+  does not answer the question. Not needed while the product is the leaf. Until then the
+  step stops in any part that was handed requirements, and runs in any part that was
+  not; it never names the product as the only case (every part is a part; the product
+  is the top one).
+- **A value is settled before it enters a measure** (forced, P13): by `grilling`,
+  `research` or `running-a-spike`, whichever fits where the value comes from, or written
+  `TBD` with an issue. No one technique is forced: forcing research was rejected.
+- **No default verification method.** Every proof states a `rationale` (required): why
+  this method gives enough confidence at least cost, and why cheaper ones would not do.
+  A default of `test` was rejected: it invites a suite of thousands of tests that nobody
+  chose.
 - **The measure is the whole agreed shape** (Fields): metric, optional definition, unit,
   bounds of `{statistic, op, value}`, `TBD` allowed.
 - **Schemas and scripts ship in the plugin** (`schemas/`, `scripts/` in this repo), never

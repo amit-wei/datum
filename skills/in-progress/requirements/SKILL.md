@@ -43,9 +43,9 @@ requirements: the scope is bounded by the part's functions.
 - **Every part:** anything elsewhere in the model that links to this part's ID or its
   functions. Search for them before writing; each is an obligation on this part.
 
-This version of the step covers the product only. In any other part, tell the builder
-that datum does not yet say how to work from the requirements a parent hands down, and
-stop.
+Datum cannot yet work from requirements handed down by a parent part's synthesis. If
+any were handed to this part, tell the builder so, and stop. A part with none runs this
+step like any other.
 
 If an input is infeasible, conflicts with another, or is missing, do not work around
 it here: open an issue on the part that owns it and raise it with the builder.
@@ -70,15 +70,15 @@ runs before anything else is written; the rest are due when the end condition ne
    builder. It holds the rules for what is and is not a requirement, and where a value
    may come from.
 2. `writing-proofs`: for every requirement, once it is written.
-3. `grilling`: when a value or a choice is the builder's: how well is good enough, which
-   response to a failure they want, whether a hazard is answered or accepted, whether a
-   constraint holds. Ask before you write it.
-4. `research`: forced before a value that is not the builder's enters a measure (an
-   established figure, a standard, a known limit). Run it in a subagent; keep only the
-   conclusion and its source.
-5. `running-a-spike`: when a value can only be found by measuring. In a subagent,
-   time-boxed, with a written question. Until it reports, the value is `TBD` with an
-   issue.
+3. **Settling a value:** forced before any value enters a measure. Pick the technique
+   that fits where the value comes from, or write `TBD` with an issue that names it:
+   - `grilling`: the value or choice is the builder's: how well is good enough, which
+     response to a failure they want, whether a hazard is answered or accepted, whether
+     a constraint holds.
+   - `research`: the value is already established elsewhere (a standard, a known limit,
+     a published figure). Run it in a subagent; keep the conclusion and its source.
+   - `running-a-spike`: the value can only be found by measuring. In a subagent,
+     time-boxed, with a written question.
 
 ## End condition
 

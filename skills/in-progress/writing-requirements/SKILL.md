@@ -63,9 +63,10 @@ meant. The reviewer of the requirements step checks the requirements against thi
 - **Verifiable.** You can say how it would be shown to hold. If you cannot, rewrite it
   before going on.
 - **What, not how.** It must stay true if the technology changes.
-- **No invented values.** A number comes from the builder, from a hazard's analysis,
-  from research (an established figure), or from a spike (a measured one). Until then
-  the value is `TBD`, and each `TBD` gets an issue that says how it will be settled.
+- **No invented values.** A number comes from the builder (grilling), from an
+  established source (research), or from a measurement (a spike), settled before it is
+  written. Until then the value is `TBD`, and each `TBD` gets an issue that says how it
+  will be settled.
 - **The number goes in the measure, once.** The statement holds `{measure}` where the
   value would be; the measure holds the metric, its unit and the bounds. A proof refers
   to the measure and never copies the number.
