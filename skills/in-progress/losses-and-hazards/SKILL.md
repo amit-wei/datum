@@ -43,8 +43,9 @@ For each function of the part, ask: in what state of this part would a loss foll
 given bad conditions outside it? Write each such state as a hazard, linked to the
 losses it leads to and the functions that introduce it.
 
-- **One state, at this part's level.** A hazard names the part, not a lower part or a
-  component: "the product holds the only copy of the training history".
+- **One state, at this part's level.** Its subject is "the part", never the part's
+  name, a lower part or a component: "the part holds the only copy of the training
+  history". It then survives a rename or a move.
 - **A handful, not a list of causes.** Many causes lead to the same state; the causes
   come later, in synthesis's risk pass.
 - **Every loss is reached** by at least one hazard of the product. A loss with none
@@ -96,7 +97,7 @@ from: [ELI-3RWN#2]
 ```yaml
 id: HAZ-5QKA
 status: draft
-statement: The product holds the only copy of the climber's training history.
+statement: The part holds the only copy of the climber's training history.
 losses: [LOS-8D2F]
 arises_from: [FUN-3G1N]
 ```
