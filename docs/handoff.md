@@ -3,21 +3,22 @@
 Where things stand and what is next. Rewritten each session, committed last. What was done
 is in `git log`; what was agreed is in `docs/design-notes.md`.
 
-**State (2026-11-09):** #25 and #32 are closed. "Forced" now means a technique must run
-before anything else is written (P13); `losses-and-hazards` is due by the end condition
-instead, and no loss or hazard may be named, proposed or ruled out without it loaded.
-B11r passed 3/3 after the change. A bare question (B8) and an empty repository (B1) are
-left for the developer to notice and correct; no fix planned.
+**State (2026-11-13):** Agreed: versions are a ladder of reference products (design
+notes, Versions as a ladder of reference products). v0.1.0 is a thin pass: one
+one-part product, a duplicate-file finder and safe deduper, taken from needs to verified
+code, with each step carrying only its core techniques. Each later version gets a fresh
+product; earlier ones become a regression set. This supersedes "the full default as
+designed" in Rigour in v0.1.0.
 
-**Next:** #27 (Requirements step). Write its techniques' conditions under the new P13
-rule: forced only where order matters; everything else named in the end condition.
+**Issues:** v0.1.0 sub-issues are open, one per thing built: requirements #40-#43,
+synthesis #44-#46, design evaluation #47-#48, cases #49 (new step issue; child #55),
+build #50-#52, intent sheet and hidden suite #53, end-to-end test run #54 (blocked by
+#53). Moved to v0.2.0: #30 increment, #31 FA gate checks, #34 work packages. #39 parked.
 
-**Unsorted:** #39 (datum using outside skills, such as `frontend-design` at build) has no
-milestone yet.
-
-**Open for decision:** whether to build each remaining step fully, or make a thin pass
-through to a small built result first. The theory that functional-analysis discipline pays
-off in synthesis and building is still untested.
+**Next:** #53 first: write the deduper's intent sheet and hidden acceptance suite, and
+pre-register the v0.1.0 run (what it introduces, what result shows it works). Then #27's
+children, with conditions under P13: forced only where order matters, everything else
+named in the end condition.
 
 **Before the next test:** read lessons 8-17 in `research/2026-11-05-fa-test.md`. Base the
 rig on `experiments/2026-11-05-fa-test/run.py`: it runs the agent with sandboxed Bash (#38),
