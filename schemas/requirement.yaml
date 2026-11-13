@@ -6,7 +6,7 @@ properties:
   id: {$ref: "_common.yaml#/$defs/REQ"}
   status: {$ref: "_common.yaml#/$defs/status"}
   statement: {$ref: "_common.yaml#/$defs/text"}      # EARS, one "shall"; holds {measure} exactly once when a measure exists
-  pattern: {enum: [ubiquitous, event, state, unwanted, optional, compound, none]}  # none: a warning
+  pattern: {enum: [ubiquitous, event, state, unwanted, optional, complex, none]}  # none: a warning
   measure:                                           # one metric, any number of bounds on it
     type: object
     additionalProperties: false
