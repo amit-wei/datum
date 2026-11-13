@@ -32,9 +32,9 @@ description: Use when starting, resuming or steering work on a product built wit
 
 - Everything is under `.datum/model/`. The product is the top part, `.datum/model/product/`; every other part has
   its own folder below its parent, named in the parent's `parts.yaml`.
-- A part holds `functions/`, `requirements/`, `proofs/`, `interfaces/`, `decisions/`,
-  `risks/` and `analysis/` (elicitation records `ELI-`, scenarios `SCN-`, spike results
-  `SPK-`, research `RES-`), one YAML file per artifact, named by its ID.
+- A part holds `functions/`, `requirements/`, `proofs/`, `interfaces/`, `decisions/`
+  and `analysis/` (elicitation records `ELI-`, scenarios `SCN-`, losses `LOS-`, hazards
+  `HAZ-`, spike results `SPK-`, research `RES-`), one YAML file per artifact, named by its ID.
 - An ID is a type prefix and 4 Crockford base32 characters (`REQ-7K3Q`). Links name IDs,
   never paths.
 - `.datum/model/<part>/steps.yaml` records the engine steps the builder has closed, e.g.
