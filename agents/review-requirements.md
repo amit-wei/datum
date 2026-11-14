@@ -30,14 +30,17 @@ author fixed or rejected and why.
    that links to the part or its functions (search for its IDs).
 2. **Check coverage from what must be covered, not from what exists.** Missing things
    leave no file, so start from each source and look for what has nothing attached:
-   - every function → at least one requirement `of` it; then ask the three questions
-     of `writing-requirements` (functional, performance, unwanted behaviour) and name any
-     answer that matters and has no requirement
+   - every function → at least one requirement `of` it, for its result, and one for
+     performance where the builder, a hazard or a budget cares
+   - every input → its valid range and the response outside it; from an outside
+     system, the response when that system fails
+   - every output → if a function it goes to can run after the part is closed, what is
+     kept; if a run can be interrupted while it is made, what is left
    - every hazard → a requirement that answers it, or an open issue where it is
      accepted, with the reason for the way chosen; for each answer, turn it around: if it failed, the hazard's state
      should follow. If the part could meet it while the hazard holds, it does not
      answer the hazard
-   - every constraint in the elicitation records → a `source: builder` requirement,
+   - every entry marked `constraint: true` → a `source: builder` requirement,
      `out_of_scope` with a reason that holds, or a technology choice left to synthesis
    - every requirement → at least one proof
    - every `TBD` → an open issue that says how it will be settled
@@ -45,7 +48,9 @@ author fixed or rejected and why.
    is not a requirement, needed, one "shall", the EARS pattern named and actually used,
    stands alone (no pronouns or escape clauses), verifiable
    (no word without a test, no unbounded "all" or "never"), stated positively, no
-   mechanism, where each value came from, a tolerance that matters, the rationale rule.
+   mechanism, where each value came from, a tolerance that matters, and a rationale
+   that says why it is needed and what it assumes (one that only restates is should
+   fix).
    Then check it is feasible as far as the model shows, written at this part's level,
    and that its assumptions are stated.
 4. **Check each proof** against the rules in `writing-proofs`: a method whose
@@ -64,9 +69,9 @@ author fixed or rejected and why.
    for, or a measure nobody gave a reason for.
 7. **Run the validator,** `uv run "${CLAUDE_PLUGIN_ROOT}/scripts/validate.py"`, and
    report its errors as blocking and its warnings as should fix.
-8. **Check the builder's agreement:** the end condition needs the builder to agree the
-   requirements and their values. If the record shows no such agreement, that is a
-   blocking finding.
+8. **List what goes to the builder:** you run before the builder is asked. Name every
+   value or rule still `TBD`, and every rejection you uphold, as the batch for the
+   builder. Their agreement is not yours to check.
 
 ## Findings
 

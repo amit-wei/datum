@@ -1,7 +1,7 @@
 title: requirement
 type: object
 additionalProperties: false
-required: [id, status, statement, pattern]
+required: [id, status, statement, pattern, rationale]
 properties:
   id: {$ref: "_common.yaml#/$defs/REQ"}
   status: {$ref: "_common.yaml#/$defs/status"}
@@ -33,10 +33,8 @@ properties:
     minItems: 1
     items: {$ref: "_common.yaml#/$defs/HAZ"}
   source: {enum: [builder]}                          # a constraint; a role, never a name
-  rationale: {$ref: "_common.yaml#/$defs/text"}      # required with a measure; never restates links
+  rationale: {$ref: "_common.yaml#/$defs/text"}      # why it is needed and what it assumes; never restates links
 anyOf:
   - required: [of]
   - required: [answers]
   - required: [source]
-dependentRequired:
-  measure: [rationale]

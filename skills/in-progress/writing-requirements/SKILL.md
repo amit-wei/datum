@@ -13,19 +13,24 @@ requirements against this file.
 
 ## Where requirements come from
 
-1. **Each function.** Ask three questions, and write a requirement for each answer that
-   matters. Every function needs at least one requirement `of:` it.
+Walk the model: each requirement comes from one of the sources below. This step creates
+no topics. Something the walk finds missing, such as a function with no input for what
+it needs, goes back to the step that owns it.
+
+1. **Each function.** Every function needs at least one requirement `of:` it.
    - **Functional:** what result must be seen for the function to be done? "When the
      climber asks for the next session, the part shall propose a session that names
      each exercise and its load."
    - **Performance:** how well must it be done? Ask only where the builder, a hazard or
-     a budget cares about speed, size, accuracy or cost. Where nobody does, write none
-     and go to the next question.
-   - **Unwanted behaviour:** what must the part do on bad input, input outside the
-     ranges the builder gave, a missing input, an outside system failing, an
-     interrupted run, being closed or restarted? Write the response, not only the
-     detection.
-2. **Each hazard of the part.** Decide how to deal with it, settled like any value
+     a budget cares about speed, size, accuracy or cost. Where nobody does, write none.
+2. **Each input of a function** (unwanted behaviour, EARS). What makes the input valid
+   (its ranges, what must be present), and what the part does with one that is not.
+   If it comes from an outside system: what the part does when that system fails or
+   answers wrongly. Write the response, not only the detection.
+3. **Each output of a function** (unwanted behaviour, EARS). If a function it goes to
+   can run after the part is closed or restarted, what must still be there. If a run
+   can be interrupted while the output is made: what is left, whole or none.
+4. **Each hazard of the part.** Decide how to deal with it, settled like any value
    (see the rules), and give the reason in the rationale. Write the requirements with
    `answers: [HAZ]` and `of:` the function they constrain, in one or both forms:
    - **Prevent:** turn the hazard around into the condition the part keeps. "The part
@@ -35,10 +40,13 @@ requirements against this file.
      it and act to prevent or reduce the loss\>": the `unwanted` pattern.
    - If the hazard is not worth answering, accepting it is a decision with its
      reason: leave the hazard open with an issue, for synthesis to record.
-3. **The builder's constraints.** A limit the builder sets that no function explains
-   ("runs without a network connection") is a requirement with `source: builder`. A
-   choice of technology is not: write it into the issue or the elicitation record as a
-   preference, for synthesis to decide.
+5. **Each elicitation entry marked `constraint: true`.** A limit the builder sets that
+   no function explains ("runs without a network connection") is a requirement with
+   `source: builder`. A choice of technology is not: write it into the issue or the
+   elicitation record as a preference, for synthesis to decide.
+
+One requirement for each condition that has its own response: they are proved one by
+one.
 
 ## What is a requirement and what is not
 
@@ -80,20 +88,22 @@ requirements against this file.
 - **Stated positively,** as what the part does. Write "shall not" only when the hazard
   or the builder names an act the part must never do.
 - **What, not how.** It must stay true if the technology changes.
-- **No invented values or rules.** A number, a limit or a rule is settled before it
-  is written: by asking the builder, or by research or a spike. Examples: how an amount
-  that does not divide evenly is rounded, what is kept when the part is closed, which
-  inputs are refused, how a hazard is dealt with. Until it is settled it is `TBD`, with
-  an issue that says how it will be settled. A plausible guess is read later as agreed,
-  so write `TBD` instead.
+- **No invented values or rules.** A number, a limit or a rule is settled with a
+  reason: by research or a spike, or by the builder. Examples: how an amount that does
+  not divide evenly is rounded, what is kept when the part is closed, which inputs are
+  refused, how a hazard is dealt with. Until it is settled it is `TBD`, and the
+  question goes to the builder with the step's batch; one still open after that gets
+  an issue that says how it will be settled. A plausible guess is read later as
+  agreed, so write `TBD` instead.
 - **A tolerance that matters.** Ask what would happen if the value were doubled. If
   nothing would, the bound is tighter than anyone needs: loosen it or ask.
 - **The number goes in the measure, once.** The statement holds `{measure}` where the
   value would be; the measure holds the metric, its unit and the bounds. A proof refers
   to the measure and never copies the number.
-- **A rationale** is required when there is a measure (why this value), and when the
-  requirement picks one response over an obvious other (refuse, ignore, warn, retry).
-  It never restates the links.
+- **A rationale on every requirement:** why it is needed and what it assumes, in the
+  requirement's own terms. Say where each value or rule came from, and why this
+  response over an obvious other (refuse, ignore, warn, retry). A rationale that only
+  restates the statement or the links fails review.
 
 ## The file
 

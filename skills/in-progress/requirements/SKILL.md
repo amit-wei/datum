@@ -37,9 +37,10 @@ requirements: the scope is bounded by the part's functions.
 
 ## Inputs
 
-- **The part's functions** (`functions/`) and **hazards** (`HAZ-` in `analysis/`).
-- **The elicitation records** (`ELI-` in `analysis/`): the builder's constraints, and
-  any values they gave.
+- **The part's functions** (`functions/`), with their inputs and outputs, and
+  **hazards** (`HAZ-` in `analysis/`).
+- **The elicitation records** (`ELI-` in `analysis/`): the entries marked
+  `constraint: true`, and any values the builder gave.
 - **Every part:** anything elsewhere in the model that links to this part's ID or its
   functions. Search for them before writing; each is an obligation on this part.
 
@@ -66,33 +67,45 @@ the lines below only say when it applies. On a question, answer with the techniq
 loaded and offer to run it; write nothing until the builder agrees. A forced technique
 runs before anything else is written; the rest are due when the end condition needs them.
 
-1. `writing-requirements`: for every function, every hazard and every constraint of the
-   builder. It holds the three questions to ask of each function, the ways to answer a
+1. `writing-requirements`: for every function, input, output, hazard and constraint.
+   It holds the walk over these sources and what to ask of each, the ways to answer a
    hazard, the rules for what is and is not a requirement, and the file format.
 2. `writing-proofs`: for every requirement, once it is written. It holds how to choose
    and justify a method, how to write a criterion a case author can check without
    asking, and the file format.
-3. **Settling a value or a rule:** forced before one is written. Ask the builder with
-   `grilling`, or settle it with `research` (in a subagent; keep the conclusion and its
-   source) or `running-a-spike` (in a subagent, time-boxed, with a written question).
-   Otherwise write `TBD`, with an issue that says how it will be settled.
+3. **Settling a value or a rule:** due before the builder agrees the requirements.
+   Settle it with `research` (in a subagent; keep the conclusion and its source) or
+   `running-a-spike` (in a subagent, time-boxed, with a written question), or leave it
+   `TBD` for the builder's batch, asked with `grilling`. One still open after the batch
+   gets an issue that says how it will be settled.
+
+## Order
+
+1. Write the requirements and proofs; a value only the builder can give stays `TBD`.
+2. Run the validator, then the `review-requirements` agent with the part's path. Fix
+   each blocking and should-fix finding, or reject it with a reason, and run the agent
+   again until it is clean or only upheld rejections are left.
+3. Ask the builder once, with `grilling`: every open value or rule, every rejection the
+   reviewer upheld, and whether the requirements say what they expect.
+4. Write in the answers. Run the validator again, and the reviewer again on each
+   requirement whose meaning changed beyond a value filled in.
 
 ## End condition
 
-- The builder has gone through the requirements and agrees they say what they expect,
-  each value included.
-- Every function of the part has at least one requirement `of` it.
+- Every function of the part has at least one requirement `of` it, and each of its
+  inputs and outputs has been asked the questions in `writing-requirements`.
 - Every hazard of the part is answered by a requirement, or, where it is accepted,
   left open with an issue for synthesis to record the decision.
-- Every constraint in the elicitation records is a requirement with `source: builder`,
-  marked `out_of_scope` with a reason, or, for a choice of technology, left to
-  synthesis.
+- Every elicitation entry marked `constraint: true` is a requirement with
+  `source: builder`, marked `out_of_scope` with a reason, or, for a choice of
+  technology, left to synthesis.
 - Every requirement is covered by at least one proof with a criterion.
 - Every `TBD` has an issue that says how it will be settled.
 - The validator is clean (no errors): `uv run "${CLAUDE_PLUGIN_ROOT}/scripts/validate.py"`.
-- The closing review is clean: run the `review-requirements` agent with the part's
-  path. Fix each blocking and should-fix finding, or reject it with a reason, and run
-  the agent again. A finding you reject that the reviewer upholds goes to the builder.
+- The closing review is clean, as in Order: each finding fixed, or rejected with a
+  reason the reviewer accepts or the builder settles.
+- The builder has gone through the requirements, after the review, and agrees they say
+  what they expect, each value included.
 
 The builder closes the step. On their word, record it in `.datum/model/<part>/steps.yaml` as
 `requirements: {closed_at: "<commit>"}`.
