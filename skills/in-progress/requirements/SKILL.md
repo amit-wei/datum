@@ -54,7 +54,7 @@ it here: open an issue on the part that owns it and raise it with the builder.
 
 - `REQ-` files in the part's `requirements/` folder, each with at least one reason to
   exist: `of` a function, `answers` hazards, or `source: builder`.
-- `PRF-` files in the part's `proofs/` folder, each covering requirements of this part.
+- `PRF-` files in the part's `proofs/` folder, each covering one requirement of this part.
 - Records of the techniques used (`ELI-`, `RES-`, `SPK-`) in `analysis/`, and an issue
   for every `TBD`.
 
@@ -72,23 +72,18 @@ runs before anything else is written; the rest are due when the end condition ne
 2. `writing-proofs`: for every requirement, once it is written. It holds how to choose
    and justify a method, how to write a criterion a case author can check without
    asking, and the file format.
-3. **Settling a value:** forced before any value enters a measure. Pick the technique
-   that fits where the value comes from, or write `TBD` with an issue that names it:
-   - `grilling`: the value or choice is the builder's: how well is good enough, which
-     response to a failure they want, whether a hazard is answered or accepted, whether
-     a constraint holds.
-   - `research`: the value is already established elsewhere (a standard, a known limit,
-     a published figure). Run it in a subagent; keep the conclusion and its source.
-   - `running-a-spike`: the value can only be found by measuring. In a subagent,
-     time-boxed, with a written question.
+3. **Settling a value or a rule:** forced before one is written. Ask the builder with
+   `grilling`, or settle it with `research` (in a subagent; keep the conclusion and its
+   source) or `running-a-spike` (in a subagent, time-boxed, with a written question).
+   Otherwise write `TBD`, with an issue that says how it will be settled.
 
 ## End condition
 
 - The builder has gone through the requirements and agrees they say what they expect,
   each value included.
 - Every function of the part has at least one requirement `of` it.
-- Every hazard of the part is answered by a requirement, or, where the builder
-  accepts it, left open with an issue for synthesis to record the decision.
+- Every hazard of the part is answered by a requirement, or, where it is accepted,
+  left open with an issue for synthesis to record the decision.
 - Every constraint in the elicitation records is a requirement with `source: builder`,
   marked `out_of_scope` with a reason, or, for a choice of technology, left to
   synthesis.

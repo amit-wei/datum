@@ -21,19 +21,20 @@ requirements against this file.
    - **Performance:** how well must it be done? Ask only where the builder, a hazard or
      a budget cares about speed, size, accuracy or cost. Where nobody does, write none
      and go to the next question.
-   - **Unwanted behaviour:** what must the part do on bad input, a missing input, an
-     outside system failing, an interrupted run? Write the response, not only the
+   - **Unwanted behaviour:** what must the part do on bad input, input outside the
+     ranges the builder gave, a missing input, an outside system failing, an
+     interrupted run, being closed or restarted? Write the response, not only the
      detection.
-2. **Each hazard of the part.** The builder chooses, per hazard, how to deal with it.
-   Offer the forms that fit, and write the ones they pick with `answers: [HAZ]` and
-   `of:` the function they constrain:
+2. **Each hazard of the part.** Decide how to deal with it, settled like any value
+   (see the rules), and give the reason in the rationale. Write the requirements with
+   `answers: [HAZ]` and `of:` the function they constrain, in one or both forms:
    - **Prevent:** turn the hazard around into the condition the part keeps. "The part
      proposes a load the climber cannot take" becomes "the part shall propose only loads
      within what the climber has recently completed".
    - **Respond:** "If \<the hazard's state\> occurs, then the \<part\> shall \<detect
      it and act to prevent or reduce the loss\>": the `unwanted` pattern.
-   - **Accept:** the builder judges the hazard not worth answering. That is a decision
-     with its reason: leave the hazard open with an issue, for synthesis to record.
+   - If the hazard is not worth answering, accepting it is a decision with its
+     reason: leave the hazard open with an issue, for synthesis to record.
 3. **The builder's constraints.** A limit the builder sets that no function explains
    ("runs without a network connection") is a requirement with `source: builder`. A
    choice of technology is not: write it into the issue or the elicitation record as a
@@ -79,10 +80,12 @@ requirements against this file.
 - **Stated positively,** as what the part does. Write "shall not" only when the hazard
   or the builder names an act the part must never do.
 - **What, not how.** It must stay true if the technology changes.
-- **No invented values.** A number comes from the builder (grilling), an established
-  source (research) or a measurement (a spike), settled before it is written. Until
-  then the value is `TBD`, and each `TBD` gets an issue that says how it will be
-  settled. A plausible guess is read later as agreed, so write `TBD` instead.
+- **No invented values or rules.** A number, a limit or a rule is settled before it
+  is written: by asking the builder, or by research or a spike. Examples: how an amount
+  that does not divide evenly is rounded, what is kept when the part is closed, which
+  inputs are refused, how a hazard is dealt with. Until it is settled it is `TBD`, with
+  an issue that says how it will be settled. A plausible guess is read later as agreed,
+  so write `TBD` instead.
 - **A tolerance that matters.** Ask what would happen if the value were doubled. If
   nothing would, the bound is tighter than anyone needs: loosen it or ask.
 - **The number goes in the measure, once.** The statement holds `{measure}` where the

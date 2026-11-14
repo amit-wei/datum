@@ -7,11 +7,7 @@ properties:
   status: {$ref: "_common.yaml#/$defs/status"}
   title: {$ref: "_common.yaml#/$defs/text"}
   method: {enum: [inspection, analysis, demonstration, test]}
-  covers:                                            # the requirements of this part it verifies
-    type: array
-    minItems: 1
-    uniqueItems: true
-    items: {$ref: "_common.yaml#/$defs/REQ"}
+  covers: {$ref: "_common.yaml#/$defs/REQ"}         # the one requirement of this part it shows; cases may share
   criterion:
     type: object
     additionalProperties: false

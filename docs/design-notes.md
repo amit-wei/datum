@@ -117,7 +117,10 @@ Starting set of triggers (agreed 2026-10-16; revised with use, like everything h
 - Proposed structure (vocabulary leaning: **method / proof / case / evidence**):
   - *method*: the category (Inspection, Analysis, Demonstration, Test). A field, not a row.
   - *proof*: one planned verification row: method, criterion, the requirements it
-    covers (many-to-many lives here), status. Its level comes from where it sits in
+    ~~covers (many-to-many lives here)~~ covers, status. Superseded 2026-11-14 (#60): a
+    proof covers one requirement (a row of NASA's verification matrix); a case may carry
+    out the proofs of several requirements (the test plan), so the many-to-many lives
+    on the case. Its level comes from where it sits in
     the tree and gives its software name (unit, integration, system, acceptance).
   - *case*: an executable piece (test function, eval run, scan script, checklist)
     that names the proof it implements (the "tag").
@@ -191,9 +194,11 @@ are not duplicates. Chosen from eight candidates (INFERRED, design reasoning onl
 
 ## Requirements in v0.1.0 (agreed 2026-11-13, #27)
 
-- **A proof is its own file,** `PRF-` in the part's `proofs/` folder, storing
-  `covers: [REQ]`, as in Types and Links. Cases name a proof ID, and one proof may cover
-  several requirements.
+- **A proof is its own file,** `PRF-` in the part's `proofs/` folder. Cases name a
+  proof ID. ~~It stores `covers: [REQ]`, and one proof may cover several
+  requirements.~~ Superseded 2026-11-14 (#60): it stores `covers: REQ`, exactly one;
+  sharing a setup across requirements is a case's work. In the requirements test, proofs
+  shared across requirements came out as copied, identical checks.
 - **Reasons to exist in v0.1.0:** `of: FUN`, `answers: [HAZ]` and `source: builder`.
   `parent: REQ`, `justified_by: ADR` and `of: IFC` come from synthesis and enter the
   schema with the step that writes them. `answers` is a list: one requirement may answer
@@ -222,9 +227,20 @@ are not duplicates. Chosen from eight candidates (INFERRED, design reasoning onl
   (NASA) and **unwanted behaviour** (EARS). Writing rules come from NASA's checklist
   and the INCOSE guide: needed, stands alone, no word without a test, stated
   positively, a tolerance that matters.
-- **Hazards: nothing forced.** Per hazard the builder chooses to prevent it (STPA's
-  inverted condition), respond to it (STPA's "if it occurs, then…", the EARS `unwanted`
-  pattern), both, or accept it with a reason. Some hazards are not worth preventing.
+- **Hazards: nothing forced.** Per hazard ~~the builder chooses~~ the way is chosen to
+  prevent it (STPA's inverted condition), respond to it (STPA's "if it occurs, then…",
+  the EARS `unwanted` pattern), both, or accept it with a reason. Some hazards are not
+  worth preventing. Revised 2026-11-14 (#60): the way is settled like any value or rule,
+  by asking the builder or by a method that supports it, with the reason in the
+  rationale; the builder sees it at review and can change it.
+- **No invented values or rules** (2026-11-14, #60). A number, limit or rule (rounding,
+  what is kept on close, which inputs are refused, how a hazard is dealt with) is
+  settled by asking the builder or by research or a spike, with no condition on which;
+  otherwise `TBD` with an issue. In the test, datum invented a rounding rule because
+  the rule spoke only of numbers.
+- **No ready-made reasons in skills** (2026-11-14, #60). A table of when each option
+  fits is copied instead of reasoned: every proof's rationale repeated the `test` row.
+  Skills define the options and ask for a reason in the requirement's own terms.
 - **No invented values, stricter than NASA.** NASA prefers a best estimate marked TBR;
   datum writes `TBD` with an issue, because an agent's plausible guess is read later as
   agreed.
@@ -378,7 +394,9 @@ command), never stored.
 - **A requirement has at least one reason to exist**, any of: `of: FUN` (the function it
   constrains), `parent: REQ`, `justified_by: ADR`, `answers: HAZ`, `source: builder`.
   None is an error.
-- **Proofs** store `covers: [REQ]`. Cases name their proof; a proof does not list cases.
+- **Proofs** store ~~`covers: [REQ]`~~ `covers: REQ`, one requirement (revised
+  2026-11-14, #60). Cases name the proofs they carry out, one or several; a proof does
+  not list cases.
 - **Decisions** store `supersedes: ADR` (the old one's state is computed) and
   `drivers: [REQ]`, the requirements it serves, for impact analysis. Revising a decision
   is one new entry (L5).

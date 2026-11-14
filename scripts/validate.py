@@ -173,8 +173,7 @@ def main():
             if d.get("pattern") == "none":
                 warns.append(f"{rel(f)}: pattern none: check whether an EARS pattern fits")
         elif i.startswith("PRF"):
-            for r in d.get("covers") or []:
-                same_part(f, r, "requirement")
+            same_part(f, d.get("covers"), "requirement")
 
     print(f"ERRORS {len(errs)}")
     for e in errs:

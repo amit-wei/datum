@@ -33,8 +33,8 @@ author fixed or rejected and why.
    - every function → at least one requirement `of` it; then ask the three questions
      of `writing-requirements` (functional, performance, unwanted behaviour) and name any
      answer that matters and has no requirement
-   - every hazard → a requirement that answers it, or an open issue where the builder
-     accepts it; for each answer, turn it around: if it failed, the hazard's state
+   - every hazard → a requirement that answers it, or an open issue where it is
+     accepted, with the reason for the way chosen; for each answer, turn it around: if it failed, the hazard's state
      should follow. If the part could meet it while the hazard holds, it does not
      answer the hazard
    - every constraint in the elicitation records → a `source: builder` requirement,
