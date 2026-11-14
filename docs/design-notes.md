@@ -212,7 +212,8 @@ are not duplicates. Chosen from eight candidates (INFERRED, design reasoning onl
   requirement traces to a function (its result and its failure modes), a hazard or
   threat (STPA, and STRIDE from synthesis), or a constraint drawn out in elicitation.
   The step turns each into a pass/fail statement and settles the values the statement
-  needs (a number, a response, a range): asked, never invented. A topic it finds missing
+  needs (a number, a response, a range) as in "A value is settled", with its reason:
+  asking the builder, research or a spike, never invention. A topic it finds missing
   goes back to the step that owns it (Going back). Why: the requirements test (#60)
   missed data kept across a restart and input refusal, and requirements was the wrong
   place to think them up from nothing. So:
