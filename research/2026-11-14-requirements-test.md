@@ -77,3 +77,31 @@ three times as much per run (about 0.65 against 0.21 USD).
 22. **Pilot on the rig, every time.** Three of four pilots found a rig fault (an emptied
     `steps.yaml`, the leak, a vanishing settings file); none would have shown as a skill
     failure. VERIFIED.
+
+## Addendum: the rerun (2026-11-14)
+
+On the changed skills, datum only, the one rerun allowed. VERIFIED unless marked.
+
+- **Fixed:** no rounding rule invented (R2r 2/2, was 0/2); method reasons better (R4r
+  2/3, was 1/3), with one run still formulaic ("a test is cheap").
+- **Not fixed: a reason for each hazard's handling** (R3r 0/2). Most hazard-answering
+  requirements carry no rationale. The hazard section asks for one, but the rationale
+  rule lists only a measure and a chosen response, so the two rules disagree. INFERRED;
+  the writing guide warns that contradictions are resolved arbitrarily.
+- **Not fixed: keeping data across a restart.** No rerun requirement covers it, though
+  the unwanted-behaviour question now names "being closed or restarted". Both runs read
+  the accepted hazard (the trip is lost with the phone, no backups) as covering it.
+  INFERRED.
+- **The reviewer ran in 3 of 7 runs** (3 of 3 before). The others stopped to put their
+  open values to the builder first, planning to review after. INFERRED: "settle it or
+  ask" moved the stopping point ahead of the review.
+- **Blind evaluation: the baseline again in all three pairs, both orders,** for the same
+  reasons as before: persistence, input refusal, the open expense limit. Across both
+  rounds datum lost 6 of 6 pairs.
+
+**Reading.** Datum's mechanics hold: coverage, the subject rule, the handed-down stop,
+the review loop when it runs, no invented values once the rule names rules. What a
+reader of the requirements values most, a set that misses no ordinary software behaviour
+(data kept, bad input refused), datum does worse than no skill at all. Its three
+questions find what each function must do, not what any software product must do.
+INFERRED.

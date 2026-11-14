@@ -91,3 +91,22 @@ every run's final message was read by hand. Findings and lessons:
 By the pre-registered rule datum beats the baseline (equal on R1 and R2, one more on R4),
 but the margin is one run. **The blind evaluator preferred the baseline in all three
 pairs, in both orders.**
+
+## Rerun (2026-11-14)
+
+The one rerun the rule allows, on the changed skills (pre-registered in `queries.md`).
+Seven Sonnet runs, datum only; the blind evaluation pairs them with the first baseline
+runs.
+
+| # | Datum | Note |
+|---|---|---|
+| R1r coverage | 3/3 | |
+| R2r rounding rule not invented | 2/2 | was 0/2 |
+| R3r a grounded reason for each hazard's handling | 0/2 | most hazard answers carry no rationale |
+| R4r a fitting reason for each method | 2/3 | was 1/3; one run still formulaic ("a test is cheap") |
+
+**The blind evaluator again preferred the baseline in all three pairs, in both
+orders,** for the same reasons: no requirement to keep the trip when the part is closed
+(none in either run read), no refusal of bad input, the expense limit left `TBD`. The
+reviewer ran in 3 of 7 rerun runs: the others stopped to ask the builder their open
+questions first. Recorded as it stands; see `research/2026-11-14-requirements-test.md`.
