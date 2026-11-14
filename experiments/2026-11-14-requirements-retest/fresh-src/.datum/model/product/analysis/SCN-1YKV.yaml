@@ -1,0 +1,13 @@
+id: SCN-1YKV
+status: agreed
+name: Change a plant or give it away
+kind: variation
+trigger: A plant moves, needs different care, or leaves the house.
+preconditions: The plant is on the list.
+steps:
+  - {n: 1, by: user, what: "Changes the plant's name, pot size, how often it likes water or where it lives."}
+  - {n: 2, by: product, what: "Keeps the plant with its new details."}
+  - {n: 3, by: user, what: "Gives a plant away and asks to take it off the list."}
+  - {n: 4, by: product, what: "Takes the plant off the list."}
+outcome: The list matches the plants the user has.
+needs: [ELI-YZF1#7]

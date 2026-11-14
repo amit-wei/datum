@@ -1,0 +1,13 @@
+id: SCN-HY7T
+status: agreed
+name: Look back at a plant and fix a mistyped watering
+kind: variation
+trigger: The user wants to know when a plant was last watered.
+preconditions: Waterings are logged.
+steps:
+  - {n: 1, by: user, what: "Asks for the waterings of one plant."}
+  - {n: 2, by: product, what: "Shows the plant's waterings."}
+  - {n: 3, by: user, what: "Sees one logged by mistake and asks to take it away."}
+  - {n: 4, by: product, what: "Takes that watering out of the plant's record."}
+outcome: The plant's record shows only the waterings that happened.
+needs: [ELI-YZF1#8]

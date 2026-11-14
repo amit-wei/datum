@@ -1,0 +1,5 @@
+id: HAZ-DZXM
+status: agreed
+statement: The part plans the watering from a forecast that does not match the weather at the user's home today.
+losses: [LOS-ZQ68]
+arises_from: [FUN-G6AB, FUN-N3PF, FUN-SB5K]

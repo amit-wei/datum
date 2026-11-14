@@ -1,0 +1,5 @@
+id: LOS-0ER5
+status: agreed
+statement: The user loses their list of plants and the record of what they watered.
+to: [user]
+from: [ELI-YZF1#10]

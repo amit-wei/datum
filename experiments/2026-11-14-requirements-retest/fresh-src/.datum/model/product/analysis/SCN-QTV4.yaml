@@ -1,0 +1,10 @@
+id: SCN-QTV4
+status: agreed
+name: Add a plant to the list
+kind: main
+trigger: The user gets a new plant, or starts the list with the plants they have.
+steps:
+  - {n: 1, by: user, what: "Enters the plant's name, pot size, how often it likes water and whether it lives inside or on the balcony."}
+  - {n: 2, by: product, what: "Adds the plant to the user's list."}
+outcome: The plant is on the list.
+needs: [ELI-YZF1#1, ELI-YZF1#2]

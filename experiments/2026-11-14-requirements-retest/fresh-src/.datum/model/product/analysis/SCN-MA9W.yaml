@@ -1,0 +1,10 @@
+id: SCN-MA9W
+status: agreed
+name: Log that I watered a plant
+kind: main
+trigger: The user has watered a plant.
+steps:
+  - {n: 1, by: user, what: "Tells the product which plant they watered and on what day."}
+  - {n: 2, by: product, what: "Adds the watering to that plant's record."}
+outcome: The plant's record shows the watering, and its schedule counts from that day.
+needs: [ELI-YZF1#5]

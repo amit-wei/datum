@@ -1,0 +1,12 @@
+id: SCN-EYDV
+status: agreed
+name: The forecast service gives nothing usable
+kind: failure
+trigger: The user opens the product in the morning and the forecast service gives no usable forecast.
+preconditions: At least one plant is on the list and the user's town is known.
+steps:
+  - {n: 1, by: product, what: "Asks the forecast service for today's weather in the user's town."}
+  - {n: 2, by: forecast service, what: "Does not answer, or answers with something that cannot be right."}
+  - {n: 3, by: product, what: "Tells the user what it can say about today's watering."}
+outcome: The user knows where they stand for today's plants.
+needs: [ELI-YZF1#4, ELI-YZF1#11]

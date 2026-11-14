@@ -1,0 +1,14 @@
+id: SCN-21VQ
+status: agreed
+name: Find out which plants to water this morning
+kind: main
+trigger: The user opens the product in the morning.
+preconditions: At least one plant is on the list and the user's town is known.
+steps:
+  - {n: 1, by: product, what: "Asks the forecast service for today's weather in the user's town."}
+  - {n: 2, by: forecast service, what: "Gives today's forecast."}
+  - {n: 3, by: product, what: "Works out which plants are due for water today, from each plant's schedule, when it was last watered and the forecast, and how much water each needs."}
+  - {n: 4, by: product, what: "Shows the user the plants to water today, with the amount for each."}
+  - {n: 5, by: user, what: "Waters the plants on the list."}
+outcome: The user knows which plants to water today and how much.
+needs: [ELI-YZF1#1, ELI-YZF1#4, ELI-YZF1#6, ELI-YZF1#11]

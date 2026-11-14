@@ -1,0 +1,21 @@
+id: FUN-0F4C
+status: agreed
+name: Show a plant's watering history
+definition: |
+  Shows the user the days a chosen plant was watered, as they were logged.
+serves: [SCN-N7ZQ#4, SCN-HY7T#2]
+inputs:
+  - name: plant
+    from: FUN-39Z5
+  - name: changed plant
+    from: FUN-BY64
+  - name: removed plant
+    from: FUN-E2EJ
+  - name: logged watering
+    from: FUN-QE1H
+  - name: removed watering entry
+    from: FUN-VEWS
+outputs:
+  - name: watering history of a plant
+    holds: the days the plant was watered
+    to: [user]

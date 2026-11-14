@@ -70,12 +70,12 @@ def eli(*parts):
     return 'id: ELI-3RQV\ndate: "2026-11-13"\nentries:\n' + "".join(parts)
 
 
-def source():
+def source(src=SRC):
     files = {}
-    for root, _, names in os.walk(SRC):
+    for root, _, names in os.walk(src):
         for name in names:
             path = os.path.join(root, name)
-            files[os.path.relpath(path, SRC)] = open(path).read()
+            files[os.path.relpath(path, src)] = open(path).read()
     return files
 
 
@@ -198,7 +198,99 @@ rationale: |
 """,
       }
 
-FIXTURES = {"F1": F1, "F2": F2, "F3": F3, "F4": F4}
+# N1-N3: the plant-watering planner of fresh-src/, functional analysis closed (README.md).
+# The elicitation answers were written for this test.
+NSRC = os.path.join(HERE, "fresh-src")
+NVALUES = """  - n: 1
+    question: How many plants do you want on the list?
+    answer: "At most 60. I have about 40 now."
+    need: true
+    constraint: true
+  - n: 2
+    question: What do you call a plant, and can two share a name?
+    answer: "A name of up to 40 characters, never blank. No two plants with the same name, or I can't tell them apart."
+    need: true
+    constraint: true
+  - n: 3
+    question: How big can a pot be?
+    answer: "Across the top, from 5 to 60 cm, in whole centimetres."
+    need: true
+    constraint: true
+  - n: 4
+    question: How often can a plant like water?
+    answer: "Every 1 to 60 days, in whole days."
+    need: true
+    constraint: true
+  - n: 5
+    question: Where can a plant live?
+    answer: "Inside or on the balcony. Nothing else."
+    need: true
+    constraint: true
+  - n: 6
+    question: What do you type for the town?
+    answer: "The name of the town, up to 60 characters, never blank."
+    need: true
+    constraint: true
+  - n: 7
+    question: Which days can you log a watering for?
+    answer: "Today or any earlier day up to a year back, never a day to come. A plant can be logged once per day."
+    need: true
+    constraint: true
+  - n: 8
+    question: What should it do when I enter something outside those, or leave one out?
+    answer: "Refuse it, tell me which one is wrong and why, and change nothing. Don't fix it up quietly."
+    need: true
+  - n: 9
+    question: How much water should it tell me to give?
+    answer: "About 10 ml for each centimetre of pot width, rounded to the nearest 10 ml. A 15 cm pot gets 150 ml."
+    need: true
+  - n: 10
+    question: What counts as rain for the balcony plants?
+    answer: "A forecast of 2 mm or more for the day. Less than that is a drizzle and the plants stay dry."
+    need: true
+"""
+NOVERDUE = """  - n: 11
+    question: What should it do with a plant that is overdue when rain is forecast?
+    answer: "Tell me to water it anyway. Rain only excuses a plant that is due today, not one that is already late."
+    need: true
+"""
+NFORECAST = """  - n: 12
+    question: What should it do when the forecast service does not answer, or answers with something wrong?
+    answer: "Wait up to 10 seconds. Then tell me the forecast could not be used, and list every plant that is due by its own schedule as if no rain was coming. An answer with no rain figure, or one below 0 or above 500 mm, counts as wrong, the same as no answer."
+    need: true
+"""
+NCHOICES = """  - n: 13
+    question: How do you want to deal with a plant that needs water being left off the list (HAZ-TBJC)?
+    answer: "Prevent it. A plant that is due must never be left off by mistake."
+  - n: 14
+    question: How do you want to deal with a plant that does not need water, or too much water, being put on the list (HAZ-B91A)?
+    answer: "Respond. Show the day I last watered each plant beside it, and I will poke the soil before I pour."
+"""
+NCHOICE16 = """  - n: 16
+    question: How do you want to deal with the part holding the only copy of the plants and waterings (HAZ-5MGY)?
+    answer: "I accept it. No backups; I copy the folder myself now and then."
+"""
+NFORECASTCHOICE = """  - n: 15
+    question: How do you want to deal with a plan made from a forecast that does not match my weather (HAZ-DZXM)?
+    answer: "Respond. Show me at the top which town and which day the forecast was for, so I can see when it is off."
+"""
+
+
+def neli(*parts):
+    return 'id: ELI-N097\ndate: "2026-11-14"\nentries:\n' + "".join(parts)
+
+
+NBASE = {**source(NSRC), "CLAUDE.md": CLAUDE, f"{P}/steps.yaml": closed("functional-analysis")}
+A = f"{P}/analysis/ELI-N097.yaml"
+# N1: every value and choice given.
+N1 = {**NBASE, A: neli(NVALUES, NOVERDUE, NFORECAST, NCHOICES, NFORECASTCHOICE, NCHOICE16)}
+# N2: as N1 without the rule for a plant overdue when rain is forecast.
+N2 = {**NBASE, A: neli(NVALUES, NFORECAST, NCHOICES, NFORECASTCHOICE, NCHOICE16)}
+# N3: as N1 without what the part does when the forecast service fails or answers
+# wrongly, and without the hazard choice about a forecast that does not match.
+N3 = {**NBASE, A: neli(NVALUES, NOVERDUE, NCHOICES, NCHOICE16)}
+
+FIXTURES = {"F1": F1, "F2": F2, "F3": F3, "F4": F4, "N1": N1, "N2": N2, "N3": N3}
 
 if __name__ == "__main__":
     shutil.rmtree(OUT, ignore_errors=True)

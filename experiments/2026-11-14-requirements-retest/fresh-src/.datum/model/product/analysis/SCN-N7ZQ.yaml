@@ -1,0 +1,13 @@
+id: SCN-N7ZQ
+status: agreed
+name: Come back on another day
+kind: main
+trigger: The user opens the product on a later day, after closing it.
+preconditions: Plants are on the list and waterings are logged.
+steps:
+  - {n: 1, by: user, what: "Opens the product on a later day."}
+  - {n: 2, by: product, what: "Shows the plants as the user left them."}
+  - {n: 3, by: user, what: "Asks for the waterings of one plant."}
+  - {n: 4, by: product, what: "Shows that plant's waterings as the user left them."}
+outcome: The user carries on without entering anything again.
+needs: [ELI-YZF1#3]

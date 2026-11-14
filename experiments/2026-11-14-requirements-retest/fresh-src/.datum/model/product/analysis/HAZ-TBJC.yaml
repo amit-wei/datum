@@ -1,0 +1,5 @@
+id: HAZ-TBJC
+status: agreed
+statement: The part leaves a plant that needs water off the list of plants to water today.
+losses: [LOS-ZQ68]
+arises_from: [FUN-N3PF, FUN-QE1H, FUN-VEWS, FUN-BY64, FUN-E2EJ]

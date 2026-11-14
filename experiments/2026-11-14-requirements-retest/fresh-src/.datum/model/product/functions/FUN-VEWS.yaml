@@ -1,0 +1,16 @@
+id: FUN-VEWS
+status: agreed
+name: Remove a watering entry
+definition: |
+  Takes a logged watering out of a plant's record when the user says it was logged by
+  mistake.
+serves: [SCN-HY7T#4]
+inputs:
+  - name: logged watering
+    from: FUN-QE1H
+  - name: watering entry to remove
+    holds: which plant and which day
+    from: user
+outputs:
+  - name: removed watering entry
+    to: [FUN-N3PF, FUN-0F4C]

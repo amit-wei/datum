@@ -1,0 +1,10 @@
+id: SCN-Z7NW
+status: agreed
+name: Tell it which town I live in
+kind: main
+trigger: The user starts using the product, or moves to another town.
+steps:
+  - {n: 1, by: user, what: "Types the name of the town where the plants are."}
+  - {n: 2, by: product, what: "Takes that town as the place to get the forecast for."}
+outcome: The product knows where to look up the weather.
+needs: [ELI-YZF1#11]

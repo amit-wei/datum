@@ -1,0 +1,17 @@
+id: FUN-QE1H
+status: agreed
+name: Log a watering
+definition: |
+  Records that the user watered a plant on a given day, so that the plant's schedule
+  counts from then.
+serves: [SCN-MA9W#2]
+inputs:
+  - name: plant
+    from: FUN-39Z5
+  - name: watering done
+    holds: which plant and on what day
+    from: user
+outputs:
+  - name: logged watering
+    holds: which plant and on what day
+    to: [FUN-N3PF, FUN-0F4C, FUN-VEWS]

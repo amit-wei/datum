@@ -1,0 +1,13 @@
+id: FUN-SB5K
+status: agreed
+name: Set the home town
+definition: |
+  Takes the town the user's plants are in as the place to look up the weather for.
+serves: [SCN-Z7NW#2]
+inputs:
+  - name: home town
+    holds: the name of the town
+    from: user
+outputs:
+  - name: home town
+    to: [FUN-G6AB]

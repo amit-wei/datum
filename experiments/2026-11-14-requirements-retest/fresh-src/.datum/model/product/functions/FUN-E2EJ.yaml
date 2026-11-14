@@ -1,0 +1,16 @@
+id: FUN-E2EJ
+status: agreed
+name: Remove a plant from the list
+definition: |
+  Takes a plant the user no longer has off the list, so that it is no longer shown or
+  planned for.
+serves: [SCN-1YKV#4]
+inputs:
+  - name: plant
+    from: FUN-39Z5
+  - name: plant to remove
+    holds: which plant
+    from: user
+outputs:
+  - name: removed plant
+    to: [FUN-M0FX, FUN-N3PF, FUN-0F4C]

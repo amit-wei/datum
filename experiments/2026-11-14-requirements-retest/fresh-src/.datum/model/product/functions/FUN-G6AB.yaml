@@ -1,0 +1,17 @@
+id: FUN-G6AB
+status: agreed
+name: Get today's forecast
+definition: |
+  Asks the forecast service for the weather today in the home town and keeps what the
+  watering plan needs from it: whether rain is expected.
+serves: [SCN-21VQ#1, SCN-EYDV#1]
+inputs:
+  - name: home town
+    from: FUN-SB5K
+  - name: forecast for the home town
+    holds: the weather expected today, including any rain
+    from: forecast service
+outputs:
+  - name: forecast for today
+    holds: whether rain is expected today
+    to: [FUN-N3PF]

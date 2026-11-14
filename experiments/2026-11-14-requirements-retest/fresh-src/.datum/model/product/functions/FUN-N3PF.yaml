@@ -1,0 +1,25 @@
+id: FUN-N3PF
+status: agreed
+name: Work out which plants to water today
+definition: |
+  Decides, from each plant's schedule, its last watering and today's forecast, which
+  plants the user should water today and roughly how much water each needs, and shows
+  them to the user.
+serves: [SCN-21VQ#3, SCN-21VQ#4, SCN-EYDV#3]
+inputs:
+  - name: plant
+    from: FUN-39Z5
+  - name: changed plant
+    from: FUN-BY64
+  - name: removed plant
+    from: FUN-E2EJ
+  - name: logged watering
+    from: FUN-QE1H
+  - name: removed watering entry
+    from: FUN-VEWS
+  - name: forecast for today
+    from: FUN-G6AB
+outputs:
+  - name: plants to water today
+    holds: each plant to water and roughly how much water it needs
+    to: [user]

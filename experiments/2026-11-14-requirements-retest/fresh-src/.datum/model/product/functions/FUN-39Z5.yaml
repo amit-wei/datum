@@ -1,0 +1,15 @@
+id: FUN-39Z5
+status: agreed
+name: Add a plant to the list
+definition: |
+  Puts a new plant on the user's list, with its name, pot size, how often it likes water
+  and whether it lives inside or on the balcony.
+serves: [SCN-QTV4#2]
+inputs:
+  - name: details of a new plant
+    holds: the name, the pot size, how often it likes water, and whether it lives inside or on the balcony
+    from: user
+outputs:
+  - name: plant
+    holds: the name, pot size, how often it likes water and where it lives
+    to: [FUN-BY64, FUN-E2EJ, FUN-M0FX, FUN-N3PF, FUN-QE1H, FUN-0F4C]

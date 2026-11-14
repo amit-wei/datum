@@ -1,0 +1,17 @@
+id: FUN-M0FX
+status: agreed
+name: List my plants
+definition: |
+  Shows the user every plant on the list, as it was last left, with its details.
+serves: [SCN-N7ZQ#2]
+inputs:
+  - name: plant
+    from: FUN-39Z5
+  - name: changed plant
+    from: FUN-BY64
+  - name: removed plant
+    from: FUN-E2EJ
+outputs:
+  - name: list of plants
+    holds: each plant with its name, pot size, how often it likes water and where it lives
+    to: [user]

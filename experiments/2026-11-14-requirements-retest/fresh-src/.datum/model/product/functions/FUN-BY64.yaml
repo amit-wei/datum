@@ -1,0 +1,17 @@
+id: FUN-BY64
+status: agreed
+name: Change a plant's details
+definition: |
+  Replaces what the list holds about a plant, such as its pot size, how often it likes
+  water or where it lives.
+serves: [SCN-1YKV#2]
+inputs:
+  - name: plant
+    from: FUN-39Z5
+  - name: new details of a plant
+    holds: which plant, and the name, pot size, how often it likes water or where it lives
+    from: user
+outputs:
+  - name: changed plant
+    holds: the plant with its new details
+    to: [FUN-M0FX, FUN-N3PF, FUN-0F4C]

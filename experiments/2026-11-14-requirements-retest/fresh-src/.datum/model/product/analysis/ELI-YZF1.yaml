@@ -1,0 +1,66 @@
+id: ELI-YZF1
+date: "2026-11-14"
+entries:
+  - n: 1
+    question: What problem does this solve for you?
+    answer: "I have a few dozen house plants and a balcony. I lose track of which ones I watered. Some I drown, some I forget until they drop their leaves."
+    need: true
+  - n: 2
+    question: What do you want to tell it about your plants?
+    answer: "A name for each, the size of the pot, how often it likes water, and whether it lives inside or out on the balcony."
+    need: true
+  - n: 3
+    question: What should happen to that list when you close it?
+    answer: "I don't want to type my plants in again every time I open it. Same for what I've watered. It should still be there tomorrow."
+    need: true
+  - n: 4
+    question: How do you want to find out which plants need water?
+    answer: "Each plant is on its own schedule, so each morning I want it to tell me which ones are due today. Outside plants on the balcony get rained on, so if rain is coming they need no water from me. I don't want to check the weather myself."
+    need: true
+  - n: 5
+    question: What do you do when you have watered a plant?
+    answer: "I tell it, and the clock for that plant starts again from that day."
+    need: true
+  - n: 6
+    question: Does the size of the pot matter to you?
+    answer: "Yes. A big pot takes more water than a small one, so with each plant on the list I want to see roughly how much water to give."
+    need: true
+  - n: 7
+    question: Do the plants change over time?
+    answer: "All the time. I move one to the balcony, find one needs water less often than I thought, or give one away. I need to change a plant and remove it."
+    need: true
+  - n: 8
+    question: Do you want to look back at what you watered?
+    answer: "Yes, for one plant at a time, to see when I last watered it. And I make typos, so I need to take away a watering I logged by mistake."
+    need: true
+  - n: 9
+    question: What is the worst thing it could do?
+    answer: "Kill a plant. Either it tells me to water one that is already soaked and the roots rot, or it leaves one off the list and it dries out. Some of these I have had for years."
+    loss: true
+  - n: 10
+    question: Is there anything else you would hate to lose?
+    answer: "My list of plants and the record of what I watered. Months of notes I can't rebuild from memory."
+    loss: true
+  - n: 11
+    question: Where should the weather come from?
+    answer: "An online forecast service, I don't mind which. I don't want to type the weather in by hand. It should use the forecast for the town where I live."
+    need: true
+    constraint: true
+  - n: 12
+    question: "Where will you use it: on a laptop or on a phone?"
+    answer: "On my laptop at home, in the morning when I have my coffee. It's a Linux laptop."
+    constraint: true
+  - n: 13
+    question: Who else uses it, and does anything about the people matter, such as language, eyesight or how used to apps they are?
+    answer: "Only me. I'm comfortable with a terminal but I'm no programmer. Nothing special about my eyes or language."
+  - n: 14
+    question: Is there a standard or law it has to follow, such as for personal data?
+    answer: "Not that I know of. It's a list of houseplants. The only personal thing is the name of my town."
+  - n: 15
+    question: Does anything matter about installing it, updating it or looking after it?
+    answer: "I'll install it myself on the one laptop and look after it myself. Nobody else maintains it, and I'll update it when I feel like it."
+  - n: 16
+    question: Anything else you want from it?
+    answer: "A reminder that pops up at 8 o'clock would be nice. Not now though, I'll look at the list myself."
+    need: true
+    out_of_scope: The builder opens the part and reads the list themself for the first version.
