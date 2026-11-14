@@ -173,6 +173,11 @@ found wrong at build would mean redoing every step above it.
   datum, compares the two outputs.
 - **Pre-registered.** Before a version is built, it states what it introduces and what
   result would show it works, as in `experiments/2026-11-05-fa-test`.
+- **A rerun limit binds one test** (agreed 2026-11-14, #60). Inside a test, a failed
+  behaviour gets at most the reruns its pre-registration allows. Fixes made after the
+  test go to a new pre-registered test of the step, on a fresh fixture product: the old
+  test's fixtures were tuned on, so they become regression checks, never evidence of
+  improvement.
 - **Measured by a hidden acceptance suite.** Each product has a private intent sheet (one
   answer to every ambiguous need) and a hidden suite written from it. Whoever answers the
   grilling (the developer or a simulated one) answers from the sheet. Datum and a
