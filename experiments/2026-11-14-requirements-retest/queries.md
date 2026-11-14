@@ -1,8 +1,9 @@
-# Requirements retest: queries (DRAFT, not yet fixed)
+# Requirements retest: queries
 
-To be fixed before the first run, once the fresh product has passed the
+Fixed 2026-11-14, before the first run. The fresh product passed the
 functional-analysis end condition, its closing review included (FA-test lesson 8).
-Issue #62.
+Issue #62. N3 drops the hazard choice for HAZ-DZXM as well, and nothing scores it:
+agreed as realistic.
 
 **Fixtures:**
 - **N1-N3:** the plant-watering planner (`fresh-src/`, see README): twelve functions,
