@@ -241,7 +241,14 @@ are not duplicates. Chosen from eight candidates (INFERRED, design reasoning onl
   - **Elicitation looks for what applies to the whole part:** operating environment,
     human factors, standards and legal (from NASA SEH App C.4), each answered with a
     constraint or "none". Right-sized for its part; below the product most of it
-    arrives flowed down.
+    arrives flowed down. Settled 2026-11-14 (#64): it lives in `grilling`, as four
+    areas covered before a round ends: where the part runs; the people using it;
+    standards and legal; getting it into use and keeping it there (installing,
+    updating, maintaining; stance research row 16, MCO). Every area gets an entry,
+    "none" included, so a skipped one shows. Below the product, ask only what the
+    parent's requirements and interfaces leave open; an entry may say what it was
+    flowed down from. An entry that sets a limit is marked `constraint: true`, so the
+    requirements step has a list to walk.
 - **Requirements handed down from a parent are not settled.** Below the product, most of
   a part's requirements come from its parent's; how the child's requirements step reads
   them, and whether the parent's synthesis or the child writes them, is open (#57). A
