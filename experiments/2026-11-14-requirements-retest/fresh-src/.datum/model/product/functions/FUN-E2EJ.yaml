@@ -8,9 +8,11 @@ serves: [SCN-1YKV#4]
 inputs:
   - name: plant
     from: FUN-39Z5
+  - name: changed plant
+    from: FUN-BY64
   - name: plant to remove
     holds: which plant
     from: user
 outputs:
   - name: removed plant
-    to: [FUN-M0FX, FUN-N3PF, FUN-0F4C]
+    to: [FUN-M0FX, FUN-N3PF, FUN-0F4C, FUN-QE1H, FUN-BY64, FUN-PGV7]

@@ -1,0 +1,10 @@
+id: SCN-H7BK
+status: agreed
+name: Open it with nothing set up yet
+kind: variation
+trigger: The user opens the product for the first time, with no town set or no plant on the list.
+steps:
+  - {n: 1, by: user, what: "Opens the product."}
+  - {n: 2, by: product, what: "Shows the user what still has to be entered."}
+outcome: The user knows what to enter first.
+needs: [ELI-YZF1#17]

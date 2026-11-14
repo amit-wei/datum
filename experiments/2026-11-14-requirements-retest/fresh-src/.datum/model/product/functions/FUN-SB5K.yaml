@@ -10,4 +10,4 @@ inputs:
     from: user
 outputs:
   - name: home town
-    to: [FUN-G6AB]
+    to: [FUN-G6AB, FUN-PGV7]

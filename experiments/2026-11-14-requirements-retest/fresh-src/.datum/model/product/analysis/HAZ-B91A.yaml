@@ -2,4 +2,4 @@ id: HAZ-B91A
 status: agreed
 statement: The part puts a plant that does not need water, or more water than it needs, on the list of plants to water today.
 losses: [LOS-ZQ68]
-arises_from: [FUN-N3PF, FUN-QE1H, FUN-BY64]
+arises_from: [FUN-N3PF, FUN-ZYDM, FUN-QE1H, FUN-BY64, FUN-VEWS]

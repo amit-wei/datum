@@ -8,6 +8,10 @@ serves: [SCN-MA9W#2]
 inputs:
   - name: plant
     from: FUN-39Z5
+  - name: changed plant
+    from: FUN-BY64
+  - name: removed plant
+    from: FUN-E2EJ
   - name: watering done
     holds: which plant and on what day
     from: user

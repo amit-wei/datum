@@ -269,6 +269,14 @@ NCHOICES = """  - n: 13
 NCHOICE16 = """  - n: 16
     question: How do you want to deal with the part holding the only copy of the plants and waterings (HAZ-5MGY)?
     answer: "I accept it. No backups; I copy the folder myself now and then."
+  - n: 17
+    question: How do you want to deal with a plant or a watering entry being removed or changed by mistake (HAZ-9YFJ)?
+    answer: "Respond. Show me what will be removed and ask me to confirm. No undo needed."
+"""
+NFIRST = """  - n: 18
+    question: When is a plant that has never been watered first due?
+    answer: "On the day I add it."
+    need: true
 """
 NFORECASTCHOICE = """  - n: 15
     question: How do you want to deal with a plan made from a forecast that does not match my weather (HAZ-DZXM)?
@@ -283,12 +291,12 @@ def neli(*parts):
 NBASE = {**source(NSRC), "CLAUDE.md": CLAUDE, f"{P}/steps.yaml": closed("functional-analysis")}
 A = f"{P}/analysis/ELI-N097.yaml"
 # N1: every value and choice given.
-N1 = {**NBASE, A: neli(NVALUES, NOVERDUE, NFORECAST, NCHOICES, NFORECASTCHOICE, NCHOICE16)}
+N1 = {**NBASE, A: neli(NVALUES, NOVERDUE, NFORECAST, NCHOICES, NFORECASTCHOICE, NCHOICE16, NFIRST)}
 # N2: as N1 without the rule for a plant overdue when rain is forecast.
-N2 = {**NBASE, A: neli(NVALUES, NFORECAST, NCHOICES, NFORECASTCHOICE, NCHOICE16)}
+N2 = {**NBASE, A: neli(NVALUES, NFORECAST, NCHOICES, NFORECASTCHOICE, NCHOICE16, NFIRST)}
 # N3: as N1 without what the part does when the forecast service fails or answers
 # wrongly, and without the hazard choice about a forecast that does not match.
-N3 = {**NBASE, A: neli(NVALUES, NOVERDUE, NCHOICES, NCHOICE16)}
+N3 = {**NBASE, A: neli(NVALUES, NOVERDUE, NCHOICES, NCHOICE16, NFIRST)}
 
 FIXTURES = {"F1": F1, "F2": F2, "F3": F3, "F4": F4, "N1": N1, "N2": N2, "N3": N3}
 

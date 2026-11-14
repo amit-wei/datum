@@ -15,3 +15,6 @@ outputs:
   - name: forecast for today
     holds: whether rain is expected today
     to: [FUN-N3PF]
+  - name: forecast obtained
+    holds: whether a usable forecast was obtained
+    to: [FUN-N3PF]

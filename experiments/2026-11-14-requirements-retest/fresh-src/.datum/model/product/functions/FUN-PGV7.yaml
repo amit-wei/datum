@@ -1,0 +1,18 @@
+id: FUN-PGV7
+status: agreed
+name: Show what is not set up yet
+definition: |
+  Tells the user, when no town is set or no plant is on the list, what still has to be
+  entered before the product can plan watering.
+serves: [SCN-H7BK#2]
+inputs:
+  - name: plant
+    from: FUN-39Z5
+  - name: removed plant
+    from: FUN-E2EJ
+  - name: home town
+    from: FUN-SB5K
+outputs:
+  - name: what is not set up yet
+    holds: whether the town or the plants are still missing
+    to: [user]

@@ -5,6 +5,9 @@ definition: |
   Shows the user the days a chosen plant was watered, as they were logged.
 serves: [SCN-N7ZQ#4, SCN-HY7T#2]
 inputs:
+  - name: plant to look up
+    holds: which plant
+    from: user
   - name: plant
     from: FUN-39Z5
   - name: changed plant

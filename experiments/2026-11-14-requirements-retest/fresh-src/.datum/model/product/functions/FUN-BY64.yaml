@@ -8,10 +8,12 @@ serves: [SCN-1YKV#2]
 inputs:
   - name: plant
     from: FUN-39Z5
+  - name: removed plant
+    from: FUN-E2EJ
   - name: new details of a plant
     holds: which plant, and the name, pot size, how often it likes water or where it lives
     from: user
 outputs:
   - name: changed plant
     holds: the plant with its new details
-    to: [FUN-M0FX, FUN-N3PF, FUN-0F4C]
+    to: [FUN-M0FX, FUN-N3PF, FUN-0F4C, FUN-QE1H, FUN-E2EJ]

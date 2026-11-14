@@ -1,0 +1,5 @@
+id: HAZ-9YFJ
+status: agreed
+statement: The part removes or changes a plant or a watering entry by mistake, with no way back.
+losses: [LOS-0ER5]
+arises_from: [FUN-E2EJ, FUN-VEWS, FUN-BY64]

@@ -53,14 +53,20 @@ entries:
   - n: 13
     question: Who else uses it, and does anything about the people matter, such as language, eyesight or how used to apps they are?
     answer: "Only me. I'm comfortable with a terminal but I'm no programmer. Nothing special about my eyes or language."
+    constraint: true
   - n: 14
     question: Is there a standard or law it has to follow, such as for personal data?
     answer: "Not that I know of. It's a list of houseplants. The only personal thing is the name of my town."
   - n: 15
     question: Does anything matter about installing it, updating it or looking after it?
     answer: "I'll install it myself on the one laptop and look after it myself. Nobody else maintains it, and I'll update it when I feel like it."
+    constraint: true
   - n: 16
     question: Anything else you want from it?
     answer: "A reminder that pops up at 8 o'clock would be nice. Not now though, I'll look at the list myself."
     need: true
     out_of_scope: The builder opens the part and reads the list themself for the first version.
+  - n: 17
+    question: What should you see the first time you open it, before you have told it anything?
+    answer: "Not an empty screen or an error. Just tell me what to do first: put in my town, or add a plant."
+    need: true

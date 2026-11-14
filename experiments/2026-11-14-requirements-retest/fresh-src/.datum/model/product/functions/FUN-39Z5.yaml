@@ -12,4 +12,4 @@ inputs:
 outputs:
   - name: plant
     holds: the name, pot size, how often it likes water and where it lives
-    to: [FUN-BY64, FUN-E2EJ, FUN-M0FX, FUN-N3PF, FUN-QE1H, FUN-0F4C]
+    to: [FUN-BY64, FUN-E2EJ, FUN-M0FX, FUN-N3PF, FUN-QE1H, FUN-0F4C, FUN-PGV7]
