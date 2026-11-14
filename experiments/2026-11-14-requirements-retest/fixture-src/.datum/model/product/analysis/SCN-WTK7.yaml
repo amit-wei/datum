@@ -1,0 +1,10 @@
+id: SCN-WTK7
+status: agreed
+name: Start a trip with everyone's names
+kind: main
+trigger: The user begins a trip or tenancy with friends.
+steps:
+  - {n: 1, by: user, what: "Types the names of everyone in the trip."}
+  - {n: 2, by: product, what: "Starts a new trip with those people and no expenses."}
+outcome: A trip exists with its people, ready for expenses.
+needs: [ELI-7MDP#2, ELI-7MDP#3]

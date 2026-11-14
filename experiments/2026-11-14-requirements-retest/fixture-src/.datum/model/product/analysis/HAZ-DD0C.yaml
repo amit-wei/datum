@@ -1,0 +1,5 @@
+id: HAZ-DD0C
+status: agreed
+statement: The part has removed a recorded expense the user did not mean to remove.
+losses: [LOS-WRH4]
+arises_from: [FUN-4DFD]

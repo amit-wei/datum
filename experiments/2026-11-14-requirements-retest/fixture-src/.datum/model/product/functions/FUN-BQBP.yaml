@@ -1,0 +1,12 @@
+id: FUN-BQBP
+status: agreed
+name: Start a trip
+definition: |
+  Creates a new trip with the people the user names and no expenses.
+serves: [SCN-WTK7#2]
+inputs:
+  - name: names of everyone in the trip
+    from: user
+outputs:
+  - name: the trip's people
+    to: [FUN-37HB, FUN-DZA1]

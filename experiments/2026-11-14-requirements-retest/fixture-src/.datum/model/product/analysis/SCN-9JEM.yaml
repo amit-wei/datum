@@ -1,0 +1,13 @@
+id: SCN-9JEM
+status: agreed
+name: Check who owes whom
+kind: main
+trigger: The user wants to know where the group stands.
+preconditions: At least one expense is recorded.
+steps:
+  - {n: 1, by: user, what: "Opens the product."}
+  - {n: 2, by: product, what: "Shows who owes whom."}
+  - {n: 3, by: user, what: "Asks to see the expenses behind it."}
+  - {n: 4, by: product, what: "Lists the recorded expenses with who paid and who each was for."}
+outcome: The user knows who owes whom and can see why.
+needs: [ELI-5KXR#1, ELI-5KXR#2]

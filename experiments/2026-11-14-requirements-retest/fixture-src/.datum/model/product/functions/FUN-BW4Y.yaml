@@ -1,0 +1,16 @@
+id: FUN-BW4Y
+status: agreed
+name: Split an expense evenly
+definition: |
+  Divides the amount of an expense equally among the people the user picked, so each
+  has a share.
+serves: [SCN-JAQ3#3]
+inputs:
+  - name: amount paid
+    from: user
+  - name: people the expense was for
+    from: user
+outputs:
+  - name: even shares
+    holds: each picked person's share of the amount
+    to: [FUN-37HB]

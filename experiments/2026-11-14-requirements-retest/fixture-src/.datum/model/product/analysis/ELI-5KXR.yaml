@@ -1,0 +1,42 @@
+id: ELI-5KXR
+date: "2026-11-13"
+entries:
+  - n: 1
+    question: What problem does this solve for you?
+    answer: "When I share a holiday or a flat with friends, by the end nobody knows who owes what, and someone always feels short-changed."
+    need: true
+  - n: 2
+    question: What do you want it to do about that?
+    answer: "Let me write down who paid for what as it happens, split between the people it was for, and show who owes whom at any time."
+    need: true
+  - n: 3
+    question: How do you want to settle at the end?
+    answer: "With as few bank transfers as possible. I don't want ten people paying each other back and forth."
+    need: true
+  - n: 4
+    question: Where and how do you use it?
+    answer: "On my phone, usually abroad with no data. The others don't have the app; I send them the result as a message."
+    need: true
+    constraint: true
+  - n: 5
+    question: Not every expense is for everyone. How should that work?
+    answer: "I pick who an expense was for. Mostly split evenly, but sometimes one person had the expensive dish, so I need to give exact amounts per person too."
+    need: true
+  - n: 6
+    question: What is the worst thing it could do?
+    answer: "Make someone pay money they don't owe, or lose an expense so someone ends up out of pocket. Money between friends goes sour fast."
+    loss: true
+  - n: 7
+    question: Anything else you want from it?
+    answer: "Different currencies would be nice when we travel, but not now. Everything in one currency for the first version."
+    need: true
+    out_of_scope: The builder wants one currency for the first version.
+  - n: 8
+    question: Who else uses it, and does anything about the people matter, such as language, eyesight or how used to apps they are?
+    answer: "Only me. The others just get the message. Nothing special about me."
+  - n: 9
+    question: Is there a standard or law it has to follow, such as for personal data or money?
+    answer: "Not that I know of. It's only expenses between friends, on my phone."
+  - n: 10
+    question: Does anything matter about installing it, updating it or looking after it?
+    answer: "No, nothing special. I put it on my phone myself."

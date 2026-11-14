@@ -1,0 +1,12 @@
+id: FUN-HGWE
+status: agreed
+name: Show who owes whom
+definition: |
+  Shows the user, at any time, what each person owes or is owed.
+serves: [SCN-JAQ3#5, SCN-Y751#4, SCN-9JEM#2, SCN-QTA5#3]
+inputs:
+  - name: who owes whom
+    from: FUN-DZA1
+outputs:
+  - name: who owes whom
+    to: [user]

@@ -1,0 +1,13 @@
+id: SCN-QTA5
+status: agreed
+name: Delete a wrong expense and enter it again
+kind: failure
+trigger: The user notices a recorded expense is wrong.
+preconditions: The expense is recorded.
+steps:
+  - {n: 1, by: user, what: "Picks the wrong expense and asks to delete it."}
+  - {n: 2, by: product, what: "Removes the expense from the record."}
+  - {n: 3, by: product, what: "Shows who now owes whom without it."}
+  - {n: 4, by: user, what: "Enters the expense again correctly."}
+outcome: The record holds the expense only in its corrected form.
+needs: [ELI-7MDP#1, ELI-5KXR#6]

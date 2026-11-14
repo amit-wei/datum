@@ -1,0 +1,14 @@
+id: FUN-Y0N0
+status: agreed
+name: Propose the fewest settling transfers
+definition: |
+  Proposes a set of payments between people that leaves nobody owing or owed, using as
+  few payments as possible.
+serves: [SCN-42TT#2]
+inputs:
+  - name: who owes whom
+    from: FUN-DZA1
+outputs:
+  - name: proposed transfers
+    holds: who pays whom and how much
+    to: [user, FUN-Z9Q2]

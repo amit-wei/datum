@@ -1,0 +1,12 @@
+id: SCN-Y751
+status: agreed
+name: Record an expense with exact amounts per person
+kind: variation
+trigger: The user has paid for something where people had different shares.
+steps:
+  - {n: 1, by: user, what: "Enters who paid, the amount and what it was for."}
+  - {n: 2, by: user, what: "Picks the people the expense was for and enters an exact amount for each."}
+  - {n: 3, by: product, what: "Adds the expense to the record with those amounts."}
+  - {n: 4, by: product, what: "Shows who now owes whom."}
+outcome: Each person is charged exactly the amount the user gave.
+needs: [ELI-5KXR#5]

@@ -1,0 +1,21 @@
+id: FUN-37HB
+status: agreed
+name: Record an expense
+definition: |
+  Adds an expense (who paid, the amount, what for, and the people it was for with their
+  shares) to the group's record, for the user.
+serves: [SCN-JAQ3#4, SCN-Y751#3, SCN-R9P6#4]
+inputs:
+  - name: expense entered
+    holds: who paid, the amount and what it was for
+    from: user
+  - name: the trip's people
+    from: FUN-BQBP
+  - name: even shares
+    from: FUN-BW4Y
+  - name: exact shares
+    from: FUN-MPMG
+outputs:
+  - name: recorded expense
+    holds: who paid, the amount, what for, and the people it was for with their shares
+    to: [FUN-DZA1, FUN-HHM6, FUN-4DFD]

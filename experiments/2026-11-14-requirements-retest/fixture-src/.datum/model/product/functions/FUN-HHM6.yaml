@@ -1,0 +1,15 @@
+id: FUN-HHM6
+status: agreed
+name: List the recorded expenses
+definition: |
+  Shows the user each recorded expense with who paid, the amount and who it was for.
+serves: [SCN-9JEM#4]
+inputs:
+  - name: recorded expense
+    from: FUN-37HB
+  - name: removed expense
+    from: FUN-4DFD
+outputs:
+  - name: list of recorded expenses
+    holds: each recorded expense with who paid, the amount and who it was for
+    to: [user]

@@ -1,0 +1,33 @@
+id: ELI-7MDP
+date: "2026-11-13"
+entries:
+  - n: 1
+    question: Can an expense be corrected or removed after it is entered?
+    answer: "Yes, I need to delete a wrong expense. Then I just enter it again correctly."
+    need: true
+  - n: 2
+    question: How do people get into the group?
+    answer: "When I start a trip I type everyone's names. Nobody joins halfway."
+    need: true
+  - n: 3
+    question: Does anything happen after the settlement is sent?
+    answer: "No. Settling is the end of the trip; next time I start a new one."
+    need: true
+  - n: 4
+    question: What is the settlement message?
+    answer: "Plain text I can paste into any chat app."
+    need: true
+    constraint: true
+  - n: 5
+    question: What if the phone is lost or replaced?
+    answer: "Then that trip is gone. For a week or two of expenses I can live with that; no backups."
+    need: true
+    out_of_scope: The builder accepts losing a trip with the phone; no backups.
+  - n: 6
+    question: Can one expense have several payers?
+    answer: "No, one person pays each expense."
+    need: true
+  - n: 7
+    question: Does the settlement always include everyone in the trip?
+    answer: "Yes, everyone in the trip."
+    need: true
