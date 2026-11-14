@@ -217,10 +217,27 @@ are not duplicates. Chosen from eight candidates (INFERRED, design reasoning onl
   goes back to the step that owns it (Going back). Why: the requirements test (#60)
   missed data kept across a restart and input refusal, and requirements was the wrong
   place to think them up from nothing. So:
-  - **Failure modes are part of a function** (NASA SEH 4.3.1.2.2: inputs, outputs,
+  - ~~**Failure modes are part of a function** (NASA SEH 4.3.1.2.2: inputs, outputs,
     failure modes): `writing-functions` describes them, including bad and out-of-range
     input, an interrupted run and the part being closed. A heavier functional analysis
-    is accepted.
+    is accepted.~~ Superseded 2026-11-14 (#63) by the next bullet: a failure-mode list
+    is FMEA, which datum does not use (Rigour in v0.1.0), and the two misses were not
+    harms but gaps in what each function is.
+  - **A function lists its inputs and outputs** (agreed 2026-11-14, #63; NASA SEH
+    4.3.1.2.2 describes a function by inputs, outputs and failure modes). Each item is
+    a thing someone would name, with an optional `holds`, no type or format. An input
+    says where it comes `from` (a function of the part, or someone or something outside
+    it); an output says who it goes `to`. `writing-functions` checks the flows: every
+    output has a user, and an input from a function is one of its outputs; a gap is a
+    missing function or overbuilding. No failure-mode field: the requirements step asks
+    per input its valid range, the response outside it and, from an outside system,
+    the response when that fails; per output, whether a function it goes to can run
+    after the part is closed (then it is kept), and whether an interrupted run can
+    leave it half-made. Why: in the requirements test the unwanted-behaviour question
+    was asked and still missed input refusal and data kept across a restart, because
+    the model held no inputs to check against ranges and no outputs to ask "used
+    later?" of. This is design by contract at the level of a function. A heavier
+    functional analysis is accepted.
   - **Elicitation looks for what applies to the whole part:** operating environment,
     human factors, standards and legal (from NASA SEH App C.4), each answered with a
     constraint or "none". Right-sized for its part; below the product most of it
@@ -247,8 +264,9 @@ are not duplicates. Chosen from eight candidates (INFERRED, design reasoning onl
 - **Grounded in sources** (`research/2026-11-13-requirements.md`). Each function is asked
   three questions, named as the sources name them: **functional** and **performance**
   (NASA) and **unwanted behaviour** (EARS). Revised 2026-11-14 (#61): ~~unwanted
-  behaviour is asked by requirements~~; it is answered for the failure modes the
-  function lists, in the EARS `unwanted` form. Writing rules come from NASA's checklist
+  behaviour is asked by requirements~~; ~~it is answered for the failure modes the
+  function lists~~ (superseded 2026-11-14, #63) it is asked of each input and output
+  the function lists, in the EARS `unwanted` form. Writing rules come from NASA's checklist
   and the INCOSE guide: needed, stands alone, no word without a test, stated
   positively, a tolerance that matters.
 - **Hazards: nothing forced.** Per hazard ~~the builder chooses~~ the way is chosen to
