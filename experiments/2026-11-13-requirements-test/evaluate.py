@@ -71,9 +71,11 @@ def inputs():
 def main():
     p = argparse.ArgumentParser()
     p.add_argument("--model", default="sonnet")
+    p.add_argument("--datum-query", default="R1", help="R1r pairs the rerun with the baseline R1 runs")
     args = p.parse_args()
     runs = read_jsonl(RUNS)
-    datum = [r for r in runs if r["query"] == "R1" and r["variant"] == "datum" and r["model"] == "sonnet"]
+    datum = [r for r in runs if r["query"] == args.datum_query and r["variant"] == "datum"
+             and r["model"] == "sonnet"]
     base = [r for r in runs if r["query"] == "R1" and r["variant"] == "baseline" and r["model"] == "sonnet"]
     records = read_jsonl(EVALUATIONS)
     normal = {r["run"]: r["text"] for r in records if r["kind"] == "normalised"}

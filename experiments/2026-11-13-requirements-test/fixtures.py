@@ -110,7 +110,7 @@ status: agreed
 title: Every proposed settlement leaves everyone at zero
 method: test
 rationale: Settling is the point of the product, and any change to the balances or the transfer search can break it.
-covers: [REQ-P1AN]
+covers: REQ-P1AN
 criterion:
   pass: For every trip in the sample, applying the proposed transfers leaves every balance at zero.
   sample_min: 500
@@ -121,7 +121,7 @@ status: agreed
 title: The message matches the proposed transfers
 method: test
 rationale: The message is built from the transfers by code that later changes can break.
-covers: [REQ-M5GE]
+covers: REQ-M5GE
 criterion:
   pass: The transfers read back from the message equal the proposed transfers, for every trip in the sample.
   sample_min: 100
