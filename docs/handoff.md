@@ -4,10 +4,11 @@ Where things stand and what is next. Rewritten each session, committed last. Wha
 is in `git log`; what was agreed is in `docs/design-notes.md`.
 
 **State (2026-11-14, second session):** #61 and its children #63-#65 are closed. The
-requirements step is reworked for what applies to the whole part, and is untested.
-Regression fixtures for its retest are ready in `experiments/2026-11-14-requirements-retest/`
-(F1-F4 from the 2026-11-13 test, brought to the new schemas; its README lists the
-elicitation entries written for them). The 2026-11-13 rig is unchanged.
+requirements step is reworked for what applies to the whole part, and is untested. The
+#62 retest is ready to run except its scripts: `experiments/2026-11-14-requirements-retest/`
+holds the fresh product (a plant-watering planner, `fresh-src/`, its functional analysis
+reviewed clean in three rounds), fixtures N1-N3 and F1-F4 (`fixtures.py`), and the
+pre-registration `queries.md`, fixed and agreed. The 2026-11-13 rig is unchanged.
 
 **Agreed this session (design notes, 2026-11-14):**
 - A function lists its `inputs` (with `from`) and `outputs` (with `to`); a flow is
@@ -25,15 +26,15 @@ elicitation entries written for them). The 2026-11-13 rig is unchanged.
 - Right-sizing above a leaf (general requirement, specific faults flowed down) is a
   proposal on #57.
 
-**Next, in order:** #62: a fresh fixture product for datum vs baseline (not the
-deduper, the skill examples or the splitter), its pre-registration (count raising a
-missing function as a pass; walk each fixture through the functional-analysis end
-condition first, FA-test lesson 8), the rest of the rig from the 2026-11-13 one, then
-the runs, with F1-F3 as regression only. Then #66: the builder's manual run in a
-container, from calling `datum` to the end of the requirements step. After that: #58,
-#59, synthesis #44-#46, design evaluation #47-#48, cases #49 and #55, build #50-#52,
-each tested before #54 (run with a simulated builder, per its comment). #53 comes late,
-by a fresh agent. #57 is v0.2.0. #40-#43 and #56 stay open until v0.1.0 ships.
+**Next, in order:** #62: copy `run.py`, `judge.py`, `evaluate.py`, `score.py` and
+`common.py` from `experiments/2026-11-13-requirements-test/` and point them at the new
+folder, its fixtures and `queries.md` (the evaluator instruction on open values is in
+it); run the Haiku pilot, then the Sonnet runs as fixed; read every verdict by hand.
+Then #66: the builder's manual run in a container, from calling `datum` to the end of
+the requirements step. After that: #58, #59, synthesis #44-#46, design evaluation
+#47-#48, cases #49 and #55, build #50-#52, each tested before #54 (run with a simulated
+builder, per its comment). #53 comes late, by a fresh agent. #57 is v0.2.0. #40-#43 and
+#56 stay open until v0.1.0 ships.
 
 **Watch in #62:** the requirements skills grew (+13, +10, +4 lines) instead of
 thinning; if a run shows text ignored, trim there first.
