@@ -17,6 +17,7 @@ import collections
 import glob
 import os
 import re
+import subprocess
 
 import yaml
 
@@ -37,15 +38,27 @@ def checks(query, run):
         if e["kind"] == "write" and any(re.search(p, e["name"]) and m not in loaded for p, m in MAKERS):
             bad.append("write check")
             break
+    model_writes = [e for e in loads if e["kind"] == "write" and e["name"].startswith(".datum/")]
+    if any(re.search(p, f) for f in added(run) for p, _ in MAKERS) and not model_writes:
+        bad.append("write check not measurable (files written through Bash)")
     if run.get("validator_errors"):
         bad.append(f"validator {run['validator_errors']}")
     return bad + [f"no {n}" for n in query["expected"] if n not in names]
 
 
+def added(run):
+    """The files a run added or changed since the fixture, from git."""
+    work = os.path.join(WORK, run["run"])
+    subprocess.run(["git", "add", "-A"], cwd=work, capture_output=True)
+    out = subprocess.run(["git", "diff", "--cached", "--name-only", run["base"]], cwd=work,
+                         capture_output=True, text=True).stdout
+    return set(out.split())
+
+
 def subject_ok(run):
     """R5: every requirement statement the run wrote has 'the part' as its subject."""
     work = os.path.join(WORK, run["run"])
-    written = {e["name"] for e in run["loads"] if e["kind"] in ("write", "edit")}
+    written = added(run)  # from git: runs write through Bash heredocs as well as Write
     statements = []
     for path in glob.glob(os.path.join(work, ".datum/model/**/requirements/REQ-*.yaml"), recursive=True):
         if os.path.relpath(path, work) in written:
@@ -53,7 +66,8 @@ def subject_ok(run):
                 statements.append(str((yaml.safe_load(open(path)) or {}).get("statement", "")))
             except yaml.YAMLError:
                 statements.append("")
-    return bool(statements) and all(re.search(r"\bthe part shall\b", s, re.I) for s in statements)
+    return bool(statements) and all(re.search(r"\bthe part shall\b", " ".join(s.split()), re.I)
+                                    for s in statements)
 
 
 def done_checks(run):

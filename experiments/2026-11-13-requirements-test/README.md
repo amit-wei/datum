@@ -71,6 +71,23 @@ machine that made the runs. Runs need `bubblewrap` and `socat`
 - **Pilot 4** (`results/pilot4-haiku.jsonl`): clean; no path into the repository, no
   refused or failed tool call, no cap hit.
 
-## Result
+## Result (2026-11-14)
 
-Not run yet.
+Sonnet, 16 runs, about 7 USD with the judge. `results/score-sonnet.md` is the table;
+every run's final message was read by hand. Findings and lessons:
+`research/2026-11-14-requirements-test.md`.
+
+| # | Datum | Baseline | Note |
+|---|---|---|---|
+| R1 coverage | 3/3 | 3/3 | |
+| R2 no invented rounding rule | 0/2 | 0/2 | both settle a rule the builder never gave |
+| R3 hazard handling left to the builder | 0/2 | - | datum chose for every hazard but one |
+| R4 a fitting reason for each method | 1/3 | 0/3 | datum's reasons are often formulaic; every datum proof is `test` |
+| R5 "the part" as subject | 3/3 | - | |
+| R6 stops on handed-down requirements | 2/2 | - | |
+| R7 validator and reviewer run | 3/3 | - | |
+| R8 bare question | 2/2 | - | `writing-requirements` not loaded in either |
+
+By the pre-registered rule datum beats the baseline (equal on R1 and R2, one more on R4),
+but the margin is one run. **The blind evaluator preferred the baseline in all three
+pairs, in both orders.**
