@@ -249,6 +249,13 @@ are not duplicates. Chosen from eight candidates (INFERRED, design reasoning onl
     parent's requirements and interfaces leave open; an entry may say what it was
     flowed down from. An entry that sets a limit is marked `constraint: true`, so the
     requirements step has a list to walk.
+- **One requirement per condition with its own response** (agreed 2026-11-14, #65),
+  the systems engineering way. Merging conditions that share a response, to stop the
+  copied checks the evaluator saw in #60, was rejected: copies are a fault of the
+  proofs, and a proof that needs several cases is written wrong. Above a leaf a
+  requirement may be general ("if an input is malformed, the part shall refuse it and
+  name the fault"), proved from its children's proofs, with the specific faults flowed
+  down; what makes a requirement right-sized for its part is open in #57.
 - **Requirements handed down from a parent are not settled.** Below the product, most of
   a part's requirements come from its parent's; how the child's requirements step reads
   them, and whether the parent's synthesis or the child writes them, is open (#57). A
@@ -605,7 +612,10 @@ Settles Q-3. Evidence: `research/2026-10-skill-granularity.md`,
 - **The review runs before the builder is asked** (agreed 2026-11-14, #61). Questions
   reach the builder once, after the working agent and the reviewer agree, together with
   any disagreement they could not settle. In the requirements test rerun the reviewer
-  was skipped in 4 of 7 runs that stopped to ask first (#60).
+  was skipped in 4 of 7 runs that stopped to ask first (#60). In the requirements step
+  (2026-11-14, #65), a value only the builder can give stays `TBD` until that batch;
+  after the answers the validator runs again, and the reviewer again only on a
+  requirement whose meaning changed beyond a value filled in.
 - **A technique is loaded before its output is produced** (agreed 2026-10-18): before
   writing or changing an artifact, a record or a looked-up fact, the agent loads the
   technique that makes it. A question gets an answer grounded in the model and an offer
