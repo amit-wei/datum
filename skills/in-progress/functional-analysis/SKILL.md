@@ -86,6 +86,8 @@ runs before anything else is written; the rest are due when the end condition ne
   expect this part to do.
 - Every scenario step is done by some function.
 - Every function serves a scenario (product) or a parent function (a part).
+- Every function lists its inputs and outputs; every output has a user, and every
+  input from a function is one of its outputs.
 - Every elicited need is in a scenario, or marked `out_of_scope` with a reason.
 - Every function has been checked, with `losses-and-hazards` loaded, for hazards it
   introduces.

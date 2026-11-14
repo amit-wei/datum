@@ -157,6 +157,21 @@ def main():
             p = d.get("parent")
             if p in arts and part_of(arts[p][1]) != part_of(f).parent:
                 errs.append(f"{rel(f)}: parent {p} is not a function of the parent part")
+            # A flow between two functions is written at both ends.
+            for x in d.get("inputs") or []:
+                src = x.get("from") if isinstance(x, dict) else None
+                if isinstance(src, str) and src.startswith("FUN-") and src in arts:
+                    same_part(f, src, "function")
+                    outs = arts[src][0].get("outputs") or []
+                    if not any(i in (o.get("to") or []) for o in outs if isinstance(o, dict)):
+                        errs.append(f"{rel(f)}: input from {src}, which has no output to {i}")
+            for x in d.get("outputs") or []:
+                for dst in (x.get("to") or []) if isinstance(x, dict) else []:
+                    if isinstance(dst, str) and dst.startswith("FUN-") and dst in arts:
+                        same_part(f, dst, "function")
+                        ins = arts[dst][0].get("inputs") or []
+                        if not any(o.get("from") == i for o in ins if isinstance(o, dict)):
+                            errs.append(f"{rel(f)}: output to {dst}, which has no input from {i}")
         elif i.startswith("REQ"):
             same_part(f, d.get("of"), "function")
             for h in d.get("answers") or []:

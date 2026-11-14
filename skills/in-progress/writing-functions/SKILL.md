@@ -21,11 +21,9 @@ functional-analysis step checks the functions against this file.
   scenarios and the parent functions. A gap found here is not yet a function: every
   function must still pass the **Needed** rule.
   - first use, with nothing stored yet
-  - startup and shutdown, and an interrupted run
-  - each outside system failing or answering wrongly
-  - bad or unexpected input
   - backup, restore, export, upgrade
   - what someone other than the main user needs: a maintainer, an admin, a neighbour part
+  - the flows: an output nobody uses, or an input no one gives (see below)
 
   At the product, settle each gap with the builder: a scenario step (add it with
   `writing-scenarios`, then write the function that does it), a requirement on an
@@ -63,6 +61,31 @@ state are acts like any other: "archive old sessions" is a function.
   doer. If nothing does, delete it, or ask the builder.
 - **No values.** No numbers, units or "shall" in the definition; those are requirements.
 
+## Inputs and outputs
+
+Each function lists what it takes and what it gives. The requirements step works from
+these lists: each input's valid range and what happens outside it, and each output's
+users, to find what must be kept when the part is closed.
+
+- **An item is a thing someone would name:** "an expense", "the trip's people". Say
+  what it holds when the name does not. No type, format or storage: those are
+  synthesis.
+- **An input says where it comes `from`:** a function of this part, by its ID, or who or
+  what outside the part gives it, by the name the scenarios or interfaces use.
+- **An output says who it goes `to`:** the functions of this part that take it, by ID,
+  and anyone or anything outside the part that receives it.
+- **A flow is written at both ends.** An input from a function is an output of that
+  function, and the other way round. The validator checks this.
+- **Every output has a user.** An output nobody uses is overbuilding, or a sign of a
+  missing function. An input that nothing gives is a missing function or a missing
+  output.
+- **Name the data the part keeps for later as an output**, going to the functions that
+  read it later: "a logged session", to the function that plans from it. Whether it
+  must survive the part being closed is a question for the requirements step.
+
+A function with no inputs or no outputs leaves that list empty, such as "show the help
+page", which takes nothing.
+
 There is no single right set. Two people decompose the same parent differently; check
 the set by coverage and by these rules, not against an expected answer. If two
 decompositions would lead to different parts, that choice is a decision for synthesis.
@@ -79,9 +102,28 @@ echo "FUN-$(LC_ALL=C tr -dc '0-9A-HJKMNP-TV-Z' </dev/urandom | head -c 4)"
 Fields: `id`, `status` (`draft` until the builder agrees), `name` (the verb and object),
 `definition` (one or two sentences: what is done, for whom, with what result),
 `serves` (the product: the scenario steps it does, as `SCN-XXXX#n`) or `parent` (any
-other part: the parent function), and `rationale` only when the reason is not already the link.
+other part: the parent function), `inputs` and `outputs` (each item a `name`, an
+optional `holds`, and `from` or `to`; either list may be `[]`), and `rationale` only
+when the reason is not already the link.
 
-Two examples, for illustration only:
+Three examples, for illustration only. The first two are product functions joined by a
+flow; the third is in a part below the product.
+
+```yaml
+id: FUN-5DGR
+status: draft
+name: Log a session
+definition: |
+  Records a training session the climber has done, so later plans start from it.
+serves: [SCN-4M2A#1]
+inputs:
+  - name: session done
+    holds: the date, each exercise with its load, and any pain felt
+    from: climber
+outputs:
+  - name: logged session
+    to: [FUN-7K3Q]
+```
 
 ```yaml
 id: FUN-7K3Q
@@ -91,6 +133,16 @@ definition: |
   Proposes the next training session from the user's logged sessions and goal, for the
   user to accept or change.
 serves: [SCN-4M2A#3, SCN-9TQX#2]
+inputs:
+  - name: logged session
+    from: FUN-5DGR
+  - name: goal
+    holds: the grade or route the climber is training for
+    from: climber
+outputs:
+  - name: proposed session
+    holds: each exercise and its load
+    to: [climber]
 ```
 
 ```yaml
@@ -101,5 +153,11 @@ name: Estimate current fitness
 definition: |
   Turns the logged sessions of the last weeks into an estimate of what the user can
   take now, for the planner.
+inputs:
+  - name: logged sessions of the last weeks
+    from: logbook
+outputs:
+  - name: fitness estimate
+    to: [planner]
 ```
 
