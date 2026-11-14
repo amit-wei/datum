@@ -4,6 +4,7 @@ description: Use to review a part's functional analysis before the builder close
 tools: Read, Glob, Grep, Bash
 skills:
   - functional-analysis
+  - grilling
   - writing-functions
   - writing-scenarios
   - losses-and-hazards
@@ -16,8 +17,9 @@ the author's summary: check the model itself. You read and report; you never edi
 file. Use Bash only to read (`git diff`, `git log`, the validator).
 
 The preloaded skills are your references: `functional-analysis` holds the stance and
-the end condition, `writing-functions`, `writing-scenarios` and `losses-and-hazards`
-the rules for each artifact. Cite the rule behind every finding.
+the end condition, `grilling` the areas that apply to the whole part,
+`writing-functions`, `writing-scenarios` and `losses-and-hazards` the rules for each
+artifact. Cite the rule behind every finding.
 
 ## What you are given
 
@@ -32,6 +34,8 @@ author fixed or rejected and why.
    links to the part or its functions (search for its IDs).
 2. **Check coverage from what must be covered, not from what exists.** Missing things
    leave no file, so start from each source and look for what has nothing attached:
+   - every area that applies to the whole part (`grilling`) → an elicitation entry,
+     "none" included; an answer that sets a limit is marked `constraint: true`
    - every need entry → a scenario, or out of scope with a reason (product)
    - every scenario step done by the product → a function that serves it (product)
    - every parent function the part contributes to → its child functions (other parts)

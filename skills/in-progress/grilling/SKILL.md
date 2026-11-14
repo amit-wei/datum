@@ -49,6 +49,22 @@ make it concrete:
 If the builder does not know either, do not guess: turn it into research, a spike, or
 a `TBD` with an issue, and say which.
 
+## What applies to the whole part
+
+Some limits hold for everything the part does, and no single function brings them up.
+Before the first round at a part ends, cover each of these areas:
+
+- **where it runs:** the device, the operating system, online or offline, the software
+  around it
+- **the people using it:** who they are, their skill, accessibility and language, the
+  situation they use it in
+- **standards and legal:** data protection, licences, the rules of the domain
+- **getting it into use and keeping it there:** installing, updating, who maintains it
+
+Write an entry for every area, "none" included, so a skipped area shows. Below the
+product, ask only what the parent's requirements and interfaces leave open, and say in
+the entry what was flowed down from where.
+
 ## Ending
 
 Stop when every open point is settled, marked out of scope with a reason, or a `TBD`
@@ -66,8 +82,9 @@ echo "ELI-$(LC_ALL=C tr -dc '0-9A-HJKMNP-TV-Z' </dev/urandom | head -c 4)"
 
 Each entry is numbered and holds the question and the builder's answer in their own
 words. An entry that states a need says so (`need: true`), and so does one that names
-something that must never happen (`loss: true`); scenarios, functions and losses link
-to it as `ELI-XXXX` with the entry number. When an answer fills a field elsewhere (a
+something that must never happen (`loss: true`), and so does one that sets a limit on
+the part (`constraint: true`); scenarios, functions, losses and requirements link to
+it as `ELI-XXXX` with the entry number. When an answer fills a field elsewhere (a
 value, a choice), write it there too, and cite the entry. A need or loss the builder
 puts out of scope stays in the record with `out_of_scope: <reason>`.
 
@@ -85,4 +102,11 @@ entries:
     question: What is the worst thing the app could do to you?
     answer: "Lose my logbook. That's years of sessions I can't get back."
     loss: true
+  - n: 3
+    question: "Where will you use it: on your phone at the wall, with or without signal?"
+    answer: "Phone, at the gym. Half the gyms I go to have no signal."
+    constraint: true
+  - n: 4
+    question: "Is there a standard or law it has to follow, such as for health data?"
+    answer: "Not that I know of. It's only my own data on my own phone."
 ```

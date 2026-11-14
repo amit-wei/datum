@@ -89,6 +89,8 @@ runs before anything else is written; the rest are due when the end condition ne
 - Every function lists its inputs and outputs; every output has a user, and every
   input from a function is one of its outputs.
 - Every elicited need is in a scenario, or marked `out_of_scope` with a reason.
+- The elicitation records answer each area that applies to the whole part (in
+  `grilling`), "none" included.
 - Every function has been checked, with `losses-and-hazards` loaded, for hazards it
   introduces.
 - Every elicited loss is a `LOS-` file, or marked `out_of_scope` with a reason; every
