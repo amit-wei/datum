@@ -17,14 +17,16 @@ blind evaluator preferred the no-skill baseline in 6 of 6 pairs: datum misses wh
 across the whole part (data kept on restart, bad input refused). The rerun limit is
 used; fixes after it get a new test (#62, on a fresh fixture).
 
-**Issues:** #61 (requirements that apply to the whole part, under #27) is next: a
-concept to grill before any skill change; it also holds the rationale contradiction for
-hazard answers and the reviewer being skipped when the agent asks first. #54 has a
-comment: run it with a simulated builder. #57 (flowdown into a child part, v0.2.0), #58
-`research` and #59 `running-a-spike` open. Under the ladder rule, #40-#43 and #56 stay
-open until v0.1.0 ships.
+**Issues:** #61 (requirements that apply to the whole part) is grilled; positions in
+design notes 2026-11-14: the requirements step creates no topics, failure modes are part
+of a function, elicitation looks for what applies to the whole part, rationale on every
+requirement, review before the builder is asked. Its sub-issues #63 (writing-functions
+failure modes), #64 (elicitation), #65 (requirements thinner) are next. #62 tests them on
+a fresh fixture. #54 has a comment: run it with a simulated builder. #57 (flowdown,
+v0.2.0), #58 `research` and #59 `running-a-spike` open. Under the ladder rule, #40-#43
+and #56 stay open until v0.1.0 ships.
 
-**Next:** grill #61, change the skills, test them (#62), then the other thin steps (#58, #59, synthesis
+**Next:** #63-#65, then test them (#62), then the other thin steps (#58, #59, synthesis
 #44-#46, design evaluation #47-#48, cases #49 and #55, build #50-#52), each tested
 before #54. Before writing a skill's content, agree its method and sources, research
 them, and check the draft against `research/2026-10-18-stance.md`. Fewest rules, no

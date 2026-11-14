@@ -208,6 +208,22 @@ are not duplicates. Chosen from eight candidates (INFERRED, design reasoning onl
   `parent: REQ`, `justified_by: ADR` and `of: IFC` come from synthesis and enter the
   schema with the step that writes them. `answers` is a list: one requirement may answer
   several hazards.
+- **The requirements step creates no topics** (agreed 2026-11-14, #61). Every
+  requirement traces to a function (its result and its failure modes), a hazard or
+  threat (STPA, and STRIDE from synthesis), or a constraint drawn out in elicitation.
+  The step turns each into a pass/fail statement and settles the values the statement
+  needs (a number, a response, a range): asked, never invented. A topic it finds missing
+  goes back to the step that owns it (Going back). Why: the requirements test (#60)
+  missed data kept across a restart and input refusal, and requirements was the wrong
+  place to think them up from nothing. So:
+  - **Failure modes are part of a function** (NASA SEH 4.3.1.2.2: inputs, outputs,
+    failure modes): `writing-functions` describes them, including bad and out-of-range
+    input, an interrupted run and the part being closed. A heavier functional analysis
+    is accepted.
+  - **Elicitation looks for what applies to the whole part:** operating environment,
+    human factors, standards and legal (from NASA SEH App C.4), each answered with a
+    constraint or "none". Right-sized for its part; below the product most of it
+    arrives flowed down.
 - **Requirements handed down from a parent are not settled.** Below the product, most of
   a part's requirements come from its parent's; how the child's requirements step reads
   them, and whether the parent's synthesis or the child writes them, is open (#57). A
@@ -229,7 +245,9 @@ are not duplicates. Chosen from eight candidates (INFERRED, design reasoning onl
   product needs to trade values.
 - **Grounded in sources** (`research/2026-11-13-requirements.md`). Each function is asked
   three questions, named as the sources name them: **functional** and **performance**
-  (NASA) and **unwanted behaviour** (EARS). Writing rules come from NASA's checklist
+  (NASA) and **unwanted behaviour** (EARS). Revised 2026-11-14 (#61): ~~unwanted
+  behaviour is asked by requirements~~; it is answered for the failure modes the
+  function lists, in the EARS `unwanted` form. Writing rules come from NASA's checklist
   and the INCOSE guide: needed, stands alone, no word without a test, stated
   positively, a tolerance that matters.
 - **Hazards: nothing forced.** Per hazard ~~the builder chooses~~ the way is chosen to
@@ -442,9 +460,13 @@ them.
   result.
 - **No `kind` field.** Safety, interface, constraint, performance and functional are
   computed from links and fields.
-- **Rationale** is required when a measure exists, or when the requirement chooses a
+- ~~**Rationale** is required when a measure exists, or when the requirement chooses a
   response over an obvious alternative (refuse, ignore, report, block); the second is a
-  review check, not a validator rule. Otherwise optional, and it never restates links.
+  review check, not a validator rule. Otherwise optional, and it never restates links.~~
+  Superseded 2026-11-14 (#61): **rationale is required on every requirement**, as NASA
+  asks (SEH App C.3): why it is needed, and what it assumes. One that only restates the
+  requirement or its links fails review. The narrower rule left hazard answers out
+  while the hazard rule asked for a reason (#60).
   *Why this part holds it* goes once in the part's `purpose`.
 - **Part folders** are slugs, and the part names its folder in a `folder:` field.
 - **Interfaces** list the `items` that flow, each with its sender.
@@ -554,6 +576,10 @@ Settles Q-3. Evidence: `research/2026-10-skill-granularity.md`,
   agent may reject a finding with its reason; if the reviewer does not accept it, the
   disagreement goes to the builder (a grilling trigger). The loop ends clean or with a
   question for the builder, never after a fixed number of rounds. #4 may refine this.
+- **The review runs before the builder is asked** (agreed 2026-11-14, #61). Questions
+  reach the builder once, after the working agent and the reviewer agree, together with
+  any disagreement they could not settle. In the requirements test rerun the reviewer
+  was skipped in 4 of 7 runs that stopped to ask first (#60).
 - **A technique is loaded before its output is produced** (agreed 2026-10-18): before
   writing or changing an artifact, a record or a looked-up fact, the agent loads the
   technique that makes it. A question gets an answer grounded in the model and an offer
