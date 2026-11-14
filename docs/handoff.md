@@ -3,41 +3,36 @@
 Where things stand and what is next. Rewritten each session, committed last. What was done
 is in `git log`; what was agreed is in `docs/design-notes.md`.
 
-**State (2026-11-13):** The requirements step (#27) is drafted for v0.1.0 and grounded in
-sources (`research/2026-11-13-requirements.md`): `writing-requirements` (#40),
-`writing-proofs` (#41), the `requirements` step (#42), the requirement and proof schemas
-and validator rules (#43), and the `review-requirements` agent (#56). Positions are in
-design notes, Requirements in v0.1.0. `uv run checks/skill_examples.py` validates every
-skill example against its schema; run it after changing either.
+**State (2026-11-14):** The requirements step (#27) is drafted for v0.1.0 and tested.
+Skills: `writing-requirements` (#40), `writing-proofs` (#41), `requirements` (#42),
+schemas and validator rules (#43), `review-requirements` (#56). Positions: design notes,
+Requirements in v0.1.0 (several revised 2026-11-14: a proof covers one requirement and
+cases share; no invented values or rules; hazard handling settled like any value; no
+ready-made reasons). `uv run checks/skill_examples.py` checks skill examples against
+schemas.
 
-**Test in progress (#60):** `experiments/2026-11-13-requirements-test/`, pre-registered
-(README, `queries.md`). Every script resumes after a usage reset: rerun the same command.
-Its README lists the commands in order; check `results/` for how far it got.
-Stopped at the usage limit on 2026-11-13: R1 done (3+3 runs), R2 datum 2/2 and baseline
-1/2. Resume with `python3 run.py --models sonnet --repeats 2 --queries R2,R3,R6,R8 --jobs 2`,
-then `judge.py`, `evaluate.py`, `uv run score.py`. Notes from reading R1 run 1 by hand
-(not yet findings): datum left expenses per trip `TBD` where the baseline invented 500;
-datum missed input validation and keeping the trip across app restarts; datum used
-"support" as an empty verb. Runs must
-stay on this machine (`work/` holds the transcripts the judge reads). After results: one
-rerun per failed behaviour at most, then record the result in the README and in
-`research/`.
+**Test (#60), done:** `experiments/2026-11-13-requirements-test/`, findings and lessons
+18-22 in `research/2026-11-14-requirements-test.md`. Datum's mechanics hold, but the
+blind evaluator preferred the no-skill baseline in 6 of 6 pairs: datum misses what holds
+across the whole part (data kept on restart, bad input refused). The rerun limit is
+used. #60 can close once agreed.
 
-**Issues:** opened #56 (reviewer) and #60 (test run), both under #27; #57 (how requirements flow down into a
-child part, v0.2.0), #58 `research` and #59 `running-a-spike` (both v0.1.0; both steps
-already point to them). #55 renamed Case-author agent. Safety-profile candidates are a
-comment on #5. Under the ladder rule, #40-#43 and #56 stay open until v0.1.0 ships.
+**Issues:** #61 (requirements that apply to the whole part, under #27) is next: a
+concept to grill before any skill change; it also holds the rationale contradiction for
+hazard answers and the reviewer being skipped when the agent asks first. #54 has a
+comment: run it with a simulated builder. #57 (flowdown into a child part, v0.2.0), #58
+`research` and #59 `running-a-spike` open. Under the ladder rule, #40-#43 and #56 stay
+open until v0.1.0 ships.
 
-**Next:** finish #60. Then every thin step gets its own test before #54 (design notes,
-Versions). Then the other thin steps: #58 and #59, then synthesis #44-#46, design evaluation
-#47-#48, cases #49 and #55, build #50-#52. Before writing a skill's content, agree its
-method and sources with the builder, research them first, and check the draft against
-the writing guide in `research/2026-10-18-stance.md`. Fewest rules: no forcing and no
-rule unless leaving it out costs more. Requirement statements say "the part", never a
-name. Keep the deduper out of skill text and examples. #53 (intent sheet and hidden
-suite) comes late, written by a fresh agent whose output is not read in skill-design
-sessions; then pre-register #54 and run it. Hazard statements say "the part" too.
+**Next:** grill #61, change the skills, then the other thin steps (#58, #59, synthesis
+#44-#46, design evaluation #47-#48, cases #49 and #55, build #50-#52), each tested
+before #54. Before writing a skill's content, agree its method and sources, research
+them, and check the draft against `research/2026-10-18-stance.md`. Fewest rules, no
+forcing, no menus of ready-made reasons. Statements say "the part". Keep the deduper out
+of skill text and examples. #53 comes late, written by a fresh agent; then pre-register
+#54 and run it.
 
-**Before the next test:** read lessons 8-17 in `research/2026-11-05-fa-test.md`. Base the
-rig on `experiments/2026-11-05-fa-test/run.py`: it runs the agent with sandboxed Bash (#38),
-so the validator and the reviewer run. The sandbox needs `bubblewrap` and `socat`.
+**Before the next test:** read lessons 8-22 (`research/2026-11-05-fa-test.md`,
+`research/2026-11-14-requirements-test.md`). Base the rig on
+`experiments/2026-11-13-requirements-test/`: run folders outside the repository,
+judging and evaluation as separate resumable scripts. Pilot the rig first.
