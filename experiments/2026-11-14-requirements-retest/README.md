@@ -102,7 +102,7 @@ HAZ-5MGY the only copy of the data).
 | Obligations found in inputs | None beyond the elicitation record (no parent) |
 | No feasibility doubt without a spike | None: a forecast service is a lookup; no doubt recorded |
 | Validator clean | `uv run scripts/validate.py experiments/2026-11-14-requirements-retest/fresh-src`: 0 errors, 0 warnings |
-| Closing review by `review-functional-analysis` | Not run (no builder to close the step); `steps.yaml` holds the placeholder commit 0000000 |
+| Closing review by `review-functional-analysis` | Clean after three rounds (Sonnet, on N1; see "After the closing review"); the builder's agreement is simulated, and `steps.yaml` holds the placeholder commit 0000000 |
 
 ### N1-N3
 
@@ -160,3 +160,12 @@ uv run ../../scripts/validate.py fixtures/F1     # and F2, F3, F4, N1, N2, N3
 
 Run the validator from this folder as above, or from the repository root with the
 fixture's path.
+
+### Rounds two and three
+
+Round two found one should-fix: whether the forecast was usable reached FUN-N3PF but
+not FUN-ZYDM, which tells the user (SCN-EYDV#3). Fixed with the output "forecast used"
+from FUN-N3PF to FUN-ZYDM, and FUN-ZYDM's definition and output now say whether
+today's forecast went into the list. Round three: clean. Notes left standing: FUN-BY64
+and FUN-E2EJ take each other's output; no backup or export function (HAZ-5MGY,
+accepted in ELI-N097); the simulated agreement.

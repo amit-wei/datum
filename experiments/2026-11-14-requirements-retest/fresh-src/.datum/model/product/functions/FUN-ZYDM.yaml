@@ -2,13 +2,15 @@ id: FUN-ZYDM
 status: agreed
 name: Show the plants to water today
 definition: |
-  Shows the user the plants to water today with the amount for each, and anything the
-  user needs to know about how the list was made.
+  Shows the user the plants to water today with the amount for each, and whether
+  today's forecast went into the list.
 serves: [SCN-21VQ#4, SCN-EYDV#3]
 inputs:
   - name: plants due today
     from: FUN-N3PF
+  - name: forecast used
+    from: FUN-N3PF
 outputs:
   - name: plants to water today
-    holds: each plant to water and roughly how much water it needs
+    holds: each plant to water, roughly how much water it needs, and whether today's forecast was used
     to: [user]

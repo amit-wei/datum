@@ -24,3 +24,6 @@ outputs:
   - name: plants due today
     holds: each plant due and roughly how much water it needs
     to: [FUN-ZYDM]
+  - name: forecast used
+    holds: whether today's forecast went into the list
+    to: [FUN-ZYDM]
