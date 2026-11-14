@@ -3,34 +3,40 @@
 Where things stand and what is next. Rewritten each session, committed last. What was done
 is in `git log`; what was agreed is in `docs/design-notes.md`.
 
-**State (2026-11-14):** The requirements step (#27) is drafted for v0.1.0 and tested
-once (#60, closed): mechanics held, but the blind evaluator preferred the no-skill
-baseline in 6 of 6 pairs; datum missed data kept across a restart and refusal of bad
-input. Findings and lessons 18-22: `research/2026-11-14-requirements-test.md`.
+**State (2026-11-14, second session):** #61 and its children #63-#65 are closed. The
+requirements step is reworked for what applies to the whole part, and is untested.
+Regression fixtures for its retest are ready in `experiments/2026-11-14-requirements-retest/`
+(F1-F4 from the 2026-11-13 test, brought to the new schemas; its README lists the
+elicitation entries written for them). The 2026-11-13 rig is unchanged.
 
 **Agreed this session (design notes, 2026-11-14):**
-- A rerun limit binds one test; fixes after it get a new pre-registered test on a fresh
-  fixture, and old fixtures become regression checks (Versions as a ladder).
-- The requirements step creates no topics: requirements trace to functions (result and
-  failure modes), hazards or threats (STPA; STRIDE in synthesis), and elicited
-  constraints. Values are settled with a reason (asking, research, spike), never
-  invented. Missing topics go back to their step.
-- Failure modes are part of a function (heavier functional analysis accepted).
-- Elicitation, right-sized for every part, asks about operating environment, human
-  factors, standards and legal (NASA App C.4). Security stays STRIDE in synthesis.
-- Rationale on every requirement (old narrower rule superseded).
-- The review runs before the builder is asked; unsettled disagreement goes to them.
+- A function lists its `inputs` (with `from`) and `outputs` (with `to`); a flow is
+  written at both ends (validator) and every output has a user. This supersedes failure
+  modes on a function: a failure-mode list is FMEA, which datum does not use
+  (`research/2026-11-14-function-inputs-outputs.md`).
+- `grilling` covers four whole-part areas (where it runs, the people using it, standards
+  and legal, getting it into use), each answered, "none" included; `constraint: true`
+  marks an entry that sets a limit.
+- Requirements walk the model: each function, input, output, hazard and constraint
+  entry. A rationale on every requirement (schema). One requirement per condition with
+  its own response; copied checks are a proofs fault.
+- Order: write, validator, reviewer loop, then one batch to the builder; afterwards the
+  reviewer reruns only on requirements whose meaning changed.
+- Right-sizing above a leaf (general requirement, specific faults flowed down) is a
+  proposal on #57.
 
-**Next, in order:** #63 (`writing-functions`: failure modes on every function, and its
-reviewer), #64 (elicitation looks for what applies to the whole part), #65
-(requirements, writing-requirements, review-requirements made thinner). All under #61.
-Then #62: test them on a fresh fixture, F1-F3 as regression only. #62's
-pre-registration must count raising a missing function as a pass, and walk each fixture
-through the functional-analysis end condition first (FA-test lesson 8). After that:
-#58, #59, synthesis #44-#46, design evaluation #47-#48, cases #49 and #55, build
-#50-#52, each tested before #54 (run with a simulated builder, per its comment). #53
-comes late, by a fresh agent. #57 is v0.2.0. #40-#43 and #56 stay open until v0.1.0
-ships.
+**Next, in order:** #62: a fresh fixture product for datum vs baseline (not the
+deduper, the skill examples or the splitter), its pre-registration (count raising a
+missing function as a pass; walk each fixture through the functional-analysis end
+condition first, FA-test lesson 8), the rest of the rig from the 2026-11-13 one, then
+the runs, with F1-F3 as regression only. Then #66: the builder's manual run in a
+container, from calling `datum` to the end of the requirements step. After that: #58,
+#59, synthesis #44-#46, design evaluation #47-#48, cases #49 and #55, build #50-#52,
+each tested before #54 (run with a simulated builder, per its comment). #53 comes late,
+by a fresh agent. #57 is v0.2.0. #40-#43 and #56 stay open until v0.1.0 ships.
+
+**Watch in #62:** the requirements skills grew (+13, +10, +4 lines) instead of
+thinning; if a run shows text ignored, trim there first.
 
 **How to work:** before writing a skill's content, agree its method and sources,
 research them, check the draft against `research/2026-10-18-stance.md`. Fewest rules, no
