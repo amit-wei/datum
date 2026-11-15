@@ -5,8 +5,9 @@ all on a fresh product, and do F1-F3 of the 2026-11-13 test still pass as regres
 checks? The behaviours include requirements that apply to the whole part (data kept
 on restart, bad input refused). Issue #62.
 
-**State:** fixtures F1-F4 (regression) and N1-N3 (fresh product) are here; the rest of
-the rig and the pre-registration come next (`queries.md` is still a draft).
+**State (2026-11-15):** fixtures, pre-registration (`queries.md`, fixed) and rig are
+here. The Haiku pilot and all 20 Sonnet runs are done (`results/runs.jsonl`); the judge,
+the blind evaluation and the score are not run yet. See "Runs" at the end.
 
 ## The fixtures
 
@@ -169,3 +170,66 @@ from FUN-N3PF to FUN-ZYDM, and FUN-ZYDM's definition and output now say whether
 today's forecast went into the list. Round three: clean. Notes left standing: FUN-BY64
 and FUN-E2EJ take each other's output; no backup or export function (HAZ-5MGY,
 accepted in ELI-N097); the simulated agreement.
+
+## Runs (2026-11-15)
+
+### The rig
+
+`build.py`, `run.py`, `common.py`, `judge.py`, `evaluate.py`, `score.py` are copied from
+`experiments/2026-11-13-requirements-test/` and changed:
+
+- `run.py --plan pilot|sonnet` holds the runs of `queries.md` ("Runs"); `stage()` rebuilds
+  `plugin/` from the current skills before every batch (not committed). `--limit N` does
+  at most N of the runs left. Rerunning a command resumes; failed runs (usage limit) are
+  not recorded.
+- **Fix:** a run can end more than once (a background agent's notice wakes it again). The
+  old rig kept only the last result message, so the judge saw only a closing note. Now
+  `final.txt` joins all of them (`---` between) and `turns` is their sum (#71 for the old
+  rig).
+- `common.sources()`: a row with no prompt is judged on the runs of the rows in its
+  Fixture cell (N1a-e, N4, N5 on N1; N6 on N1 and N2; G2 on G1).
+- `judge.py` carries the three rules of `queries.md` (substance not formats; no issue
+  without network; a raised missing function counts). Default `--run-model sonnet`.
+- `evaluate.py`: **beyond the literal `queries.md`**, the normaliser also reads the run's
+  final message and lists what was left open ("Left open"), same for both variants, so
+  the pre-registered instruction on open values can act (lesson 20). Revert if not wanted.
+
+Run folders are in `~/.cache/datum-experiments/2026-11-14-requirements-retest/` (not in
+the repository; needed by the judge and evaluator).
+
+### Done
+
+| Runs | Cost | Note |
+|---|---|---|
+| Pilot, N1 Haiku, datum and baseline | $0.61 | Rig works; found the last-result bug above |
+| Sonnet N1 x3, N2 x2, N3 x2, datum and baseline | $9.32 | datum 41-53 requirements (mean 46), baseline 26-46 (mean 33) |
+| Sonnet G1 x2, G3-G6 | $3.83 | G5 and G6 stop after `writing-requirements` ($0.15 each) |
+
+### Rig faults (count these runs invalid for the review behaviours)
+
+- **N3-datum-sonnet-21f0d2:** the agent started `review-requirements` in the background
+  and ended its turn; headless `claude -p` killed the reviewer. No review happened.
+- **N1-datum-sonnet-8431de:** the patch applying the review's fixes was denied by the
+  `dontAsk` permission mode (the auto classifier); the files are the pre-review version.
+
+Rerunning them needs the rig to allow the agents' `$TMPDIR` generator commands. The
+reviewer running in the background is a skill finding (#69), not only a rig one.
+
+### First read (before judging; not verdicts)
+
+Before and after review, from the transcripts: one review round in 6 of 7 datum N runs
+(#69); review changed roughly 10-45% of statements when its fixes were applied; the
+reviewer raised the same faults in almost every run (#70) and found function gaps
+without sending them back to functional analysis (#68). Missing functions such as
+seeing or correcting the home town went unnoticed by both steps (#67).
+
+### To finish
+
+```sh
+python3 judge.py          # one call per behaviour and run, Sonnet runs only
+python3 evaluate.py       # 3 N1 pairs, both orders: 6 normaliser + 6 evaluator calls
+uv run score.py           # the table
+```
+
+Then read every verdict by hand, apply the rerun limit of `queries.md` (at most one
+rerun per failed behaviour), mark the two rig-fault runs, and write the result here.
