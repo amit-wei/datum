@@ -9,21 +9,20 @@ G4). Completeness is agreed in concept (design notes, Completeness; Going back, 
 who decides) and drafted into the skills: three lenses in `writing-functions` (#67), and
 the gap bullet with Class I / Class II in every stance (#68). Neither draft is tested.
 #69-#73 each have a detailed comment with options, a recommendation and questions for
-Amit. Local commits after `d05b7e8` are not pushed.
+Amit.
 
 **Next, in order:**
-1. **Push**, after Amit agrees.
-2. **Sort #69-#73 with Amit** (none has a milestone) and answer the questions in each
+1. **Sort #69-#73 with Amit** (none has a milestone) and answer the questions in each
    issue's comment. #69 (reword Order, wait for each review; the fixture's missing
    GitHub remote kept every review not clean) and #70 (seven recurring faults, fixes
    mostly by trimming) are both skill text and fit together.
-3. **#71:** rejudge 5 old verdicts (about $0.45, old judge prompt), read them, note it in
+2. **#71:** rejudge 5 old verdicts (about $0.45, old judge prompt), read them, note it in
    the 2026-11-13 README. **#72** (evaluator: verdict per criterion, ties allowed,
    checked on same-set pairs first) and **#73** (outcomes mark which values the record
    gives) before the next test.
-4. **Test #67 and #68** with a small rerun after #69 and #70, on few runs. It needs an
+3. **Test #67 and #68** with a small rerun after #69 and #70, on few runs. It needs an
    outcome for the N1 home town (seen and corrected), which no row checked.
-5. Then as before: #66, #58, #59, synthesis #44-#46, design evaluation #47-#48, cases
+4. Then as before: #66, #58, #59, synthesis #44-#46, design evaluation #47-#48, cases
    #49 and #55, build #50-#52, each tested before #54. #53 late, by a fresh agent. #57 is
    v0.2.0. #40-#43 and #56 stay open until v0.1.0 ships.
 
