@@ -3,43 +3,36 @@
 Where things stand and what is next. Rewritten each session, committed last. What was done
 is in `git log`; what was agreed is in `docs/design-notes.md`.
 
-**State (2026-11-15):** #62 is half done. The rig is in
-`experiments/2026-11-14-requirements-retest/` (README, "Runs"). The Haiku pilot and all
-20 Sonnet runs are done (`results/runs.jsonl`, $13.15); the run folders are in
-`~/.cache/datum-experiments/2026-11-14-requirements-retest/`, not in git. Not done yet:
-the judge, the blind evaluation and the score. Nothing new was agreed for the design
-notes.
+**State (2026-11-22):** #62 is closed; its result is in
+`experiments/2026-11-14-requirements-retest/README.md` (Result, corrected for N1c and
+G4). Completeness is agreed in concept (design notes, Completeness; Going back, Gaps and
+who decides) and drafted into the skills: three lenses in `writing-functions` (#67), and
+the gap bullet with Class I / Class II in every stance (#68). Neither draft is tested.
+#69-#73 each have a detailed comment with options, a recommendation and questions for
+Amit. Local commits after `d05b7e8` are not pushed.
 
 **Next, in order:**
-1. **Finish #62.** From the retest folder: `python3 judge.py`, `python3 evaluate.py`,
-   `uv run score.py`. Read every verdict by hand. Mark two runs invalid for the
-   review behaviours because of rig faults: N3-datum-sonnet-21f0d2 (its reviewer was
-   killed) and N1-datum-sonnet-8431de (its fix patch was denied by `dontAsk`). Apply the
-   rerun limit of `queries.md`. Write the result in the README and close #62 only once
-   Amit agrees. Two choices for Amit are still open:
-   - keeping the normaliser's "Left open" list, which goes beyond `queries.md` (README)
-   - how the G rows refer to the 2026-11-13 outcomes
-2. **Go through the completeness research with Amit:**
-   `research/2026-11-15-functional-completeness.md`. It is incomplete: the agent hit a
-   usage limit, and many sources are VERIFIED-secondary. Decide whether to finish the
-   research, then decide the method for #67 (functional analysis finds every needed
-   function) and #68 (the requirements step finds missing functions and sends them
-   back). The main finding is that rule 15 of `2026-10-18-functions.md` dropped the
-   CRUD check along with the CRUD names.
-3. **New issues from the runs:** #69 (repeat the review until clean, and wait for each
-   review), #70 (writing-skill faults found in every run) and #71 (recheck the
-   2026-11-13 verdicts). None has a milestone yet; sort them with Amit.
-4. Then as before: #66 (Amit's manual run in a container), #58, #59, synthesis #44-#46,
-   design evaluation #47-#48, cases #49 and #55, build #50-#52, each tested before #54.
-   #53 comes late, by a fresh agent. #57 is v0.2.0. #40-#43 and #56 stay open until
-   v0.1.0 ships.
+1. **Push**, after Amit agrees.
+2. **Sort #69-#73 with Amit** (none has a milestone) and answer the questions in each
+   issue's comment. #69 (reword Order, wait for each review; the fixture's missing
+   GitHub remote kept every review not clean) and #70 (seven recurring faults, fixes
+   mostly by trimming) are both skill text and fit together.
+3. **#71:** rejudge 5 old verdicts (about $0.45, old judge prompt), read them, note it in
+   the 2026-11-13 README. **#72** (evaluator: verdict per criterion, ties allowed,
+   checked on same-set pairs first) and **#73** (outcomes mark which values the record
+   gives) before the next test.
+4. **Test #67 and #68** with a small rerun after #69 and #70, on few runs. It needs an
+   outcome for the N1 home town (seen and corrected), which no row checked.
+5. Then as before: #66, #58, #59, synthesis #44-#46, design evaluation #47-#48, cases
+   #49 and #55, build #50-#52, each tested before #54. #53 late, by a fresh agent. #57 is
+   v0.2.0. #40-#43 and #56 stay open until v0.1.0 ships.
 
 **Watch:**
-- Datum writes about 40% more requirements than the baseline (mean 46 against 33),
-  partly from "one requirement per condition" and the lack of child parts (#57).
-- The requirements skills grew in #61. Fix #69 and #70 by trimming, not adding.
-- The run agents write YAML through a generator script in `$TMPDIR`, not with
-  Write or Edit. Count changes from the transcripts.
+- The lenses and the gap rule grew both steps (68 lines in, 22 out). Keep the #69 and
+  #70 fixes to trimming.
+- Datum writes about 40% more requirements than the baseline (#57).
+- Rig: headless runs kill a reviewer started in the background (21f0d2, G4-fbe738); the
+  run agents write YAML through a generator in `$TMPDIR`, which `dontAsk` can deny.
 
 **How to work:** before writing a skill's content, agree its method and sources,
 research them, and check the draft against `research/2026-10-18-stance.md`. Use the
