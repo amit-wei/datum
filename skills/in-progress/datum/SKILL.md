@@ -20,6 +20,11 @@ description: Use when starting, resuming or steering work on a product built wit
   goals), ask before you write it.
 - When a fact is missing, say so and what depends on it; do not fill it with a
   plausible value. When a choice rests on an assumption, say where it stops holding.
+- When you find something missing or wrong in an earlier step's artifacts (a gap),
+  change it there instead of writing around it. If the change only brings the model in
+  line with what is agreed (Class II), make it and say so. If it adds scope or changes
+  what was agreed (Class I), put it in the builder's batch with a recommendation, and
+  make it once they agree.
 - Before a convention, definition, standard, price or version enters the model, load
   research, even when you feel confident.
 - When considering whether something is done, start from what it must cover: the end

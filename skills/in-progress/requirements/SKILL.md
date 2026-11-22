@@ -20,6 +20,11 @@ description: Use when a part's functions are written and what must hold for them
   goals), ask before you write it.
 - When a fact is missing, say so and what depends on it; do not fill it with a
   plausible value. When a choice rests on an assumption, say where it stops holding.
+- When you find something missing or wrong in an earlier step's artifacts (a gap),
+  change it there instead of writing around it. If the change only brings the model in
+  line with what is agreed (Class II), make it and say so. If it adds scope or changes
+  what was agreed (Class I), put it in the builder's batch with a recommendation, and
+  make it once they agree.
 - Before a convention, definition, standard, price or version enters the model, load
   research, even when you feel confident.
 - When considering whether something is done, start from what it must cover: the end
@@ -48,8 +53,9 @@ Datum cannot yet work from requirements handed down by a parent part's synthesis
 any were handed to this part, tell the builder so, and stop. A part with none runs this
 step like any other.
 
-If an input is infeasible, conflicts with another, or is missing, do not work around
-it here: open an issue on the part that owns it and raise it with the builder.
+If an input from the parent part is infeasible, conflicts with another, or is missing,
+open an issue on the parent part and raise it with the builder; the parent's step makes
+the change. A gap in this part's own artifacts follows the stance.
 
 ## Outputs
 
@@ -85,8 +91,9 @@ runs before anything else is written; the rest are due when the end condition ne
 2. Run the validator, then the `review-requirements` agent with the part's path. Fix
    each blocking and should-fix finding, or reject it with a reason, and run the agent
    again until it is clean or only upheld rejections are left.
-3. Ask the builder once, with `grilling`: every open value or rule, every rejection the
-   reviewer upheld, and whether the requirements say what they expect.
+3. Ask the builder once, with `grilling`: every open value or rule, every Class I gap
+   in the functions, every rejection the reviewer upheld, and whether the requirements
+   say what they expect.
 4. Write in the answers. Run the validator again, and the reviewer again on each
    requirement whose meaning changed beyond a value filled in.
 
@@ -101,6 +108,8 @@ runs before anything else is written; the rest are due when the end condition ne
   technology, left to synthesis.
 - Every requirement is covered by at least one proof with a criterion.
 - Every `TBD` has an issue that says how it will be settled.
+- Every gap found has an outcome: changed, left out with the builder's reason, or
+  raised as an issue.
 - The validator is clean (no errors): `uv run "${CLAUDE_PLUGIN_ROOT}/scripts/validate.py"`.
 - The closing review is clean, as in Order: each finding fixed, or rejected with a
   reason the reviewer accepts or the builder settles.

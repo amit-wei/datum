@@ -15,7 +15,8 @@ requirements against this file.
 
 Walk the model: each requirement comes from one of the sources below. This step creates
 no topics. Something the walk finds missing, such as a function with no input for what
-it needs, goes back to the step that owns it.
+it needs, is a gap in functional analysis: change it there, as the stance says, instead
+of writing a requirement around it.
 
 1. **Each function.** Every function needs at least one requirement `of:` it.
    - **Functional:** what result must be seen for the function to be done? "When the

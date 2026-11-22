@@ -20,6 +20,11 @@ description: Use when a part's functions are not yet known or have to change - a
   goals), ask before you write it.
 - When a fact is missing, say so and what depends on it; do not fill it with a
   plausible value. When a choice rests on an assumption, say where it stops holding.
+- When you find something missing or wrong in an earlier step's artifacts (a gap),
+  change it there instead of writing around it. If the change only brings the model in
+  line with what is agreed (Class II), make it and say so. If it adds scope or changes
+  what was agreed (Class I), put it in the builder's batch with a recommendation, and
+  make it once they agree.
 - Before a convention, definition, standard, price or version enters the model, load
   research, even when you feel confident.
 - When considering whether something is done, start from what it must cover: the end
@@ -44,8 +49,9 @@ is the current increment.
 - **Every part:** anything elsewhere in the model that links to this part's ID or its
   functions. Search for them before writing; each is an obligation on this part.
 
-If an input is infeasible, conflicts with another, or is missing, do not work around
-it here: open an issue on the part that owns it and raise it with the builder.
+If an input from the parent part is infeasible, conflicts with another, or is missing,
+open an issue on the parent part and raise it with the builder; the parent's step makes
+the change. A gap in this part's own artifacts follows the stance.
 
 ## Outputs
 
@@ -85,6 +91,8 @@ runs before anything else is written; the rest are due when the end condition ne
 - The builder has gone through the set of functions and agrees it covers what they
   expect this part to do.
 - Every scenario step is done by some function.
+- Every gap found has an outcome: changed, left out with the builder's reason, or
+  raised as an issue.
 - Every function serves a scenario (product) or a parent function (a part).
 - Every function lists its inputs and outputs; every output has a user, and every
   input from a function is one of its outputs.

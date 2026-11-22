@@ -70,8 +70,9 @@ author fixed or rejected and why.
 7. **Run the validator,** `uv run "${CLAUDE_PLUGIN_ROOT}/scripts/validate.py"`, and
    report its errors as blocking and its warnings as should fix.
 8. **List what goes to the builder:** you run before the builder is asked. Name every
-   value or rule still `TBD`, and every rejection you uphold, as the batch for the
-   builder. Their agreement is not yours to check.
+   value or rule still `TBD`, every gap in the functions that adds scope (Class I),
+   and every rejection you uphold, as the batch for the builder. Their agreement is
+   not yours to check.
 
 ## Findings
 
