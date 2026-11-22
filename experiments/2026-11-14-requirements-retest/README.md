@@ -235,7 +235,7 @@ with few runs may follow the fixes for #69 and #70.
 | N1 | 3/3 | 3/3 | |
 | N1a | 3/3 | 3/3 | |
 | N1b | 2/3 | 3/3 | 8431de assumed the town is kept and asked instead of writing it |
-| N1c | 0/3 | 3/3 | datum asked whether #13 and #15 are requirements or left to design |
+| N1c | 0/3 | 3/3 | a real miss: datum asked how to sort #13 and #15, which the step's end condition already settles |
 | N1d | 1/3 | 0/3 | baseline has no reason field; datum's reasons often restate or repeat |
 | N1e | 1/3 | 0/3 | datum's proof reasons are often one boilerplate sentence (#70) |
 | N2 | 2/2 | 1/2 | |
@@ -246,26 +246,30 @@ with few runs may follow the fixes for #69 and #70.
 | G1 | 2/2 | - | |
 | G2 | 0/2 | - | the blank or duplicate name refusal is asked, not written |
 | G3 | 1/1 | - | |
-| G4 | 0/1 | - | hazard responses chosen by the agent and not put to the builder |
+| G4 | invalid | - | rig fault: the second reviewer was killed and the run never reported (judge's fail not counted) |
 | G5 | 1/1 | - | |
 | G6 | 1/1 | - | |
 
 Rig-fault runs: 8431de counts as invalid for N5 and N6 only. 21f0d2 is on N3, which
-no review behaviour reads, so marking it changes nothing.
+no review behaviour reads, so marking it changes nothing. G4-datum-sonnet-fbe738 has
+the same fault as 21f0d2 (found 2026-11-22 for #71) and counts as invalid.
 
 **Datum against the baseline:** datum is ahead on N1d, N1e, N2 and N3 and behind on
-N1b and N1c, so by the decision rule it does not beat the baseline. Most of the
-deficit is one pattern: where the run could not settle something from the record,
-datum asked the builder (N1b, N1c, and G2 among the datum-only rows) while the
-pre-registered outcome wanted a requirement. That follows datum's rule of never
+N1b and N1c, so by the decision rule it does not beat the baseline. N1c is a real
+miss: the end condition already says how a constraint is sorted, and the runs asked
+the builder to do it. Part of the rest is one pattern: where the record does not
+settle something, datum asked the builder while the pre-registered outcome wanted a
+requirement (clearly G2; N1b is borderline, since the record arguably settles that the
+town is kept). Corrected 2026-11-22 from a first reading that counted N1c in this
+pattern (#73). That follows datum's rule of never
 inventing a value or rule, and asking is judged the better behaviour: a quiet wrong
 guess or a larger set is worse. The fails stand as pre-registered; the next test
 writes its outcomes so that a question to the builder with a recommendation meets
 them.
 
-**Datum-only:** N1, N1a, N5, G1, G3, G5, G6 hold. N4, N6, G2 and G4 do not. N6 is
-#69. N1d and N1e (thin, repeated reasons) are #70. How G2 and G4 compare with
-2026-11-13 waits on #71, which rechecks those verdicts.
+**Datum-only:** N1, N1a, N5, G1, G3, G5, G6 hold. N4, N6 and G2 do not; G4 is invalid. N6 is
+#69. N1d and N1e (thin, repeated reasons) are #70. No G row's regression status
+depends on the #71 recheck.
 
 **Blind evaluation: no verdict.** In all three pairs the evaluator chose whichever set
 was shown as X, in both orders, so it measured position, not quality. Its reports
