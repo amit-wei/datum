@@ -329,10 +329,16 @@ for `research/2026-11-22-review-perspectives.md`.
   through and claims "complete for its scope, against these lenses", never "complete".
   The needs (the elicitation record) are the reference every lens reads against; the
   builder's walk is the only check on the needs themselves. This refines P7.
-- **A lens** is one way of reading a set of artifacts for gaps: what it walks, the one
-  question it asks of each, and the reader's viewpoint. It is not a type: no ID, no
-  file. It reads artifacts that already exist. A lens becomes a type only if it needs
-  something no artifact holds.
+- **A lens** is one way of reading a set of artifacts for gaps: what it walks, the
+  reader's viewpoint, and a stated table or list the reader builds while walking,
+  answering a few fixed questions as they build it ("build X; in doing so, ask…"). For
+  the data lens the table is the items with see, change and remove columns. It is not a
+  type: no ID, no file. It reads artifacts that already exist. A lens becomes a type
+  only if it needs something no artifact holds. Why the building step: in the
+  experiments every reading technique had one, and the checklist, the same questions
+  with nothing to build, did no better than ad hoc reading
+  (`research/2026-11-22-review-perspectives.md`, VERIFIED); that the building step is
+  the cause was not tested. Revised 2026-11-22 from "one question per lens".
 - **A review is one reading per lens**, each from its stated viewpoint, not a
   checklist. Why: in the one controlled comparison found, defined reading beat ad hoc
   and checklist reading (Porter et al. 1995, VERIFIED-secondary). This is where
