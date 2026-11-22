@@ -713,7 +713,9 @@ One mechanism, no explicit "reopen" command:
     what is already agreed (a missing link, a requirement that follows from an agreed
     function, wording).
   Either way the change goes in the earlier step's artifacts, which makes that step
-  stale (point 2), and the later step never writes around the gap. Why: in the
+  stale (point 2), and the later step never writes around the gap. The rule is one
+  bullet of the stance, so every step carries it in the same words; a step's Inputs
+  paragraph keeps only gaps in the parent part (problems go up). Why: in the
   requirements retest (#62) the N1 home town could be set but not seen, and the
   requirements step had a rule to send gaps back but no end condition that made it
   happen (`research/2026-11-15-functional-completeness.md` §2.3).
