@@ -5,9 +5,8 @@ all on a fresh product, and do F1-F3 of the 2026-11-13 test still pass as regres
 checks? The behaviours include requirements that apply to the whole part (data kept
 on restart, bad input refused). Issue #62.
 
-**State (2026-11-15):** fixtures, pre-registration (`queries.md`, fixed) and rig are
-here. The Haiku pilot and all 20 Sonnet runs are done (`results/runs.jsonl`); the judge,
-the blind evaluation and the score are not run yet. See "Runs" at the end.
+**State (2026-11-22):** done. Judge, blind evaluation and score run; the result is in
+"Result" at the end.
 
 ## The fixtures
 
@@ -223,13 +222,55 @@ reviewer raised the same faults in almost every run (#70) and found function gap
 without sending them back to functional analysis (#68). Missing functions such as
 seeing or correcting the home town went unnoticed by both steps (#67).
 
-### To finish
+### Result (2026-11-22)
 
-```sh
-python3 judge.py          # one call per behaviour and run, Sonnet runs only
-python3 evaluate.py       # 3 N1 pairs, both orders: 6 normaliser + 6 evaluator calls
-uv run score.py           # the table
-```
+Judge, evaluator and score run once (`results/verdicts.jsonl`, `results/evaluations.jsonl`;
+$20.00 on Sonnet, runs and judge together). Every verdict was read by hand; the passes
+and fails below stand as the judge gave them. No reruns: each failure is consistent
+across runs and already has an issue, so a rerun would retest the same skills. A rerun
+with few runs may follow the fixes for #69 and #70.
 
-Then read every verdict by hand, apply the rerun limit of `queries.md` (at most one
-rerun per failed behaviour), mark the two rig-fault runs, and write the result here.
+| # | Datum | Baseline | Note |
+|---|---|---|---|
+| N1 | 3/3 | 3/3 | |
+| N1a | 3/3 | 3/3 | |
+| N1b | 2/3 | 3/3 | 8431de assumed the town is kept and asked instead of writing it |
+| N1c | 0/3 | 3/3 | datum asked whether #13 and #15 are requirements or left to design |
+| N1d | 1/3 | 0/3 | baseline has no reason field; datum's reasons often restate or repeat |
+| N1e | 1/3 | 0/3 | datum's proof reasons are often one boilerplate sentence (#70) |
+| N2 | 2/2 | 1/2 | |
+| N3 | 2/2 | 0/2 | baseline settles the no-forecast response itself |
+| N4 | 2/3 | - | mechanical |
+| N5 | 3/3 | - | mechanical; 2/2 without 8431de |
+| N6 | 2/5 | - | 2/4 without 8431de; the fails ask in two rounds around the reviewer (#69) |
+| G1 | 2/2 | - | |
+| G2 | 0/2 | - | the blank or duplicate name refusal is asked, not written |
+| G3 | 1/1 | - | |
+| G4 | 0/1 | - | hazard responses chosen by the agent and not put to the builder |
+| G5 | 1/1 | - | |
+| G6 | 1/1 | - | |
+
+Rig-fault runs: 8431de counts as invalid for N5 and N6 only. 21f0d2 is on N3, which
+no review behaviour reads, so marking it changes nothing.
+
+**Datum against the baseline:** datum is ahead on N1d, N1e, N2 and N3 and behind on
+N1b and N1c, so by the decision rule it does not beat the baseline. Most of the
+deficit is one pattern: where the run could not settle something from the record,
+datum asked the builder (N1b, N1c, and G2 among the datum-only rows) while the
+pre-registered outcome wanted a requirement. That follows datum's rule of never
+inventing a value or rule, and asking is judged the better behaviour: a quiet wrong
+guess or a larger set is worse. The fails stand as pre-registered; the next test
+writes its outcomes so that a question to the builder with a recommendation meets
+them.
+
+**Datum-only:** N1, N1a, N5, G1, G3, G5, G6 hold. N4, N6, G2 and G4 do not. N6 is
+#69. N1d and N1e (thin, repeated reasons) are #70. How G2 and G4 compare with
+2026-11-13 waits on #71, which rechecks those verdicts.
+
+**Blind evaluation: no verdict.** In all three pairs the evaluator chose whichever set
+was shown as X, in both orders, so it measured position, not quality. Its reports
+read as plausible for either side. The "Left open" list the normaliser adds is kept
+in the rig; with no verdict it had no effect.
+
+**What went unscored:** the missing view and correction of the home town (N1), which
+no behaviour checks. It led to the completeness decisions of 2026-11-22 (#67, #68).
