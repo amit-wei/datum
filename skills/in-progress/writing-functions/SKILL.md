@@ -17,13 +17,29 @@ functional-analysis step checks the functions against this file.
 - **Any other part:** for each parent function the part `contributes_to`, ask what this
   part must do so that the parent function is done. Write each answer with
   `parent: <that FUN>`.
-- **Then look for what is missing.** The paths below are often absent from the
-  scenarios and the parent functions. A gap found here is not yet a function: every
-  function must still pass the **Needed** rule.
-  - first use, with nothing stored yet
-  - backup, restore, export, upgrade
-  - what someone other than the main user needs: a maintainer, an admin, a neighbour part
-  - the flows: an output nobody uses, or an input no one gives (see below)
+- **Then read the set through three lenses** to find what is missing. Each lens is
+  something to build from the model, with questions to answer while you build it. A
+  gap found here is not yet a function: every function must still pass the **Needed**
+  rule.
+  1. **Scenarios.** Walk each scenario again as each person who uses or looks after the
+     part: the main user, and anyone else (a maintainer, an admin, a neighbour part).
+     At each step, ask: which function does it, and what does this person need here
+     that no step gives?
+  2. **Data.** Build a table with one row per item the builder gives or the part keeps,
+     read off the functions' inputs and outputs. Columns: who gives it, and the
+     function that lets the builder see it, change it and remove it. For each empty
+     cell, ask: does the builder need this, or did they choose to leave it out? A
+     cell is filled by a function named for its goal ("correct the home town"), never
+     by the operation.
+  3. **Events.** Build a list of everything the part must answer: each scenario
+     trigger, each timed event ("each morning"), and each event from outside, such as
+     first use with nothing stored, a move to another machine, an upgrade, or an
+     outside service that fails or answers wrongly. Beside each, the function that
+     responds; where there is none, ask what should happen.
+
+  The flows are checked too: an output nobody uses, or an input no one gives (see
+  below). Show the data table and the event list to the builder when they go through
+  the functions; neither is written to the model.
 
   At the product, settle each gap with the builder: a scenario step (add it with
   `writing-scenarios`, then write the function that does it), a requirement on an

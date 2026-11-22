@@ -46,13 +46,16 @@ author fixed or rejected and why.
    - every function → considered for the hazards it introduces; name any state it
      could reach that leads to a loss and has no hazard
 3. **Check each function** against the rules in `writing-functions`: what is and is not
-   a function, the six rules, the file fields. Then run its search for what is missing
-   (first use, backup and export, other stakeholders) and report what has no answer.
+   a function, the six rules, the file fields.
 4. **Check the inputs and outputs** against the rules in `writing-functions`. Walk
    every scenario step and parent function for the things it hands over, and name any
    that no function lists. Name an output nobody uses, an input nothing gives, an item
    that is a type or a format rather than a thing, and data the part keeps for later
    that is not written as an output to the functions that read it.
+   Then read the set through each lens of `writing-functions`, building the data table
+   and the event list yourself from the model, not from the author's. Report each
+   empty cell or unanswered event that the record does not show the builder chose, as
+   blocking.
 5. **Check losses and hazards** against the rules in `losses-and-hazards`: losses only
    in the product's folder, free of causes; each hazard a state of this part, not a
    cause or a loss; below the product, no hazard that restates one a parent
@@ -63,8 +66,8 @@ author fixed or rejected and why.
 8. **Run the validator,** `uv run "${CLAUDE_PLUGIN_ROOT}/scripts/validate.py"`, and report its errors as blocking
    and its warnings as should fix.
 9. **Check the builder's agreement:** the end condition needs the builder to agree the
-   set of functions covers what they expect. If the record shows no such agreement,
-   that is a blocking finding.
+   set of functions covers what they expect, after seeing the data table and event
+   list. If the record shows no such agreement, that is a blocking finding.
 
 ## Findings
 

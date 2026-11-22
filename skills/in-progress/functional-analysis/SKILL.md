@@ -88,9 +88,12 @@ runs before anything else is written; the rest are due when the end condition ne
 
 ## End condition
 
-- The builder has gone through the set of functions and agrees it covers what they
-  expect this part to do.
+- The builder has gone through the set of functions, with the data table and event
+  list of `writing-functions`, and agrees it covers what they expect this part to do.
 - Every scenario step is done by some function.
+- Each lens of `writing-functions` has been read: every empty cell of the data table
+  and every event with no response is filled by a function, or left empty by the
+  builder's choice.
 - Every gap found has an outcome: changed, left out with the builder's reason, or
   raised as an issue.
 - Every function serves a scenario (product) or a parent function (a part).
