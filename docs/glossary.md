@@ -34,6 +34,10 @@ synonyms; a reviewer flags any other. Add a term when it first appears in a skil
 | end condition | What must hold before the builder can close a step |
 | closed | A step the builder has closed, recorded in `steps.yaml` with its commit |
 | stale | A closed step whose part's files changed after its closing commit, and everything that depends on it |
+| gap | Something a step finds missing or wrong in an earlier step's artifacts; it ends added, left out with a reason, or raised |
+| Class I | A gap that adds scope or alters what was agreed; the builder agrees before it goes in |
+| Class II | A gap that brings the model in line with what is already agreed; it goes in and is reported |
+| lens | One way of reading a set of artifacts for gaps: what it walks, the question it asks of each, and the reader's viewpoint. Not a type |
 | increment | A usable, verified addition of capability: a set of functions plus deferrals |
 | stub | A stand-in for an out-of-scope part, derived from its interface |
 | finding | What a reviewer reports: blocking, should fix, or a note |

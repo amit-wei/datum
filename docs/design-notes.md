@@ -318,6 +318,40 @@ are not duplicates. Chosen from eight candidates (INFERRED, design reasoning onl
   requirement a proof): it judges completeness, so the reviewer (#56) checks it in
   v0.1.0.
 
+## Completeness (agreed in concept 2026-11-22, #67)
+
+Evidence: `research/2026-11-15-functional-completeness.md`; the wording of a lens waits
+for `research/2026-11-22-review-perspectives.md`.
+
+- **Complete means complete against named lenses, plus the builder's walk.** No source
+  claims a method that makes a set complete against what people need; each method finds
+  only the gaps its own model can show. So datum names the lenses a set was read
+  through and claims "complete for its scope, against these lenses", never "complete".
+  The needs (the elicitation record) are the reference every lens reads against; the
+  builder's walk is the only check on the needs themselves. This refines P7.
+- **A lens** is one way of reading a set of artifacts for gaps: what it walks, the one
+  question it asks of each, and the reader's viewpoint. It is not a type: no ID, no
+  file. It reads artifacts that already exist. A lens becomes a type only if it needs
+  something no artifact holds.
+- **A review is one reading per lens**, each from its stated viewpoint, not a
+  checklist. Why: in the one controlled comparison found, defined reading beat ad hoc
+  and checklist reading (Porter et al. 1995, VERIFIED-secondary). This is where
+  reviewer viewpoints (deferred from #69 until the #62 scores) are expected to land.
+- **First lenses for functional analysis:**
+  - *Scenarios:* each step of each scenario; can it be done?
+  - *Data:* each item the builder gives or the part keeps, read off the functions'
+    inputs and outputs; can the builder see it, change it and remove it, and if not,
+    did they choose that? CRUD as a question, never as function names (item 15 of
+    `research/2026-10-18-functions.md` stays).
+  - *Events:* each scenario trigger, each timed event and each event from outside the
+    product; does it get a response?
+  No separate state lens: for ordinary software, state is mostly what is stored and
+  "first use or after a restart", which the data and event lenses cover.
+- **A lens is added only when a miss turns up that no current lens could show,** and is
+  recorded with the miss that earned it. The data lens's miss is the N1 home town (#62).
+  Growing the steps for this is accepted: a complete set of requirements is the point.
+- **Gaps a lens finds** follow "Gaps and who decides" (Going back).
+
 ## Risk in the engine (agreed 2026-10-17)
 
 Risk is a technique, not a step of its own. It appears twice in every part, as in
@@ -660,6 +694,23 @@ One mechanism, no explicit "reopen" command:
 - **Across increments:** a later increment can make built items stale; their verdicts
   are then computed as unverified (P4). Rework that blocks the current increment joins
   its milestone; otherwise it is an issue for a later increment.
+- **Gaps and who decides** (agreed 2026-11-22, #68). A gap is something a step finds
+  missing or wrong in an earlier step's artifacts. Every gap a step finds ends as one of
+  three outcomes before the step can close: added, left out on purpose with a reason, or
+  raised. This is an end condition of every step. Who decides depends on the class,
+  after configuration management's Class I / Class II changes (EIA-649, MIL-STD-973;
+  from memory, not checked against the standards):
+  - **Class I, the builder agrees:** the gap adds scope or alters what was agreed (a new
+    function, a changed value, something dropped). It goes in the step's batch of
+    questions with a recommendation, so it is one round, not one question per gap.
+  - **Class II, it happens and is reported:** the gap brings the model in line with
+    what is already agreed (a missing link, a requirement that follows from an agreed
+    function, wording).
+  Either way the change goes in the earlier step's artifacts, which makes that step
+  stale (point 2), and the later step never writes around the gap. Why: in the
+  requirements retest (#62) the N1 home town could be set but not seen, and the
+  requirements step had a rule to send gaps back but no end condition that made it
+  happen (`research/2026-11-15-functional-completeness.md` §2.3).
 - **Subagents** for independence (review; cases apart from implementation, P5), for
   read-heavy work where only the conclusion matters (research, codebase surveys), and
   for parallel independent pieces (scenario walk-throughs, leaf parts). Never for
