@@ -293,7 +293,11 @@ are not duplicates. Chosen from eight candidates (INFERRED, design reasoning onl
   what is kept on close, which inputs are refused, how a hazard is dealt with) is
   settled by asking the builder or by research or a spike, with no condition on which;
   otherwise `TBD` with an issue. In the test, datum invented a rounding rule because
-  the rule spoke only of numbers.
+  the rule spoke only of numbers. Revised 2026-11-23 (#73): ~~what is kept on close~~
+  is not an example. Where a function reads an output after the part is closed, keeping
+  it follows from the agreed functions (Class II): write it and report it. In the
+  retest a run asked instead (N1b). What is kept with no function to read it, or for
+  how long, stays the builder's choice.
 - **No ready-made reasons in skills** (2026-11-14, #60). A table of when each option
   fits is copied instead of reasoned: every proof's rationale repeated the `test` row.
   Skills define the options and ask for a reason in the requirement's own terms.

@@ -261,7 +261,10 @@ the builder to do it. Part of the rest is one pattern: where the record does not
 settle something, datum asked the builder while the pre-registered outcome wanted a
 requirement (clearly G2; N1b is borderline, since the record arguably settles that the
 town is kept). Corrected 2026-11-22 from a first reading that counted N1c in this
-pattern (#73). That follows datum's rule of never
+pattern (#73). Settled 2026-11-23 (#73): N1b is a real miss too. FUN-G6AB reads the
+town each morning, so keeping it follows from agreed functions (Class II); the
+skill's list of rules not to invent named "what is kept" and pulled the other way,
+and that example is now removed. Only G2 is this pattern. That follows datum's rule of never
 inventing a value or rule, and asking is judged the better behaviour: a quiet wrong
 guess or a larger set is worse. The fails stand as pre-registered; the next test
 writes its outcomes so that a question to the builder with a recommendation meets
@@ -278,3 +281,27 @@ in the rig; with no verdict it had no effect.
 
 **What went unscored:** the missing view and correction of the home town (N1), which
 no behaviour checks. It led to the completeness decisions of 2026-11-22 (#67, #68).
+
+## Lessons
+
+Numbered on from lessons 8-17 (`research/2026-11-05-fa-test.md`) and 18-22
+(`research/2026-11-14-requirements-test.md`).
+
+23. **Write each outcome against what the record holds** (2026-11-23, #73). In this
+    retest G2 asked for a refusal rule and a response that the fixture never gave. The
+    datum runs followed the no-invention rule, asked, and failed; the judge could not
+    tell, because it does not see the fixture. N1c is the other side: the record gave
+    the entries, and the runs asked how to sort them. VERIFIED (G2 and N1c verdicts,
+    fixtures). The next rig's `queries.md` carries this standing paragraph, and
+    `judge.py` copies it into the judge prompt as it does the other standing rules:
+
+    > **Values the record does not give:** each outcome marks the values and rules it
+    > needs as *in the record* (with the entry) or *not in the record*. For one in the
+    > record, the run writes it; asking about it instead fails that part. Sorting what
+    > the record gives (requirement, out of scope, left to synthesis) is the step's
+    > work, not a question. For one not in the record, the run meets that part if it
+    > writes the requirement with the value or rule `TBD`, names a source for it, or
+    > asks the builder for it with a recommended answer. Stating it as settled with no
+    > source fails that part. The same holds for both variants.
+
+    This rig's `queries.md` and `judge.py` are left as they ran.
