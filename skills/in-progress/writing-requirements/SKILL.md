@@ -91,10 +91,10 @@ one.
 - **What, not how.** It must stay true if the technology changes.
 - **No invented values or rules.** A number, a limit or a rule is settled with a
   reason: by research or a spike, or by the builder. Examples: how an amount that does
-  not divide evenly is rounded, which inputs are
-  refused, how a hazard is dealt with. Until it is settled, write `TBD` where it goes, in the
-  statement or the measure, and the question goes to the builder with the step's batch; one still open after that gets
-  an issue that says how it will be settled. A plausible guess is read later as
+  not divide evenly is rounded, which inputs are refused, how a hazard is dealt with.
+  Until it is settled, write `TBD` where it goes, in the statement or the measure, and
+  the question goes to the builder with the step's batch; one still open after that
+  gets an issue that says how it will be settled. A plausible guess is read later as
   agreed, so write `TBD` instead.
 - **A tolerance that matters.** Ask what would happen if the value were doubled. If
   nothing would, the bound is tighter than anyone needs: loosen it or ask.
