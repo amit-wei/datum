@@ -110,3 +110,24 @@ orders,** for the same reasons: no requirement to keep the trip when the part is
 (none in either run read), no refusal of bad input, the expense limit left `TBD`. The
 reviewer ran in 3 of 7 rerun runs: the others stopped to ask the builder their open
 questions first. Recorded as it stands; see `research/2026-11-14-requirements-test.md`.
+
+## Addendum: the judge saw only the last report (2026-11-23, #71)
+
+`run.py` kept only a run's last result message in `final.txt`, and the judge read that
+file. Six datum runs ended more than once: they reported, the background reviewer's
+notice woke them, and they reported again (the fault fixed in #69). The tables above
+stand as the record; these verdicts were judged on part of the run's reporting and were
+not rejudged:
+
+| Run | Verdicts | The judge saw | Could change? |
+|---|---|---|---|
+| R1-datum-sonnet-5ad94f | R1 pass, R4 fail | the report after review, not the main one | Unlikely: judged mostly from the files |
+| R2-datum-sonnet-75ab58 | R2 fail | the report after review | Possibly: the earlier report asks who gets the extra cent, but REQ-E9PQ states the rule as settled |
+| R2r-datum-sonnet-e862fc | R2r pass | the report after review | Unlikely: the earlier report also leaves the cents `TBD` |
+| R3r-datum-sonnet-07ee03 | R3r fail | the report after review | Unlikely: two requirements still have no rationale |
+| R1-datum-sonnet-cd9cb4, R1r-datum-sonnet-2d9da4 | four | the main report | No: the earlier message is one sentence |
+
+At most R2 moves from 0/2 to 1/2 for datum; the conclusion above does not change. The
+run transcripts are in `~/.cache/datum-experiments/2026-11-13-requirements-test/`.
+Findings 1 and the rerun addendum of `research/2026-11-14-requirements-test.md` carry
+dated corrections.

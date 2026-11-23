@@ -30,6 +30,10 @@ three times as much per run (about 0.65 against 0.21 USD).
    one each) as settled, with no question and no `TBD`. VERIFIED. The rule in
    `writing-requirements` speaks of "a number"; a rounding policy is a choice, not a
    number, so the rule did not fire. INFERRED. The baseline did the same.
+   *Corrected 2026-11-23 (#71):* the judge and this reading saw only each run's last
+   report. R2-datum-sonnet-75ab58's earlier report asks "which person gets the extra
+   cent?" and says it left that unspecified, so that run did ask, though REQ-E9PQ still
+   states the rule as settled. VERIFIED (transcript). The verdict was not rejudged.
 2. **Datum decides how a hazard is dealt with.** In both R3 runs datum wrote prevent
    requirements for four hazards and asked about one (deleting by mistake). VERIFIED. The
    technique says the builder chooses and the agent offers the forms; the step lists
@@ -91,7 +95,9 @@ On the changed skills, datum only, the one rerun allowed. VERIFIED unless marked
 - **Not fixed: keeping data across a restart.** No rerun requirement covers it, though
   the unwanted-behaviour question now names "being closed or restarted". Both runs read
   the accepted hazard (the trip is lost with the phone, no backups) as covering it.
-  INFERRED.
+  INFERRED. *Corrected 2026-11-23 (#71):* this holds for the two R1r runs only. Two
+  other rerun runs wrote one: R2r-datum-sonnet-e862fc REQ-BF0P and
+  R3r-datum-sonnet-8f7db2 REQ-2M5M. VERIFIED (run files).
 - **The reviewer ran in 3 of 7 runs** (3 of 3 before). The others stopped to put their
   open values to the builder first, planning to review after. INFERRED: "settle it or
   ask" moved the stopping point ahead of the review.
