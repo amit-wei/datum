@@ -36,7 +36,7 @@ Rules for agents (and people) changing this repository. Keep this file short.
 
 - One issue is one outcome that can be closed. Too big: split it into sub-issues. A
   sub-issue splits an outcome and is not a category. What cuts across steps goes under
-  #6 (Engine steps), so every open issue sits in one tree.
+  #6 (Engine steps).
 - One issue per thing that ships (a skill, a technique, a schema) and one per test run.
   Behaviours stay in the experiment folder. A finding gets an issue if it outlives the
   session.
