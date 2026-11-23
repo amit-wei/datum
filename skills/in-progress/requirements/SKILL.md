@@ -88,9 +88,11 @@ runs before anything else is written; the rest are due when the end condition ne
 ## Order
 
 1. Write the requirements and proofs; a value only the builder can give stays `TBD`.
-2. Run the validator, then the `review-requirements` agent with the part's path. Fix
+2. Run the validator, then the `review-requirements` agent with the part's path, and
+   wait for its findings before going on: it runs in the background by default. Fix
    each blocking and should-fix finding, or reject it with a reason, and run the agent
-   again until it is clean or only upheld rejections are left.
+   again until it is clean, or until each finding left is an upheld rejection or waits
+   on the builder's answer.
 3. Ask the builder once, with `grilling`: every open value or rule, every Class I gap
    in the functions, every rejection the reviewer upheld, and whether the requirements
    say what they expect.

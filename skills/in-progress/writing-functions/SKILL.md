@@ -34,7 +34,7 @@ functional-analysis step checks the functions against this file.
   3. **Events.** Build a list of everything the part must answer: each scenario
      trigger, each timed event ("each morning"), and each event from outside, such as
      first use with nothing stored, a move to another machine, an upgrade, or an
-     outside service that fails or answers wrongly. Beside each, the function that
+     outside service that cannot be reached, does not answer, or answers wrongly. Beside each, the function that
      responds; where there is none, ask what should happen.
 
   The flows are checked too: an output nobody uses, or an input no one gives (see

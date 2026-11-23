@@ -25,21 +25,20 @@ falls is datum's own:
 | `analysis` | A calculation or reasoning from a model shows it holds |
 | `demonstration` | A person watches it work and records what they saw |
 
-No method is the default. Choose the one that gives enough confidence for what this
-requirement guards, at the least cost over the part's life, and give the reason in
-`rationale`: what about this requirement makes the method enough, and why the cheaper
-ones would not do. A reason that would fit any requirement is not a reason. Weigh:
-
-- **What it guards,** and so how much confidence it warrants.
-- **What it costs,** now and at every release: tests rerun on every change and are code
-  to keep; a person redoes a demonstration or a manual inspection at every release.
-- **What could make it stop holding,** and whether the method would notice.
+No method is the default. In `rationale`, say what could make this requirement stop
+holding, and why the chosen method notices it, with enough confidence for what the
+requirement guards, at the least cost over the part's life: tests rerun on every change
+and are code to keep; a person redoes a demonstration or a manual inspection at every
+release. Write the reason for this requirement alone. Two proofs may give the same
+reason where it is true of both; a reason that would fit any requirement is not one.
 
 ## The criterion
 
-- **`pass`** says what is observed and when it passes. It names the requirement's
-  measure and never copies its number: "plan_time meets every bound of REQ-4W8N", not
-  "under 2 s". The number lives in one place.
+- **The number lives in the requirement.** `pass` and `conditions` name its measure
+  and never copy the number: "plan_time meets every bound of REQ-4W8N", not "under
+  2 s"; "one plant more than REQ-X allows", not "the 61st plant". A copy goes stale
+  when the value changes.
+- **`pass`** says what is observed and when it passes.
 - **`conditions`** say the setup the result depends on: the data, its size, the state
   before, what is made to fail.
   - For an `unwanted` requirement, provoke the unwanted condition.
@@ -53,8 +52,8 @@ ones would not do. A reason that would fit any requirement is not a reason. Weig
 - **A statistical criterion** (a percentile, a proportion, a rate, a judged quality)
   also gives `sample_min` (how many trials), and where a claim about the true value is
   needed, `confidence` and which `bound` it is on. A single run does not show a p95.
-- **A `TBD` value** does not stop the proof: the criterion refers to the measure, and
-  holds whatever value it gets.
+- **A `TBD` value or rule** does not stop the proof: the criterion refers to the
+  requirement, and holds whatever it becomes.
 
 ## Rules for each proof
 
@@ -81,7 +80,7 @@ echo "PRF-$(LC_ALL=C tr -dc '0-9A-HJKMNP-TV-Z' </dev/urandom | head -c 4)"
 ```
 
 Fields: `id`, `status` (`draft` until the builder agrees), `title` (what is shown, in a
-few words), `method`, `rationale` (why this method, and why cheaper ones would not do),
+few words), `method`, `rationale` (why this method, as above),
 `covers` (the one requirement of this part it shows), and `criterion` with `pass` and, as needed,
 `conditions`, `sample_min`, `confidence` and `bound` (`lower` or `upper`).
 

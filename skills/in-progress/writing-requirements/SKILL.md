@@ -26,8 +26,8 @@ of writing a requirement around it.
      a budget cares about speed, size, accuracy or cost. Where nobody does, write none.
 2. **Each input of a function** (unwanted behaviour, EARS). What makes the input valid
    (its ranges, what must be present), and what the part does with one that is not.
-   If it comes from an outside system: what the part does when that system fails or
-   answers wrongly. Write the response, not only the detection.
+   If it comes from an outside system: what the part does when that system cannot be
+   reached, does not answer, or answers wrongly. Write the response, not only the detection.
 3. **Each output of a function** (unwanted behaviour, EARS). If a function it goes to
    can run after the part is closed or restarted, what must still be there. If a run
    can be interrupted while the output is made: what is left, whole or none.
@@ -92,18 +92,18 @@ one.
 - **No invented values or rules.** A number, a limit or a rule is settled with a
   reason: by research or a spike, or by the builder. Examples: how an amount that does
   not divide evenly is rounded, what is kept when the part is closed, which inputs are
-  refused, how a hazard is dealt with. Until it is settled it is `TBD`, and the
-  question goes to the builder with the step's batch; one still open after that gets
+  refused, how a hazard is dealt with. Until it is settled, write `TBD` where it goes, in the
+  statement or the measure, and the question goes to the builder with the step's batch; one still open after that gets
   an issue that says how it will be settled. A plausible guess is read later as
   agreed, so write `TBD` instead.
 - **A tolerance that matters.** Ask what would happen if the value were doubled. If
   nothing would, the bound is tighter than anyone needs: loosen it or ask.
 - **The number goes in the measure, once.** The statement holds `{measure}` where the
-  value would be; the measure holds the metric, its unit and the bounds. A proof refers
-  to the measure and never copies the number.
-- **A rationale on every requirement:** why it is needed and what it assumes, in the
-  requirement's own terms. Say where each value or rule came from, and why this
-  response over an obvious other (refuse, ignore, warn, retry). A rationale that only
+  value would be; the measure holds the metric, its unit and the bounds. Read the
+  statement with each bound in place of `{measure}`: a part that only just meets the
+  bounds must still do what is meant, on both sides of the value.
+- **A rationale on every requirement:** why it is needed beyond the function it is
+  `of`, what it assumes, and where each value or rule came from. A rationale that only
   restates the statement or the links fails review.
 
 ## The file
@@ -169,18 +169,25 @@ of: FUN-7K3Q
 answers: [HAZ-6VJR]
 ```
 
-Respond, in the `complex` pattern, choosing a warning over a block:
+Respond, with a value that is wrong on both sides:
 
 ```yaml
 id: REQ-3JQE
 status: draft
-pattern: complex
+pattern: unwanted
 statement: |
-  While the climber's last logged session records pain, if the climber starts a
-  session with a higher load than that session, then the part shall warn the
-  climber before the first exercise.
-rationale: Blocking the session was the obvious alternative; the builder wants the climber to decide.
-of: FUN-2PXD
+  If the climber logs pain in a session, then the part shall propose no load above
+  that session's for the next {measure}.
+measure:
+  metric: hold_back
+  definition: Days after the pain session during which no proposed load exceeds its load.
+  unit: days
+  bounds:
+    - {statistic: value, op: "==", value: 3}
+rationale: |
+  Pain is the first sign of the injury the hazard names. The builder set three days:
+  fewer lets the injury come back, more holds back a climber who has recovered.
+of: FUN-7K3Q
 answers: [HAZ-6VJR]
 ```
 

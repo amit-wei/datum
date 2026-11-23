@@ -655,7 +655,11 @@ Settles Q-3. Evidence: `research/2026-10-skill-granularity.md`,
   was skipped in 4 of 7 runs that stopped to ask first (#60). In the requirements step
   (2026-11-14, #65), a value only the builder can give stays `TBD` until that batch;
   after the answers the validator runs again, and the reviewer again only on a
-  requirement whose meaning changed beyond a value filled in.
+  requirement whose meaning changed beyond a value filled in. Extended to functional
+  analysis (2026-11-23, #69): its reviewer lists what goes to the builder instead of
+  checking the builder's agreement, and the builder goes through the functions after
+  the review. In both steps the loop ends when the review is clean, or when each
+  finding left is an upheld rejection or waits on the builder's answer.
 - **A technique is loaded before its output is produced** (agreed 2026-10-18): before
   writing or changing an artifact, a record or a looked-up fact, the agent loads the
   technique that makes it. A question gets an answer grounded in the model and an offer

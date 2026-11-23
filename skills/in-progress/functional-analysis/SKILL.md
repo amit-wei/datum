@@ -88,8 +88,8 @@ runs before anything else is written; the rest are due when the end condition ne
 
 ## End condition
 
-- The builder has gone through the set of functions, with the data table and event
-  list of `writing-functions`, and agrees it covers what they expect this part to do.
+- The builder has gone through the set of functions, after the review, with the data
+  table and event list of `writing-functions`, and agrees it covers what they expect this part to do.
 - Every scenario step is done by some function.
 - Each lens of `writing-functions` has been read: every empty cell of the data table
   and every event with no response is filled by a function, or left empty by the
@@ -110,9 +110,11 @@ runs before anything else is written; the rest are due when the end condition ne
 - No feasibility doubt is left without a spike or a `TBD` with an issue.
 - The validator is clean (no errors): `uv run "${CLAUDE_PLUGIN_ROOT}/scripts/validate.py"`.
 - The closing review is clean: run the `review-functional-analysis` agent with the
-  part's path. Fix each blocking and should-fix finding, or reject it with a reason,
-  and run the agent again. A finding you reject that the reviewer upholds goes to the
-  builder.
+  part's path, and wait for its findings before going on: it runs in the background by
+  default. Fix each blocking and should-fix finding, or reject it with a reason, and
+  run the agent again until it is clean, or until each finding left is an upheld
+  rejection or waits on the builder's answer. Those go to the builder in one batch.
+  After the answers, run the agent again on what changed.
 
 The builder closes the step. On their word, record it in `.datum/model/<part>/steps.yaml` as
 `functional-analysis: {closed_at: "<commit>"}`.

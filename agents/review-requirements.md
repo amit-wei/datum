@@ -33,7 +33,8 @@ author fixed or rejected and why.
    - every function → at least one requirement `of` it, for its result, and one for
      performance where the builder, a hazard or a budget cares
    - every input → its valid range and the response outside it; from an outside
-     system, the response when that system fails
+     system, the response when that system cannot be reached, does not answer, or
+     answers wrongly
    - every output → if a function it goes to can run after the part is closed, what is
      kept; if a run can be interrupted while it is made, what is left
    - every hazard → a requirement that answers it, or an open issue where it is
@@ -55,7 +56,7 @@ author fixed or rejected and why.
    and that its assumptions are stated.
 4. **Check each proof** against the rules in `writing-proofs`: a method whose
    rationale holds (a cheaper method that would do is a should-fix), a pass condition
-   that names the measure and does not copy its value, conditions that provoke an
+   and conditions that name the measure and do not copy its value, conditions that provoke an
    unwanted condition or a hazard's state, an analysis that states its assumptions and
    worst case, a sample for a statistical criterion, runnable in the current
    increment, no risk to real data. Read it as the case author: could you write the
@@ -92,4 +93,4 @@ rejection whose reason holds; uphold one that does not and say why, so it can go
 the builder.
 
 End with one line on what you did not check, and the verdict: `clean` (no blocking or
-should-fix findings) or `not clean`.
+should-fix findings, apart from what you list for the builder) or `not clean`.

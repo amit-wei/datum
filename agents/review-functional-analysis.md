@@ -53,9 +53,10 @@ author fixed or rejected and why.
    that is a type or a format rather than a thing, and data the part keeps for later
    that is not written as an output to the functions that read it.
    Then read the set through each lens of `writing-functions`, building the data table
-   and the event list yourself from the model, not from the author's. Report each
-   empty cell or unanswered event that the record does not show the builder chose, as
-   blocking.
+   and the event list yourself from the model, not from the author's. For each empty
+   cell or unanswered event the record does not show the builder chose: where the
+   record already settles it, report it as blocking; where only the builder can, list
+   it for the builder (step 9).
 5. **Check losses and hazards** against the rules in `losses-and-hazards`: losses only
    in the product's folder, free of causes; each hazard a state of this part, not a
    cause or a loss; below the product, no hazard that restates one a parent
@@ -65,9 +66,11 @@ author fixed or rejected and why.
 7. **Look for overbuilding:** a function or scenario that nothing asks for.
 8. **Run the validator,** `uv run "${CLAUDE_PLUGIN_ROOT}/scripts/validate.py"`, and report its errors as blocking
    and its warnings as should fix.
-9. **Check the builder's agreement:** the end condition needs the builder to agree the
-   set of functions covers what they expect, after seeing the data table and event
-   list. If the record shows no such agreement, that is a blocking finding.
+9. **List what goes to the builder:** you run before the builder is asked. Name every
+   empty cell or unanswered event that only the builder can settle, every gap that
+   adds scope (Class I), and every rejection you uphold. With the set of functions,
+   the data table and the event list, this is the batch for the builder. Their
+   agreement is not yours to check.
 
 ## Findings
 
@@ -87,4 +90,4 @@ rejection whose reason holds; uphold one that does not and say why, so it can go
 the builder.
 
 End with one line on what you did not check, and the verdict: `clean` (no blocking or
-should-fix findings) or `not clean`.
+should-fix findings, apart from what you list for the builder) or `not clean`.
