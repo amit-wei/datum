@@ -81,7 +81,7 @@ runs before anything else is written; the rest are due when the end condition ne
    asking, and the file format.
 3. **Settling a value or a rule:** due before the builder agrees the requirements.
    Settle it with the `researcher` agent (cite the `RES-` record it returns) or
-   `running-a-spike` (in a subagent, time-boxed, with a written question), or leave it
+   the `spiker` agent (cite the `SPK-` record it returns), or leave it
    `TBD` for the builder's batch, asked with `grilling`. One still open after the batch
    gets an issue that says how it will be settled.
 

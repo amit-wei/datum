@@ -77,10 +77,12 @@ this level, is made here; one that affects a single part waits for that part's l
 
 **Spikes** (agreed in concept, 2026-10-16). A spike is throwaway code that answers a
 question: a measurement, a feasibility check. Its result enters the model as evidence;
-its code is deleted. It is a technique of the menu (P13), not a free permission: it is
+~~its code is deleted~~ (superseded 2026-11-28: the code is kept, see Spikes under
+Skills). It is a technique of the menu (P13), not a free permission: it is
 triggered by a named condition in a step, for example research in functional analysis,
-or filling a TBD value of a requirement during synthesis. Each spike has a time-box and
-a written question before it starts.
+or filling a TBD value of a requirement during synthesis. Each spike has ~~a time-box
+and~~ (superseded 2026-11-28: a bound and a stopping condition, see Spikes under
+Skills) a written question before it starts.
 
 Starting set of triggers (agreed 2026-10-16; revised with use, like everything here):
 
@@ -265,7 +267,7 @@ are not duplicates. Chosen from eight candidates (INFERRED, design reasoning onl
   not; it never names the product as the only case (every part is a part; the product
   is the top one).
 - **A value is settled before it enters a measure** (forced, P13): by `grilling`,
-  the `researcher` agent or `running-a-spike`, whichever fits where the value comes from, or written
+  the `researcher` or `spiker` agent, whichever fits where the value comes from, or written
   `TBD` with an issue. No one technique is forced: forcing research was rejected.
 - **No default verification method.** Every proof states a `rationale` (required): why
   this method gives enough confidence at least cost, and why cheaper ones would not do.
@@ -684,7 +686,8 @@ Settles Q-3. Evidence: `research/2026-10-skill-granularity.md`,
   already chooses cost through their session. A role is pinned only after a test shows
   it fails on a cheaper model, or does as well on one; the pin goes in the agent's
   frontmatter and the test is named here. `tools` lists only what the role needs: the
-  reviewers read, the researcher also searches, fetches and writes its record (the
+  reviewers read, the researcher also searches, fetches and writes its record, the spiker runs and
+  writes code and fetches documentation (the
   frontmatter cannot limit Write to `analysis/`; the agent's text does).
 - **Script runtime** (revised 2026-10-21): plain shell for trivial pieces (IDs, staleness
   through `git diff`); everything else Python scripts that declare their packages inline
@@ -753,7 +756,7 @@ the losses it could cause. Techniques: `grilling` (forced at the start of every 
 solution), `writing-scenarios` (forced at product level), `writing-functions`,
 `losses-and-hazards` (STPA step 1, at every part, due by the end condition; below the
 top, only the hazards the part introduces; see Risk in the engine),
-`running-a-spike` (doubt about feasibility; subagent). At product level the weight is
+the `spiker` agent (doubt about feasibility). At product level the weight is
 on grilling and scenarios; below, on writing functions. End condition: every scenario
 step is done by some function; every function serves a scenario (product) or a parent
 function (below); every elicited need is in a scenario or marked out of scope; losses
@@ -765,8 +768,8 @@ budgets; each with a proof. Inputs: functions, hazards, the builder's constraint
 (product level) or the requirements the parent's synthesis wrote (below). Techniques:
 `writing-requirements` per function (attained, how well, unwanted behaviour),
 requirements answering hazards, `writing-proofs`, `grilling` (a value only the builder
-knows), the `researcher` agent (a value already established elsewhere), `running-a-spike`
-(a measurable TBD; subagent). The closing review also looks for conflicts visible from
+knows), the `researcher` agent (a value already established elsewhere), the `spiker`
+agent (a measurable TBD). The closing review also looks for conflicts visible from
 the requirements alone. No bound on the number of requirements: scope is bounded by the
 increment. End condition: every function has at least one requirement `of: FUN`; every
 hazard answered, accepted or open with an issue; every requirement has a reason and a
@@ -775,7 +778,7 @@ proof with a criterion; every TBD has an issue; validator clean; closing review 
 **Synthesis.** Goal: the design choices that meet this level's functions and
 requirements. Techniques, in classic order (IEEE 1220): grouping functions into
 candidate parts, the `researcher` agent on what exists (buy or build), `trade-study` per
-significant choice (forced for the stack at product level), `running-a-spike` (options
+significant choice (forced for the stack at product level), the `spiker` agent (options
 that cannot be ranked on paper), allocation and derived requirements, `defining-interfaces`,
 `deployment-view`, the architectural risk pass (ARP4761), `applying-stopping-rule` per
 part. End condition: every function has at least one contributing part; every
@@ -847,6 +850,47 @@ What research asks of the subagent so its conclusion can enter a requirement. Ev
   elicitation, a technique of its own if datum grows into it; it is not folded in here.
   The only provision now: a RES- record names its source and where in it, without
   assuming a URL, so a later technique can use the same shape.
+
+### Spikes (agreed 2026-11-28, #59)
+
+What the spike asks of its subagent so its result can enter the model. Evidence:
+`research/2026-11-28-spikes.md`.
+
+- **A spike is an agent, `agents/spiker.md`, not a technique skill** (agreed
+  2026-11-28; replaces the planned `running-a-spike` skill). Why: as for the researcher,
+  the work is always done by a subagent. The steps call it by their forced lines.
+- **A spike answers one written question, and its answer fits in the record:** a value
+  with its unit, or pass/fail. A question that needs the product's own code to answer is
+  not a spike; the spiker says so and stops. Why: the sources bound a spike by its
+  question ("only addresses the problem under examination"), not by a size, and
+  without this an agent can build half the product and call it a spike.
+- **A bound and a stopping condition, not a time-box** (supersedes the 2026-10-16
+  time-box). The spiker stops when the question is answered, or reports "not settled"
+  with what it tried after a few honest attempts. Why: hours mean little to an agent;
+  gaming follows repeated failure, and an explicit exit cut it in ImpossibleBench.
+  Revisit if spikes grow.
+- **The brief:** the question, what the answer is for (the function, requirement or
+  decision), the form of the answer, and the target environment. The spiker installs
+  what it needs only inside the spike's folder.
+- **The result is trusted through the record, not a re-run.** The spiker does not
+  change what judges the result (a check, a timer, a harness). "Not settled" is a
+  result. The record holds the commands run and their raw output. The calling agent
+  re-runs nothing in v0.1.0; #66 and #74 show whether results are made up. Why: agents
+  report runs they never made and game checks (system cards, METR, Transluce).
+- **A measured value** comes from several runs with the first discarded, reported as the
+  median of the kept runs and their range, with the machine and setup, and whether they
+  are like the target. No run count and no formulas. Why: one number hides run-to-run
+  and setup variation of tens of percent. The median and range are our choice for a
+  few runs (one slow run does not move the median); the papers use a mean with a
+  confidence interval over many runs.
+- **The code is kept**, in `analysis/spikes/<SPK-ID>/` beside the record, which points
+  to it. Nothing is said about whether the product may reuse it. Why: the sources'
+  reason to delete is people shipping the throwaway under pressure; in datum anything
+  that reaches the product goes through requirements, cases and the build loop, and a
+  kept spike lets the builder look at it again. The record states the date and
+  versions, so a stale spike shows.
+- **No qualitative spike in v0.1.0** (a probe judged by the builder, such as a UI).
+  Every trigger in the steps gives a value or pass/fail. Parked as #76.
 
 ## Build and verify (agreed 2026-10-17)
 

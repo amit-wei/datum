@@ -83,8 +83,8 @@ runs before anything else is written; the rest are due when the end condition ne
 5. `losses-and-hazards`: at every part once it has functions; the end condition needs it.
    Do not name, propose or rule out a loss or a hazard without it loaded: its rules
    decide what counts as one.
-6. `running-a-spike`: when there is a doubt that a function is feasible. In a
-   subagent, time-boxed, with a written question.
+6. The `spiker` agent (not a skill): when there is a doubt that a function is
+   feasible. Cite the `SPK-` record it returns.
 
 ## End condition
 
