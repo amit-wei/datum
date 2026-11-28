@@ -133,6 +133,57 @@ EASA page the researcher saved (Findings 4).
    no pilot checked the rules), advised clearing the context at a closed step, and the
    next session picked up from the files.
 
+### Review of the requirements (Claude, after the run)
+
+All 204 requirements and their proofs read, grouped by function. A judgement, not a
+scored outcome; the flying-rule checks are against memory of Part-FCL and Part-SFCL, not
+a fresh reading.
+
+**One by one, they are good.** Each is one EARS statement with a reason that cites an
+elicitation entry, a scenario or a research finding, and a proof with a concrete pass
+condition, often at the boundary (one day inside and outside a window, one failure short
+of a cap). The flying rules hold the domain value Claude alone would likely miss: the
+look-back windows defined to the day (REQ-8R8J), revalidation kept apart from renewal
+(REQ-RP9J, REQ-WHAP), no result where a needed fact is missing (REQ-D8T8), no result
+for land-and-sea holders rather than a guess (REQ-YZYS), and never "cleared to fly"
+(REQ-YCQ7, REQ-XE2E). The thresholds spot-checked (FCL.740.A, SFCL.155, SFCL.160,
+FCL.060) match. Strict readings are named as such.
+
+**As a set, they are the wrong size and at the wrong level.**
+
+| Group | Functions | Requirements |
+|---|---|---|
+| Accounts, identity, privacy | 13 | 74 |
+| Sync, conflicts, updates | 4 | 29 |
+| Logging, import, setup, history | 15 | 58 |
+| Rules, totals, warnings | 3 | 35 |
+| PDF | 1 | 8 |
+
+- **Half the set is infrastructure the builder never asked for in detail.** The value
+  of the product, the rules and totals, is 35 of 204.
+- **They decide the design.** An online copy that confirms durable storage (REQ-2MA2), a
+  one-time proof that replaces the last (REQ-GY5X), a browser list (REQ-5JDV), records
+  made unreadable on connecting (REQ-M9E7), which functions need a connection
+  (REQ-GNNK). Synthesis is left little to choose: a cloud-synced web app with accounts is
+  already fixed.
+- **A few statements are too big to check as one.** REQ-3KAM (unsigned flights, about
+  800 characters, one rule with several exceptions), REQ-9MV4, REQ-E4BA, REQ-KPP1.
+- **Cross-cutting concerns are repeated per function.** "While a device has not yet
+  received all records" appears six times (totals, rules, PDF, data copy, warnings, the
+  logbook); "if the device cannot store a change" three times.
+- **Some are process or unbounded inspections:** a rule review no older than 90 days
+  before a release (REQ-4M05) binds the builder, not the product; "no code reads these
+  names for another purpose" (REQ-5BFN) has no end to the inspection.
+- **The proofs need a large harness:** fault injection at every write step, corrupted
+  sync in both directions, wrong device clocks, a simulated clock. Right for the
+  hazards, but more verification than the MVP has build.
+
+**Reading.** The parts are visible in the set: a rules engine (the high-severity
+hazard, isolated, 27 requirements), the logbook and its import and export, and an
+account and sync service. Split there, each part's requirements would be its own, and
+the product level would hold perhaps a few dozen. This supports #78: the level rule is
+what was missing, not the writing rules. INFERRED.
+
 ### Impressions (Amit)
 
 It felt fine, but slow. The main way to use datum is probably long automated runs that
