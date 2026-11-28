@@ -678,6 +678,14 @@ Settles Q-3. Evidence: `research/2026-10-skill-granularity.md`,
   `verify` have no reviewer agent (agreed 2026-10-18): they close on computed checks
   (scope coverage, stubs on the demonstrated path, evidence at one commit) and the
   builder's word.
+- **Agent settings** (agreed 2026-11-28): every datum agent leaves `model` and `effort`
+  out, so it follows the builder's session (or their default subagent model). Why: no
+  test supports a pin, a model alias changes meaning with each release, and the builder
+  already chooses cost through their session. A role is pinned only after a test shows
+  it fails on a cheaper model, or does as well on one; the pin goes in the agent's
+  frontmatter and the test is named here. `tools` lists only what the role needs: the
+  reviewers read, the researcher also searches, fetches and writes its record (the
+  frontmatter cannot limit Write to `analysis/`; the agent's text does).
 - **Script runtime** (revised 2026-10-21): plain shell for trivial pieces (IDs, staleness
   through `git diff`); everything else Python scripts that declare their packages inline
   (PEP 723) and run with `uv run`, so PyYAML and jsonschema are used, not rewritten.
