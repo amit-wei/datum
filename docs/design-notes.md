@@ -802,6 +802,10 @@ deliberately not defined yet), and evals with their judges.
 What `research` asks of the subagent so its conclusion can enter a requirement. Evidence:
 `research/2026-11-23-research-technique.md`.
 
+- **Always in a subagent** (agreed 2026-11-28). Why: the pages stay out of the main
+  context; an agent that sees only the question has no answer to look for; and the
+  rules below need a brief and a report to check. Several lookups go in one brief, or
+  run in parallel. A convention recalled without a source is invention, not research.
 - **A finding quotes its passage.** Each finding carries a short quote from the passage
   it rests on, says where in the source it is (section, table, page), and how much of
   the source was read. Why: agents often cite a real source for what it does not say.
