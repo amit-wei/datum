@@ -1,3 +1,7 @@
+# /// script
+# requires-python = ">=3.10"
+# dependencies = []
+# ///
 """Copy the manual run's record into results/ after the run (#66).
 
 Copies from <run>/ (default ~/datum-run):
@@ -9,7 +13,7 @@ Copies from <run>/ (default ~/datum-run):
 The home folder and user name are replaced by "~" and "user" in every text file, since
 the repository is public. Read results/ before committing it: anything personal said in
 the run is still there. Refuses to overwrite an existing results/.
-Usage: python3 collect.py [run-dir]
+Usage: uv run collect.py [run-dir]
 """
 import getpass
 import glob

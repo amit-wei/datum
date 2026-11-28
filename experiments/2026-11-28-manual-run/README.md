@@ -33,7 +33,7 @@ It is not the deduper, the skill examples' products or the fixtures' expense spl
 
 ## Method
 
-1. `python3 setup.py` makes `~/datum-run/` outside the repository (lesson 18): the plugin
+1. `uv run setup.py` makes `~/datum-run/` outside the repository (lesson 18): the plugin
    built from `main`, an empty git repository `product/`, a fresh Claude config
    `config/` (no personal skills, plugins, settings or memories), `notes.md`, and the
    datum commit.
@@ -47,7 +47,7 @@ It is not the deduper, the skill examples' products or the fixtures' expense spl
    default), so the "wait for the findings" clause is tested as a builder would meet it.
 4. The run ends when the requirements step closes (a clean closing review and the
    builder's agreement), or at a failure that blocks it.
-5. `python3 collect.py` copies the transcripts, the model, the product's git log and the
+5. `uv run collect.py` copies the transcripts, the model, the product's git log and the
    notes into `results/`, with the home folder and user name replaced. Read it for
    anything personal before committing.
 6. The outcomes below are scored from `results/`, not from impressions.

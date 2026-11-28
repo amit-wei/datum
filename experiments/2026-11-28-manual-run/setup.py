@@ -1,3 +1,7 @@
+# /// script
+# requires-python = ">=3.10"
+# dependencies = []
+# ///
 """Set up the manual run (#66) outside the repository.
 
 Makes <run>/ (default ~/datum-run) with:
@@ -9,7 +13,7 @@ Makes <run>/ (default ~/datum-run) with:
   notes.md  the builder's running notes, outside product/
   commit.txt the datum commit the plugin was built from
 
-Refuses to touch a <run>/ that already exists. Usage: python3 setup.py [run-dir]
+Refuses to touch a <run>/ that already exists. Usage: uv run setup.py [run-dir]
 """
 import json
 import os
