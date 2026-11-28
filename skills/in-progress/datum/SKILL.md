@@ -25,8 +25,8 @@ description: Use when starting, resuming or steering work on a product built wit
   line with what is agreed (Class II), make it and say so. If it adds scope or changes
   what was agreed (Class I), put it in the builder's batch with a recommendation, and
   make it once they agree.
-- Before a convention, definition, standard, price or version enters the model, load
-  research, even when you feel confident.
+- Before a convention, definition, standard, price or version enters the model, run
+  the `researcher` agent instead of searching yourself, even when you feel confident.
 - When considering whether something is done, start from what it must cover: the end
   conditions of every step it feeds, and every parent need, budget and constraint.
   Look for what has nothing attached, and check each against the model.

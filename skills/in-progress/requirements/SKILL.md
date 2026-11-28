@@ -25,8 +25,8 @@ description: Use when a part's functions are written and what must hold for them
   line with what is agreed (Class II), make it and say so. If it adds scope or changes
   what was agreed (Class I), put it in the builder's batch with a recommendation, and
   make it once they agree.
-- Before a convention, definition, standard, price or version enters the model, load
-  research, even when you feel confident.
+- Before a convention, definition, standard, price or version enters the model, run
+  the `researcher` agent instead of searching yourself, even when you feel confident.
 - When considering whether something is done, start from what it must cover: the end
   conditions of every step it feeds, and every parent need, budget and constraint.
   Look for what has nothing attached, and check each against the model.
@@ -80,7 +80,7 @@ runs before anything else is written; the rest are due when the end condition ne
    and justify a method, how to write a criterion a case author can check without
    asking, and the file format.
 3. **Settling a value or a rule:** due before the builder agrees the requirements.
-   Settle it with `research` (in a subagent; keep the conclusion and its source) or
+   Settle it with the `researcher` agent (cite the `RES-` record it returns) or
    `running-a-spike` (in a subagent, time-boxed, with a written question), or leave it
    `TBD` for the builder's batch, asked with `grilling`. One still open after the batch
    gets an issue that says how it will be settled.

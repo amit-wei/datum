@@ -265,7 +265,7 @@ are not duplicates. Chosen from eight candidates (INFERRED, design reasoning onl
   not; it never names the product as the only case (every part is a part; the product
   is the top one).
 - **A value is settled before it enters a measure** (forced, P13): by `grilling`,
-  `research` or `running-a-spike`, whichever fits where the value comes from, or written
+  the `researcher` agent or `running-a-spike`, whichever fits where the value comes from, or written
   `TBD` with an issue. No one technique is forced: forcing research was rejected.
 - **No default verification method.** Every proof states a `rationale` (required): why
   this method gives enough confidence at least cost, and why cheaper ones would not do.
@@ -741,8 +741,8 @@ One mechanism, no explicit "reopen" command:
 
 **Functional analysis.** Goal: the functions of this part (flows between
 functions dropped 2026-10-18: nothing consumes them yet), complete for its scope, plus
-the losses it could cause. Techniques: `grilling` (forced at the start of every part with no elicitation record), `research` (triggered by an unfamiliar domain or a possible existing
-solution; subagent), `writing-scenarios` (forced at product level), `writing-functions`,
+the losses it could cause. Techniques: `grilling` (forced at the start of every part with no elicitation record), the `researcher` agent (triggered by an unfamiliar domain or a possible existing
+solution), `writing-scenarios` (forced at product level), `writing-functions`,
 `losses-and-hazards` (STPA step 1, at every part, due by the end condition; below the
 top, only the hazards the part introduces; see Risk in the engine),
 `running-a-spike` (doubt about feasibility; subagent). At product level the weight is
@@ -757,7 +757,7 @@ budgets; each with a proof. Inputs: functions, hazards, the builder's constraint
 (product level) or the requirements the parent's synthesis wrote (below). Techniques:
 `writing-requirements` per function (attained, how well, unwanted behaviour),
 requirements answering hazards, `writing-proofs`, `grilling` (a value only the builder
-knows), `research` (a value already established elsewhere; subagent), `running-a-spike`
+knows), the `researcher` agent (a value already established elsewhere), `running-a-spike`
 (a measurable TBD; subagent). The closing review also looks for conflicts visible from
 the requirements alone. No bound on the number of requirements: scope is bounded by the
 increment. End condition: every function has at least one requirement `of: FUN`; every
@@ -766,7 +766,7 @@ proof with a criterion; every TBD has an issue; validator clean; closing review 
 
 **Synthesis.** Goal: the design choices that meet this level's functions and
 requirements. Techniques, in classic order (IEEE 1220): grouping functions into
-candidate parts, `research` on what exists (buy or build; subagent), `trade-study` per
+candidate parts, the `researcher` agent on what exists (buy or build), `trade-study` per
 significant choice (forced for the stack at product level), `running-a-spike` (options
 that cannot be ranked on paper), allocation and derived requirements, `defining-interfaces`,
 `deployment-view`, the architectural risk pass (ARP4761), `applying-stopping-rule` per
@@ -797,10 +797,22 @@ review flags a stub on the path of the slice the builder means to demonstrate.
 **Not designed yet:** work packages (the session-sized unit of work inside an increment;
 deliberately not defined yet), and evals with their judges.
 
-### The research technique (agreed 2026-11-28, #58)
+### Research (agreed 2026-11-28, #58)
 
-What `research` asks of the subagent so its conclusion can enter a requirement. Evidence:
+What research asks of the subagent so its conclusion can enter a requirement. Evidence:
 `research/2026-11-23-research-technique.md`.
+
+- **Research is an agent, `agents/researcher.md`, not a technique skill** (agreed
+  2026-11-28; supersedes the `research` skill drafted the same day). Why: the work is
+  always done by a subagent, so a skill would put the researcher's rules in the main
+  context only to be copied into the brief. The agent holds the rules, writes the
+  `RES-` record itself and returns its ID and the conclusion. The main agent is told
+  when to call it by forced lines, not by a skill: the stance ("run the `researcher`
+  agent instead of searching yourself, even when you feel confident") and each step's
+  conditions. Why: an available skill with a matching description did not trigger
+  (packaging test, lesson 8), and Claude consults a skill only for what it cannot
+  easily do alone (`research/2026-10-18-skill-descriptions.md`). Whether the forced
+  lines are enough is tested in #66.
 
 - **Always in a subagent** (agreed 2026-11-28). Why: the pages stay out of the main
   context; an agent that sees only the question has no answer to look for; and the

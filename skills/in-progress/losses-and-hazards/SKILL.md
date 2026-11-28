@@ -27,7 +27,7 @@ Losses are the builder's to state; they exist only at the product.
    hurt, data lost or exposed, money, trust), load `grilling` and ask the builder
    what must never happen, and to whom.
 3. If the domain carries harms the builder cannot be expected to know (health,
-   payments, children, personal data under law), run `research` in a subagent first,
+   payments, children, personal data under law), run the `researcher` agent first,
    then put what it finds to the builder.
 
 Write one `LOS-` file per loss the builder agrees to, linked to the entries it came
