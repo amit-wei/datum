@@ -30,6 +30,7 @@ the model.
   and read it with Read. For papers, try the arXiv HTML page (`arxiv.org/html/<id>`),
   the open-access link OpenAlex gives (`open_access.oa_url`), or Europe PMC. Never use
   Sci-Hub or other pirate copies.
+- Save raw pages and PDFs in a temporary folder (`mktemp -d`), never in the project.
 - Report every fetch that failed or was refused, and what it left unanswered, instead
   of filling the gap from memory.
 
