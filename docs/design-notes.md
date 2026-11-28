@@ -689,6 +689,13 @@ Settles Q-3. Evidence: `research/2026-10-skill-granularity.md`,
   reviewers read, the researcher also searches, fetches and writes its record, the spiker runs and
   writes code and fetches documentation (the
   frontmatter cannot limit Write to `analysis/`; the agent's text does).
+- **Reviewers run in the background; the steps wait for them** (agreed 2026-11-28, #75).
+  No agent frontmatter field forces a subagent into the foreground; only `background:
+  true` exists, and in interactive sessions with fork mode on (the default) Claude
+  cannot wait for a subagent at all. Claude does wait for a background subagent's
+  completion before reporting its results, so the steps' "wait for the findings" clause
+  is the lever. datum does not tell builders about the user setting that turns fork
+  mode off. Source: code.claude.com/docs/en/sub-agents.md.
 - **Script runtime** (revised 2026-10-21): plain shell for trivial pieces (IDs, staleness
   through `git diff`); everything else Python scripts that declare their packages inline
   (PEP 723) and run with `uv run`, so PyYAML and jsonschema are used, not rewritten.
