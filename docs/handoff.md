@@ -11,25 +11,33 @@ and 204 requirements at the product level. Researcher, four areas, waiting, send
 back and the reviewer's preload worked; values without a source, and closing on a
 conditional "clean", did not; the spiker was not reached. Amit's reading: v0.1.0, with
 the product as the leaf, does not show the SE process, because splitting into parts is
-what bounds scope. #66 is not closed yet: ask Amit.
+what bounds scope. A read of all 204 requirements (the README's "Review of the
+requirements") backs it: good one by one, but half infrastructure, design decided early,
+and three parts visible in the set. #66 and #33 are closed.
 
 **Next, in order:**
-1. **#78: when a product splits into parts, what bounds a part, and how datum handles
-   the split.** The run's main finding. Grill Amit on it; the answer may change
-   v0.1.0's scope and the order below. Read #57 and #34 with it.
-2. **#79:** fresh reviewer per round with fewer rounds; agree the method first.
-3. **#80:** why the requirements step avoids `TBD`; read the run's transcripts (kept
-   only in `~/datum-run/`, not in git) before fixing.
-4. Then the rest of v0.1.0 as #78 leaves it: synthesis #44-#46, design evaluation
-   #47-#48, cases #49 and #55, build #50-#52, #53 late. #74 as late as possible; #54
-   last. #81 (a spiker test) is parked.
+1. **#78, research.** Run the researcher on how SE practice bounds each level: when a
+   system is split before its functions are detailed, how deep a level's functions and
+   requirements go, and how a product-level MVP cut fits (increments). Primary sources
+   (NASA SE Handbook logical decomposition, INCOSE, ISO/IEC/IEEE 15288, IEEE 1220).
+2. **#78, grilling.** Agree with Amit when a part splits, what bounds a part, how deep
+   the product level goes, and what that does to v0.1.0's scope (product as the leaf no
+   longer holds; #57's flowdown then joins v0.1.0). Record it in the design notes and
+   re-plan the milestone (due 2026-12-13).
+3. **Apply #78** to the router, functional analysis, requirements, the reviewers and
+   synthesis's split. Fold in #79 (fresh reviewer, fewer rounds) and #80 (why `TBD` is
+   avoided; read the run's transcripts in `~/datum-run/` first) only if they touch the
+   same text; otherwise they follow.
+4. **Rerun on the logbook** with the same builder answers, so the result compares with
+   #66 (36 functions, 204 requirements). Consider a simulated builder from Amit's #66
+   answers: Amit expects datum to run mostly unattended. Fix `collect.py`'s scrub first.
+5. Then the rest of v0.1.0 as #78 leaves it. #74 and #54 last; #81 parked.
 
 **Watch:**
 - The forced line fires for facts datum is asked about, not for values it proposes as
   its own defaults (the run's sign-in limits). #80 covers it.
 - `collect.py`'s scrub replaces the user name inside an email address instead of
-  removing it; the transcripts are git-ignored for that reason. Fix before the next run
-  that keeps transcripts.
+  removing it; the transcripts are git-ignored for that reason.
 - The skills grew with recent fixes. Trim after v0.1.0, not now.
 - The evaluator still leans to the first set on close criteria; #54 reads a split as
   "no difference found".
