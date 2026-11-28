@@ -797,6 +797,33 @@ review flags a stub on the path of the slice the builder means to demonstrate.
 **Not designed yet:** work packages (the session-sized unit of work inside an increment;
 deliberately not defined yet), and evals with their judges.
 
+### The research technique (agreed 2026-11-28, #58)
+
+What `research` asks of the subagent so its conclusion can enter a requirement. Evidence:
+`research/2026-11-23-research-technique.md`.
+
+- **A finding quotes its passage.** Each finding carries a short quote from the passage
+  it rests on, says where in the source it is (section, table, page), and how much of
+  the source was read. Why: agents often cite a real source for what it does not say.
+- **A value from a paper is VERIFIED only if read in the body**, where it was measured
+  (Results, a table). Read only in the abstract or the discussion, it is
+  VERIFIED-secondary or INFERRED. Why: spin is densest in abstract conclusions.
+- **A fetch tool's summary is not a reading.** The quote comes from the page's text;
+  when the tool summarises or cuts the page, fetch the raw page or the PDF.
+- **The primary source first:** the standard, the official documentation, the paper. A
+  secondary claim is traced to its source before it is used.
+- **A failed or refused fetch is reported**, never filled from memory.
+- **The brief has four parts and a stopping condition:** objective, output format,
+  tools and sources, bounds. The subagent stops when a primary source settles the
+  question, or reports "not found" with what it tried after a few honest attempts. No
+  call count in the skill; the calling agent widens the bound for a real survey. Why:
+  without one, research agents searched on for sources that do not exist and went on
+  after they had enough.
+- **Scope: written sources only.** Asking people (interviews, customer meetings) is
+  elicitation, a technique of its own if datum grows into it; it is not folded in here.
+  The only provision now: a RES- record names its source and where in it, without
+  assuming a URL, so a later technique can use the same shape.
+
 ## Build and verify (agreed 2026-10-17)
 
 Settles Q-2: the criterion is written with the requirement (a proof), the executable
