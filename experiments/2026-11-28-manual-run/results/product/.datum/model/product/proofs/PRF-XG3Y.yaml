@@ -1,0 +1,10 @@
+id: PRF-XG3Y
+status: agreed
+title: Bad contact changes are refused
+method: test
+rationale: A settings change could skip the check.
+covers: REQ-G1V7
+criterion:
+  pass: With missing proof, wrong proof, a wrong confirmation and a confirmation never completed,
+    messages still go to the old contact and not to the new one, apart from the confirmation
+    message itself.

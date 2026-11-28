@@ -1,0 +1,10 @@
+id: PRF-C5GF
+status: agreed
+title: Other people's names are not reused
+method: inspection
+rationale: >-
+  A later analytics or suggestion feature would break it.
+covers: REQ-5BFN
+criterion:
+  pass: >-
+    No code, service or report reads these names for another purpose or across accounts.

@@ -1,0 +1,10 @@
+id: PRF-X2Y2
+status: agreed
+title: New account gets its own empty logbook
+method: test
+rationale: Account creation code changes with sign-in work; a rerun test notices.
+covers: REQ-8YT6
+criterion:
+  pass: With a stated age equal to the bound of minimum_age, an account is created, its logbook
+    is empty, and a second account cannot read or change it. Before the contact is confirmed
+    no account exists.

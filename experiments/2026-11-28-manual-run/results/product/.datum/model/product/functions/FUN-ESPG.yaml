@@ -1,0 +1,54 @@
+id: FUN-ESPG
+status: agreed
+name: Log a flight
+definition: Records a flight the pilot has made, including a training flight or check, as its
+  own entry.
+serves:
+- SCN-72S0#9
+- SCN-JPQT#1
+- SCN-JPQT#2
+- SCN-7FM6#1
+- SCN-7FM6#2
+- SCN-7FM6#3
+- SCN-7FM6#4
+- SCN-7T38#1
+- SCN-7T38#2
+- SCN-D3B7#3
+inputs:
+- name: flight made
+  holds: the details of the flight, its launches and landings, any training or check, who gave
+    it, whether it was passed or was the passenger training flight, and whether it is signed
+  from: pilot
+- name: logbook entry
+  from: FUN-5QA7
+- name: corrected entry
+  from: FUN-JX7F
+- name: entry removal
+  from: FUN-2JYW
+- name: import removal
+  from: FUN-YRV9
+- name: restored entry
+  from: FUN-SR3A
+- name: synced records
+  from: FUN-DV8F
+outputs:
+- name: logbook entry
+  holds: one flight
+  to:
+  - FUN-VY4C
+  - FUN-6NTH
+  - FUN-69E8
+  - FUN-JX7F
+  - FUN-2JYW
+  - FUN-TF2W
+  - FUN-DV8F
+  - FUN-AV5B
+  - FUN-A60F
+  - FUN-VN36
+  - FUN-MPTZ
+  - FUN-EK3N
+- name: record-loss warning
+  holds: that the way the part is being used lets the phone delete stored records, and how to
+    keep them
+  to:
+  - pilot

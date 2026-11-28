@@ -1,0 +1,11 @@
+id: PRF-M3Q4
+status: agreed
+title: Held privileges are recorded as saved
+method: test
+rationale: >-
+  A silent default here changes rule results.
+covers: REQ-EC8D
+criterion:
+  pass: >-
+    After add, change and removal, the shown setup details equal what was saved and no other
+    privilege appears.

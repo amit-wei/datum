@@ -1,0 +1,45 @@
+id: ELI-W9NN
+date: 2026-11-28
+entries:
+  - n: 1
+    question: "Final walk-through. Proposed: Editing a signed entry removes its signed mark, and the app says why."
+    answer: "agree all. close and commit."
+    need: true
+  - n: 2
+    question: "Final walk-through. Proposed: Imported training flights and checks start unsigned; the pilot marks each one."
+    answer: "agree all. close and commit."
+    need: true
+  - n: 3
+    question: "Final walk-through. Proposed: Likely duplicate rows are left out of an import by default; the pilot can include individual rows."
+    answer: "agree all. close and commit."
+    need: true
+  - n: 4
+    question: "Final walk-through. Proposed: Flights on the starting-total date are treated as already included in the totals, and the pilot is told when choosing the date."
+    answer: "agree all. close and commit."
+    need: true
+  - n: 5
+    question: "Final walk-through. Proposed: Changing sign-in details ends other devices' access once they connect; it cannot protect a device that stays offline."
+    answer: "agree all. close and commit."
+    need: true
+  - n: 6
+    question: "Final walk-through. Proposed: While a conflict is unresolved, affected rule results are withheld, and affected totals, warnings and PDFs are clearly marked."
+    answer: "agree all. close and commit."
+    need: true
+  - n: 7
+    question: "Final walk-through. Proposed: Earlier versions and import history are kept until account deletion; medical dates are still erased when consent is withdrawn."
+    answer: "agree all. close and commit."
+    need: true
+  - n: 8
+    question: "Final walk-through. Proposed: Creating or deleting an account, signing in on a new device, and changing or recovering sign-in details need a connection; failure is shown clearly."
+    answer: "agree all. close and commit."
+    need: true
+  - n: 9
+    question: "Final walk-through. Proposed: If recovery proof is unavailable there is no manual recovery in the MVP, accepting that a pilot could permanently lose online access to their logbook."
+    answer: "agree all. close and commit."
+    need: true
+  - n: 10
+    question: "Final walk-through. Proposed: Approve the draft journeys, the 32 functions with the data and event overview, the things that must never happen and the risk states."
+    answer: "agree all. close and commit."
+  - n: 11
+    question: "Carried to the requirements step (agent's notes from review, not builder answers)."
+    answer: "TBD for requirements: minimum age 16 at account creation; privacy notice at the time data is collected; offer the data copy in the deletion warning, and decide what that warning lists; structured data copy with the legally required information, giving away nothing that lets someone sign in; erasure of the medical date also covers retained versions, including versions not chosen in a conflict; failures of storage, sync, update, account actions, deletion and recovery (ELI-C382#8 and entry 8); self-setup (ELI-C382#7); same-date handling applies to all totals (entry 4); unsynced records on a device whose access is ended by changed or recovered sign-in details must not be silently lost."

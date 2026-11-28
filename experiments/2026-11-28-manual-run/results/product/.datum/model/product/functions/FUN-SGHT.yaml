@@ -1,0 +1,50 @@
+id: FUN-SGHT
+status: agreed
+name: Change the means of contact
+definition: Replaces where the part reaches a signed-in pilot, once the new means of contact
+  is confirmed, and tells the old one.
+serves:
+- SCN-PK9P#2
+- SCN-PK9P#4
+- SCN-9XHH#1
+- SCN-9XHH#3
+- SCN-VW03#6
+inputs:
+- name: new means of contact
+  from: pilot
+- name: confirmation of the new means of contact
+  from: pilot
+- name: proof that it is the pilot
+  from: pilot
+- name: signed-in pilot
+  from: FUN-B8SK
+- name: pilot account
+  from: FUN-EVE9
+- name: changed sign-in details
+  from: FUN-DAF5
+- name: renewed sign-in details
+  from: FUN-Q1BS
+- name: synced records
+  from: FUN-DV8F
+- name: request to send the confirmation again, or a corrected means of contact
+  from: pilot
+- name: report that a message could not be sent
+  from: message service
+outputs:
+- name: confirmation message
+  to:
+  - pilot
+- name: contact change notice
+  to:
+  - pilot
+- name: changed means of contact
+  to:
+  - FUN-Q1BS
+  - FUN-A60F
+  - FUN-DVKC
+  - FUN-DV8F
+  - FUN-XK2A
+- name: message failure notice
+  holds: that the confirmation message could not be sent
+  to:
+  - pilot

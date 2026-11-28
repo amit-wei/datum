@@ -1,0 +1,12 @@
+id: REQ-R2CJ
+status: agreed
+pattern: event
+statement: When a request for a recovery proof reaches the online service, the part shall report
+  to the requester only that the request was received.
+rationale: The outcome shown for this request must not depend on whether the account exists.
+  A refusal for a reason about the account, such as the hourly limit, gets this same response;
+  the reports for an undelivered or unanswered request concern only whether the request was
+  received.
+of: FUN-XK2A
+answers:
+- HAZ-9K19

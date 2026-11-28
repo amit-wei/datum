@@ -1,0 +1,11 @@
+id: PRF-PQYG
+status: agreed
+title: Updates arrive
+method: test
+rationale: Caching in installed web apps often keeps old versions.
+covers: REQ-A2KQ
+criterion:
+  pass: update_delay meets every bound, including when the part is only opened briefly several
+    times.
+  conditions: A device on the previous release, on each supported phone system and a computer
+    browser.

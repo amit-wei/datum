@@ -1,0 +1,12 @@
+id: ELI-DZR1
+date: '2026-11-28'
+entries:
+- n: 1
+  question: 'Should an email address (in the requirements, a means of contact) have to be confirmed
+    before the app uses it? Proposed: yes; at sign-up the account is created only after the
+    pilot confirms receiving a message there; on a change the old address stays in use until
+    the new one is confirmed; setup details show the current address (new). Trade-off: one more
+    sign-up step that depends on the message arriving.'
+  answer: 'yes'
+  need: true
+  constraint: true

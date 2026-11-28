@@ -1,0 +1,41 @@
+id: FUN-S6RT
+status: agreed
+name: Erase data on a privacy request
+definition: Erases the data the builder names for a privacy request. Tells an affected pilot
+  what changed, without repeating what was erased.
+serves:
+- SCN-6NZ9#2
+- SCN-6NZ9#3
+- SCN-6NZ9#4
+inputs:
+- name: erasure request
+  holds: which data is to be erased
+  from: builder
+- name: acknowledgement of the privacy erasure notice
+  from: pilot
+- name: synced records
+  from: FUN-DV8F
+outputs:
+- name: privacy erasure
+  to:
+  - FUN-DV8F
+  holds: which data was erased, so that it is erased on each device too
+- name: privacy erasure notice
+  holds: which records changed and what kind of information was removed, and, where a signer's
+    name was erased from a signed entry, that an examiner or authority might not accept the
+    entry
+  to:
+  - pilot
+- name: erasure outcome
+  holds: what could not be identified, if the request failed
+  to:
+  - builder
+- name: account deletion
+  holds: that a whole account was erased on a privacy request
+  to:
+  - FUN-EK3N
+  - FUN-DV8F
+- name: privacy erasure notice state
+  holds: the notice for the pilot, and whether the pilot has acknowledged it
+  to:
+  - FUN-DV8F

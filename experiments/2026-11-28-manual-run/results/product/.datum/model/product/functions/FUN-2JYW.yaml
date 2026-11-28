@@ -1,0 +1,48 @@
+id: FUN-2JYW
+status: agreed
+name: Remove a logbook entry
+definition: Takes an entry that should not be there out of the logbook, as the pilot confirms.
+serves:
+- SCN-6E8F#2
+inputs:
+- name: removal request
+  holds: the entry and the confirmation
+  from: pilot
+- name: logbook entry
+  from: FUN-ESPG
+- name: logbook entry
+  from: FUN-5QA7
+- name: restored entry
+  from: FUN-SR3A
+- name: corrected entry
+  from: FUN-JX7F
+- name: synced records
+  from: FUN-DV8F
+- name: import removal
+  from: FUN-YRV9
+outputs:
+- name: entry removal
+  to:
+  - FUN-ESPG
+  - FUN-VY4C
+  - FUN-6NTH
+  - FUN-69E8
+  - FUN-JX7F
+  - FUN-TF2W
+  - FUN-DV8F
+  - FUN-AV5B
+  - FUN-A60F
+  - FUN-VN36
+  - FUN-MPTZ
+  - FUN-YRV9
+  - FUN-SR3A
+  - FUN-EK3N
+- name: earlier version of a removed entry
+  holds: what the removed entry said
+  to:
+  - FUN-TF2W
+  - FUN-DV8F
+  - FUN-A60F
+  - FUN-SR3A
+  - FUN-EK3N
+  - FUN-VN36

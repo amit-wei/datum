@@ -1,0 +1,13 @@
+id: REQ-G65D
+status: agreed
+pattern: unwanted
+statement: If no column is matched to a required item of REQ-GDYQ, then the part shall let the
+  pilot give one value for that item to apply to every row, naming the item, before showing
+  the preview flights.
+rationale: Files from other apps and spreadsheets often leave out items such as aircraft class
+  or the pilot's own name; without this every row would be refused. One value for all rows was
+  the agent's proposal; the value is the pilot's, never a guess of the part. The builder accepted
+  the proposed rules in ELI-SCJS.
+of: FUN-VY4C
+answers:
+- HAZ-BYMT

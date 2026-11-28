@@ -1,0 +1,11 @@
+id: PRF-0MW3
+status: agreed
+title: SPL recency is computed correctly
+method: test
+rationale: >-
+  Rule logic changes with rule updates.
+covers: REQ-XRMN
+criterion:
+  pass: >-
+    Fixtures at each threshold and route give the hand-worked result; TMG hours and launches
+    do not count and the strict reading is named.

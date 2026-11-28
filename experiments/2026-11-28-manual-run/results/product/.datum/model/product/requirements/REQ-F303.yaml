@@ -1,0 +1,11 @@
+id: REQ-F303
+status: agreed
+pattern: state
+statement: While a conflict is unresolved, the part shall withhold every rule result that either
+  version would change, saying that a conflict is the reason.
+rationale: 'ELI-W9NN#6. Builder limit: ELI-W9NN#6.'
+of: FUN-69E8
+answers:
+- HAZ-SDKD
+- HAZ-BYMT
+source: builder

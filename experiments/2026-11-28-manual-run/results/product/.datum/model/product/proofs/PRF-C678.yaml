@@ -1,0 +1,11 @@
+id: PRF-C678
+status: agreed
+title: Window edges are strict
+method: test
+rationale: Off-by-one errors are invisible except at the edge.
+covers: REQ-8R8J
+criterion:
+  pass: For each window length and end point, an entry one day inside counts and one day outside
+    does not, including a 29 February case that moves to 1 March, entries near midnight UTC
+    with the device in another time zone, entries dated after the day assessed, and entries
+    on the licence issue date.

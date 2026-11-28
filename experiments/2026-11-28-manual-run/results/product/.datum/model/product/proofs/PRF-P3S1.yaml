@@ -1,0 +1,12 @@
+id: PRF-P3S1
+status: agreed
+title: Starting-date effect is shown in preview
+method: test
+rationale: >-
+  Easy to miss in the preview calculation.
+covers: REQ-FGW8
+criterion:
+  pass: >-
+    Preview totals exclude those flights and the statement names how many there are.
+  conditions: >-
+    Rows before, on and after the date.

@@ -1,0 +1,10 @@
+id: REQ-M2S0
+status: agreed
+pattern: state
+statement: While a conflict on an expiry date is unresolved, the part shall mark the affected
+  warning and warn according to the earlier of the two dates.
+rationale: ELI-W9NN#6 asks for marking; warning by the earlier date was the agent's strict proposal.
+  The builder accepted the proposed rules in ELI-SCJS.
+of: FUN-VT5X
+answers:
+- HAZ-SDKD

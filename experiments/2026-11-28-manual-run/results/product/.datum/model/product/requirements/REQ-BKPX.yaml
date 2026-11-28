@@ -1,0 +1,12 @@
+id: REQ-BKPX
+status: agreed
+pattern: ubiquitous
+statement: The part shall lay out aeroplane and TMG flights in the PDF in the AMC1 FCL.050 logbook
+  format with page totals, totals brought forward and a pilot certification with signature space
+  on each page.
+rationale: 'ILT accepts a digital logbook in at least this format (RES-7H7D n3, n12). Builder
+  limit: ELI-H0GB#8 (official logbook, Netherlands).'
+of: FUN-AV5B
+answers:
+- HAZ-FRTK
+source: builder

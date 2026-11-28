@@ -1,0 +1,13 @@
+id: PRF-K19R
+status: agreed
+title: Totals equal the records
+method: test
+rationale: >-
+  Any change path can leave a cached total behind.
+covers: REQ-KX5S
+criterion:
+  pass: >-
+    Each listed total equals an independently computed sum, to the minute, after each of: log,
+    correct, remove, restore, import, undo, starting-total change and sync.
+  conditions: >-
+    Entries before, on and after the starting date.

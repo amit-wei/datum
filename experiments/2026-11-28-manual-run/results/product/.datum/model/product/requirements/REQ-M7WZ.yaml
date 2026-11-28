@@ -1,0 +1,10 @@
+id: REQ-M7WZ
+status: agreed
+pattern: unwanted
+statement: If a backup is restored, then the part shall erase again, before the restored data
+  is used, every account and medical date erased, and all other data erased for a privacy request,
+  after the backup was made.
+rationale: RES-RZXY n19-20. The record used for this holds no more than needed to find the data.
+of: FUN-VN36
+answers:
+- HAZ-7R3N

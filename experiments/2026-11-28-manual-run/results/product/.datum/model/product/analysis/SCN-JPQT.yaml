@@ -1,0 +1,14 @@
+id: SCN-JPQT
+status: agreed
+name: "Log a flight after landing, without signal"
+kind: main
+trigger: "A pilot finishes a flight at an airfield with no signal."
+preconditions: "The pilot has used the app on this device while online."
+steps:
+  - {n: 1, by: user, what: "Enters the flight."}
+  - {n: 2, by: product, what: "Saves it on the device and marks it as not yet synced."}
+  - {n: 3, by: product, what: "Shows totals and rule results that include it."}
+  - {n: 4, by: outside, what: "Signal returns."}
+  - {n: 5, by: product, what: "Saves a copy off the device, the next time it is able to, and marks the flight as synced."}
+outcome: "The flight is logged with little effort, and the pilot knows whether a copy exists off the device."
+needs: [ELI-H0GB#2, ELI-H0GB#4, ELI-H0GB#5, ELI-BS4R#1, ELI-BS4R#2, ELI-FV4M#1, ELI-H7X3#2]

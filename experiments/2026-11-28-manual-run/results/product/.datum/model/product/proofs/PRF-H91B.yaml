@@ -1,0 +1,11 @@
+id: PRF-H91B
+status: agreed
+title: Medical consent is separate and optional
+method: test
+rationale: >-
+  A sign-up redesign could bundle or pre-tick it.
+covers: REQ-SX0K
+criterion:
+  pass: >-
+    A new account has no consent; every other function works without it; consent arises only
+    from its own affirmative action, which shows the purpose.

@@ -1,0 +1,593 @@
+id: RES-RZXY
+date: 2026-11-28
+question: >
+  What EU/Dutch data protection duties apply to a one-person business offering an online pilot logbook
+  to pilots in the Netherlands, and what must the product DO or never do? Covers data subject rights
+  (including erasure, earlier versions and backups), medical certificate expiry dates as health data,
+  third parties named in logbooks, lawful basis, breach notification, age limits, and transfers outside
+  the EU.
+narrowing: >
+  Read for functions the product needs and for the hazards behind "private data is exposed" (LOS-MMJ6)
+  and retention after deletion (HAZ-7R3N). Left out: technology and hosting provider choice, cookie
+  banners beyond the one storage rule (n 38), payments and tax retention, marketing, analytics,
+  consumer and contract law other than BW 1:234. Logbook flying rules are in RES-7H7D.
+  Not legal advice.
+sources_note: >
+  GDPR = Regulation (EU) 2016/679, original OJ text from the Publications Office
+  (https://publications.europa.eu/resource/celex/32016R0679). UAVG = BWBR0040940, version 2026-09-01
+  (repository.officiele-overheidspublicaties.nl). Autoriteit Persoonsgegevens (AP) pages were fetched raw
+  on 2026-11-28. EDPB and WP29 PDFs and the Council PDF were turned into text with a home-made script,
+  so spacing in their quotes was repaired by hand. EDPB guidance and AP pages are authority positions,
+  not legislation.
+
+findings:
+  # ---------- scope and roles ----------
+  - n: 1
+    claim: >
+      The household exemption can cover a person's own private activity, but the GDPR still applies to
+      whoever provides the means for it. A pilot keeping a private logbook does not take the app provider
+      out of the GDPR.
+    label: VERIFIED
+    source: {title: "GDPR recital 18; art. 2(2)(c)", ref: "https://publications.europa.eu/resource/celex/32016R0679"}
+    where: recital 18
+    read: the recital and article
+    quote: "However, this Regulation applies to controllers or processors which provide the means for processing personal data for such personal or household activities."
+  - n: 2
+    claim: >
+      A controller NOT established in the EU that offers services (free or paid) to people in the EU is
+      still covered (art. 3(2)(a)) and must appoint an EU representative in writing (art. 27(1)), unless
+      the processing is occasional, has no large-scale special-category data and is unlikely to be a risk
+      (art. 27(2)(a)). No record seen says where the builder is established.
+    label: VERIFIED
+    source: {title: "GDPR art. 3 and 27", ref: "https://publications.europa.eu/resource/celex/32016R0679"}
+    where: art. 3(2)(a), 27(1)-(3)
+    read: the articles
+    quote: "Where Article 3(2) applies, the controller or the processor shall designate in writing a representative in the Union."
+  - n: 3
+    claim: >
+      For pilots' account and logbook data the builder decides purposes and means, so is the controller.
+      Any outside service that handles the data for the builder is a processor. For data about people
+      NAMED in a logbook, the sources read do not say whether the builder is a controller, or a processor
+      for a pilot whose own use is household activity. Treating the builder as controller for them too is
+      the cautious reading, and the one findings 20-23 assume. EDPB Guidelines 07/2020 (controller and
+      processor) were not read.
+    label: INFERRED
+    source: {title: "Reasoning from GDPR art. 4(7)-(8), recital 18, and WP242 (n 21)", ref: "https://publications.europa.eu/resource/celex/32016R0679"}
+    where: art. 4(7)
+    read: the definitions
+    quote: "determines the purposes and means of the processing of personal data"
+
+  # ---------- lawful basis, information, accountability ----------
+  - n: 4
+    claim: >
+      Contract (art. 6(1)(b)) covers only processing objectively necessary for the service the pilot asked
+      for; useful but unnecessary processing is not covered. INFERRED application: account, logbook,
+      history, sync, export and warnings can rest on contract if the service is described to include them.
+      Security logging would more naturally rest on legitimate interest (6(1)(f), n 20). The pilot's own
+      duty to keep a logbook is not the builder's legal obligation, so 6(1)(c) does not fit logbook content
+      (art. 6(1)(c): obligation "to which the controller is subject").
+    label: VERIFIED
+    source: {title: "EDPB Guidelines 2/2019 on art. 6(1)(b) in online services", ref: "https://www.edpb.europa.eu/system/files/documents/files/file1/edpb_guidelines-art_6-1-b-adopted_after_public_consultation_en.pdf"}
+    where: section on necessity (para 25 onward). The application sentences are INFERRED.
+    read: the relevant passages
+    quote: "will not cover processing which is useful but not objectively necessary for performing the"
+  - n: 5
+    claim: >
+      At the time data is collected the pilot must be told: who the controller is and how to contact them,
+      purposes and legal basis, any legitimate interest, recipients (including processors), transfers
+      outside the EU and their safeguard, retention periods or criteria, the rights (access, rectification,
+      erasure, restriction, objection, portability), consent withdrawal where relevant, complaint to the
+      authority, and whether data is required. It must be concise, clear and plain, "in particular for any
+      information addressed specifically to a child" (art. 12(1)).
+    label: VERIFIED
+    source: {title: "GDPR art. 12(1), 13", ref: "https://publications.europa.eu/resource/celex/32016R0679"}
+    where: art. 13(1)-(2)
+    read: the articles
+    quote: "the period for which the personal data will be stored, or if that is not possible, the criteria used to determine that period"
+  - n: 6
+    claim: >
+      A written record of processing activities is needed even under 250 staff if processing is not
+      occasional, is risky, or includes special-category data. A logbook service is not occasional.
+      (This is a duty on the business, not a product function.) A DPO is required only in the three cases of
+      art. 37(1) (public body; core activity of large-scale regular monitoring; core activity of
+      large-scale special-category or criminal data); INFERRED that none fits.
+    label: VERIFIED
+    source: {title: "GDPR art. 30 and 37; AP, Gezondheidsgegevens gebruiken en delen (quick answer on the register)", ref: "https://www.autoriteitpersoonsgegevens.nl/nl/onderwerpen/gezondheid/medische-gegevens-gebruiken-en-delen"}
+    where: art. 30(5), 37(1); AP page, 'verwerkingsregister'
+    read: the articles and the page
+    quote: "waarvan de verwerking niet incidenteel is"
+  - n: 7
+    claim: >
+      The AP's compulsory-DPIA list includes LARGE-SCALE processing of health data. The list is not
+      exhaustive: the AP says to also test the nine EU criteria (two or more is the rule of thumb for doing
+      one; sensitive data and vulnerable people such as children are two of them) and to be able to explain
+      a decision not to do one. INFERRED: a friends-scale logbook is not on the list by scale, but if
+      medical dates count as health data and minors sign up, two criteria could be met. A short written DPIA
+      or a written reason for none is needed.
+    label: VERIFIED
+    source: {title: "AP DPIA list, Stcrt. 2019, 64418; AP page 'Data protection impact assessment (DPIA)'", ref: "https://www.autoriteitpersoonsgegevens.nl/uploads/imported/stcrt-2019-64418.pdf ; https://www.autoriteitpersoonsgegevens.nl/themas/basis-avg/praktisch-avg/data-protection-impact-assessment-dpia"}
+    where: list item 7 'Gezondheidsgegevens'; page sections 'DPIA-lijst' and 'De 9 criteria'
+    read: item 7 and the page. The 2019 Staatscourant text was read; a later amended version (BWBR0042812) was not checked.
+    quote: "Als vuistregel geldt dat u een DPIA moet uitvoeren als uw verwerking aan 2 of meer van deze criteria voldoet."
+  - n: 8
+    claim: >
+      By design and by default only the data needed for each purpose may be processed. This covers the
+      amount collected, extent of processing, storage period and accessibility, and by default data must not
+      be made accessible to an indefinite number of people without the person acting. Security must fit the
+      risk, including confidentiality, integrity, availability, timely restore, and regular testing
+      (art. 32(1)); the AP says this starts with a risk analysis and the controller must be able to show it.
+    label: VERIFIED
+    source: {title: "GDPR art. 25 and 32", ref: "https://publications.europa.eu/resource/celex/32016R0679"}
+    where: art. 25(2), 32(1)-(2); AP page 'Maatregelen voor beveiliging' (marked changed November 2026)
+    read: the articles and the page
+    quote: "That obligation applies to the amount of personal data collected, the extent of their processing, the period of their storage and their accessibility."
+  - n: 9
+    claim: >
+      A processor may be used only with sufficient guarantees and a written (electronic is fine) contract:
+      acts only on documented instructions, including on transfers; security; no further sub-processor
+      without authorisation; helps with rights requests and breaches; deletes or returns data at the end.
+    label: VERIFIED
+    source: {title: "GDPR art. 28", ref: "https://publications.europa.eu/resource/celex/32016R0679"}
+    where: art. 28(1)-(4), (9)
+    read: the article
+    quote: "at the choice of the controller, deletes or returns all the personal data to the controller after the end of the provision of services"
+
+  # ---------- rights ----------
+  - n: 10
+    claim: >
+      All rights requests: answer without undue delay and within one month (extendable by two months, with
+      notice and reasons inside the first month); free of charge unless manifestly unfounded or excessive;
+      if refused, give reasons and the complaint and court routes within one month; the controller must
+      facilitate the rights; extra identity information only on reasonable doubt.
+    label: VERIFIED
+    source: {title: "GDPR art. 12(2)-(6)", ref: "https://publications.europa.eu/resource/celex/32016R0679"}
+    where: art. 12
+    read: the article
+    quote: "without undue delay and in any event within one month of receipt of the request"
+  - n: 11
+    claim: >
+      For a person already signed in, asking for an ID copy is disproportionate; ID copies are generally not
+      an appropriate way to authenticate. A download button is an accepted way to give access, but it must
+      not narrow what the person gets (anything missing must be supplied another way), and requests sent
+      outside the self-service tool must still be handled.
+    label: VERIFIED
+    source: {title: "EDPB Guidelines 01/2022 on the right of access, v2", ref: "https://www.edpb.europa.eu/system/files/2023-04/edpb_guidelines_202201_data_subject_rights_access_v2_en.pdf"}
+    where: paras 73-75 and 138
+    read: the relevant paragraphs
+    quote: "The use of self-service tools should never limit the scope of personal data received."
+  - n: 12
+    claim: >
+      Access means a copy of ALL personal data being processed about the person, plus the art. 15(1)(a)-(h)
+      information (purposes, categories, recipients, retention, rights, complaint, source, automated
+      decisions) and transfer safeguards (15(2)), in a commonly used electronic form. INFERRED: the copy
+      therefore includes account data, held licences, dates, starting totals, every entry, earlier and
+      removed versions still held, import records, and any logs or support mail about the pilot.
+    label: VERIFIED
+    source: {title: "GDPR art. 15", ref: "https://publications.europa.eu/resource/celex/32016R0679"}
+    where: art. 15(1)-(4). The list of product data is INFERRED.
+    read: the article
+    quote: "The controller shall provide a copy of the personal data undergoing processing."
+  - n: 13
+    claim: >
+      For access, backup data counts. Where a backup holds more or different data than the live system
+      (e.g. recently erased, not yet overwritten), the controller must be open about it and, where
+      technically feasible, give access to it. A deletion log kept with data minimisation can show this.
+    label: VERIFIED
+    source: {title: "EDPB Guidelines 01/2022, v2", ref: "https://www.edpb.europa.eu/system/files/2023-04/edpb_guidelines_202201_data_subject_rights_access_v2_en.pdf"}
+    where: para 110
+    read: the paragraph
+    quote: "the controller needs to be transparent about this situation and where technically feasible provide access as requested by the data subject, including to personal data stored in the back-up"
+  - n: 14
+    claim: >
+      Portability (contract or consent basis, automated processing): the person gets the data they provided,
+      in a structured, commonly used, machine-readable format, and may pass it on without hindrance. "Provided"
+      includes data observed from use, such as activity or access logs; it excludes derived or inferred data
+      (the controller's own results). INFERRED: entries, dates, profile and history are in; computed totals
+      and rule results need not be (but see access, n 12).
+    label: VERIFIED
+    source: {title: "GDPR art. 20; WP29 Guidelines on the right to data portability, WP242 rev.01 (endorsed by the EDPB)", ref: "https://ec.europa.eu/newsroom/dae/redirection/document/44099"}
+    where: art. 20(1); WP242 section III, pp. 9-11
+    read: art. 20; those pages
+    quote: "A data controller can exclude those inferred data but should include all other personal data provided by the data subject"
+  - n: 15
+    claim: >
+      A format that hampers automatic extraction is not machine-readable. WP242 gives PDF copies of an email
+      inbox as unlikely to be enough, and asks for metadata that preserves meaning. The AP says the same
+      format duty is a legal one. INFERRED: the PDF logbook export (FUN-AV5B) alone does not meet
+      portability; the data copy (FUN-A60F) must be structured.
+    label: VERIFIED
+    source: {title: "WP242 rev.01; AP 'Recht op gegevens overdragen (dataportabiliteit)' (text changed March 2026)", ref: "https://www.autoriteitpersoonsgegevens.nl/themas/basis-avg/privacyrechten-avg/recht-op-gegevens-overdragen-dataportabiliteit"}
+    where: WP242 section V, pp. 17-18; AP 'Bepaal in welk formaat'
+    read: those sections
+    quote: "It is unlikely therefore that providing an individual with PDF versions of an email inbox would be sufficiently structured or descriptive"
+  - n: 16
+    claim: >
+      WP29 recommends always telling people about portability BEFORE they close an account. Portability does
+      not itself erase anything, and may not be used to delay erasure.
+    label: VERIFIED
+    source: {title: "WP242 rev.01", ref: "https://ec.europa.eu/newsroom/dae/redirection/document/44099"}
+    where: section IV, p. 13
+    read: the section
+    quote: "data controllers always include information about the right to data portability before data subjects close any account they may have"
+  - n: 17
+    claim: >
+      A person may have inaccurate data about them corrected without undue delay, and incomplete data
+      completed, including by a supplementary statement (art. 16); data must be accurate (5(1)(d)) and a
+      person may in four cases have processing restricted (art. 18: e.g. accuracy disputed, or objection
+      pending), during which it may essentially only be stored. Recipients to whom data was disclosed must
+      be told of rectification, erasure or restriction unless impossible or disproportionate (art. 19).
+      INFERRED: keeping a superseded version, clearly marked as superseded, can sit with rectification
+      when the history has a stated purpose; the current record must be the corrected one. The sources read
+      do not address version histories.
+    label: VERIFIED
+    source: {title: "GDPR art. 5(1)(d), 16, 18, 19", ref: "https://publications.europa.eu/resource/celex/32016R0679"}
+    where: the articles. The version-history sentence is INFERRED.
+    read: the articles
+    quote: "the right to obtain from the controller without undue delay the rectification of inaccurate personal data concerning him or her"
+  - n: 18
+    claim: >
+      Erasure is due without undue delay when, among other grounds, data is no longer needed, consent is
+      withdrawn with no other basis, an objection succeeds, processing was unlawful, or data came from an
+      online service offered to a child under art. 8(1). Exceptions are limited (art. 17(3)), mainly legal
+      obligation on the controller and legal claims. The EDPB says that when a contract ends, processing under
+      it generally stops, it is generally unfair to switch to a new basis then, and any retention for legal
+      purposes must be identified and announced from the start. Storage may not be longer than necessary
+      (art. 5(1)(e)).
+    label: VERIFIED
+    source: {title: "GDPR art. 17; EDPB Guidelines 2/2019", ref: "https://www.edpb.europa.eu/system/files/documents/files/file1/edpb_guidelines-art_6-1-b-adopted_after_public_consultation_en.pdf"}
+    where: art. 17(1), (3); Guidelines section 2.6, paras 41-44
+    read: the article and the section
+    quote: "if controllers see a general need to keep records for legal purposes, they need to identify a legal basis for this at the outset of processing, and they need to communicate clearly from the start for how long they plan to retain records"
+  - n: 19
+    claim: >
+      AP: the erasure right covers BACKUPS. On a request the data must be removed as soon as possible from
+      all systems and files, backups included. For backups that cannot or can hardly be overwritten, keep
+      track of what should have been deleted, and delete it again if the backup is restored. The AP also asks
+      for a specific reply (what was deleted, when, from which kinds of system and backup, what was not yet
+      deleted, why and when it will be), and says the controller must be able to prove deletion.
+    label: VERIFIED
+    source: {title: "AP, 'Recht op gegevens verwijderen' (text changed March 2026)", ref: "https://www.autoriteitpersoonsgegevens.nl/themas/basis-avg/privacyrechten-avg/recht-op-gegevens-verwijderen"}
+    where: sections 'Verwijder de gegevens ook uit back-ups' and 'Geef een specifieke reactie aan de aanvrager'
+    read: full page
+    quote: "Back-ups vallen ook onder het verwijderrecht. Krijgt u een verzoek om persoonsgegevens te verwijderen, dan moet u die gegevens dus ook zo snel mogelijk verwijderen uit al uw systemen en bestanden, inclusief uw back-ups."
+  - n: 20
+    claim: >
+      EDPB 2025 coordinated enforcement report (adopted February 2026): it may not always be advisable to
+      change backups (their integrity matters), but then there should be procedures to track erasure requests
+      and apply them to restored systems. Many controllers had no such procedure. The EDPB says it may give
+      more guidance on backups and on "without undue delay" there, so no EU-level time limit is set.
+      The report recommends verifying erasure and being able to show it.
+    label: VERIFIED
+    source: {title: "EDPB, CEF 2025 report on the right to erasure", ref: "https://www.edpb.europa.eu/system/files/2026-02/edpb_cef-report_2025_right-to-erasure_en.pdf"}
+    where: section 4.2.6, Issue 6, pp. 20-21
+    read: that section
+    quote: "organisations should have appropriate procedures to keep track of erasure requests and comply with them on restored systems, as much as possible"
+
+  # ---------- third parties named in logbooks ----------
+  - n: 21
+    claim: >
+      Instructors, examiners, PICs and passengers named in a logbook are data subjects (any information
+      about an identifiable person is personal data). Where a service lets a user process others' data for
+      personal use, WP29 gives legitimate interest (6(1)(f)) as a possible basis; the service must not use
+      that data for its own other purposes, e.g. contacting or marketing to them or building profiles.
+      WP29 wrote this about a RECEIVING controller in portability.
+    label: VERIFIED
+    source: {title: "WP242 rev.01", ref: "https://ec.europa.eu/newsroom/dae/redirection/document/44099"}
+    where: section III, third condition, pp. 11-12
+    read: the section
+    quote: "to provide a service to the data subject that allows the latter to process personal data for a purely personal or household activity"
+  - n: 22
+    claim: >
+      Legitimate interest needs three cumulative things, assessed and documented before processing: a
+      legitimate interest, necessity, and the others' rights not overriding it. INFERRED application: PIC name
+      and, in set cases, instructor name and signature are required logbook content (RES-7H7D n 2, 4, 7),
+      which supports necessity. No source read requires passenger names, so a passenger field is not needed
+      and free-text remarks are where passengers' or health details can enter.
+    label: VERIFIED
+    source: {title: "EDPB Guidelines 1/2024 on legitimate interest (version adopted for consultation, October 2024; no final version was looked for beyond this URL)", ref: "https://www.edpb.europa.eu/system/files/2024-10/edpb_guidelines_202401_legitimateinterest_en.pdf"}
+    where: executive summary. The application is INFERRED.
+    read: executive summary only
+    quote: "For processing to be based on Article 6(1)(f) GDPR, three cumulative conditions must be fulfilled"
+  - n: 23
+    claim: >
+      Data not obtained from the person normally needs an art. 14 notice within one month. It is not due if
+      it is impossible or disproportionate effort; then protective measures are needed, including making the
+      information public. The AP's example of disproportionate effort is a long search for an address, and it
+      says the source of the data must then be recorded. INFERRED: the app holds only a name, so a public
+      privacy notice that covers named third parties is the likely route; it should not collect their contact
+      details in order to notify them.
+    label: VERIFIED
+    source: {title: "GDPR art. 14(3), 14(5)(b); AP 'Recht op informatie'", ref: "https://www.autoriteitpersoonsgegevens.nl/themas/basis-avg/privacyrechten-avg/recht-op-informatie"}
+    where: art. 14(5)(b); AP 'Onevenredige inspanning'. Application INFERRED.
+    read: the article and that section
+    quote: "In such cases the controller shall take appropriate measures to protect the data subject's rights and freedoms and legitimate interests, including making the information publicly available"
+  - n: 24
+    claim: >
+      The pilot's own copy may include third parties: the copy and portability rights must not adversely
+      affect others (15(4), 20(4)), but a general worry is not enough; harm must be shown in the case, and the
+      answer is to redact the part, not to refuse. WP29: records that also concern others (a contact list,
+      bank transactions) should be given to the user. INFERRED: the pilot's export keeps PIC, instructor and
+      examiner names.
+    label: VERIFIED
+    source: {title: "EDPB Guidelines 01/2022, v2; WP242 rev.01", ref: "https://www.edpb.europa.eu/system/files/2023-04/edpb_guidelines_202201_data_subject_rights_access_v2_en.pdf"}
+    where: Guidelines paras 172-173; WP242 pp. 9, 11
+    read: those passages
+    quote: "The general concern that rights and freedoms of others might be affected by complying with the request for access, is not enough to rely on Art. 15 (4) GDPR."
+  - n: 25
+    claim: >
+      A named third party has their own rights against a controller: access (art. 15), rectification (16),
+      erasure (17), restriction (18), and objection to legitimate-interest processing (21(1)), after which
+      processing must stop unless compelling grounds override or legal claims need it. If the controller can
+      show it cannot identify the person, art. 11(2) limits arts. 15-20, but it must take extra identifying
+      information they offer. INFERRED: the builder needs a way, usable by someone with no account, to receive
+      such a request, check identity, find the name, and answer within a month without disclosing the pilot's
+      other data. The pilot's duty to keep a correct logbook weighs in the balance, but art. 17(3) has no
+      exception worded for another person's legal duty. No source read decides this conflict.
+    label: VERIFIED
+    source: {title: "GDPR art. 11, 12(2), 15-18, 21(1)", ref: "https://publications.europa.eu/resource/celex/32016R0679"}
+    where: the articles. The product consequences are INFERRED.
+    read: the articles
+    quote: "The controller shall no longer process the personal data unless the controller demonstrates compelling legitimate grounds for the processing which override the interests, rights and freedoms of the data subject"
+
+  # ---------- medical dates / health data ----------
+  - n: 26
+    claim: >
+      Health data is personal data about physical or mental health that reveals health status (art. 4(15)),
+      including past, current or FUTURE status, from any source (recital 35). The CJEU reads it broadly: data
+      is health data if it can reveal health status by collation or deduction, even if only with some
+      probability. A note that a colleague had injured her foot is health data (Lindqvist, C-101/01, paras
+      50-51).
+    label: VERIFIED
+    source: {title: "CJEU C-21/23 Lindenapotheke (4 October 2024); C-101/01 Lindqvist; GDPR recital 35", ref: "https://publications.europa.eu/resource/celex/62023CJ0021"}
+    where: C-21/23 the paragraphs on the second question; see also C-184/20 paras 123-127 (https://publications.europa.eu/resource/celex/62020CJ0184)
+    read: the relevant paragraphs
+    quote: "it is sufficient that they are capable of revealing information about the health status of the data subject by means of an intellectual operation involving collation or deduction"
+  - n: 27
+    claim: >
+      An aviation medical certificate is a fitness assessment, and how long it lasts depends on the class and
+      the holder's age (class 2 and LAPL: 60 months under 40, shorter after); certificates can also carry
+      limitations (MED.B.001). INFERRED: its expiry date shows that the person held a fitness certificate
+      valid to a date, and with the class can hint at age or a gap in fitness. In view of n 26 it should be
+      treated as LIKELY health data. NOT SETTLED: no EDPB, AP or court text found speaks about a medical
+      certificate's expiry date. The extended web search found only non-official commentary, which did not
+      address expiry dates. Language-proficiency and rating expiry dates are not about health.
+    label: INFERRED
+    source: {title: "Reasoning from Part-MED MED.A.045, MED.B.001 and n 26", ref: "https://www.easa.europa.eu/en/downloads/136679/en"}
+    where: MED.A.045(a)(3)-(4), MED.B.001(a)
+    read: MED.A.045; start of MED.B.001
+    quote: "Class 2 medical certificates shall be valid for a period of"
+  - n: 28
+    claim: >
+      If it is health data, processing is forbidden unless an art. 9(2) condition applies, ON TOP OF an art. 6
+      basis. "Necessary for the contract" is not such a condition. The Dutch general exceptions in UAVG art.
+      22(2) include explicit consent; UAVG art. 30 exceptions are tied to listed bodies and cases (read in
+      part: its first two paragraphs). INFERRED: explicit consent is the realistic condition for an
+      individual's logbook app. The other conditions read do not fit.
+    label: VERIFIED
+    source: {title: "GDPR art. 9; UAVG art. 22(2)(a); EDPB Guidelines 05/2020 on consent, para 99; quoted in Guidelines 2/2019", ref: "https://www.edpb.europa.eu/system/files/documents/files/file1/edpb_guidelines_202005_consent_en.pdf"}
+    where: art. 9(1)-(2); UAVG art. 22; consent guidelines para 99
+    read: the articles and paragraphs
+    quote: "Article 9(2) does not recognize “necessary for the performance of a contract” as an exception to the"
+  - n: 29
+    claim: >
+      Explicit consent needs an express statement (a clear tick or typed confirmation can do), must be
+      provable, separate from accepting terms, as easy to withdraw as to give, and freely given: a service
+      should not be made conditional on consent for data it does not need. INFERRED: if medical dates are
+      kept this way, the field is optional, has its own unticked consent, the rest of the app works without
+      it, and withdrawal erases the date everywhere (history, devices, backups as in n 19) and stops warnings
+      based on it, saying so, so that a missing warning is not read as "valid".
+    label: VERIFIED
+    source: {title: "GDPR art. 7; EDPB Guidelines 05/2020", ref: "https://www.edpb.europa.eu/system/files/documents/files/file1/edpb_guidelines_202005_consent_en.pdf"}
+    where: art. 7(1)-(4); Guidelines section 3.1.2 and 4. Product design INFERRED.
+    read: the article and sections
+    quote: "The term explicit refers to the way consent is expressed by the data subject. It means that the data subject must give an express statement of consent."
+
+  # ---------- breaches ----------
+  - n: 30
+    claim: >
+      A personal data breach is any security breach leading to accidental or unlawful destruction, LOSS,
+      ALTERATION, unauthorised disclosure or access (art. 4(12)). So lost or corrupted logbooks can be
+      breaches, not only leaks. The controller notifies the authority without undue delay and where feasible
+      within 72 hours of awareness, unless risk is unlikely; late notice needs reasons; information may come
+      in phases. A processor tells the controller without undue delay. EVERY breach is documented. The
+      people affected are told without undue delay if the risk is likely high, with exceptions (data was
+      unintelligible, e.g. encrypted; later measures removed the high risk; disproportionate effort, then a
+      public notice).
+    label: VERIFIED
+    source: {title: "GDPR art. 4(12), 33, 34", ref: "https://publications.europa.eu/resource/celex/32016R0679"}
+    where: art. 33(1)-(5), 34(1)-(3)
+    read: the articles
+    quote: "not later than 72 hours after having become aware of it"
+  - n: 31
+    claim: >
+      EDPB: "aware" means reasonable certainty that a security incident has compromised personal data, and
+      measures must be in place to establish this promptly. AP: report only through its breach form
+      (corrections can follow); treat special-category data such as health data as at least a high-risk
+      factor; the encryption relief needs intact data, a recent backup in the controller's control, and an
+      uncompromised key.
+    label: VERIFIED
+    source: {title: "EDPB Guidelines 9/2022 v2.0 paras 31-32; AP 'Datalek: wel of niet melden' and 'Zo meldt u een datalek' (changed June 2026)", ref: "https://www.autoriteitpersoonsgegevens.nl/themas/beveiliging/datalekken/datalek-wel-of-niet-melden"}
+    where: Guidelines paras 31-32; AP risk factors
+    read: those passages
+    quote: "Houd bij de volgende soorten persoonsgegevens in ieder geval rekening met een hoog risico"
+  - n: 32
+    claim: >
+      Pending change, NOT law: the Council's negotiating mandate on the Digital Omnibus (doc 14756/26, 22
+      October 2026) would raise the authority-notification threshold to likely HIGH risk and the time to 96
+      hours; the mandate also edits arts. 4 and 9. The rules in force are those in n 30. Parliament's position
+      and any trilogue were not verified.
+    label: VERIFIED
+    source: {title: "Council of the EU, 14756/26, Digital Omnibus mandate", ref: "https://data.consilium.europa.eu/doc/document/ST-14756-2026-INIT/en/pdf"}
+    where: annex, amendment of art. 33; recital 39
+    read: the art. 33 passage and recital 39; the art. 4 and 9 edits only skimmed
+    quote: "in the case of a data breach that is not likely to result in a high risk to the rights and freedoms of natural persons, the controller should not be required to notify"
+
+  # ---------- age ----------
+  - n: 33
+    claim: >
+      Ages. SPL: applicants at least 16 (SFCL.120). Student glider pilots may fly SOLO from 14
+      (SFCL.125(b)). So an SPL cannot be held at 14 or 15, but a student with a flying record can be that age
+      (or younger when flying dual; no minimum for dual flying was seen). LAPL(A) and PPL: at least 17;
+      aeroplane student solo: 16 (FCL.020, 100, 200). Dutch law requires licence holders AND student pilots
+      to keep a logbook (RES-7H7D n 10).
+    label: VERIFIED
+    source: {title: "Reg (EU) 2018/1976 Annex III, consolidated 2021-11-15; Part-FCL in EASA Easy Access Rules for Aircrew", ref: "https://publications.europa.eu/resource/celex/02018R1976-20211115 ; https://www.easa.europa.eu/en/downloads/136679/en"}
+    where: SFCL.120, SFCL.125; FCL.020, FCL.100, FCL.200. Latest consolidation as found in RES-7H7D.
+    read: the points
+    quote: "Applicants for an SPL shall be at least 16 years old."
+  - n: 34
+    claim: >
+      So users within the agreed scope (licensed pilots; unlicensed students out, ELI-H7X3#7) can be 16 or
+      17: still minors. Children get specific protection (recital 38), weigh heavier against legitimate
+      interest (6(1)(f)), and notices aimed at them must be plain. Where CONSENT is the basis for an online
+      service offered directly to a child, under 16 needs parental consent with reasonable checks (art. 8);
+      UAVG art. 5(1) asks a legal representative's consent under 16 for other consent too. Under 16,
+      UAVG art. 5(4) lets a parent also exercise the child's rights from 12 to 16 (alone under 12).
+      INFERRED: a minimum age of 16 at sign-up keeps these under-16 rules from arising; letting students in
+      would bring them in.
+    label: VERIFIED
+    source: {title: "GDPR art. 8, recital 38; UAVG art. 5", ref: "https://repository.officiele-overheidspublicaties.nl/bwb/BWBR0040940/2026-09-01_0/xml/BWBR0040940_2026-09-01_0.xml"}
+    where: UAVG art. 5(1), (3), (4). The sign-up consequence is INFERRED.
+    read: the articles
+    quote: "de betrokkene heeft de leeftijd van zestien jaren nog niet bereikt, is in plaats van toestemming van de betrokkene, de toestemming van zijn wettelijk vertegenwoordiger vereist"
+  - n: 35
+    claim: >
+      Separately from data protection (art. 8(3)), under Dutch law a minor acts validly with a legal
+      representative's consent, which is presumed for acts that minors of that age commonly do on their own.
+      Whether that covers a 16-17-year-old taking a logbook account was not researched.
+    label: VERIFIED
+    source: {title: "Burgerlijk Wetboek Book 1, art. 234 (BWBR0002656, version 2025-07-05)", ref: "https://repository.officiele-overheidspublicaties.nl/bwb/BWBR0002656/2025-07-05_0/xml/BWBR0002656_2025-07-05_0.xml"}
+    where: art. 1:234
+    read: the article
+    quote: "De toestemming wordt aan de minderjarige verondersteld te zijn verleend, indien het een rechtshandeling betreft ten aanzien waarvan in het maatschappelijk verkeer gebruikelijk is dat minderjarigen van zijn leeftijd deze zelfstandig verrichten."
+
+  # ---------- transfers ----------
+  - n: 36
+    claim: >
+      Personal data may go outside the EU only under Chapter V: an adequacy decision, or safeguards such as
+      standard contractual clauses (with enforceable rights), or narrow art. 49 exceptions. A transfer exists
+      when a GDPR-covered controller or processor makes data available to ANOTHER controller or processor in a
+      third country. This includes remote access from outside the EU by a processor to data stored in the EU
+      (EU storage alone is not enough). The controller's own staff accessing from abroad is not a transfer.
+      Transfers must be stated in the notice and processor instructions (n 5, 9).
+    label: VERIFIED
+    source: {title: "GDPR art. 44-46, 49; EDPB Guidelines 05/2021 v2.0", ref: "https://www.edpb.europa.eu/system/files/2023-02/edpb_guidelines_05-2021_interplay_between_the_application_of_art3-chapter_v_of_the_gdpr_v2_en_0.pdf"}
+    where: para 9 (three criteria); examples 8 and 11
+    read: the articles and those passages
+    quote: "such remote access results in transfers of data from the EU controllers to their processor"
+  - n: 37
+    claim: >
+      United States: transfer to an organisation in the Data Privacy Framework is allowed without another
+      tool; the AP advises also checking that the specific product is covered. Otherwise a transfer tool such
+      as model clauses is needed, plus extra measures where necessary. Secondary sources say an appeal
+      against the decision (C-703/25 P, Latombe) is pending and the decision still applies. The court
+      register was not checked, and the framework's durability was not assessed.
+    label: VERIFIED
+    source: {title: "AP, 'Doorgifte persoonsgegevens naar de VS' (appeal status: secondary web search only)", ref: "https://www.autoriteitpersoonsgegevens.nl/themas/internationaal/doorgifte-binnen-en-buiten-de-eer/doorgifte-persoonsgegevens-naar-de-vs"}
+    where: whole page. The appeal sentence is VERIFIED-secondary.
+    read: full page
+    quote: "Dat een organisatie meedoet, wil nog niet automatisch zeggen dat ook alle producten van deze organisatie onder het Data Privacy Framework vallen."
+
+  # ---------- on-device storage ----------
+  - n: 38
+    claim: >
+      Storing or reading information on a user's device normally needs information and consent, but not when
+      strictly necessary to provide the online service the user asked for. INFERRED: the offline logbook copy
+      and sign-in storage fall under the exception; anything extra, such as tracking, does not.
+    label: VERIFIED
+    source: {title: "Telecommunicatiewet art. 11.7a (BWBR0009950, version 2026-08-15)", ref: "https://repository.officiele-overheidspublicaties.nl/bwb/BWBR0009950/2026-08-15_0/xml/BWBR0009950_2026-08-15_0.xml"}
+    where: art. 11.7a(1), (3)(b). Application INFERRED.
+    read: paragraphs 1-4
+    quote: "die strikt noodzakelijk is om de door de abonnee of gebruiker gevraagde dienst van de informatiemaatschappij te leveren"
+
+  # ---------- consequences for this product ----------
+  - n: 39
+    claim: >
+      Functions or behaviours the findings point to (candidates, for the builder to accept):
+      (a) privacy notice at sign-up, reachable without an account, covering named third parties (n 5, 23);
+      (b) data copy: structured and machine-readable, complete including held history and account data, with
+      the art. 15 information, and a manual route for anything the button omits (n 11-15);
+      (c) offer the data copy in the delete-account warning (n 16);
+      (d) deletion that reaches live data, earlier and removed versions, import records, other synced
+      devices, processors and backups, with a deletion record holding as little as possible that is applied
+      again after any restore, and a statement to the pilot of what remains and until when (n 9, 19, 20);
+      (e) a way to erase one item for good (a remarks text, a name, a removed entry or old version) without
+      deleting the account, since "kept until account deletion" does not answer an erasure or third-party
+      request (n 17, 18, 25); this can be a manual builder action if done within a month (n 10);
+      (f) a contact route for requests from pilots and non-users, with dates received and answered (n 10, 25);
+      (g) breach readiness: logs or alerts that let the builder notice unauthorised access, loss or
+      alteration; a way to find who is affected and to reach all pilots; a breach register (n 30, 31);
+      (h) a retention rule for each data type, including abandoned and never-confirmed accounts, logs,
+      support mail and backups (n 5, 18);
+      (i) if medical dates are kept: n 29;
+      (j) a minimum-age rule at sign-up (n 34).
+    label: INFERRED
+    source: {title: "Reasoning from findings 5-34", ref: "this record"}
+    where: see the finding numbers
+    read: not applicable
+    quote: "not applicable"
+  - n: 40
+    claim: >
+      Never, as read from the findings: show one person's data to anyone else without the pilot's own action
+      (n 8); let a pilot or third-party request reveal another person's data (n 24, 25); use third parties'
+      names to contact, market, profile or link them across pilots' logbooks (n 21); use logbook data for a
+      new purpose without a basis and notice (art. 5(1)(b), 6(4), 13(3)); require consent to unneeded data to
+      use the service (n 29); bring erased data back through a backup restore or a stale device syncing
+      (n 19, 20; the stale-device case is INFERRED, no source read mentions it); ask for ID copies from
+      signed-in users (n 11); send data to a third country without a Chapter V route (n 36).
+    label: INFERRED
+    source: {title: "Reasoning from the findings named", ref: "this record"}
+    where: see the finding numbers
+    read: not applicable
+    quote: "not applicable"
+  - n: 41
+    claim: >
+      Account deletion and aviation law pull in different directions for the PILOT. Dutch law forbids
+      destroying the logbook or allowing that (Wet luchtvaart art. 2.10, RES-7H7D n 10). No source read says
+      how this applies to an app copy. It is not a legal duty on the builder that art. 17(3)(b) would
+      cover as far as read, so INFERRED it is no ground to keep data after a deletion request; the pilot can
+      be warned and offered a copy first (n 16). Art. 2.10 was not re-read for this record.
+    label: INFERRED
+    source: {title: "Reasoning from RES-7H7D n 10 and GDPR art. 17(3)(b)", ref: "https://publications.europa.eu/resource/celex/32016R0679"}
+    where: art. 17(3)(b)
+    read: the article
+    quote: "for compliance with a legal obligation which requires processing by Union or Member State law to which the controller is subject"
+
+not_verified:
+  - "Any authority or court statement on whether a medical certificate's expiry date is health data. Not found (n 27)."
+  - "Whether the builder is controller or processor for third-party names; EDPB Guidelines 07/2020 not read (n 3)."
+  - "How to settle a third party's objection or erasure request against a pilot's duty to keep a correct logbook. Not found (n 25)."
+  - "Any fixed time limit for removing data from backups. None found; the EDPB says guidance may follow (n 20)."
+  - "Any source on inactive-account retention periods, on stale offline devices after deletion, or on data left on a pilot's own device."
+  - "Where the builder is established (decides art. 27 and which authority leads) (n 2)."
+  - "Amended text of the AP DPIA list; AP's final list of DPIA exemptions."
+  - "UAVG art. 30 paragraphs beyond the second, and art. 41 beyond its opening (restrictions on rights)."
+  - "Corrigenda to the GDPR: the original OJ text was read, not a consolidated version."
+  - "CJEU register for C-703/25 P; Parliament status of the Digital Omnibus."
+  - "Fetch failures: AP pages guessed at /themas/.../recht-op-vergetelheid, /datalek-melden and similar returned 404 and were replaced by pages found through the AP sitemap; PDF pages could not be rendered (no PDF renderer), so text was extracted by script. The AP cloud health-data guide extracted but gave no usable passage and is not relied on."
+
+conclusion: |
+  The GDPR applies to the builder even if each pilot's own use is private. Needed: a stated basis
+  (contract for the core service) and a privacy notice; a processing record; processor contracts;
+  security by design; every rights request answered within a month; a complete, machine-readable data
+  copy (a PDF alone is likely not enough); real erasure, including old versions and backups. The AP says
+  to delete from backups as soon as possible; where they cannot be overwritten, track deletions and
+  apply them again after a restore. Keeping earlier versions until account deletion is not forbidden by
+  anything read, if its purpose is stated, but single items must still be erasable on a valid request.
+  Named instructors, examiners, PICs and passengers have their own rights; legitimate interest is the
+  likely basis, with a public notice instead of individual notices. A medical expiry date is LIKELY
+  health data (inferred, not decided anywhere found); if so it needs explicit consent as an optional,
+  withdrawable field. Breaches include loss and alteration: document all, tell the AP within 72 hours
+  unless risk is unlikely, tell people if risk is likely high. SPL needs age 16 (student solo 14);
+  LAPL/PPL need 17. Licensed users can still be minors. Data may leave the EU only under Chapter V,
+  and remote access by a non-EU processor counts.
+
+choices_left_open:
+  - "Medical expiry date: treat as health data (optional field with explicit consent, withdrawal and erasure); or leave it out; or take the view it is not health data, which no source read supports."
+  - "Minimum age: 16 at sign-up (matches the SPL and keeps under-16 consent rules out); or a higher limit such as 18; or allow younger students with parental consent (also changes the agreed scope, ELI-H7X3#7)."
+  - "Backups: remove deleted data from them as soon as possible (AP's main rule); or, where they cannot reasonably be overwritten, let them age out within a short stated period with a deletion record applied after any restore (AP allows this for media that are hard or impossible to overwrite; EDPB says changing backups may not always be advisable). No period is fixed by any source."
+  - "Earlier versions: keep until account deletion (current), with a way to purge single items on request; or give them a shorter retention period."
+  - "Abandoned accounts: delete after a stated period with notice (risks losing a pilot's only logbook, LOS-7MZV); or keep while the account exists, with a stated reason."
+  - "Free-text remarks and names: leave free with a short hint not to enter health or passenger details; or restrict what is stored. No source requires passenger names."
+  - "Hosting and support services: EU only with no non-EU access; or allow third-country processors under adequacy or safeguards."
+  - "Where the builder is established is a fact to ask, not a choice (n 2)."

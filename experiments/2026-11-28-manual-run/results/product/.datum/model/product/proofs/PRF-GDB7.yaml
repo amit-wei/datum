@@ -1,0 +1,10 @@
+id: PRF-GDB7
+status: agreed
+title: A whole account is erased on request
+method: test
+rationale: A separate path from deletion in the app.
+covers: REQ-6SP8
+criterion:
+  pass: After the request, the live stores hold nothing of the account within the time of REQ-1X9Q,
+    sign-in fails, devices follow REQ-26SS and the requirements on unsynced records, and backups
+    follow REQ-X5KB.

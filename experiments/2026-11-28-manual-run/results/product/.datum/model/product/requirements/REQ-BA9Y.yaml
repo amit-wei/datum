@@ -1,0 +1,9 @@
+id: REQ-BA9Y
+status: agreed
+pattern: state
+statement: While a device has not yet received all records of the account, the part shall state
+  in any PDF it produces that the logbook is incomplete.
+rationale: A part-downloaded logbook must not read as complete.
+of: FUN-AV5B
+answers:
+- HAZ-FRTK

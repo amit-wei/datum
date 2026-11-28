@@ -1,0 +1,11 @@
+id: PRF-GA5A
+status: agreed
+title: Only passed checks count
+method: test
+rationale: Each rule reads checks separately.
+covers: REQ-99BT
+criterion:
+  pass: For each rule with a check route or refresher exemption, a signed failed check, a signed
+    check with no result and an unsigned passed check give neither; a signed passed one does.
+    The flight experience of a signed failed check is counted like that of any other signed
+    flight.

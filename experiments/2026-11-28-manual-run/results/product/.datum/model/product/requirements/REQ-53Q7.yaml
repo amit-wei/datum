@@ -1,0 +1,12 @@
+id: REQ-53Q7
+status: agreed
+pattern: event
+statement: >-
+  When the pilot saves, changes or removes starting totals, the part shall record exactly the
+  saved figures with the date they run up to.
+rationale: >-
+  ELI-C382#1. The figures are the base of every total.
+of: FUN-PDMV
+answers:
+- HAZ-BYMT
+- HAZ-SDKD

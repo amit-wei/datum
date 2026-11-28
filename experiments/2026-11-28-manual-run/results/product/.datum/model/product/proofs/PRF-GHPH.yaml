@@ -1,0 +1,13 @@
+id: PRF-GHPH
+status: agreed
+title: Notice is offered before data is sent
+method: test
+rationale: >-
+  A change to the sign-up screen could drop the link.
+covers: REQ-XWB1
+criterion:
+  pass: >-
+    The notice can be opened from the sign-up screen before submission, and nothing typed has
+    left the device at that point.
+  conditions: >-
+    A device that has no account, with its outgoing traffic observed.

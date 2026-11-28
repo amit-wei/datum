@@ -1,0 +1,13 @@
+id: REQ-EDJ4
+status: agreed
+pattern: unwanted
+statement: If a row has the same date, departure time and aircraft registration as a current
+  entry or an earlier row of the file, then the part shall flag the row as a likely duplicate
+  and leave the row out unless the pilot includes that row individually.
+rationale: 'ELI-W9NN#3. The matching key was the agent''s proposal. Builder limit: ELI-W9NN#3.
+  The builder accepted the proposed rules in ELI-SCJS.'
+of: FUN-VY4C
+answers:
+- HAZ-SDKD
+- HAZ-BYMT
+source: builder

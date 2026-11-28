@@ -1,0 +1,15 @@
+id: REQ-ATZ9
+status: agreed
+pattern: unwanted
+statement: If the part cannot tell whether account creation, sign-in on a device, change or
+  recovery of sign-in details, change of the means of contact, account deletion or a request
+  for a recovery proof took effect, because a delivered request got no answer, or the answer
+  was lost or unreadable, then the part shall say that the outcome is unknown until the part
+  next learns the actual outcome from the online service, and then show that outcome, which
+  for a request for a recovery proof is only whether the online service received the request.
+rationale: The connection can drop after the service has acted; claiming failure or success
+  would be wrong (ELI-C382#8).
+of: FUN-B8SK
+answers:
+- HAZ-XWCK
+- HAZ-BYMT

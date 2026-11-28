@@ -1,0 +1,11 @@
+id: PRF-56TX
+status: agreed
+title: Guessing is slowed
+method: test
+rationale: The limit sits on the server side and fails silently if dropped.
+covers: REQ-HNV5
+criterion:
+  pass: The number of failed sign-in attempts evaluated for one account in any hour meets failed_attempts_per_hour;
+    access recovery still works while the limit is reached. Every attempt up to the limit is
+    evaluated.
+  conditions: Scripted attempts against a throwaway account, spread over several network addresses.

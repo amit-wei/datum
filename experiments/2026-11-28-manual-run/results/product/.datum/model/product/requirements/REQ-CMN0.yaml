@@ -1,0 +1,15 @@
+id: REQ-CMN0
+status: agreed
+pattern: ubiquitous
+statement: 'The part shall let the pilot record these facts: which of LAPL(A), PPL(A) and SPL
+  are held and each one''s issue date, whether a PPL(A) or higher was held before a LAPL(A),
+  SEP(land), SEP(sea) and TMG ratings, SPL TMG privilege, any other Part-FCL TMG privilege,
+  the sailplane launch methods trained for, whether an instructor certificate for sailplanes
+  is held, and, each answered separately, whether the LAPL(A) one-time hours of REQ-6CPP, the
+  SPL one-time hours or launches of REQ-C2MJ and the SPL passenger training flight of REQ-C2MJ
+  have been met.'
+rationale: These are the facts the covered rules ask about (RES-7H7D n21-32). The launch methods
+  offered are those named in SFCL.155.
+of: FUN-V4TT
+answers:
+- HAZ-SDKD

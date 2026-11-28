@@ -1,0 +1,34 @@
+id: SCN-6NZ9
+status: agreed
+name: Erase data on a privacy request
+kind: variation
+trigger: The builder has accepted a privacy request to erase data.
+steps:
+- n: 1
+  by: outside
+  what: The builder states which data is to be erased.
+- n: 4
+  by: product
+  what: If the account or data cannot be identified, tells the builder and erases nothing; the
+    journey stops here.
+- n: 2
+  by: product
+  what: Erases it from the online copy and from each device when it connects, puts a mark in
+    the place of an erased name, and keeps it erased after any restore from backup. A whole
+    account is erased as a deletion.
+- n: 3
+  by: product
+  what: When the pilot's app receives the change, shows which records changed and what kind
+    of information was removed, without repeating it. Where a signer's name was erased from
+    a signed entry, says that an examiner or authority might not accept it.
+- n: 5
+  by: user
+  what: Acknowledges the notice on one device. Until then it keeps showing on each device of
+    the account, a new one included.
+outcome: The data named in the request is gone and does not come back, and an affected pilot
+  has been shown what changed, on each device until acknowledging it.
+needs:
+- ELI-C382#6
+- ELI-KKPH#4
+- ELI-PDPX#2
+- ELI-N8DN#1

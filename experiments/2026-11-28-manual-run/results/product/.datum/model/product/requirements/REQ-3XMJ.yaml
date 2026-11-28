@@ -1,0 +1,12 @@
+id: REQ-3XMJ
+status: agreed
+pattern: unwanted
+statement: >-
+  If a column's date, time, duration or time zone can be read in more than one way, then the
+  part shall ask the pilot which reading applies before showing flights that use the column.
+rationale: >-
+  A guessed day-month order or local time gives wrong recency.
+of: FUN-VY4C
+answers:
+- HAZ-BYMT
+- HAZ-SDKD

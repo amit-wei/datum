@@ -1,0 +1,31 @@
+id: ELI-PSRH
+date: '2026-11-28'
+entries:
+- n: 1
+  question: 'A new recovery proof and the recovery notice go only to a contact set up beforehand;
+    this also allows telling the true owner privately without revealing accounts. Proposed:
+    require an email address at sign-up, with requirements saying ''a means of contact'' and
+    the exact method left to design; changing it needs identity confirmation, with a notice
+    sent to the old contact.'
+  answer: 1) yes agere
+  need: true
+  constraint: true
+- n: 2
+  question: 'After the 100-failure cap, someone else''s attempts can turn off the sign-in method;
+    an owner who cannot use recovery then loses the online account even knowing the password.
+    Proposed: accept this, warn at sign-up, and have every failed sign-in point to recovery
+    without saying why it failed.'
+  answer: 2) yes thats fine
+  need: true
+  constraint: true
+- n: 3
+  question: Limit requests for a new recovery proof to 3 per hour (a judgement number; the research
+    suggests limiting requests and gives no number). Someone could use up all three, though
+    messages go only to the owner.
+  answer: 3) sure 3 per hour is okay
+  constraint: true
+- n: 4
+  question: 'Correction: three months can be 92 days, so a 90-day expiry warning can come after
+    the renewal-check window opens. Proposed: 93 days.'
+  answer: 4) yes.
+  constraint: true

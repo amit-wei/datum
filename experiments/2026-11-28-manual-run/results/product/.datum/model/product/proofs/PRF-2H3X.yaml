@@ -1,0 +1,12 @@
+id: PRF-2H3X
+status: agreed
+title: A large logbook still works
+method: test
+rationale: >-
+  Limits appear only at size.
+covers: REQ-7FTP
+criterion:
+  pass: >-
+    Each function that reads entries completes with correct output.
+  conditions: >-
+    A generated logbook of the bound size on a phone.

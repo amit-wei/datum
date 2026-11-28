@@ -1,0 +1,8 @@
+id: PRF-3JHT
+status: agreed
+title: Requests for a new proof reveal nothing
+method: test
+rationale: Response wording drifts between branches.
+covers: REQ-2WJS
+criterion:
+  pass: For an unknown account and for a known one, what the requester sees is the same.

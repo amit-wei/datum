@@ -1,0 +1,13 @@
+id: REQ-A9WG
+status: agreed
+pattern: event
+statement: When an erasure made for a privacy request has changed a pilot's records, the part
+  shall show which records changed and what kind of information was removed, without repeating
+  the erased information, on each device of the account, a new one included, until the pilot
+  acknowledges the notice on one of them.
+rationale: Otherwise the logbook, PDF and totals could change without the pilot knowing (ELI-KKPH#4;
+  HAZ-BYMT). Accepted by the builder (ELI-N8DN#1).
+of: FUN-S6RT
+answers:
+- HAZ-BYMT
+source: builder

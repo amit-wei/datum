@@ -1,0 +1,10 @@
+id: PRF-WHEK
+status: agreed
+title: Stale previews cannot be imported
+method: test
+rationale: >-
+  Needs a change between two steps that manual testing rarely does.
+covers: REQ-75EC
+criterion:
+  pass: >-
+    Confirming after a local or synced change imports nothing and shows a new preview.

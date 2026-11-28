@@ -1,0 +1,8 @@
+id: PRF-1EDR
+status: agreed
+title: Every rule fact can be recorded
+method: test
+rationale: A fact missing from the form silently blocks or skews a rule.
+covers: REQ-CMN0
+criterion:
+  pass: Each fact can be saved, read back and left unanswered.

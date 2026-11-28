@@ -1,0 +1,8 @@
+id: PRF-5SYD
+status: agreed
+title: Withdrawal wins at once
+method: test
+rationale: Generic conflict handling would delay it.
+covers: REQ-YZG3
+criterion:
+  pass: In each sync order the date is erased and no conflict holds it.

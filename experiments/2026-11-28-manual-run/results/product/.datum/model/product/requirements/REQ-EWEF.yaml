@@ -1,0 +1,9 @@
+id: REQ-EWEF
+status: agreed
+pattern: unwanted
+statement: If an update fails or cannot convert the stored records, then the part shall say
+  that the update failed.
+rationale: A pilot who is not told keeps relying on old rules (ELI-C382#8).
+of: FUN-V6Z2
+answers:
+- HAZ-SDKD

@@ -1,0 +1,16 @@
+id: REQ-QX85
+status: agreed
+pattern: state
+statement: While the pilot holds SPL with TMG privileges and no Part-FCL licence with TMG privileges,
+  the part shall show SPL TMG recency as met only if within 24 months there are at least 12
+  hours as PIC, dual or supervised solo including 6 hours on TMG with 12 take-offs and 12 landings
+  on TMG and a signed training flight of at least 1 hour in total with an instructor, or a signed
+  passed TMG proficiency check.
+rationale: SFCL.160(b)-(c) (RES-7H7D n29). With the Part-FCL licence the Part-FCL rules govern.
+  Reading the take-offs and landings as TMG ones is the stricter reading. Reading the take-offs
+  and landings as TMG ones was the agent's proposed reading. The instructor's qualification
+  is not recorded; the signature is taken as covering it. The builder accepted the proposed
+  rules in ELI-SCJS.
+of: FUN-69E8
+answers:
+- HAZ-SDKD

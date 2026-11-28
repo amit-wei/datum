@@ -10,7 +10,7 @@ it also touches #67-#70, #33 and the two agents.
 **What it is not.** One run (N=1): it finds failure modes; it is not evidence that a fix
 works. That is #74 and #54.
 
-**State (2026-11-28):** set up, not run.
+**State (2026-11-28):** done. Result below; the findings have issues.
 
 ## The product
 
@@ -87,4 +87,65 @@ Impressions go in their own section of the result and score nothing.
 
 ## Result
 
-Not run yet.
+Run 2026-11-28 on datum `b549cae`, Sonnet, two sessions (the builder cleared the context
+after functional analysis closed, on datum's advice). Both steps closed with the
+builder's agreement: 36 functions, 30 scenarios, 5 losses, 8 hazards, 204 requirements
+with 204 proofs, 16 elicitation records, 6 `RES-` records, no `SPK-` record.
+`results/product/` holds the model. The raw transcripts stay out of git
+(`.gitignore`): they hold account details that the scrub does not remove. So does the
+EASA page the researcher saved (Findings 4).
+
+### Outcomes
+
+| # | Result | Evidence |
+|---|---|---|
+| O1 | **Partly.** The `researcher` ran 8 times before the values it covers entered the model: logbook rules (RES-7H7D), existing apps (RES-XA6N), web-app storage (RES-X2SP), privacy law (RES-RZXY), unsigned flights (RES-70FV), sign-in limits (RES-6SKG). Every finding in all six records carries a quote. **Miss:** the sign-in and recovery limits (10 and 5 an hour), a security-standard value, entered the requirements draft with no source; research ran only after the builder asked "where do the 10 and 5 come from?" | main transcripts; `analysis/RES-*` |
+| O2 | **Not tested.** The IGC fill-in, the planned spike trigger, was cut in round 2 on datum's recommendation (left out with automatic tracking). The one measurable doubt left, how Safari keeps stored data on a real iPhone, cannot be run from a laptop and was left open. | session 1, 09:59 and 10:08 |
+| O3 | **Yes.** Entries for where it runs (devices), the people (language, accessibility), standards and legal (rules, privacy), getting it into use (installing, upkeep). All four were datum's proposals; the builder answered "sure" or "yes". | `analysis/ELI-*` |
+| O4 | **No.** Besides O1's limits, datum proposed numbers without saying they were its own until the builder pushed ("seems pretty arbitrary"); from then on it labelled each one a judgement call. The `researcher` also found that a phrase quoted as official wording came from a research summary. | session 2, 11:25-11:42 |
+| O5 | **Yes.** Every review was waited for. Once, datum asked a reviewer again for a report it had not received instead of calling the review clean. | timeline; session 2, 13:19 |
+| O6 | **Yes.** The requirements step changed 9 functions, reopened functional analysis, ran its reviewer and added 5 scenarios before closing. | session 2, 11:52-11:58 |
+| O7 | **Yes.** Every reviewer subagent's transcript starts with its preloaded skills (#33). | `subagents/*.jsonl` |
+| O8 | **No.** The builder agreed and `steps.yaml` closes both steps, but the requirements reviewer's last word was "clean once these three fixes are made"; it never reread the files, nor the later fixes from the functional review. | session 2, 13:19-13:20; `steps.yaml` |
+
+### Findings beyond the outcomes
+
+1. **Scope grew without a brake.** "An MVP for my future business", "simple" and "a web
+   app?" became accounts, sync, conflicts, recovery, GDPR erasure and backups: 36
+   functions and 204 requirements. Most review rounds in requirements were about account
+   recovery. Datum never offered a smaller cut (local only, no accounts) once the builder
+   asked for simplicity. INFERRED: nothing in functional analysis weighs scope; the
+   increment step comes later.
+2. **The builder's agreement thinned to a stamp.** Batches of up to 11 technical points
+   got "sure", "idek dude agreed on your thing", "yes". The builder said "don't worry
+   about the business, you're the product person". An end condition that rests on the
+   builder's agreement is only as good as that agreement.
+3. **The reviewer was reused across rounds.** The main agent continued the same reviewer
+   by `SendMessage` (one requirements reviewer for about 8 rounds), so later rounds read
+   with the earlier rounds in context: not a fresh reader. The conditional "clean once
+   fixed" came from this.
+4. **The researcher wrote into the product.** RES-7H7D's agent downloaded pages with
+   `curl -o page.html` in the project root; datum noticed and kept it out of commits.
+5. **Small:** datum committed the requirements to a new branch without asking; the run
+   hit a usage limit mid-step; every functional-analysis review round after the first
+   was a targeted one.
+6. **Good:** datum said plainly what was not checked (sources not reread, nothing built,
+   no pilot checked the rules), advised clearing the context at a closed step, and the
+   next session picked up from the files.
+
+### Impressions (Amit)
+
+It felt fine, but slow. The main way to use datum is probably long automated runs that
+notify the builder when input is needed. The scope creep was plain. Amit's main point:
+the run does not represent the systems-engineering process, because dividing into parts
+is what keeps scope in check from the start; v0.1.0, with the product as the leaf, is
+therefore not a real picture of datum. The open question is when things break into
+parts, what a part's scope is, and how datum handles the split (#78, which also covers
+Findings 1 and 2).
+
+### Issues
+
+#77 (researcher downloads, fixed), #78 (partition and scope), #79 (fresh reviewers, fewer
+rounds), #80 (why TBDs are avoided), #81 (a spiker test, later). Not separate issues:
+Findings 1 and 2 (in #78); O1's miss on datum's own default values (in #80, as
+part of the cause).

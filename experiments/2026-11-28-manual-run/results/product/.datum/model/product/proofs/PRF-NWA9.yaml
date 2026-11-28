@@ -1,0 +1,10 @@
+id: PRF-NWA9
+status: agreed
+title: Totals affected by a conflict are marked
+method: test
+rationale: >-
+  Needs a conflict to be present.
+covers: REQ-SCDR
+criterion:
+  pass: >-
+    Each total that differs between the two versions is marked and the others are not.

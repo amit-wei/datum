@@ -1,0 +1,16 @@
+id: FUN-V6Z2
+status: agreed
+name: Update to a new version
+definition: Brings the app on a device to the latest released version.
+serves:
+- SCN-C8S2#2
+inputs:
+- name: new release
+  from: builder
+outputs:
+- name: updated app
+  to:
+  - pilot
+- name: update failure notice
+  to:
+  - pilot

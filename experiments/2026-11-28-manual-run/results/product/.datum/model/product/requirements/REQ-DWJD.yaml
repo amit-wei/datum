@@ -1,0 +1,10 @@
+id: REQ-DWJD
+status: agreed
+pattern: unwanted
+statement: If a fact that a covered rule needs about a held privilege has not been entered,
+  then the part shall record the fact as unknown instead of assuming a value.
+rationale: A default could make a rule look met. The facts are listed in the requirement on
+  held-privilege facts.
+of: FUN-V4TT
+answers:
+- HAZ-SDKD

@@ -1,0 +1,14 @@
+id: SCN-7T38
+status: agreed
+name: "Log a training flight or check"
+kind: variation
+trigger: "A pilot completes a training flight or a check with an instructor or examiner."
+preconditions: "The pilot has a logbook."
+steps:
+  - {n: 1, by: user, what: "Enters the flight or check, saying what it was and who gave it."}
+  - {n: 2, by: product, what: "Adds it to the logbook; where a signature is required, does not yet count it and says why."}
+  - {n: 3, by: user, what: "Has the instructor or examiner sign in ink where required, on a printed export. Whether this is accepted is unconfirmed."}
+  - {n: 4, by: user, what: "Marks the entry as signed."}
+  - {n: 5, by: product, what: "Counts it in the rule results it applies to."}
+outcome: "The training or check is logged and counted, and there is a page to be signed."
+needs: [ELI-H0GB#6, ELI-FV4M#3, ELI-FV4M#4, ELI-C382#2]

@@ -1,0 +1,12 @@
+id: REQ-D8T8
+status: agreed
+pattern: unwanted
+statement: If a fact that a rule result needs, among the facts of held privileges, the rating
+  expiry date and the pilot's answer on a one-time condition not shown by entries, has not been
+  entered and no other entered fact or entry already settles the condition that needs it, then
+  the part shall show no met or not-met result for that rule and name the missing fact.
+rationale: 'SCN-D3B7: an incomplete basis must never read as met. Flights not entered are not
+  missing facts: a rule short of flights is not met.'
+of: FUN-69E8
+answers:
+- HAZ-SDKD

@@ -1,0 +1,11 @@
+id: PRF-2BZ6
+status: agreed
+title: Starting totals are recorded as saved
+method: test
+rationale: >-
+  Unit conversion errors would go unseen.
+covers: REQ-53Q7
+criterion:
+  pass: >-
+    Every saved figure and the date read back unchanged; after removal totals no longer include
+    them.

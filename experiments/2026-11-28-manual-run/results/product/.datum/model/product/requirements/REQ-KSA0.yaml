@@ -1,0 +1,10 @@
+id: REQ-KSA0
+status: agreed
+pattern: event
+statement: When a person presents the current recovery proof of an account and gives new sign-in
+  details, the part shall replace the old sign-in details with the new ones.
+rationale: Without recovery a forgotten secret locks the pilot out of their logbook. The proof
+  is the one-time proof sent to the confirmed contact (ELI-KKPH#1); its form is a design choice.
+of: FUN-Q1BS
+answers:
+- HAZ-XWCK

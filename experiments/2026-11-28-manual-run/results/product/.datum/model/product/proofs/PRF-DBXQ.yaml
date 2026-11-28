@@ -1,0 +1,9 @@
+id: PRF-DBXQ
+status: agreed
+title: Expired ratings never show met
+method: test
+rationale: The expiry edge is a separate branch.
+covers: REQ-RP9J
+criterion:
+  pass: With full experience and an expiry date of yesterday no met result is shown and renewal
+    is named; with an expiry date of today the revalidation result is given.

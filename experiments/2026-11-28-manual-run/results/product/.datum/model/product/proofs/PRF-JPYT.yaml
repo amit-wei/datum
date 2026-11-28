@@ -1,0 +1,10 @@
+id: PRF-JPYT
+status: agreed
+title: Revalidation experience is computed correctly
+method: test
+rationale: Window tied to expiry, unlike the others.
+covers: REQ-9MV4
+criterion:
+  pass: Fixtures at each threshold of each condition, at both edges of the 12-month and 3-month
+    windows, with and without the refresher exemption, and with one and with both ratings give
+    the hand-worked result; a check dated before the window of condition (b) alone is not met.

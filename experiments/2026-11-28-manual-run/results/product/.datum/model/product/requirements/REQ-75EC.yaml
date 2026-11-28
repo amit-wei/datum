@@ -1,0 +1,12 @@
+id: REQ-75EC
+status: agreed
+pattern: unwanted
+statement: >-
+  If the logbook or the starting totals change after a preview is shown, then the part shall
+  require a new preview before importing.
+rationale: >-
+  Duplicates and totals in an old preview may be wrong, for example after a sync.
+of: FUN-5QA7
+answers:
+- HAZ-BYMT
+- HAZ-SDKD

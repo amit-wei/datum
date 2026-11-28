@@ -1,0 +1,9 @@
+id: PRF-EPGF
+status: agreed
+title: Every refusal points to recovery
+method: test
+rationale: A helpful special message could be added for one case.
+covers: REQ-SYHZ
+criterion:
+  pass: For wrong details, an unknown account, a reached hourly limit and a turned-off method,
+    the response is the same and names account recovery.

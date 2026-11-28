@@ -1,0 +1,11 @@
+id: REQ-WJQH
+status: agreed
+pattern: event
+statement: >-
+  When a pilot signs in on a device, the part shall show when records of the account last reached
+  the online copy.
+rationale: >-
+  On a replacement phone this tells where the gap may be (SCN-5DS4#3).
+of: FUN-270Z
+answers:
+- HAZ-XWCK

@@ -1,0 +1,10 @@
+id: PRF-0SYF
+status: agreed
+title: Partial download is handled
+method: test
+rationale: Visible only during a slow first sync.
+covers: REQ-KYQ5
+criterion:
+  pass: No rule shows met while paused.
+  conditions: The first sync of a new device paused part way. The records already received alone
+    would meet each tested rule.

@@ -1,0 +1,8 @@
+id: PRF-KZ85
+status: agreed
+title: Full storage harms no record
+method: test
+rationale: Full storage never occurs in normal use, so only fault injection shows the loss.
+covers: REQ-GT69
+criterion:
+  pass: With writes made to fail, earlier records are unchanged.

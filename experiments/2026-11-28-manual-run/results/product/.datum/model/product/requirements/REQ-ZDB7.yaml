@@ -1,0 +1,17 @@
+id: REQ-ZDB7
+status: agreed
+pattern: unwanted
+statement: If new sign-in details given at access recovery are incomplete or already belong
+  to another account, then the part shall keep the old sign-in details without revealing whether
+  another account uses the new ones.
+rationale: 'Details are incomplete when anything the sign-in design needs to identify the pilot
+  and to let only the pilot in is missing. Taking over or colliding with another account must
+  not be possible, and the refusal must not show who has an account. Disclosure rule, the agent''s
+  proposal: what the person sees at the time of the request is the same whether or not another
+  account uses the details. This assumes a sign-in design that can tell the true holder of the
+  details privately, for example by a message to them; synthesis must provide that or bring
+  the rule back. The builder accepted the proposed rules in ELI-SCJS.'
+of: FUN-Q1BS
+answers:
+- HAZ-9K19
+- HAZ-XWCK

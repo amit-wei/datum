@@ -1,0 +1,12 @@
+id: REQ-7VGK
+status: agreed
+pattern: unwanted
+statement: >-
+  If a row cannot be read or breaks a rule of REQ-GDYQ, then the part shall leave the row out
+  of the preview flights and list the row with its line number and reason.
+rationale: >-
+  SCN-H9FP: no row is dropped or added wrongly without the pilot knowing.
+of: FUN-VY4C
+answers:
+- HAZ-BYMT
+- HAZ-SDKD

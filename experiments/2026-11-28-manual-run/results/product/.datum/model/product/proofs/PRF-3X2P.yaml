@@ -1,0 +1,8 @@
+id: PRF-3X2P
+status: agreed
+title: Deletion needs fresh proof
+method: test
+rationale: A change to the deletion flow or session handling could reuse an old sign-in as proof.
+covers: REQ-95FN
+criterion:
+  pass: Without or with wrong proof nothing is deleted.

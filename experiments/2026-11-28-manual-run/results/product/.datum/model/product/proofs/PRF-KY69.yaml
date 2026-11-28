@@ -1,0 +1,10 @@
+id: PRF-KY69
+status: agreed
+title: Restore does not resurrect
+method: demonstration
+rationale: Only a restore shows it.
+covers: REQ-M7WZ
+criterion:
+  pass: After restoring a backup older than an account deletion, a consent withdrawal and an
+    erasure for a privacy request, none of the erased data is present when service resumes.
+  conditions: Throwaway data.

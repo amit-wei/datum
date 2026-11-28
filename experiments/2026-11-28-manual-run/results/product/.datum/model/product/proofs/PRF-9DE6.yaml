@@ -1,0 +1,13 @@
+id: PRF-9DE6
+status: agreed
+title: Nothing readable stays after sign-out
+method: test
+rationale: >-
+  New local caches appear as the code changes.
+covers: REQ-GMWE
+criterion:
+  pass: >-
+    Inspecting all of the part's storage on the device after sign-out, also after going back
+    and reopening offline, shows no record of the pilot.
+  conditions: >-
+    A signed-in device with entries, history, a PDF made and an import done.

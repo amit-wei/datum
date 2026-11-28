@@ -1,0 +1,9 @@
+id: REQ-SX0K
+status: agreed
+pattern: ubiquitous
+statement: The part shall record consent to keep the medical date only from a separate choice
+  that starts unset, states what the date is used for, and is not needed for any other function.
+rationale: 'The date is treated as likely health data needing explicit, free, provable consent
+  (RES-RZXY n27-29; ELI-C382#6). Builder limit: ELI-C382#6.'
+of: FUN-EMXF
+source: builder

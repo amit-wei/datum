@@ -1,0 +1,40 @@
+id: FUN-PDMV
+status: agreed
+name: Set starting totals
+definition: Sets, changes or removes the experience the pilot brings from an earlier logbook
+  and the date it runs up to, saying that flights on that date count as already included.
+serves:
+- SCN-72S0#5
+- SCN-RXEM#4
+- SCN-D3B7#3
+- SCN-72S0#6
+inputs:
+- name: starting totals
+  holds: the totals and the date they run up to
+  from: pilot
+- name: synced records
+  from: FUN-DV8F
+outputs:
+- name: recorded starting totals
+  to:
+  - FUN-VY4C
+  - FUN-6NTH
+  - FUN-69E8
+  - FUN-TF2W
+  - FUN-DV8F
+  - FUN-AV5B
+  - FUN-A60F
+  - FUN-DVKC
+  - FUN-EK3N
+  - FUN-VN36
+- name: earlier starting totals
+  to:
+  - FUN-TF2W
+  - FUN-DV8F
+  - FUN-A60F
+  - FUN-EK3N
+  - FUN-VN36
+- name: same-date notice
+  holds: that flights on the date count as already in the starting totals
+  to:
+  - pilot

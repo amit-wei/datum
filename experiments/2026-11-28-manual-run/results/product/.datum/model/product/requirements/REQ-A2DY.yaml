@@ -1,0 +1,12 @@
+id: REQ-A2DY
+status: agreed
+pattern: event
+statement: >-
+  When a pilot gives the current sign-in details of an account, the part shall give that device
+  access to the logbook of that account only.
+rationale: >-
+  A wrong binding of device to logbook exposes another pilot's data.
+of: FUN-B8SK
+answers:
+- HAZ-9K19
+- HAZ-XWCK

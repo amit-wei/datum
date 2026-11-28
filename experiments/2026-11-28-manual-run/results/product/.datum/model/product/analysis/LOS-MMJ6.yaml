@@ -1,0 +1,5 @@
+id: LOS-MMJ6
+status: agreed
+statement: "A pilot's private data, or others' personal data in it, is exposed to someone not allowed to see it."
+to: [user, third party]
+from: [ELI-H7X3#3]

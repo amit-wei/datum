@@ -1,0 +1,12 @@
+id: REQ-5SZX
+status: agreed
+pattern: ubiquitous
+statement: The part shall keep every earlier version of an entry, every removed entry, every
+  earlier set of starting totals and every version not chosen in a conflict until the account
+  is deleted, apart from data the builder erases for a privacy request, with any medical date
+  in them erased when consent is withdrawn.
+rationale: ELI-PX7E#1 and ELI-W9NN#7. The history shows that nothing was changed unnoticed.
+of: FUN-TF2W
+answers:
+- HAZ-BYMT
+source: builder

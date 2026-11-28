@@ -1,0 +1,12 @@
+id: SCN-5DS4
+status: agreed
+name: "Recover after losing a phone"
+kind: failure
+trigger: "A pilot's phone is lost or broken."
+preconditions: "The pilot has an account with synced records."
+steps:
+  - {n: 1, by: user, what: "Signs in on another device."}
+  - {n: 2, by: product, what: "Brings back every synced record."}
+  - {n: 3, by: product, what: "Says when the logbook was last synced, so the pilot can look for later flights that are missing."}
+outcome: "The pilot has all synced records again. Records that never left the lost phone are not recovered."
+needs: [ELI-H0GB#2, ELI-H7X3#2]

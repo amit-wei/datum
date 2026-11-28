@@ -1,0 +1,8 @@
+id: PRF-3KK8
+status: agreed
+title: Updates never interrupt entry
+method: test
+rationale: Only a release during input shows it.
+covers: REQ-ZKFG
+criterion:
+  pass: With a release arriving during an entry, no restart happens and the input stays.

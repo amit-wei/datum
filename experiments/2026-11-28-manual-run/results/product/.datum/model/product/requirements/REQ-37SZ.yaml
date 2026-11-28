@@ -1,0 +1,12 @@
+id: REQ-37SZ
+status: agreed
+pattern: event
+statement: >-
+  When the pilot confirms the removal of an entry, the part shall take the entry out of the
+  logbook, totals, rule results and PDF while keeping what the entry said as a removed entry.
+rationale: >-
+  A removal by mistake must be reversible (ELI-J7WZ#6).
+of: FUN-2JYW
+answers:
+- HAZ-BYMT
+- HAZ-SDKD

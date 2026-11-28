@@ -1,0 +1,11 @@
+id: REQ-JYYP
+status: agreed
+pattern: event
+statement: >-
+  When the pilot gives a CSV file and a column matching, the part shall show the flights and
+  the totals that would be added without changing the logbook.
+rationale: >-
+  ELI-KHF8#3: the pilot compares before saving.
+of: FUN-VY4C
+answers:
+- HAZ-BYMT

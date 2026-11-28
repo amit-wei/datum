@@ -1,0 +1,56 @@
+id: FUN-A60F
+status: agreed
+name: Give the pilot a copy of their data
+definition: Gives the pilot a copy of the data the app holds about them.
+serves:
+- SCN-B3Y0#2
+- SCN-070N#2
+inputs:
+- name: pilot account
+  from: FUN-EVE9
+- name: held privileges
+  from: FUN-V4TT
+- name: recorded starting totals
+  from: FUN-PDMV
+- name: recorded expiry dates
+  from: FUN-SJJQ
+- name: logbook entry
+  from: FUN-ESPG
+- name: logbook entry
+  from: FUN-5QA7
+- name: corrected entry
+  from: FUN-JX7F
+- name: entry removal
+  from: FUN-2JYW
+- name: import removal
+  from: FUN-YRV9
+- name: restored entry
+  from: FUN-SR3A
+- name: earlier version of a corrected entry
+  from: FUN-JX7F
+- name: earlier version of a removed entry
+  from: FUN-2JYW
+- name: earlier starting totals
+  from: FUN-PDMV
+- name: import record
+  from: FUN-5QA7
+- name: synced records
+  from: FUN-DV8F
+- name: recorded pilot details
+  from: FUN-82YT
+- name: medical date consent
+  from: FUN-EMXF
+- name: version not chosen
+  from: FUN-V0PH
+- name: renewed sign-in details
+  from: FUN-Q1BS
+- name: changed sign-in details
+  from: FUN-DAF5
+- name: privacy notice text
+  from: builder
+- name: changed means of contact
+  from: FUN-SGHT
+outputs:
+- name: data copy
+  to:
+  - pilot

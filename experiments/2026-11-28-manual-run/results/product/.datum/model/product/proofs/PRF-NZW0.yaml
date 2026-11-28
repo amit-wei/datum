@@ -1,0 +1,10 @@
+id: PRF-NZW0
+status: agreed
+title: Notice is public
+method: test
+rationale: >-
+  Routing changes can put it behind sign-in.
+covers: REQ-Q1PG
+criterion:
+  pass: >-
+    A visitor with no account reaches the notice with both subjects.

@@ -1,0 +1,27 @@
+id: HAZ-SDKD
+status: agreed
+statement: The part shows totals, rule results or expiry warnings that make a pilot appear more
+  permitted to fly than they are.
+losses:
+- LOS-8EGC
+- LOS-CS75
+- LOS-0NMV
+arises_from:
+- FUN-6NTH
+- FUN-69E8
+- FUN-VT5X
+- FUN-V4TT
+- FUN-PDMV
+- FUN-SJJQ
+- FUN-V6Z2
+- FUN-ESPG
+- FUN-VY4C
+- FUN-5QA7
+- FUN-JX7F
+- FUN-2JYW
+- FUN-YRV9
+- FUN-SR3A
+- FUN-DV8F
+- FUN-EMXF
+- FUN-V0PH
+- FUN-S6RT

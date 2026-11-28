@@ -1,0 +1,11 @@
+id: PRF-SSVH
+status: agreed
+title: Bad new details are refused
+method: test
+rationale: A separate path from account creation.
+covers: REQ-R3MF
+criterion:
+  pass: 'Both kinds are refused, the old details still work, and the response for details in
+    use does not show that another account exists. The check compares what the requester sees
+    at the time of the request, for details in use and not in use: the same messages, screens
+    and next steps.'

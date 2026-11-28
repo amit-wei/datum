@@ -1,0 +1,8 @@
+id: PRF-DVW7
+status: agreed
+title: What remains is told
+method: test
+rationale: Fixed text that must follow the retention setting.
+covers: REQ-F516
+criterion:
+  pass: The statement names backups and a latest date that agrees with REQ-X5KB.

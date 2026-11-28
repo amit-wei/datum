@@ -1,0 +1,12 @@
+id: REQ-71XD
+status: agreed
+pattern: ubiquitous
+statement: >-
+  The part shall lay out sailplane flights in the PDF with every item of AMC1 SFCL.050, accumulated
+  totals and signature space.
+rationale: >-
+  RES-7H7D n7. Whether the Dutch national glider layout (n9) is also needed awaits the ILT or
+  KNVvL answer (ELI-FV4M#4).
+of: FUN-AV5B
+answers:
+- HAZ-FRTK

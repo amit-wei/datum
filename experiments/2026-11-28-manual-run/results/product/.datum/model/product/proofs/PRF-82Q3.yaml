@@ -1,0 +1,14 @@
+id: PRF-82Q3
+status: agreed
+title: A repeat flight is quick to log
+method: demonstration
+rationale: >-
+  Only a person using it shows whether it is quick.
+covers: REQ-TXC0
+criterion:
+  pass: >-
+    log_time meets every bound of the requirement.
+  conditions: >-
+    Someone who has used the part once, on a phone, offline; the new flight differs in times
+    and landings only.
+  sample_min: 5

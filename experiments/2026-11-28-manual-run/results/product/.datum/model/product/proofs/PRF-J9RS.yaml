@@ -1,0 +1,16 @@
+id: PRF-J9RS
+status: agreed
+title: Unsigned items never satisfy a rule
+method: test
+rationale: Each rule has its own counting.
+covers: REQ-3KAM
+criterion:
+  pass: 'With fixtures in which an unsigned entry of each named kind supplies the last hour,
+    take-off, landing or launch needed: LAPL(A), SPL sailplane and SPL TMG recency are not met,
+    and met once the entry is signed. An unsigned dual or training flight is included in revalidation
+    experience, 90-day passenger, launch method and one-time hour counts; an unsigned supervised
+    flight is in none of them; an unsigned check, skill test or assessment adds to no count
+    that requires PIC. An unsigned refresher, check or passenger training flight satisfies no
+    refresher, check or passenger training item. An unsigned check, skill test or assessment
+    is still included in revalidation total hours, take-offs and landings, in 90-day passenger
+    recency where PIC is not required, and in launch method recency.'

@@ -1,0 +1,11 @@
+id: PRF-AKWH
+status: agreed
+title: Concurrent changes conflict
+method: test
+rationale: >-
+  Last-write-wins slips in easily.
+covers: REQ-HA6Z
+criterion:
+  pass: >-
+    For each record kind and for edit against removal, both changes survive and a conflict shows
+    on both devices, whatever the order of syncing and with wrong device clocks.

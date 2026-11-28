@@ -1,0 +1,10 @@
+id: PRF-1NJC
+status: agreed
+title: Other devices are cut off on connect
+method: test
+rationale: Needs several devices; manual checks would skip it.
+covers: REQ-M9E7
+criterion:
+  pass: On connecting, the other device shows no record, exchanges none and holds none readably
+    in its storage until it signs in with the new details.
+  conditions: Second device offline during the change; run for a change and for a recovery.

@@ -1,0 +1,33 @@
+id: FUN-B8SK
+status: agreed
+name: Sign in to an account
+definition: Lets a pilot reach their own logbook on a device.
+serves:
+- SCN-5DS4#1
+- SCN-TYPM#1
+inputs:
+- name: sign-in details
+  from: pilot
+- name: pilot account
+  from: FUN-EVE9
+- name: renewed sign-in details
+  from: FUN-Q1BS
+- name: synced records
+  from: FUN-DV8F
+- name: changed sign-in details
+  from: FUN-DAF5
+- name: device signed out
+  from: FUN-ZH87
+outputs:
+- name: signed-in pilot
+  holds: whose logbook this device may reach
+  to:
+  - FUN-DV8F
+  - FUN-VN36
+  - FUN-ZH87
+  - FUN-DAF5
+  - FUN-SGHT
+- name: sign-in refusal
+  holds: that access was refused, pointing to account recovery, the same whatever the reason
+  to:
+  - pilot

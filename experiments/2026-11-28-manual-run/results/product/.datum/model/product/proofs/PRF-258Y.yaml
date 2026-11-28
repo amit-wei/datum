@@ -1,0 +1,9 @@
+id: PRF-258Y
+status: agreed
+title: Resolution never moves a signature
+method: test
+rationale: Merging code could combine fields.
+covers: REQ-TZ3X
+criterion:
+  pass: For each pairing of signed and unsigned versions the result carries the mark only with
+    the chosen signed content.

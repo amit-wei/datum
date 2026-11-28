@@ -1,0 +1,12 @@
+id: PRF-8QQJ
+status: agreed
+title: A full history imports
+method: test
+rationale: >-
+  Memory limits appear only at size on a phone.
+covers: REQ-2AXE
+criterion:
+  pass: >-
+    A file with the number of rows of the bound previews and imports completely.
+  conditions: >-
+    On a phone.

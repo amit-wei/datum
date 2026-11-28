@@ -1,0 +1,11 @@
+id: PRF-SVZK
+status: agreed
+title: Withdrawal erases every copy
+method: test
+rationale: Hidden copies in history are the likely leak.
+covers: REQ-5Q3Q
+criterion:
+  pass: A search of the device storage at once, and of the live online copy after the next connection,
+    finds no medical date; a second device that holds it erases it on connecting and does not
+    upload it.
+  conditions: A medical date with earlier values and a version not chosen, on two devices.

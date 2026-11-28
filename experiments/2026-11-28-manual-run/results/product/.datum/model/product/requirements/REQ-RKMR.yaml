@@ -1,0 +1,11 @@
+id: REQ-RKMR
+status: agreed
+pattern: ubiquitous
+statement: The part shall let only the latest confirmation message of a sign-up or of a change
+  of the means of contact confirm anything, and only the means of contact to which that message
+  was sent.
+rationale: Otherwise whoever received a message sent to a mistyped address could still confirm
+  it, and recovery proofs would go to that person.
+of: FUN-EVE9
+answers:
+- HAZ-9K19

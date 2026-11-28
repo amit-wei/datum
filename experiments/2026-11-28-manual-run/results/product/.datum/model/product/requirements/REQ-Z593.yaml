@@ -1,0 +1,11 @@
+id: REQ-Z593
+status: agreed
+pattern: unwanted
+statement: If the pilot marks as signed an entry that has no instructor or examiner name, then
+  the part shall leave the entry unsigned and ask for the name.
+rationale: The logbook needs the name with the signature (RES-7H7D n4, n14). Requiring it was
+  the agent's proposal. The builder accepted the proposed rules in ELI-SCJS.
+of: FUN-JX7F
+answers:
+- HAZ-SDKD
+- HAZ-FRTK

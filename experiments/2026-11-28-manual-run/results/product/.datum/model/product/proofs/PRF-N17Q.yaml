@@ -1,0 +1,8 @@
+id: PRF-N17Q
+status: agreed
+title: Send failure is told
+method: test
+rationale: Only fault injection shows it.
+covers: REQ-3HT9
+criterion:
+  pass: With the message service reporting failure, the pilot is told; no confirmation is recorded.

@@ -1,0 +1,11 @@
+id: REQ-ZDBY
+status: agreed
+pattern: event
+statement: When the pilot opens the setup details, the part shall show the current name, address,
+  means of contact, licences, ratings, other rule facts, expiry dates and starting totals with
+  their date.
+rationale: 'SCN-RXEM: the pilot can only correct what they see. The contact is shown so that
+  the pilot can spot a wrong or outdated one (ELI-DZR1#1).'
+of: FUN-DVKC
+answers:
+- HAZ-SDKD

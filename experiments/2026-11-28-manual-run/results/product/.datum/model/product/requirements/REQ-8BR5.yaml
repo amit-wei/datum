@@ -1,0 +1,10 @@
+id: REQ-8BR5
+status: agreed
+pattern: event
+statement: When the means of contact is changed, the part shall send a notice of the change
+  to the old means of contact.
+rationale: Lets the owner notice a takeover (ELI-PSRH#1).
+of: FUN-SGHT
+answers:
+- HAZ-9K19
+source: builder

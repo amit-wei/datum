@@ -1,0 +1,10 @@
+id: PRF-FZ8A
+status: agreed
+title: Exactly the applicable rules are shown
+method: test
+rationale: A new privilege combination can drop a rule.
+covers: REQ-5CG2
+criterion:
+  pass: For each combination of held privileges the set of results equals a hand-made table.
+  conditions: LAPL(A), PPL(A) with SEP, TMG, both; SPL with and without TMG; SPL plus a Part-FCL
+    TMG privilege; none. Also a LAPL(A) holder who held PPL(A) before.

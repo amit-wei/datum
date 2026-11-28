@@ -1,0 +1,11 @@
+id: REQ-MQYG
+status: agreed
+pattern: unwanted
+statement: If account details are incomplete or come with a stated age below the minimum of
+  REQ-8YT6, then the part shall create no account and state which condition failed.
+rationale: Refused input must not leave a half-made account or touch an existing one. Details
+  are incomplete when anything the sign-in design needs to identify the pilot and to let only
+  the pilot in is missing.
+of: FUN-EVE9
+answers:
+- HAZ-9K19

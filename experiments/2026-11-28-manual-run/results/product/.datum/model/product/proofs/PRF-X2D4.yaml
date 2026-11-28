@@ -1,0 +1,9 @@
+id: PRF-X2D4
+status: agreed
+title: Impossible dates are refused
+method: test
+rationale: Date parsing changes with libraries and locales and can start rolling 31 February
+  into March.
+covers: REQ-46ST
+criterion:
+  pass: An impossible date such as 31 February is refused with a message; a past date is accepted.

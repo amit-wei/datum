@@ -1,0 +1,13 @@
+id: REQ-22JV
+status: agreed
+pattern: unwanted
+statement: >-
+  If a flight to be saved lacks a required item or breaks a validity rule of REQ-GDYQ, then
+  the part shall not add the entry, name each fault, and keep what the pilot typed for correction.
+rationale: >-
+  A bad entry would give wrong totals and results; losing the typed input makes the pilot retype
+  at the airfield.
+of: FUN-ESPG
+answers:
+- HAZ-BYMT
+- HAZ-SDKD

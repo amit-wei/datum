@@ -1,0 +1,36 @@
+id: FUN-69E8
+status: agreed
+name: "Show recent experience rule results"
+definition: "Shows for each covered rule that applies whether it is met, until when or what is missing, the flights counted, strict readings, unsigned items not counted, how current the rules are, and when no result can be given. Covered: LAPL(A) and SPL recent experience including TMG and launch methods, PPL(A) single-engine and TMG rating renewal by experience, and passenger rules including night and one-time requirements. Affected results are withheld while a conflict is unresolved."
+serves: [SCN-72S0#11, SCN-JPQT#3, SCN-7T38#2, SCN-A5Z1#2, SCN-D3B7#2, SCN-D3B7#4, SCN-6E8F#2, SCN-RXEM#4, SCN-2YTZ#4, SCN-33Y5#2, SCN-7T38#5, SCN-5EAZ#2]
+inputs:
+  - name: "covered rules"
+    holds: "the rules and how current they are"
+    from: builder
+  - name: "held privileges"
+    from: FUN-V4TT
+  - name: "logbook entry"
+    from: FUN-ESPG
+  - name: "logbook entry"
+    from: FUN-5QA7
+  - name: "corrected entry"
+    from: FUN-JX7F
+  - name: "entry removal"
+    from: FUN-2JYW
+  - name: "recorded starting totals"
+    from: FUN-PDMV
+  - name: "import removal"
+    from: FUN-YRV9
+  - name: "restored entry"
+    from: FUN-SR3A
+  - name: "recorded expiry dates"
+    from: FUN-SJJQ
+  - name: "synced records"
+    from: FUN-DV8F
+  - name: "medical date consent"
+    from: FUN-EMXF
+  - name: "conflicting changes"
+    from: FUN-DV8F
+outputs:
+  - name: "rule results"
+    to: [pilot]

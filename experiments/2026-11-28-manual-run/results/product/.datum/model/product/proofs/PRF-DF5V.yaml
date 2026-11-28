@@ -1,0 +1,9 @@
+id: PRF-DF5V
+status: agreed
+title: Medical warnings off is said
+method: test
+rationale: The message depends on consent and date states that change independently.
+covers: REQ-4MRB
+criterion:
+  pass: Shown without consent, after withdrawal, and with consent but no date; absent when a
+    date is kept.

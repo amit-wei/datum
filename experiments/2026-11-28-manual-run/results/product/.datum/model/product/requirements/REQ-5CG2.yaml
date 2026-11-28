@@ -1,0 +1,12 @@
+id: REQ-5CG2
+status: agreed
+pattern: ubiquitous
+statement: The part shall give a result for each of the rules in REQ-ADTS, REQ-6CPP, REQ-6KCQ,
+  REQ-9MV4, REQ-A3S1, REQ-XRMN, REQ-QX85, REQ-2S5R and REQ-C2MJ that applies to the pilot's
+  held privileges, and for no other rule.
+rationale: 'ELI-C382#3. Towing, cloud flying, mountain and engine variants are out. Builder
+  limit: ELI-C382#3 and ELI-FV4M#2.'
+of: FUN-69E8
+answers:
+- HAZ-SDKD
+source: builder

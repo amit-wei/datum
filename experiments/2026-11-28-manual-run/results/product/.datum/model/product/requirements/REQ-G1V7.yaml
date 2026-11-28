@@ -1,0 +1,13 @@
+id: REQ-G1V7
+status: agreed
+pattern: unwanted
+statement: If the pilot's proof of identity for a change of the means of contact is missing
+  or wrong, or the new means of contact is not confirmed, then the part shall keep the old means
+  of contact in use.
+rationale: Changing the contact would hand recovery to whoever controls the new one (ELI-PSRH#1).
+  What counts as confirmed is set by REQ-DZF7. Without this a mistyped address would send recovery
+  proofs to a stranger.
+of: FUN-SGHT
+answers:
+- HAZ-9K19
+- HAZ-XWCK

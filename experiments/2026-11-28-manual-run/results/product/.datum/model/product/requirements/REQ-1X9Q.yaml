@@ -1,0 +1,20 @@
+id: REQ-1X9Q
+status: agreed
+pattern: event
+statement: When account deletion is confirmed, the part shall erase the account and all its
+  data from the live online copy and the confirming device within {measure}.
+measure:
+  metric: erase_time
+  definition: From confirmation to erasure from live stores.
+  unit: hours
+  bounds:
+  - statistic: max
+    op: <=
+    value: 24
+rationale: 'ELI-C382#6; RES-RZXY n18-19. The time was the agent''s proposal. The builder accepted
+  the proposed rules in ELI-SCJS. Value: a judgement call with no researched source, accepted
+  by the builder as a starting target (ELI-SCJS#5); revisit if testing or running cost gives
+  a reason.'
+of: FUN-VN36
+answers:
+- HAZ-7R3N

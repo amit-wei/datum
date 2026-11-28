@@ -1,0 +1,9 @@
+id: PRF-W00S
+status: agreed
+title: Same-date rule is told
+method: test
+rationale: The statement must stay at the point of choosing the date; an automated screen test
+  notices its loss on every change at no repeat cost.
+covers: REQ-1FKF
+criterion:
+  pass: The statement is visible at the time the date is chosen, before saving.

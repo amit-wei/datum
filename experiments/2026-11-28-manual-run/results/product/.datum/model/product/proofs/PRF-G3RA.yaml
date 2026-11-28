@@ -1,0 +1,8 @@
+id: PRF-G3RA
+status: agreed
+title: Aeroplane pages follow the official format
+method: inspection
+rationale: Format is fixed by design and checked by eye.
+covers: REQ-BKPX
+criterion:
+  pass: Each column and block of the AMC1 FCL.050 form is present.

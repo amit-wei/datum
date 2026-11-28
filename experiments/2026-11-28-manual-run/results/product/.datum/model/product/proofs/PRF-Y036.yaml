@@ -1,0 +1,13 @@
+id: PRF-Y036
+status: agreed
+title: Data copy is complete and holds no secrets
+method: test
+rationale: >-
+  Every new stored item must be added.
+covers: REQ-4SMW
+criterion:
+  pass: >-
+    A comparison with the stored data finds each item in the copy and no secret or token; another
+    program can parse it.
+  conditions: >-
+    An account using every kind of record.

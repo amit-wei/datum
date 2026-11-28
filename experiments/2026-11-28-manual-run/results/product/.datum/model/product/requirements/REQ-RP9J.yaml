@@ -1,0 +1,11 @@
+id: REQ-RP9J
+status: agreed
+pattern: unwanted
+statement: If the entered expiry date of an SEP or TMG class rating on a PPL(A) is before the
+  day assessed, then the part shall show no met result for revalidation of that rating and state
+  that the rating has expired and needs renewal.
+rationale: A lapsed rating needs renewal, not revalidation (RES-7H7D n23); experience from before
+  the expiry must not read as met.
+of: FUN-69E8
+answers:
+- HAZ-SDKD

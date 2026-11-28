@@ -1,0 +1,9 @@
+id: PRF-A09S
+status: agreed
+title: Pilot details are saved
+method: test
+rationale: Changes to storage or text encoding can truncate or garble accented and long values.
+covers: REQ-FG1C
+criterion:
+  pass: The saved values read back exactly, including after restart, with accented and long
+    values.

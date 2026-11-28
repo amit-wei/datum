@@ -1,0 +1,11 @@
+id: PRF-200C
+status: agreed
+title: Undo removes only that import
+method: test
+rationale: >-
+  An over-broad removal destroys flights.
+covers: REQ-B3PG
+criterion:
+  pass: >-
+    Entries outside the import are untouched; every removed one can be restored with its latest
+    content.

@@ -1,0 +1,12 @@
+id: REQ-EGHF
+status: agreed
+pattern: unwanted
+statement: >-
+  If a complete PDF cannot be produced, then the part shall give the pilot no PDF and say that
+  production failed.
+rationale: >-
+  A cut-off file could be sent as the logbook.
+of: FUN-AV5B
+answers:
+- HAZ-FRTK
+- HAZ-XWCK

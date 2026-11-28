@@ -1,0 +1,10 @@
+id: PRF-A6PH
+status: agreed
+title: Stale files say so
+method: test
+rationale: >-
+  Only offline use shows it.
+covers: REQ-CTTJ
+criterion:
+  pass: >-
+    A PDF and a data copy made offline carry the last sync time.

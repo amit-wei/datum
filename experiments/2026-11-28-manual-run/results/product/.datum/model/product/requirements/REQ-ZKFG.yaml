@@ -1,0 +1,8 @@
+id: REQ-ZKFG
+status: agreed
+pattern: state
+statement: While the pilot has unsaved input, the part shall not restart to apply an update.
+rationale: A restart would lose what the pilot is typing at the airfield.
+of: FUN-V6Z2
+answers:
+- HAZ-BYMT

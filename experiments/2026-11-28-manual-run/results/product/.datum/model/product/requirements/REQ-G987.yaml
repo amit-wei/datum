@@ -1,0 +1,11 @@
+id: REQ-G987
+status: agreed
+pattern: event
+statement: When a device connects after the builder erased data other than a whole account for
+  a privacy request, the part shall erase that data from the device and upload none of it.
+rationale: A request answered by erasure (ELI-C382#6; RES-RZXY n19, n25) must not be undone
+  by a device that still holds the data. A whole account erased on request is an account deletion
+  and follows REQ-26SS and REQ-KK7F.
+of: FUN-S6RT
+answers:
+- HAZ-7R3N

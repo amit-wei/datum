@@ -1,0 +1,33 @@
+id: SCN-TYPM
+status: agreed
+name: Recovery after repeated failed attempts
+kind: failure
+trigger: Many failed sign-in or recovery attempts, by anyone, reach the limit for an account.
+preconditions: The pilot has an account.
+steps:
+- n: 1
+  by: product
+  what: Turns off the sign-in method or cancels the recovery proof at its limit, tells the owner
+    of a cancelled proof, and points a person whose sign-in is refused to account recovery.
+- n: 2
+  by: user
+  what: Asks for a recovery proof.
+- n: 3
+  by: product
+  what: Says only that the request was received, and sends a new one-time proof to the confirmed
+    means of contact.
+- n: 4
+  by: user
+  what: Recovers access.
+- n: 5
+  by: product
+  what: Restores access and tells the owner that it did.
+outcome: The owner has access again. An owner who cannot use recovery does not, which the builder
+  accepted.
+needs:
+- ELI-SCJS#8
+- ELI-PSRH#2
+- ELI-PSRH#3
+- ELI-X445#1
+- ELI-KKPH#1
+- ELI-KKPH#3

@@ -1,0 +1,8 @@
+id: PRF-19DM
+status: agreed
+title: The warning covers revoked devices
+method: test
+rationale: A redesign of the warning can drop it.
+covers: REQ-3F4B
+criterion:
+  pass: The statement appears before the confirmation can be given.

@@ -1,0 +1,28 @@
+id: FUN-DVKC
+status: agreed
+name: Show setup details
+definition: Shows the pilot their name and address, means of contact, licences and ratings,
+  expiry dates and starting totals.
+serves:
+- SCN-RXEM#2
+inputs:
+- name: recorded pilot details
+  from: FUN-82YT
+- name: held privileges
+  from: FUN-V4TT
+- name: recorded expiry dates
+  from: FUN-SJJQ
+- name: recorded starting totals
+  from: FUN-PDMV
+- name: synced records
+  from: FUN-DV8F
+- name: medical date consent
+  from: FUN-EMXF
+- name: pilot account
+  from: FUN-EVE9
+- name: changed means of contact
+  from: FUN-SGHT
+outputs:
+- name: shown setup details
+  to:
+  - pilot

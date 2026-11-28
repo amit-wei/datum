@@ -1,0 +1,12 @@
+id: SCN-C606
+status: agreed
+name: "Withdraw consent for the medical date"
+kind: variation
+trigger: "A pilot no longer wants the app to keep their medical date."
+preconditions: "The pilot has consented."
+steps:
+  - {n: 1, by: user, what: "Withdraws consent."}
+  - {n: 2, by: product, what: "Erases the medical date."}
+  - {n: 3, by: product, what: "Says that medical warnings are off."}
+outcome: "The medical date is gone and the pilot knows no warning will come."
+needs: [ELI-C382#6]

@@ -1,0 +1,11 @@
+id: REQ-5NGX
+status: agreed
+pattern: unwanted
+statement: >-
+  If a rule is not met on the entries while its window reaches back to or before the starting-total
+  date, then the part shall state that flights from that time count only when entered individually.
+rationale: >-
+  ELI-FV4M#5: starting totals carry no dates, so recent flights must be entered one by one.
+of: FUN-69E8
+answers:
+- HAZ-SDKD

@@ -1,0 +1,11 @@
+id: PRF-DD82
+status: agreed
+title: Failed syncs lose nothing
+method: test
+rationale: >-
+  Only fault injection notices.
+covers: REQ-MMPA
+criterion:
+  pass: >-
+    Through repeated failures of each kind nothing is lost or duplicated, and once the service
+    works all records sync once.

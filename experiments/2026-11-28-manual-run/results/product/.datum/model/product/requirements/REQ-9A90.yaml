@@ -1,0 +1,9 @@
+id: REQ-9A90
+status: agreed
+pattern: unwanted
+statement: If the pilot's proof of identity for a change of sign-in details is missing or wrong,
+  then the part shall keep the old sign-in details.
+rationale: Someone at an unattended signed-in device must not take over the account (SCN-H46X#2).
+of: FUN-DAF5
+answers:
+- HAZ-9K19

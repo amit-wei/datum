@@ -1,0 +1,11 @@
+id: REQ-NRFR
+status: agreed
+pattern: event
+statement: When a person asks at sign-up for the confirmation message again or corrects the
+  means of contact, the part shall, within the limit of REQ-YTDM, send a new confirmation message
+  to the means of contact then given.
+rationale: A message can be lost or the address mistyped (ELI-KKPH#2).
+of: FUN-EVE9
+answers:
+- HAZ-XWCK
+source: builder

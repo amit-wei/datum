@@ -1,0 +1,9 @@
+id: REQ-QKN9
+status: agreed
+pattern: unwanted
+statement: If a licence issue date is not a real date or is after today, then the part shall
+  refuse to save that date and say why.
+rationale: A wrong issue date shifts what counts since issue. The other facts are fixed choices.
+of: FUN-V4TT
+answers:
+- HAZ-SDKD

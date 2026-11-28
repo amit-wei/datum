@@ -1,0 +1,11 @@
+id: REQ-CDPB
+status: agreed
+pattern: unwanted
+statement: >-
+  If a record arriving by sync cannot be read or breaks a rule of REQ-GDYQ, then the part shall
+  leave the stored records unchanged and tell the pilot that a record could not be synced.
+rationale: >-
+  A damaged record must not overwrite a good one or vanish.
+of: FUN-DV8F
+answers:
+- HAZ-BYMT

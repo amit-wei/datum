@@ -1,0 +1,23 @@
+id: ELI-X445
+date: '2026-11-28'
+entries:
+- n: 1
+  question: 'Three details added while fixing review findings, recommended to accept: each new
+    recovery proof restarts the count toward 100 (hourly limit still applies); replacement proofs
+    can be requested from a cancellation until a recovery succeeds, each replacing the previous
+    one, and such a request otherwise changes nothing; replacements go to the address in use
+    at the cancellation, so an owner who changes a lost address only afterwards may lose online
+    access for good (the sign-up warning does not mention this case).'
+  answer: 'yes'
+  need: true
+  constraint: true
+- n: 2
+  question: 'Recommended: leave open, to be settled before real pilot data goes in: no limit
+    on address-confirmation messages or wrong confirmation attempts, and nothing on how long
+    to keep details from unfinished sign-ups. (One yes to this and entry 1.)'
+  answer: 'yes'
+- n: 3
+  question: 'Open item from entry 2 (not an answer from the builder). How it is settled: raised
+    in synthesis with the sign-up and sign-in design, as new requirements put to the builder,
+    before real pilot data goes in.'
+  answer: Open; not an answer from the builder.

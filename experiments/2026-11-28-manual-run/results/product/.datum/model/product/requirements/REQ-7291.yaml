@@ -1,0 +1,9 @@
+id: REQ-7291
+status: agreed
+pattern: unwanted
+statement: If a device runs a release too old to read a record without loss, then the part shall
+  ask the pilot to update.
+rationale: A pilot who is only refused a change would not know that updating removes the refusal.
+of: FUN-DV8F
+answers:
+- HAZ-BYMT

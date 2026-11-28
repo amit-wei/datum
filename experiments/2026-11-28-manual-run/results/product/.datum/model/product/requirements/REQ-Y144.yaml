@@ -1,0 +1,9 @@
+id: REQ-Y144
+status: agreed
+pattern: event
+statement: >-
+  When the pilot asks for past imports, the part shall show for each import its time, file name
+  and the entries it added, marking those since changed or removed.
+rationale: >-
+  ELI-C382#5.
+of: FUN-DDT6

@@ -1,0 +1,14 @@
+id: REQ-MVST
+status: agreed
+pattern: unwanted
+statement: If a request for account creation, sign-in on a device, change or recovery of sign-in
+  details, change of the means of contact, account deletion or a request for a recovery proof
+  cannot be delivered to the online service, or, for any of these other than a request for a
+  recovery proof, the service answers that it refused the request and did nothing, then the
+  part shall change nothing and say that the action did not happen.
+rationale: 'ELI-W9NN#8. Builder limit: ELI-W9NN#8.'
+of: FUN-B8SK
+answers:
+- HAZ-XWCK
+- HAZ-BYMT
+source: builder

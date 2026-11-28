@@ -1,0 +1,11 @@
+id: REQ-RKA1
+status: agreed
+pattern: unwanted
+statement: If the way the part is being used lets the phone system delete stored records after
+  a period without use, then the part shall warn the pilot and say how to use the part so that
+  the records are kept.
+rationale: Some phone systems delete a website's stored data after days without use (RES-X2SP
+  n6-7). Where no way of using the part has such a rule, the condition never occurs.
+of: FUN-ESPG
+answers:
+- HAZ-2CDR

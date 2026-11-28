@@ -1,0 +1,10 @@
+id: PRF-B1WY
+status: agreed
+title: Erased names leave a valid signed entry
+method: test
+rationale: Validation of required items could reject the changed record.
+covers: REQ-KRFX
+criterion:
+  pass: 'With a PIC name and a signer''s name erased from signed and unsigned entries: the text
+    shows in the app and the PDF, signed marks and rule results are unchanged, the entries sync
+    without being reported as faulty, and they can still be corrected.'

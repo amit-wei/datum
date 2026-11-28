@@ -1,0 +1,13 @@
+id: SCN-H9FP
+status: agreed
+name: "Import a file with problems"
+kind: failure
+trigger: "A pilot's CSV file has rows the app cannot read, or the preview does not match the old logbook."
+preconditions: "The pilot has an account."
+steps:
+  - {n: 1, by: user, what: "Provides the file and matches the columns."}
+  - {n: 2, by: product, what: "Flags the rows it cannot read and rows that look like flights already in the logbook or repeated in the file, and shows what the preview includes and leaves out."}
+  - {n: 3, by: user, what: "Cancels, changes the matching or fixes the file. Rows that look like duplicates are left out unless the pilot includes them one by one."}
+  - {n: 4, by: product, what: "Leaves the logbook as it was until the pilot confirms an import."}
+outcome: "No flight is added wrongly or dropped without the pilot knowing."
+needs: [ELI-KHF8#3, ELI-C382#5, ELI-W9NN#3]

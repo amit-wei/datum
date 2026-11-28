@@ -1,0 +1,10 @@
+id: PRF-5J4C
+status: agreed
+title: Conflicting dates warn strictly
+method: test
+rationale: >-
+  Needs a conflict.
+covers: REQ-M2S0
+criterion:
+  pass: >-
+    With one version near and one far the warning shows and is marked.

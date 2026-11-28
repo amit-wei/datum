@@ -1,0 +1,8 @@
+id: REQ-WZQW
+status: agreed
+pattern: event
+statement: When the pilot chooses a shown entry, the part shall show every item the entry holds.
+rationale: 'ELI-J7WZ#1: finding a flight includes its details.'
+of: FUN-MPTZ
+answers:
+- HAZ-XWCK

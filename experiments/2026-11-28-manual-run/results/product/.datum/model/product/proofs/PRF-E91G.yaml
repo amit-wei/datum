@@ -1,0 +1,10 @@
+id: PRF-E91G
+status: agreed
+title: Faulty corrections are refused
+method: test
+rationale: >-
+  Edit paths often skip validation.
+covers: REQ-M08V
+criterion:
+  pass: >-
+    One violating correction per rule is refused.

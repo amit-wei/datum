@@ -1,0 +1,15 @@
+id: REQ-XRMN
+status: agreed
+pattern: state
+statement: While the pilot holds SPL, the part shall show sailplane recency as met only if within
+  24 months there are at least 5 hours as PIC, dual or supervised solo on sailplanes other than
+  TMG with at least 15 launches and 2 signed training flights with an instructor, or a signed
+  passed proficiency check on a sailplane other than TMG.
+rationale: SFCL.160(a) (RES-7H7D n26). Day-to-day counting for training flights is the stricter
+  of the two readings (n28). Counting TMG hours toward the 5 hours is inferred (n27), so the
+  strict reading leaves them out and says so. Leaving TMG hours out of the 5 hours and counting
+  training flights day to day were the agent's proposed readings. The builder accepted the proposed
+  rules in ELI-SCJS.
+of: FUN-69E8
+answers:
+- HAZ-SDKD

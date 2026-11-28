@@ -1,0 +1,11 @@
+id: REQ-3F4B
+status: agreed
+pattern: event
+statement: When the pilot asks to delete the account, the part shall, before asking for confirmation,
+  state that unsynced records on a device whose access has ended will be erased without a copy,
+  and that keeping them needs signing in again on that device and syncing before the deletion.
+rationale: The pilot can act only before deleting (ELI-PDPX#4).
+of: FUN-VN36
+answers:
+- HAZ-2CDR
+source: builder

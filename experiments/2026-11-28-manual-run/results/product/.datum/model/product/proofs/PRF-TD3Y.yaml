@@ -1,0 +1,10 @@
+id: PRF-TD3Y
+status: agreed
+title: History is complete and marked
+method: test
+rationale: >-
+  New change paths may not record history.
+covers: REQ-1PTP
+criterion:
+  pass: >-
+    After one change of each kind, each earlier version is shown, marked and dated.

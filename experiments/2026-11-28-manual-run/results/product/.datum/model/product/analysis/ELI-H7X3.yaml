@@ -1,0 +1,35 @@
+id: ELI-H7X3
+date: 2026-11-28
+entries:
+  - n: 1
+    question: "Devices (where it runs). Proposed: designed mainly for iPhone and Android phones, but also works in a computer browser for imports and exports."
+    answer: "yes"
+    need: true
+    constraint: true
+  - n: 2
+    question: "Lost or broken phone. Proposed: pilots can get their synced records back on a new phone; the app shows which records have not synced."
+    answer: "yes"
+    need: true
+  - n: 3
+    question: "Privacy and data protection. Proposed: others cannot see a pilot's logbook unless the pilot shares it; pilots can download their data and delete their account; exposing private data is something that must never happen; privacy rules to be researched before detailed requirements."
+    answer: "sure"
+    need: true
+    loss: true
+    constraint: true
+  - n: 4
+    question: "The people using it: language and accessibility. Proposed: English first, Dutch possibly later; no special accessibility needs known. (Users are the licensed pilots of ELI-FV4M entry 2.)"
+    answer: "sure"
+    constraint: true
+  - n: 5
+    question: "Rejected records. Proposed: a logbook refused at an official check is another harm to prevent; acceptance cannot be guaranteed."
+    answer: "yes"
+    loss: true
+  - n: 6
+    question: "Getting it into use and keeping it there. Proposed: the builder maintains it, and an update must never damage existing records."
+    answer: "yes"
+    need: true
+    loss: true
+    constraint: true
+  - n: 7
+    question: "Agreed picture. A simple primary logbook for Dutch LAPL(A), PPL(A) and SPL pilots, first version of the builder's business: quick logging with or without signal; past flights by starting totals and CSV; totals; per-rule met / not met with reasons; warnings from entered medical, rating and language expiry dates; PDF export. Out: microlights, unlicensed students, automatic tracking, club connections, IGC, instructor accounts, in-app signing, overall cleared-to-fly. Never: lose or silently change records; give wrong totals, rule results or expiry warnings. Builder alone, small budget, no deadline. Unconfirmed: what friends find clunky; official acceptance, especially gliding. Does this and the six suggestions match?"
+    answer: "1) yes 2) yes 3) sure 4) sure 5) yes 6) yes. (Numbered replies to the six suggestions; no separate answer to the picture and no correction to it.)"

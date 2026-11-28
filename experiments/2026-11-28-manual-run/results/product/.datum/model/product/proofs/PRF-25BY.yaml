@@ -1,0 +1,13 @@
+id: PRF-25BY
+status: agreed
+title: Records leave the device quickly
+method: test
+rationale: >-
+  Sync regressions are silent.
+covers: REQ-AMNB
+criterion:
+  pass: >-
+    sync_delay meets every bound over the sample.
+  conditions: >-
+    Records made offline, then connection restored with the app open; also on app launch.
+  sample_min: 20

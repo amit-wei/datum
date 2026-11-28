@@ -1,0 +1,18 @@
+id: REQ-E4BA
+status: agreed
+pattern: ubiquitous
+statement: The part shall total the aeroplane and TMG pages and the sailplane pages of the PDF
+  as two separate sections, in each of which a page total is the sum of that page's entries
+  dated after the starting-total date, or of all that page's entries when there are no starting
+  totals, a brought-forward figure is the accumulated figure of the page before, starting on
+  the first page from the starting figures of the section's classes or from zero when there
+  are none, the last accumulated figure equals the sum of the logbook totals of REQ-KX5S for
+  the section's classes, and entries on or before the starting-total date are marked as already
+  included in the starting totals.
+rationale: Wrong sums in the file would be read as the pilot's record. The aeroplane section
+  covers SEP and TMG, the sailplane section sailplanes other than TMG. One rule for how a section
+  adds up.
+of: FUN-AV5B
+answers:
+- HAZ-FRTK
+- HAZ-SDKD

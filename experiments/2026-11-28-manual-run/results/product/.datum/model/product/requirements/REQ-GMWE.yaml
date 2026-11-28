@@ -1,0 +1,12 @@
+id: REQ-GMWE
+status: agreed
+pattern: event
+statement: >-
+  When a sign-out is carried out, the part shall remove from the device every copy of the pilot's
+  records that the part keeps there.
+rationale: >-
+  On a shared computer anything left behind can be read by the next person (SCN-AYXJ). Files
+  the pilot saved themselves are outside the part's reach.
+of: FUN-ZH87
+answers:
+- HAZ-9K19

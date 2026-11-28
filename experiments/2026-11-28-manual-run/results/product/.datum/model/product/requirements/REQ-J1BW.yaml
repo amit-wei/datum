@@ -1,0 +1,20 @@
+id: REQ-J1BW
+status: agreed
+pattern: event
+statement: When the builder states data to be erased for a privacy request, the part shall erase
+  the stated data, including from earlier versions, removed entries and versions not chosen,
+  from the live online copy within {measure}.
+measure:
+  metric: privacy_erase_time
+  definition: From the builder stating the data to its erasure from live online stores.
+  unit: hours
+  bounds:
+  - statistic: max
+    op: <=
+    value: 24
+rationale: ELI-C382#6; RES-RZXY n19. The same time as for account deletion is applied, so that
+  no second target is needed.
+of: FUN-S6RT
+answers:
+- HAZ-7R3N
+source: builder

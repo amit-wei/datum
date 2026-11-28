@@ -1,0 +1,14 @@
+id: REQ-K492
+status: agreed
+pattern: unwanted
+statement: If the online copy lacks records that a device holds as synced, other than through
+  a removal, undo, account deletion or consent withdrawal by the pilot or an erasure the builder
+  made for a privacy request, then the part shall keep those records on the device marked as
+  unsynced.
+rationale: 'ELI-C382#8: loss of the online copy must not spread to devices. An erasure on request
+  (ELI-C382#6) must not come back from a device.'
+of: FUN-DV8F
+answers:
+- HAZ-2CDR
+- HAZ-BYMT
+- HAZ-4HQG

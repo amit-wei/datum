@@ -1,0 +1,13 @@
+id: PRF-688T
+status: agreed
+title: Sign-in reaches only the own logbook
+method: test
+rationale: >-
+  Access control is easy to break in any data change.
+covers: REQ-A2DY
+criterion:
+  pass: >-
+    After sign-in the device shows the account's records and requests for another account's
+    records, including direct requests to the online copy, are refused.
+  conditions: >-
+    Two accounts with different records.

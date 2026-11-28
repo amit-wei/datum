@@ -1,0 +1,11 @@
+id: PRF-1BPD
+status: agreed
+title: Ambiguous formats are asked, not guessed
+method: test
+rationale: >-
+  A helpful auto-detect would reintroduce guessing.
+covers: REQ-3XMJ
+criterion:
+  pass: >-
+    A file with only days 12 or lower, and a file with local times possible, each lead to a
+    question before any preview value.

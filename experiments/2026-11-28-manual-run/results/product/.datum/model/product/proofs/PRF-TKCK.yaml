@@ -1,0 +1,11 @@
+id: PRF-TKCK
+status: agreed
+title: A new proof can be had after cancellation
+method: test
+rationale: The path is only used after an attack.
+covers: REQ-GY5X
+criterion:
+  pass: Each request up to the hourly limit, also after an earlier proof was sent or lost, delivers
+    a new proof only to the currently confirmed contact, whoever asks; only the latest proof
+    works. A replaced or unconfirmed contact receives nothing. A requester without access to
+    the contact, including one who tries to give another, obtains nothing usable.

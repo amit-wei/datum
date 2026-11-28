@@ -1,0 +1,22 @@
+id: REQ-8YT6
+status: agreed
+pattern: event
+statement: When a person gives account details that are not in use and states an age of at least
+  {measure} and has confirmed the means of contact in those details, the part shall create an
+  account with an empty logbook that only that person can reach.
+measure:
+  metric: minimum_age
+  definition: Age the person states at account creation.
+  unit: years
+  bounds:
+  - statistic: value
+    op: '>='
+    value: 16
+rationale: '16 is the agreed minimum (ELI-C382#6): it is the SPL minimum and keeps the under-16
+  consent rules out (RES-RZXY n33-34). The age is the person''s own statement; the part cannot
+  check it. What counts as confirmed is set by REQ-DZF7. Without this a mistyped address would
+  send recovery proofs to a stranger.'
+of: FUN-EVE9
+answers:
+- HAZ-9K19
+source: builder

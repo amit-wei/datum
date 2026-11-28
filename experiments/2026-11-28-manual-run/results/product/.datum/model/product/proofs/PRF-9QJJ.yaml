@@ -1,0 +1,11 @@
+id: PRF-9QJJ
+status: agreed
+title: Pilot is told of a privacy erasure
+method: test
+rationale: The path runs rarely.
+covers: REQ-A9WG
+criterion:
+  pass: The notice names exactly the changed records and kinds of information and holds none
+    of the erased values. It is still shown after closing the app, on a device that was offline
+    at the erasure and on a new device, until acknowledged on one device, and then no longer
+    once the others sync.

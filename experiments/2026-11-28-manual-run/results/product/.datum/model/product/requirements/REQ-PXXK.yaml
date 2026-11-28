@@ -1,0 +1,12 @@
+id: REQ-PXXK
+status: agreed
+pattern: unwanted
+statement: >-
+  If a complete data copy cannot be produced, then the part shall give the pilot no data copy
+  and say that production failed.
+rationale: >-
+  A cut-off copy taken before account deletion would lose records for good.
+of: FUN-A60F
+answers:
+- HAZ-2CDR
+- HAZ-XWCK

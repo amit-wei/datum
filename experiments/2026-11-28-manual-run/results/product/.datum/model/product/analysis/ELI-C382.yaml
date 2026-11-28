@@ -1,0 +1,60 @@
+id: ELI-C382
+date: 2026-11-28
+entries:
+  - n: 1
+    question: "Double counting: starting totals get an as-of date; flights up to it count towards rules but are not added to totals again; flights on that date itself must be handled."
+    answer: "sure"
+    need: true
+  - n: 2
+    question: "Unsigned training and checks: the pilot marks them signed; until then they do not count where a signature is required, and the app says why; the app cannot verify a signature."
+    answer: "sure"
+    need: true
+  - n: 3
+    question: "Rules covered: LAPL(A) and SPL recent experience including touring motor gliders and launch methods; PPL(A) single-engine and TMG rating renewal by experience; passenger rules including night and one-time requirements. Left out for now: towing, cloud flying, mountain, engine variants."
+    answer: "sure idk rules"
+    need: true
+    constraint: true
+  - n: 4
+    question: "Pilots can enter and change their name and address."
+    answer: "yes"
+    need: true
+  - n: 5
+    question: "Add: view and remove licences, ratings, expiry dates and starting totals (earlier values visible only for totals); change sign-in details; see past imports and restore entries removed by an undo; keep the rejected version of a conflict; warn about likely duplicates on import. Simulator sessions left out."
+    answer: "sure"
+    need: true
+    constraint: true
+  - n: 6
+    question: "Privacy: the medical date is optional with separate explicit consent, withdrawable and erased, and the app then says medical warnings are off; account holders at least 16; privacy notice readable without an account; for now the builder handles other privacy requests, including from people named in logbooks, by email. (See RES-RZXY.)"
+    answer: "sure"
+    need: true
+    constraint: true
+  - n: 7
+    question: "Installation: pilots can set up the app themselves without the builder's help."
+    answer: "yes"
+    need: true
+    constraint: true
+  - n: 8
+    question: "Failures (full storage, repeated sync or update failure, loss of the online copy, account deleted while another device has unsynced records): what must happen is defined in the requirements step; rule changes arrive through app updates and the app shows how current its rules are."
+    answer: "yes"
+    need: true
+  - n: 9
+    question: "Keep \"a pilot flies when not permitted to\" as a loss; legal and insurance effects not researched."
+    answer: "yes"
+    loss: true
+  - n: 10
+    question: "Track open questions in the project files."
+    answer: "yes"
+  - n: 11
+    question: "The agreed picture (ELI-H7X3#7), with the six added features and these changes, stands."
+    answer: "ys"
+    constraint: true
+    out_of_scope: "No requirement of its own: it confirms the picture in ELI-H7X3#7, whose limits are carried by the other entries."
+  - n: 12
+    question: "Where will the business be based: the Netherlands, another EU country or outside the EU? (Outside the EU may require an EU representative.)"
+    answer: "don't worry about the busienss your the product person. (Treated as TBD: not decided. Whether an EU representative is needed depends on it.)"
+  - n: 13
+    question: "The builder's whole reply, verbatim."
+    answer: "1) sure 2) sure 3) sure idk rules 4) yes 5) sure 6) sure 7) yes 8) yes 9) yes 10) yes 11) ys - don't worry about the busienss your the product person."
+  - n: 14
+    question: "Open questions tracked here under entry 10 (none is an answer from the builder; each is TBD)."
+    answer: "TBD: ILT/KNVvL acceptance of a digital glider logbook, its layout and signatures (builder is sending the message, ELI-FV4M#4); TBD: acceptance of starting totals; TBD: glider layout, EASA list or Dutch national layout (RES-7H7D); TBD: date-boundary readings to confirm with a pilot or authority; TBD: iPhone web-app storage tests on a real phone (RES-X2SP); TBD: what the friends find clunky and a pilot's check of journeys and rules; TBD: business location (entry 12); TBD: open privacy points in RES-RZXY, including whether the medical date is health data."

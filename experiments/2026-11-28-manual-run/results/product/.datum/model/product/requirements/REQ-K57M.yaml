@@ -1,0 +1,11 @@
+id: REQ-K57M
+status: agreed
+pattern: event
+statement: >-
+  When the pilot confirms a correction, the part shall change the entry to what the pilot confirmed
+  and keep the earlier version with the time of the change.
+rationale: >-
+  ELI-PX7E#1 and SCN-6E8F: nothing is changed without a trace.
+of: FUN-JX7F
+answers:
+- HAZ-BYMT

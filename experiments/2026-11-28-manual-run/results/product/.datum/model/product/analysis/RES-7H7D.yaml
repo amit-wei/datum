@@ -1,0 +1,509 @@
+id: RES-7H7D
+date: 2026-11-28
+question: >
+  What rules apply to the personal flight logbook of a pilot licensed in the Netherlands under EASA
+  for LAPL(A), PPL(A) and SPL: (1) fields and format, (2) electronic logbooks, (3) signatures and
+  inspection, (4) recency computed from logbook data, including amendments?
+narrowing: >
+  Non-commercial private flying. Left out: commercial and airline licences, helicopters, balloons,
+  app comparisons, technology. Instructor and examiner recency (e.g. FI(S), SFCL.360) was not researched.
+  TMG is covered. Dutch national microlight (MLA) rules were checked only where official pages mention them.
+sources_note: >
+  EU rule text was read in (a) EASA Easy Access Rules for Aircrew, XML, file stamped 2026-11-24
+  (https://www.easa.europa.eu/en/downloads/136679/en); (b) the consolidated Regulation (EU) 2018/1976,
+  CELEX 02018R1976-20211115 (https://publications.europa.eu/resource/celex/02018R1976-20211115);
+  (c) AMC & GM to Part-SFCL Issue 1, ED Decision 2020/004/R (https://www.easa.europa.eu/en/downloads/111522/en),
+  cross-read in the EASA Sailplane Rule Book XML (https://www.easa.europa.eu/en/downloads/136684/en),
+  which is old (EASA page titled "Revision from September 2020"; text inside says "Published June 2022").
+  Easy Access Rules are not the official publication. PDF text was extracted with a home-made script,
+  so spacing in quotes from PDFs was repaired by hand.
+
+findings:
+  # ---------- (1) fields and format ----------
+  - n: 1
+    claim: >
+      Both licence systems require a reliable record of ALL flights, in the form and manner set by the
+      national competent authority. For SPL this covers student pilots too.
+    label: VERIFIED
+    source: {title: "Part-FCL FCL.050; Part-SFCL SFCL.050", ref: "Reg (EU) 1178/2011 Annex I; Reg (EU) 2018/1976 Annex III"}
+    where: FCL.050; SFCL.050
+    read: the sections
+    quote: "SPL holders and student pilots shall keep a reliable record of the details of all flights flown in a form and manner established by the competent authority."
+  - n: 2
+    claim: >
+      Aeroplane minimum content: pilot name(s) and address; per flight PIC name, date, place and time of
+      departure and arrival, aircraft type (make, model, variant) and registration, SE/ME if applicable,
+      total time, accumulated total time; FSTD sessions if any; pilot function (PIC incl. solo, SPIC,
+      PICUS; co-pilot; cruise relief; dual; FI or FE); operational conditions (night, IFR).
+    label: VERIFIED
+    source: {title: "AMC1 FCL.050 Recording of flight time (ED Decision 2025/002/R)", ref: "https://www.easa.europa.eu/en/downloads/136679/en"}
+    where: AMC1 FCL.050(a)
+    read: full AMC
+    quote: "(vi) total time of flight; (vii) accumulated total time of flight."
+  - n: 3
+    claim: >
+      For non-commercial-air-transport aeroplane flights the AMC says to use its logbook format, which may
+      be electronic and must include all data in (a). The format also has landings (day/night), night and
+      IFR time, pilot function columns, FSTD, remarks and endorsements, page totals / previous totals /
+      total, and "I certify that the entries in this log are true" with the pilot's signature.
+      (The ED Decision label printed above the form itself is 2025/022/R.)
+    label: VERIFIED
+    source: {title: "AMC1 FCL.050", ref: "https://www.easa.europa.eu/en/downloads/136679/en"}
+    where: AMC1 FCL.050(c)(2) and the form
+    read: full AMC (form read as extracted cell text, not as a rendered page)
+    quote: "the pilot should record the details of the flights flown in the following logbook format, which may be kept in electronic format. All data set out in (a) should be included."
+  - n: 4
+    claim: >
+      Filling-in rules (aeroplanes): enter as soon as practicable; date is the date the flight starts;
+      places in full or 3/4-letter designator; times in UTC; duration in hours:minutes or decimal;
+      PIC name or SELF; landings as pilot flying by day or night; SPIC and PICUS time entered as PIC and
+      certified in remarks; instructor time also entered as PIC. Remarks must always record instrument
+      time in training, all skill tests and proficiency checks, PIC name and signature for SPIC/PICUS, and
+      instructor name and signature for SEP/TMG revalidation flights and LAPL recency flights. Completed
+      pages carry accumulated totals certified by the pilot.
+    label: VERIFIED
+    source: {title: "AMC1 FCL.050, instructions for use", ref: "https://www.easa.europa.eu/en/downloads/136679/en"}
+    where: AMC1 FCL.050(e), (f), (h), (i), (j)
+    read: full AMC
+    quote: "When each page is completed, accumulated flight time or hours should be entered in the appropriate columns and certified by the pilot in the ‘remarks’ column."
+  - n: 5
+    claim: >
+      Who may log PIC (aeroplanes): all time as PIC; solo, SPIC, supervised time and passed tests/checks,
+      with SPIC, supervised time and tests/checks countersigned by instructor or examiner; an instructor's
+      instruction time in an aircraft; an examiner's time in a pilot seat.
+    label: VERIFIED
+    source: {title: "AMC1 FCL.050", ref: "https://www.easa.europa.eu/en/downloads/136679/en"}
+    where: AMC1 FCL.050(b)(1)
+    read: full AMC
+    quote: "provided that such SPIC time, flight time under supervision and tests, checks and assessments are countersigned by the instructor or examiner, as applicable"
+  - n: 6
+    claim: >
+      Grouping short flights differs. Aeroplane AMC: same day, each returning to the same departure place,
+      intervals of 30 minutes or less, may be one entry. Sailplane AMC: same day, returning each time to the
+      same departure place, may be one entry, with no interval limit stated.
+    label: VERIFIED
+    source: {title: "AMC1 FCL.050; AMC1 SFCL.050", ref: "https://www.easa.europa.eu/en/downloads/111522/en"}
+    where: AMC1 FCL.050(b)(1)(vi) and (f); AMC1 SFCL.050(b)(1)(v)
+    read: both AMCs
+    quote: "If the holder of an SPL carries out a number of flights upon the same day returning on each occasion to the same place of departure, such series of flights may be recorded as a single entry."
+  - n: 7
+    claim: >
+      Sailplane minimum content: pilot name(s) and address; per flight PIC name, date, departure and arrival
+      place and time, type/model and registration, total time, LAUNCHING METHOD, accumulated total time,
+      pilot function (PIC incl. solo, dual, FI(S), FE(S)), operational conditions (e.g. night, aerobatic,
+      cloud flying). No fixed form: a suitable format with these items. The sentence on format does not
+      mention electronic. Supervised solo may be logged as PIC only if the supervising instructor signs.
+      A summary of instruction time may be logged if certified by the instructor who gave it.
+    label: VERIFIED
+    source: {title: "AMC1 SFCL.050 (ED Decision 2020/004/R)", ref: "https://www.easa.europa.eu/en/downloads/111522/en"}
+    where: AMC1 SFCL.050(a)-(c)
+    read: full AMC
+    quote: "A suitable format should be used that contains the relevant items mentioned in (a) and additional information specific to the type of operation."
+  - n: 8
+    claim: >
+      Flight time starts at different moments. Sailplanes: from the start of the take-off ground run to
+      final rest. Self-launch sailplanes and TMGs (Part-SFCL), and aeroplanes and TMGs (Part-FCL): from
+      first movement for take-off to final rest.
+    label: VERIFIED
+    source: {title: "Reg (EU) 2018/1976 definitions (consolidated); FCL.010; AMC1 FCL.050(g)", ref: "CELEX 02018R1976-20211115"}
+    where: definition 16 'flight time'; FCL.010
+    read: the definitions
+    quote: "for sailplanes, the total time from the moment the sailplane commences the ground run in the process of taking off until the moment the sailplane finally comes to a rest at the end of flight"
+  - n: 9
+    claim: >
+      Dutch national law, Regeling logboeken (version in force from 2014-03-15, no later version in the
+      official repository). Art. 1(1): holders of RPL, PPL, CPL or ATPL use the model in annex 1, which is
+      the EASA FCL.050 model, filled in per the EASA instructions (art. 2). LAPL is not named. Art. 1(2):
+      a licence holder flying gliders (category zweeftoestellen, G) uses the model in ANNEX 2. The annex 2
+      headings include flight number, date, glider registration and type, launch method (L/S/M), field,
+      start time, duration, remarks, and a PIC initial ("Paraaf ... gezagvoerder"), with carried-forward
+      totals. It predates Part-SFCL; no source seen says how it relates to SFCL.050 or AMC1 SFCL.050, or
+      whether it binds SPL holders today.
+    label: VERIFIED
+    source: {title: "Regeling logboeken, BWBR0010751, version 2014-03-15", ref: "https://repository.officiele-overheidspublicaties.nl/bwb/BWBR0010751/2014-03-15_0/xml/BWBR0010751_2014-03-15_0.xml"}
+    where: art. 1, art. 2, Bijlage 1 and 2
+    read: full text (annex layout only as extracted cell text). The wetten.overheid.nl pages showed a bot check, not bypassed; the manifest (generated 2017) shows this version as open-ended, taken here as still in force.
+    quote: "houdt de houder van een bewijs van bevoegdheid die vluchten uitvoert met een luchtvaartuig van de categorie zweeftoestellen (G) de gegevens van door hem uitgevoerde vluchten bij in een logboek waarvan het model gelijk is aan het in bijlage 2 bij deze regeling opgenomen model."
+  - n: 10
+    claim: >
+      Dutch Aviation Act art. 2.10: licence holders and student pilots must keep a logbook. It is forbidden
+      to enter, have entered, or ALLOW to be entered incorrect data or notes, and to damage or destroy the
+      logbook, have that done, or allow it.
+    label: VERIFIED
+    source: {title: "Wet luchtvaart, BWBR0005555, version 2026-11-01", ref: "https://repository.officiele-overheidspublicaties.nl/bwb/BWBR0005555/2026-11-01_0/xml/BWBR0005555_2026-11-01_0.xml"}
+    where: art. 2.10
+    read: the article
+    quote: "in het logboek onjuiste gegevens of onjuiste aantekeningen op te nemen, te doen opnemen of toe te laten dat zij daarin worden opgenomen"
+
+  # ---------- (2) electronic logbooks ----------
+  - n: 11
+    claim: >
+      Electronic records (Part-FCL AMC): they should be made and kept so they are readily available when a
+      competent authority asks, contain all items in (a), be certified by the pilot, and be in a format the
+      authority accepts. Paper records are in ink or indelible pencil. The passages read set no software
+      approval scheme and define no electronic signature.
+    label: VERIFIED
+    source: {title: "AMC1 FCL.050", ref: "https://www.easa.europa.eu/en/downloads/136679/en"}
+    where: AMC1 FCL.050(e)(2)
+    read: full AMC and GM1 FCL.050
+    quote: "in case of electronic records, they should be made and kept in a way to be readily available at the request of a competent authority, and contain all relevant items that are mentioned in (a), certified by the pilot, and in a format acceptable by the competent authority."
+  - n: 12
+    claim: >
+      ILT: when it asks for a digital logbook, it must at least meet the AMC1 FCL.050 format and is
+      supplied as a file (usually PDF export); complete and legible, name visible, flights in order, totals
+      shown (PIC, instruction, instrument, approaches where applicable), instructor-signed hours visible
+      where applicable. For logbook copies it asks for a signature on every page before copying, and it may
+      ask to inspect the whole logbook. The page names third-party apps with a CAA/EASA export as examples.
+      It speaks of the aeroplane (FCL) format; gliding is not mentioned.
+    label: VERIFIED
+    source: {title: "ILT, Vragen en antwoorden voor piloten", ref: "https://www.ilent.nl/onderwerpen/luchtvaart/brevetten-en-certificaten/piloten/piloot-worden-en-blijven/vragen-en-antwoorden-voor-piloten"}
+    where: questions on sending a logbook copy and a digital logbook
+    read: the relevant questions, raw page; no revision date found
+    quote: "Het digitale logboek moet minimaal voldoen aan het format zoals opgenomen in AMC1 FCL.050 Recording of flight time. U levert uw digitale logboek aan als bestand."
+  - n: 13
+    claim: >
+      Regeling logboeken art. 1(4) allows an automated logbook on condition that the holder agrees with the
+      "luchtvaartmaatschappij" (airline) that it is made available whenever the holder asks. It is worded
+      for airline use; no source read says what it means for a private pilot using their own app.
+    label: VERIFIED
+    source: {title: "Regeling logboeken", ref: "BWBR0010751"}
+    where: art. 1(4)
+    read: full text
+    quote: "De houder kan de gegevens in een geautomatiseerd logboek doen bijhouden, mits de houder met de luchtvaartmaatschappij overeenkomt dat het logboek telkens op verzoek van de houder beschikbaar wordt gesteld."
+  - n: 14
+    claim: >
+      An ILT gliding newsletter (2023-2) foresees digital systems for logbook and recency. If one is used,
+      it must be clear who the instructor of a training flight was, and ONLY that instructor, not the pilot,
+      may be able to mark the flight as a training flight. The flight must be plainly named a training
+      flight (not "field check" or "check flight") and signed by that instructor. ILT inspections found
+      instructors who could not show their two training flights (too old, unsigned, or not labelled), and
+      pilots who could not easily check launch-method recency.
+    label: VERIFIED-secondary
+    source: {title: "ILT Nieuwsbrief Zweefvliegen 2023-2 (10 Aug 2023), plain-text copy on a KNVvL gliding DTO site", ref: "https://sites.google.com/knvvl.nl/zweefvliegen-dto/info-ilt/info-ilt-platte-tekst"}
+    where: section 2, "Recency eisen SPL (SFCL.160)"
+    read: the relevant sections of the copy; ILT's own publication was not retrieved
+    quote: "Mogelijk wordt een digitaal systeem gebruikt om het logboek en recency in bij te houden. Zorg er dan voor dat duidelijk is wie de afnemende instructeur was en dat uitsluitend de afnemende instructeur de vlucht kan aanmerken als ‘trainingsvlucht’ en niet de piloot zelf."
+  - n: 15
+    claim: >
+      No EASA, ILT, KIWA or KNVvL text was found that says whether an instructor's or examiner's ELECTRONIC
+      signature is accepted in a pilot logbook, or in what technical form. No KIWA position and no
+      KNVvL-own position on electronic logbooks was found. Acceptance of ink versus electronic differs by
+      state: the Croatian section of EASA's Examiner Differences Document (v2026/Q4) requires an
+      electronic-logbook test or check entry to be printed and signed in ink. A text search of the
+      Netherlands section found no logbook or electronic-signature rule.
+    label: VERIFIED-secondary
+    source: {title: "EASA Examiner Differences Document (information compiled by EASA from national authorities); search result for the rest", ref: "https://www.easa.europa.eu/en/downloads/16659/en"}
+    where: Croatia, section 4; Netherlands section
+    read: those passages only. "Not found" rests on a few web searches, not an exhaustive review.
+    quote: "If the candidate is using an electronic logbook, the page containing the ST/PC/AOC entry should be printed out and signed in ink by the examiner."
+
+  # ---------- (3) inspection, signing ----------
+  - n: 16
+    claim: >
+      Aeroplane pilots and student pilots must present the flight time record without undue delay when an
+      authorised representative of a competent authority asks. FCL.045 does not list the logbook among the
+      documents to carry.
+    label: VERIFIED
+    source: {title: "FCL.045 (Reg (EU) 2024/2076)", ref: "https://www.easa.europa.eu/en/downloads/136679/en"}
+    where: FCL.045(a)-(e)
+    read: full section
+    quote: "A pilot or a student pilot shall without undue delay present his/her flight time record for inspection upon request by an authorised representative of a competent authority."
+  - n: 17
+    claim: >
+      SPL holders MUST CARRY "sufficient logbook data to demonstrate compliance" and present it without
+      undue delay; documents may stay at the site for flights within sight of it or a distance the authority
+      sets. AMC: the full logbook, or excerpts/copies on paper or electronically, of the parts showing
+      compliance for the privileges being used.
+    label: VERIFIED
+    source: {title: "SFCL.045(a)(4), (c), (d); AMC1 SFCL.045(a)(4)", ref: "https://www.easa.europa.eu/en/downloads/111522/en"}
+    where: SFCL.045 and AMC1
+    read: full text of both
+    quote: "an SPL holder should carry either the full logbook or at least excerpts or copies (in paper or electronic format) of those parts of the logbook"
+  - n: 18
+    claim: >
+      Signatures required in the logbook for aeroplane privileges: LAPL(A) recency dual flights, supervised
+      flights, refresher training and proficiency check (instructor or examiner), FCL.140.A(d); differences
+      training and the variant proficiency check, FCL.135.A(b) and FCL.710(e); mountain rating proficiency
+      check (examiner), FCL.815(d). The legal wording is "logbook or equivalent record" except FCL.815.
+      AMC1 FCL.050 adds instructor name and signature for SEP/TMG revalidation flights (see n 4).
+    label: VERIFIED
+    source: {title: "FCL.135.A, FCL.140.A, FCL.710, FCL.815", ref: "https://www.easa.europa.eu/en/downloads/136679/en"}
+    where: paragraphs named
+    read: the sections
+    quote: "shall be entered in the pilot’s logbook or equivalent record and shall be signed by the instructor or examiner, as applicable."
+  - n: 19
+    claim: >
+      Signatures required for SPL: recency dual, supervised and training flights by the FI(S), proficiency
+      checks by the FE(S) (SFCL.160(d)); the passenger demonstration training flight by the instructor
+      (115(d)); launch-method training by head of training or instructor (155(b)); TMG or sailplane
+      extension training by head of training (150(f)); aerobatic (200(f)) and cloud flying (215(d)) courses
+      by head of training; towing courses by head of training or instructor (205(e)).
+    label: VERIFIED
+    source: {title: "Part-SFCL", ref: "CELEX 02018R1976-20211115"}
+    where: SFCL.115(d), 150(f), 155(b), 160(d), 200(f), 205(e), 215(d)
+    read: the sections
+    quote: "shall be entered in the logbook of the pilot and signed by the responsible FI(S) in the case of paragraphs (a)(1) and (b)(1), and by the responsible FE(S) in the case of paragraphs (a)(2) and (b)(2)."
+  - n: 20
+    claim: >
+      Meeting the hours does not by itself move an SEP/TMG rating's expiry date. After the refresher flight,
+      and only if all other criteria are met, a specifically authorised instructor endorses the LICENCE
+      with the new expiry date (FCL.945); after a passed check an authorised examiner does (FCL.1030(b)(2)).
+      Otherwise the pilot applies to ILT, with logbook copies (signed full pages) for the 12 months before
+      expiry. ILT's page lists 12 h in class and 6 h PIC under those copies; the rule has more (n 23).
+    label: VERIFIED
+    source: {title: "FCL.945; FCL.1030(b); ILT, Bevoegdverklaring verlengen voor piloten van vliegtuigen", ref: "https://www.ilent.nl/onderwerpen/luchtvaart/brevetten-en-certificaten/piloten/vliegtuigpiloten/verlenging-rating"}
+    where: FCL.945; FCL.1030(b)(2); section on revalidation after refresher training
+    read: the sections and the page
+    quote: "Kopieer álle relevante vluchten en de totaaloverzichten. Uit de kopieën moet blijken dat u voldoet aan de eisen voor toelating en afgifte. Zet uw handtekening op alle volle pagina's van uw logboek voordat u deze kopieert."
+
+  # ---------- (4) recency ----------
+  - n: 21
+    claim: >
+      LAPL(A): privileges may be used only if in the last 2 years, as pilot of aeroplanes or TMGs, either
+      (a) at least 12 h as PIC, dual, or solo under instructor supervision, including 12 take-offs and
+      landings and refresher training of at least 1 h total with an instructor to their satisfaction, or
+      (b) a passed proficiency check. With both SEP(land) and SEP(sea), at least 1 h and 6 of the
+      take-offs/landings in each, for the combined route. An SEP variant with a different engine type
+      (e.g. electric), not flown for 2 years, needs training, a check or refresher in that variant. No
+      "end of month" counting rule appears in FCL.140.A or its AMC/GM.
+    label: VERIFIED
+    source: {title: "FCL.140.A as amended by Reg (EU) 2024/2076", ref: "https://www.easa.europa.eu/en/downloads/136679/en"}
+    where: FCL.140.A and AMC/GM
+    read: full section with AMC/GM
+    quote: "shall exercise the privileges of their licence only if in the last 2 years they have met any of the following conditions as pilots of aeroplanes or TMGs"
+  - n: 22
+    claim: >
+      LAPL(A) passengers: only after 10 h PIC on aeroplanes or TMGs since licence issue (former holders of
+      PPL(A) or higher exempt). Privileges are limited to SEP(land), SEP(sea) or TMG, MTOM 2000 kg or less,
+      3 passengers.
+    label: VERIFIED
+    source: {title: "FCL.105.A", ref: "https://www.easa.europa.eu/en/downloads/136679/en"}
+    where: FCL.105.A(a), (b)
+    read: full section
+    quote: "Holders of a LAPL(A) shall carry passengers only if they have completed 10 hours of flight time as PIC on aeroplanes or TMG after the issuance of the licence."
+  - n: 23
+    claim: >
+      PPL(A) flying SEP or TMG depends on a valid class rating (FCL.040), valid 2 years (FCL.740(a)(1);
+      other class and type ratings generally 1 year). Revalidation: a proficiency check within the 3 months
+      before expiry, OR within the 12 MONTHS BEFORE THE EXPIRY DATE (not a rolling window) 12 h in the
+      class including 6 h PIC, 12 take-offs and 12 landings, and refresher training of at least 1 h total
+      with an FI or CRI (exempt if a class/type proficiency check, skill test, EBT assessment or assessment
+      of competence was passed). With SEP(land) and TMG, either or both classes count for both. SEP land
+      plus sea: combined, with 1 h PIC and 6 take-offs and 6 landings in each. Early revalidation by check
+      restarts validity from the check date. A lapsed rating needs renewal (assessment, any training,
+      proficiency check).
+    label: VERIFIED
+    source: {title: "FCL.040, FCL.740, FCL.740.A", ref: "https://www.easa.europa.eu/en/downloads/136679/en"}
+    where: FCL.740(a), (b); FCL.740.A(b), (c)
+    read: the sections
+    quote: "within the 12 months preceding the expiry date of the rating, complete 12 hours of flight time in the relevant class, including the following: (A) 6 hours as PIC; (B) 12 take-offs and 12 landings;"
+  - n: 24
+    claim: >
+      ILT's examiner FAQ: when SEP/TMG/MLA is revalidated on experience in the last 12 months of validity,
+      the new expiry is the old date plus 24 months. It also states the experience route for MLA as for
+      SEP/TMG (12 h in 12 months, 6 h PIC, 12 take-offs and landings, 1 h training flight with instructor),
+      and ILT's online form covers MLA.
+    label: VERIFIED
+    source: {title: "ILT FAQ, Examiners certified by CAA-NL, June 2025", ref: "https://www.ilent.nl/site/binaries/site-content/collections/documents/luchtvaart/examinatoren-luchtvaart/publicaties/faq-examiners-caa-nl/FAQ+Examiners+ILT+June+2025.pdf"}
+    where: questions 81 and 83
+    read: those questions
+    quote: "When revalidating within the last 12 months of the validity period, the old date plus 24 months."
+  - n: 25
+    claim: >
+      Passengers, aeroplanes including TMG flown on a Part-FCL licence (LAPL and PPL): in the preceding 90
+      days at least 3 take-offs, approaches and landings as pilot flying in the same type or class; as PIC
+      at night also at least 1 of these at night in the preceding 90 days, unless holding an IR. An
+      instructor or examiner on board such a flight is not counted as a passenger; GM says no passengers on
+      board when flying under instructor supervision to regain this. Night VFR also needs a night rating
+      (FCL.810, not otherwise researched).
+    label: VERIFIED
+    source: {title: "FCL.060(b), AMC1 and GM1 FCL.060(b)(1)", ref: "https://www.easa.europa.eu/en/downloads/136679/en"}
+    where: FCL.060(b)(1)-(2)
+    read: full section with AMC/GM
+    quote: "unless he or she has carried out, in the preceding 90 days, at least 3 takeoffs, approaches and landings as a pilot flying in an aircraft of the same type or class"
+  - n: 26
+    claim: >
+      SPL, sailplanes excluding TMG: only if in the last 24 months before the planned flight either (a) at
+      least 5 h on sailplanes as PIC, dual or solo under FI(S) supervision, including on sailplanes
+      excluding TMGs at least 15 launches and 2 training flights with an FI(S), or (b) a proficiency check
+      with an FE(S) on a non-TMG sailplane.
+    label: VERIFIED
+    source: {title: "SFCL.160(a)", ref: "CELEX 02018R1976-20211115"}
+    where: SFCL.160(a)
+    read: full section
+    quote: "completed, on sailplanes, at least five hours of flight time as PIC or flying dual or solo under the supervision of an FI(S), including, on sailplanes, excluding TMGs, at least: (i) 15 launches; and (ii) two training flights with an FI(S)"
+  - n: 27
+    claim: >
+      Because 'sailplane' includes powered sailplanes and TMG is a class of powered sailplane (FCL.010),
+      the wording "on sailplanes" (5 h) against "on sailplanes, excluding TMGs" (launches, training
+      flights) suggests TMG hours count toward the 5 h. No source read states this outright.
+    label: INFERRED
+    source: {title: "SFCL.160(a); definitions", ref: "CELEX 02018R1976-20211115; FCL.010"}
+    where: SFCL.160(a)(1)
+    read: the sections
+    quote: "‘powered sailplane’ means a sailplane equipped with one or more engines having, with engine(s) inoperative, the characteristics of a sailplane"
+  - n: 28
+    claim: >
+      AMC for the two SPL training flights: the 24 months are counted from the LAST DAY OF THE MONTH of the
+      training flight, which can end later than a day-to-day reading of "last 24 months before the planned
+      flight" in the rule. The AMC places this rule under (a)(1)(ii) only. Also, an instructor not
+      satisfied should not sign the logbook, so a flown flight does not necessarily count.
+    label: VERIFIED
+    source: {title: "AMC1 SFCL.160(a)(1)(ii) (ED Decision 2020/004/R)", ref: "https://www.easa.europa.eu/en/downloads/111522/en"}
+    where: points (c) and (d)
+    read: full AMC
+    quote: "The 24-month period should be counted from the last day of the month in which the respective training flight took place."
+  - n: 29
+    claim: >
+      SPL TMG privileges: only if in the last 24 months before the planned flight either at least 12 h as
+      PIC, dual or solo under FI(S) supervision including on TMGs 6 h, 12 take-offs and landings and a
+      training flight of at least 1 h total with an instructor, or a proficiency check. Exempt if the pilot
+      also holds a Part-FCL licence with TMG privileges (SFCL.160(c)); the Part-FCL rules then govern.
+    label: VERIFIED
+    source: {title: "SFCL.160(b)-(c)", ref: "CELEX 02018R1976-20211115"}
+    where: SFCL.160(b), (c)
+    read: full section
+    quote: "SPL holders with privileges to fly on TMGs who also hold a licence including the privileges to fly on TMGs in accordance with the provisions of Annex I (Part-FCL) to Regulation (EU) No 1178/2011 shall be exempted from complying with paragraph (b)."
+  - n: 30
+    claim: >
+      Launch methods, separate from SPL recency: each method may be used only if trained for, and needs at
+      least 5 launches in the last 2 years (bungee: 2). TMG take-offs can count for self-launch. A
+      shortfall is made up with the missing launches dual or solo under instructor supervision.
+    label: VERIFIED
+    source: {title: "SFCL.155", ref: "CELEX 02018R1976-20211115"}
+    where: SFCL.155(a), (c), (d)
+    read: full section
+    quote: "SPL holders shall complete a minimum of five launches during the last two years, except for bungee launch, in which case they shall complete only two launches."
+  - n: 31
+    claim: >
+      An ILT newsletter reading (2024-2): if only launch-method recency has lapsed (SPL recency still met),
+      only the launch needs supervision, signed afterwards by an instructor, with no passenger; if
+      SFCL.160 recency has lapsed, the whole flight must be with or supervised by an instructor.
+    label: VERIFIED
+    source: {title: "ILT Nieuwsbrief Zweefvliegen 2024-2 (16 Oct 2024), hosted by KNVvL", ref: "https://www.knvvl.nl/uploads/images/zweefvliegen/archief/Nieuwsbriefzweefvliegen2024-2.pdf"}
+    where: "Vliegen buiten recency eisen startmethode"
+    read: that section
+    quote: "Als een piloot niet voldoet aan de recency eisen voor het SPL (SFCL.160), dan moet de gehele vlucht met een instructeur of onder toezicht van een instructeur uitgevoerd worden."
+  - n: 32
+    claim: >
+      SPL passengers need all of: (a) once, after SPL issue, 10 h or 30 launches/take-offs and landings as
+      PIC on sailplanes plus a signed training flight showing passenger competence to an FI(S), or hold
+      FI(S); and (b) in the preceding 90 days as PIC, 3 launches (sailplanes excluding TMG) for sailplane
+      passengers, or 3 take-offs and landings in TMG for TMG passengers, at night in TMG at least 1 of them
+      at night. An instructor or examiner on board such a flight is not counted as a passenger.
+    label: VERIFIED
+    source: {title: "SFCL.115(a)(2), SFCL.160(e), AMC1 SFCL.160(e)", ref: "CELEX 02018R1976-20211115"}
+    where: the paragraphs named
+    read: the sections
+    quote: "SPL holders shall carry passengers only if in the preceding 90 days they have carried out as PIC, at least:"
+  - n: 33
+    claim: >
+      ILT: a season-start check launch with an instructor may count toward the 3 PIC launches, but not if
+      the instructor had to intervene or take over, because the holder was then in effect not PIC.
+    label: VERIFIED
+    source: {title: "ILT Nieuwsbrief Zweefvliegen 2026-1, hosted by KNVvL", ref: "https://www.knvvl.nl/uploads/images/zweefvliegen/archief/nieuwsbrief-zweefvliegen-ILT-2026-1.pdf"}
+    where: section 1.1
+    read: section 1
+    quote: "Als een instructeur tijdens de checkstart moet ingrijpen of de besturing over moet nemen, is de SPL-houder in feite geen PIC meer en telt de start niet mee voor de recency eis."
+  - n: 34
+    claim: >
+      Other privilege recency that can be computed from a log: sailplane/banner towing, 5 tows in the last
+      24 months or 2 years (FCL.805(e), SFCL.205(f)), shortfall flown with or under an instructor; sailplane
+      cloud flying, 1 h or 5 flights as PIC exercising it in the last 2 years, else check or the missing
+      flying with FI(S), with full credit for BIR/IR(A) holders (SFCL.215(e)-(g)); mountain rating, 6
+      landings on designated surfaces in the last 2 years or a check (FCL.815(d)); SEP variants with a
+      different engine type, 2 years (FCL.710(d), (da)).
+    label: VERIFIED
+    source: {title: "Part-FCL and Part-SFCL", ref: "https://www.easa.europa.eu/en/downloads/136679/en; CELEX 02018R1976-20211115"}
+    where: paragraphs named
+    read: the sections
+    quote: "In order to exercise the privileges of the sailplane or banner towing ratings, the holder of the rating shall have completed a minimum of 5 tows during the last 24 months."
+  - n: 35
+    claim: >
+      Crediting: hours in non-EASA (Annex I or Art. 2(8)(a)/(c)) aeroplanes or TMGs count in full toward the
+      HOURS of FCL.140.A(a)(1) and FCL.740.A(b)(1)(ii) only if the aircraft is of the same category and
+      class, and for training flights with an instructor only if the aircraft is authorised under
+      ORA.ATO.135 or DTO.GEN.240. Whether a particular Dutch MLA qualifies was not established. A parallel
+      AMC covers non-EASA sailplanes for SFCL.160.
+    label: VERIFIED
+    source: {title: "FCL.035(a)(4); AMC1 SFCL.160", ref: "https://www.easa.europa.eu/en/downloads/136679/en"}
+    where: FCL.035(a)(4); AMC1 SFCL.160
+    read: the sections
+    quote: "shall be credited in full towards fulfilling the flight time requirements of point FCL.140.A(a)(1) and point FCL.740.A(b)(1)(ii) of this Annex, provided that the following conditions are met"
+  - n: 36
+    claim: >
+      A logbook alone cannot show that a pilot may fly: privileges also depend on rating validity as
+      endorsed (n 20, 23), a valid medical (FCL.040, SFCL.115(c)), and, where radiotelephony is used by
+      aeroplane pilots, a language proficiency endorsement (FCL.055). It also cannot show facts that are
+      not logged, such as instructor intervention (n 33) or aircraft authorisation (n 35). Computing
+      recency needs per-flight data beyond the minimum fields: take-offs and landings by day and night,
+      launch count and method (also inside grouped entries), aircraft class and variant, instructor-signed
+      training or check status, and tows, cloud flying and mountain landings where relevant.
+    label: INFERRED
+    source: {title: "reasoning from findings 6, 20-35; FCL.040, FCL.055, SFCL.115(c)", ref: "this record"}
+    where: n/a
+    read: n/a
+    quote: "SPL holders shall exercise SPL privileges only if they comply with the applicable recency requirements and only if their medical certificate, appropriate to the privileges exercised, is valid."
+
+  # ---------- amendments ----------
+  - n: 37
+    claim: >
+      The current LAPL(A) recency wording came from Reg (EU) 2024/2076; the FCL.140.A change is not among
+      the points it delays to 13 February 2025, so it is in force. The Aircrew rules (Oct 2026 revision,
+      file of 24 Nov 2026) also include Reg (EU) 2026/781 and ED 2026/006/R on flight simulators, with
+      text applying from 30 April 2028; no future-dated text was seen in the FCL.050, 060, 140.A or 740.A
+      sections read.
+    label: VERIFIED
+    source: {title: "Reg (EU) 2024/2076 Art. 3 and Annex I point (12); Easy Access Rules for Aircrew", ref: "CELEX 32024R2076"}
+    where: Art. 3; Annex I (12); list of revisions
+    read: those parts
+    quote: "The following amendments shall apply from 13 February 2025: (1) point (7) of Annex I;"
+  - n: 38
+    claim: >
+      For Reg (EU) 2018/1976 the EU Publications Office database returned only 2020/358 (which added
+      Part-SFCL) and 2021/1874 (German-language corrections only) as amendments, with the latest
+      consolidation 2021-11-15. For Part-SFCL AMC only Issue 1 was found. Searches found no pending EU
+      proposal changing recency for these licences; this does not prove none exists. UK amendments that
+      appear in searches (e.g. SI 2025/878) do not apply in the Netherlands.
+    label: VERIFIED-secondary
+    source: {title: "Publications Office SPARQL query; web searches", ref: "https://publications.europa.eu/webapi/rdf/sparql"}
+    where: amendment relations of CELEX 32018R1976
+    read: query result and search summaries; EASA rulemaking programme not reviewed
+    quote: "correcting the German language versions of Regulation (EU) 2018/395 ... and of Implementing Regulation (EU) 2018/1976"
+
+not_verified:
+  - "Any rule or position on electronic signatures or remote countersigning (EASA, ILT, KIWA, KNVvL). Not found."
+  - "A KIWA or KNVvL position on electronic logbooks. Not found. A 2016 gliding forum thread appeared in search results and was not relied on."
+  - "An ILT statement on the required form of a glider (SPL) logbook today, and how Regeling logboeken annex 2 relates to AMC1 SFCL.050."
+  - "Which logbook rule the Netherlands applies to LAPL holders (not named in Regeling logboeken art. 1(1))."
+  - "Dutch national MLA licence: its logbook form, its own recency and passenger rules, and the legal basis. Only finding 24 and the form title were seen. Two guessed ILT pages for MLA and glider pilots returned 404."
+  - "The wetten.overheid.nl consolidated pages (bot check, not bypassed) and EUR-Lex pages (returned HTTP 202 with no content). The official repository and Publications Office were used instead."
+  - "ILT's own copy of the 2023-2 newsletter."
+  - "Rendering of the PDF logbook form pages (no PDF renderer available)."
+
+conclusion: |
+  Content: FCL.050 and SFCL.050 require a reliable record of all flights in the form the national
+  authority sets. The AMC lists differ: aeroplanes/TMG on Part-FCL have a set column format with landings
+  and page totals; sailplanes need a suitable format that includes launch method. Dutch law (Regeling
+  logboeken) points PPL holders to the EASA aeroplane model and gives gliders a national model (annex 2)
+  whose standing beside Part-SFCL is unresolved. LAPL is not named.
+  Electronic: allowed by the aeroplane AMC if available on request, complete, certified by the pilot and
+  in a format the authority accepts. ILT accepts a file export meeting the AMC1 FCL.050 format. No rule
+  or official position on electronic instructor signatures was found. An ILT gliding newsletter (seen as
+  a copy) says only the instructor concerned may mark a flight as a training flight in a digital system.
+  Sharing: authorities may demand the record without undue delay; SPL holders must also carry enough of
+  it to show compliance. Many recency-relevant flights and trainings must be signed by an instructor,
+  examiner or head of training. Under Dutch law, entering or allowing false entries, and destroying or
+  allowing destruction of the logbook, is forbidden.
+  Recency: windows differ by rule. LAPL(A) uses the last 2 years; SEP/TMG revalidation uses the 12 months
+  before the rating expiry date and needs a licence endorsement; passengers use 90 days; SPL uses 24
+  months, with AMC end-of-month counting for the two training flights; launch methods use 2 years. A
+  logbook alone cannot establish that a pilot is permitted to fly.
+
+open_choices:
+  - "SPL training-flight window: AMC counts from the end of the flight's month; the rule says 'last 24 months before the planned flight' (stricter if read day to day). Which to show is the builder's choice, or one to confirm with ILT or KNVvL."
+  - "No stated method was found for exact day boundaries of '90 days', '24 months' or '2 years' (e.g. whether the same date two years earlier counts, or UTC versus local date). A cautious or lenient reading is a choice."
+  - "Signatures: no accepted electronic form was found. The options are to rely on printed pages signed in ink, offer in-app signing without claiming it is accepted, or ask ILT first."
+  - "Glider logbook layout: follow AMC1 SFCL.050, Regeling logboeken annex 2, or cover both; ask ILT or KNVvL."
+  - "Short-flight grouping is permitted, not required. Whether to offer it is a choice, since it can hide per-flight data that recency needs."
+  - "Whether MLA is in scope at all, given that its Dutch rules were not established."

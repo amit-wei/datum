@@ -1,0 +1,26 @@
+id: REQ-8R5M
+status: agreed
+pattern: unwanted
+statement: If the number of failed access-recovery attempts in a row for one account reaches
+  {measure}, then the part shall cancel the current recovery proof.
+measure:
+  metric: consecutive_recovery_failures
+  definition: Failed recovery attempts against the current recovery proof; the count starts
+    at zero for each newly issued proof and after a successful recovery.
+  unit: attempts
+  bounds:
+  - statistic: value
+    op: ==
+    value: 100
+rationale: NIST SP 800-63B-4 caps consecutive failures at no more than 100 per authenticator,
+  recovery codes included (RES-6SKG n1, n2, n8); accepted by the builder (ELI-SCJS#8). How a
+  proof is cancelled depends on the recovery method chosen in synthesis. A new proof is treated
+  as a new authenticator with its own count. NIST does not let a new code reset the count for
+  short out-of-band codes under 64 bits (RES-6SKG n5), so the proofs synthesis chooses must
+  be long enough for that rule not to apply. Each new proof allows a further set of attempts,
+  so the hourly limits are what bound guessing over a long time. With a proof sent at each request
+  (ELI-KKPH#1), the count for each proof starts at zero (ELI-X445#1).
+of: FUN-Q1BS
+answers:
+- HAZ-9K19
+source: builder

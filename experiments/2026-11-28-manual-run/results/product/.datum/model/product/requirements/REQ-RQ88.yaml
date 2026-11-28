@@ -1,0 +1,10 @@
+id: REQ-RQ88
+status: agreed
+pattern: event
+statement: When the pilot asks to delete the account, the part shall, before asking for confirmation,
+  list what will be deleted, including unsynced records on the device.
+rationale: The pilot must know what is lost (SCN-B3Y0#4).
+of: FUN-VN36
+answers:
+- HAZ-2CDR
+- HAZ-BYMT

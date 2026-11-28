@@ -1,0 +1,12 @@
+id: PRF-SX8W
+status: agreed
+title: Lasting sync failure warns
+method: test
+rationale: >-
+  Never seen in normal use.
+covers: REQ-B5TS
+criterion:
+  pass: >-
+    With the service failing, the warning and offer appear after stuck_time.
+  conditions: >-
+    Simulated clock allowed.

@@ -1,0 +1,20 @@
+id: REQ-Z0DJ
+status: agreed
+pattern: ubiquitous
+statement: The part shall accept a recovery proof that has not been used, replaced or cancelled
+  until {measure} have passed since sending it, and refuse the proof after that.
+measure:
+  metric: proof_lifetime
+  definition: From sending the proof to the last moment it is accepted.
+  unit: min
+  bounds:
+  - statistic: value
+    op: ==
+    value: 60
+rationale: A proof left in a mailbox must stop working. RES-6SKG n9 reports a ceiling of 24
+  hours for emailed recovery codes in NIST SP 800-63B-4; one hour is the builder's choice within
+  it (ELI-PDPX#1).
+of: FUN-XK2A
+answers:
+- HAZ-9K19
+source: builder

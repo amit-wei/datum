@@ -1,0 +1,21 @@
+id: REQ-VYVM
+status: agreed
+pattern: ubiquitous
+statement: The part shall limit the failed access-recovery attempts it evaluates for one account
+  in any hour to {measure}.
+measure:
+  metric: failed_recovery_per_hour
+  definition: Failed recovery attempts evaluated for one account in any 60 minutes.
+  unit: attempts
+  bounds:
+  - statistic: value
+    op: ==
+    value: 5
+rationale: 'Recovery is a second way in that can be guessed. The limit was the agent''s proposal.
+  The builder accepted the proposed rules in ELI-SCJS. Value: a judgement call with no researched
+  source, accepted by the builder as a starting target (ELI-SCJS#8); revisit if testing or running
+  cost gives a reason. No source gives an hourly limit (RES-6SKG); the limit only slows guessing,
+  and the total in a row is capped separately, following NIST SP 800-63B-4 (RES-6SKG n1).'
+of: FUN-Q1BS
+answers:
+- HAZ-9K19

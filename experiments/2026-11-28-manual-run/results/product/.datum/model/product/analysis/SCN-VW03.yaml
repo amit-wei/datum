@@ -1,0 +1,39 @@
+id: SCN-VW03
+status: agreed
+name: Regain access to an account
+kind: failure
+trigger: A pilot has forgotten their sign-in details.
+preconditions: The pilot has an account.
+steps:
+- n: 1
+  by: user
+  what: Asks to get back in.
+- n: 5
+  by: product
+  what: Says only that the request was received, and sends a new one-time proof to the confirmed
+    means of contact.
+- n: 2
+  by: product
+  what: Checks that the person is the account's owner and lets them set new sign-in details.
+    There is no manual recovery if the proof is unavailable.
+- n: 4
+  by: product
+  what: Tells the owner, at the means of contact in force before, that access was recovered.
+- n: 6
+  by: product
+  what: If it knows a security notice (of a recovery, a cancelled recovery proof or a changed
+    means of contact) could not be sent, tries again for a limited time; after that it stops,
+    and the notice may never arrive.
+- n: 3
+  by: user
+  what: Signs in.
+outcome: The pilot, and nobody else, has access again.
+needs:
+- ELI-J7WZ#3
+- ELI-W9NN#8
+- ELI-W9NN#9
+- ELI-SCJS#8
+- ELI-PSRH#1
+- ELI-KKPH#1
+- ELI-PDPX#1
+- ELI-PDPX#3

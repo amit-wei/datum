@@ -1,0 +1,424 @@
+id: RES-XA6N
+date: 2026-11-28
+question: >
+  What digital pilot logbook solutions exist today that a Netherlands/European pilot of light
+  aircraft and/or gliders would use, what do they do, what do they cost, what do users concretely
+  complain about, what could be reused or imported from, and where does a gap appear to exist?
+narrowed: >
+  A survey, not exhaustive. "What they do" means what the vendor's own page says; no product was
+  installed or tested. "Complaints" means dated text from Apple's public review feeds and from the
+  Dutch gliding forum Zweefportaal. Airline-only products, regulatory rules and technology choices
+  are left out. A VERIFIED label on a vendor page means the vendor says it, not that it works.
+  A VERIFIED label on a review or post means the person wrote it, not that it is true.
+method: >
+  Web search; raw fetch of vendor pages and forum threads; Apple RSS customer reviews for 17 searched
+  app IDs in the nl, be, de, gb, ie, fr, ch, at, se, dk and us stores (capped, most recent and most
+  helpful only). 545 unique reviews returned; 433 after setting aside one app named only "Logbook",
+  which was not used. 158 of the 433 are dated 2024 or later. The reviews are mostly of
+  general or airline-leaning apps and are not a representative sample.
+findings:
+  # --- glider and club tools ---
+  - n: 1
+    claim: >
+      GlidingApp (Zweef.app, Dutch/English/German/French) is gliding club administration with a personal
+      pilot logbook, EASA/UK SFCL recency, automatic flight recording from OGN FLARM data, and manual
+      and bulk-import entry for flights from elsewhere. The vendor calls the logbook legally compliant.
+      The pages read did not state an EASA-layout PDF export.
+    label: VERIFIED
+    source: {title: "GlidingApp, Fly feature page", ref: "https://www.zweef.app/features/fly.html"}
+    where: "Personal Pilot Logbook"
+    read: full page; also home, demo, comply and pricing pages, and part of the all-features page
+    quote: "Automatic flight recording : Automatically populated through OGN flarm data Manual additions and imports : Easily add flights from other clubs or via bulk import"
+  - n: 2
+    claim: >
+      GlidingApp is priced to clubs per active user per month, ex VAT: EUR 0.40 basic, EUR 0.80 with flight
+      logbooks and OGN timewriting, EUR 1.10 with finance; billed yearly. A free test account allows up to
+      6 users for 12 months. The vendor claims 44 clubs, about 3,400 glider pilots in NL, BE and UK, and
+      110,000 flights in 2025 (home page).
+    label: VERIFIED
+    source: {title: "GlidingApp, Price plan", ref: "https://www.zweef.app/pricing.html"}
+    where: "Price plan; the usage figures are on https://www.zweef.app/"
+    read: full page
+    quote: "Flight Logging Plan € 0.80 per user / month (ex VAT)"
+  - n: 3
+    claim: >
+      Two Dutch users wrote in 2024 that GlidingApp's automatic takeoff and landing times from OGN were
+      not fully consistent at their fields; two others in the same thread said it works without errors or
+      well when the OGN receiver works and is near the launch point.
+    label: VERIFIED
+    source: {title: "Zweefportaal, 'automatische start en landingstijd'", ref: "https://www.zweefportaal.nl/main/forum/viewthread.php?thread_id=5659"}
+    where: "posts 1-4, 19 to 28 June 2024"
+    read: full thread
+    quote: "Met 2 OGN ontvangers op het veld (EHHV) blijkt het nog niet altijd 100% consistent te werken."
+  - n: 4
+    claim: >
+      Dutch clubs have used a mix of own-built systems and bought ones. In 2021 posters named
+      Vereinsflieger (German menus; used by most German and Austrian clubs according to a poster) and
+      Zweef.app, which one poster rated the best candidate.
+    label: VERIFIED
+    source: {title: "Zweefportaal, 'Software voor DTO-administratie'", ref: "https://www.zweefportaal.nl/main/forum/viewthread.php?thread_id=5321"}
+    where: "posts 1-6, December 2021"
+    read: full thread
+    quote: "Voor mij is als je model 3 kiest, de zweef.app nu de beste kans hebber."
+  - n: 5
+    claim: >
+      A Dutch glider pilot objected in 2015 that he already had a logbook and that his club's electronic
+      launch list covered only the home field, so his launches abroad were not in it.
+    label: VERIFIED
+    source: {title: "Zweefportaal, 'FlyTool'", ref: "https://www.zweefportaal.nl/main/forum/viewthread.php?thread_id=3832"}
+    where: "post 6, Ronald Rooij, 29 September 2015"
+    read: "page 1 of 3"
+    quote: "mijn club heeft al een electronische startlijst (alleen op het thuisveld, mijn buitenlandstarts staan er niet in)"
+  - n: 6
+    claim: >
+      Dutch glider pilots complained in 2016 about the new KNVvL paper logbook: too large, too many
+      columns they did not find useful, doubled price, and (reported from one club) a smaller remarks field.
+      This is about paper, and is ten years old.
+    label: VERIFIED
+    source: {title: "Zweefportaal, 'Logboek - KNVvL'", ref: "https://www.zweefportaal.nl/main/forum/viewthread.php?thread_id=4158"}
+    where: "posts 1, 3, 9 (page 1); 21, 27 (page 2, &rowstart=20); August-September 2016"
+    read: full thread
+    quote: "Ik vind het nieuwe logboekje ook een ramp! te groot, te dik en te onhandig"
+  - n: 7
+    claim: >
+      In the same thread, pilots reported moving to MyFlightbook for gliding and TMG. One copied flights
+      from the club administration website into Excel, renamed the columns and imported them, needing a
+      couple of rounds; another needed some searching among MyFlightbook's flight properties but got an
+      EASA FCL.050 logbook out. One asked how checks get signed in a digital logbook.
+    label: VERIFIED
+    source: {title: "Zweefportaal, 'Logboek - KNVvL'", ref: "https://www.zweefportaal.nl/main/forum/viewthread.php?thread_id=4158"}
+    where: "posts 17-19 (Aug 2016), 29-30 (Sep-Nov 2016)"
+    read: full thread
+    quote: "alle vluchten uit de clubadministratie(website) in Excel gekopieerd. Daarna de kolommen de juiste naam gegeven en alles"
+  - n: 8
+    claim: >
+      FlightStack is a web logbook for glider and motorglider pilots (Dutch among its languages). It imports
+      IGC, GPX, LXNAV, Aerolog XLSX, CSV and manual entries, merges duplicates by source quality, and shows
+      SPL, LAPL, PPL(A), TMG and passenger recency. The about page says free to try for 30 days; no price
+      was found.
+    label: VERIFIED
+    source: {title: "FlightStack home, help and about pages", ref: "https://flightstack.aero/"}
+    where: "home; /help 'File Types & Import Sources'; /about"
+    read: full pages
+    quote: "Import from IGC, GPX, LXNAV, Aerolog XLSX, CSV, or enter flights manually."
+  - n: 9
+    claim: >
+      FlightStack's terms (10 April 2026) call it a beta with no backup or retention commitment, and its help
+      page says it is no substitute for the official paper logbook.
+    label: VERIFIED
+    source: {title: "FlightStack Terms of Service", ref: "https://flightstack.aero/terms"}
+    where: "Beta service"
+    read: full page
+    quote: "data may occasionally be reset or lost without notice. There is no uptime guarantee, SLA, or formal backup or retention commitment."
+  - n: 10
+    claim: >
+      cloudlog.aero (web, iOS, Android, offline in the app) covers PPL, CPL, glider and helicopter, prints five
+      FCL.050/FAA paper layouts, has instructor signature by QR code, twelve importers, and pulls flights
+      from Vereinsflieger with launch method and calculated night time, and from Aircraft Info Desk and
+      Charterware. The Vereinsflieger connection asks for the pilot's username, password and club ID.
+    label: VERIFIED
+    source: {title: "cloudlog.aero home and integrations pages", ref: "https://cloudlog.aero/en/integrations/"}
+    where: "Vereinsflieger.de; home https://cloudlog.aero/en/"
+    read: home page in part, integrations page in part
+    quote: "Launch method (self-launch, winch, aero tow) carries over, and night time is calculated from the destination coordinates using the EASA definition."
+  - n: 11
+    claim: >
+      cloudlog.aero costs EUR 3.99 a month (Essential) or EUR 7.90 (Pro, needed for the Vereinsflieger and other
+      partner integrations and expiry warnings), VAT included, cancel monthly, 30 days free; teams EUR 4.99
+      per member per month from five members.
+    label: VERIFIED
+    source: {title: "cloudlog.aero pricing", ref: "https://cloudlog.aero/en/pricing/"}
+    where: "Pricing"
+    read: the section
+    quote: "Pro One price, every feature. €7.90 per month"
+  - n: 12
+    claim: >
+      flightlogbook.cloud (installable web app, made in Austria) logs aeroplanes, gliders with launch method
+      and other categories, prints EASA FCL.050 PDFs, has remote instructor signatures, queues offline
+      entries, imports from capzlog/FOCA dLogbook, ForeFlight, LogTen, MyFlightbook, CrewLounge, Safelog,
+      Garmin Pilot and any CSV, and takes GPX/KML/IGC tracks as drafts. EUR 40 a year incl. Austrian VAT,
+      90-day trial, read-only after lapse.
+    label: VERIFIED
+    source: {title: "flightlogbook.cloud home page", ref: "https://www.flightlogbook.cloud/"}
+    where: "features, Pricing, FAQ"
+    read: full page
+    quote: "You can log aeroplanes, gliders (with launch method), helicopters, gyroplanes, ultralights and simulator (FSTD) sessions."
+  - n: 13
+    claim: >
+      BLANIK Logbook advertises separate glider, aeroplane and TMG books, a per-flight choice of which book a
+      TMG flight counts in, and spreadsheet and IGC import with review. The page invites early-access
+      sign-up, so it appears not to be launched. No price seen.
+    label: VERIFIED
+    source: {title: "BLANIK Logbook page", ref: "https://www.blanik.app/logbook/"}
+    where: "Logbooks; early access"
+    read: full page
+    quote: "One TMG flight, your choice of book. Count it in the glider book, the aeroplane book, both, or neither."
+  - n: 14
+    claim: >
+      SoarLog is a hobby glider logbook (source on GitHub) that creates a record from an IGC file, reads IGC
+      from LXNav Bluetooth devices, exports CSV and prints PDF in the style of a paper logbook. Its licence
+      was not checked.
+    label: VERIFIED
+    source: {title: "SoarLog README", ref: "https://github.com/Jgfyyvzss/SoarLog"}
+    where: "README"
+    read: README in part
+    quote: "Select IGC file to automatically create a log record."
+  - n: 15
+    claim: >
+      WeGlide Copilot (iOS and Android, announced 6 May 2026) is a phone flight logger that detects takeoff
+      and landing, keeps flights in a private logbook and exports IGC. No claim of a pilot-licence logbook.
+    label: VERIFIED
+    source: {title: "WeGlide Magazine, 'Big Copilot Update'", ref: "https://magazine.weglide.org/weglide-copilot-logger-news-2026-en/"}
+    where: "WeGlide Copilot Becomes a Logger"
+    read: the section
+    quote: "Copilot automatically detects takeoff and landing, saving your flight directly to your private logbook."
+  - n: 16
+    claim: >
+      SeeYou Navigator's Dutch App Store page mentions a SeeYou Logbook with totals, and a SeeYou subscription
+      at EUR 59.99 a year or EUR 14.99 a month. What the subscription adds to the logbook, and its export, were
+      not established (naviter.com returned 403).
+    label: VERIFIED
+    source: {title: "SeeYou Navigator, App Store (NL)", ref: "https://apps.apple.com/nl/app/id1485383554"}
+    where: "version notes; in-app purchases"
+    read: matching lines only
+    quote: "Logbook totals for This ayear, Last 12 / 24 months and Overall"
+  - n: 17
+    claim: >
+      KTrax gives OGN-based takeoff and landing logs per airfield or aircraft with CSV download (day, year).
+      It needs gliders registered in the device database (DDB) with tracking and identification allowed, and
+      depends on receiver coverage, clock and position. Its price and reuse terms were not read.
+    label: VERIFIED
+    source: {title: "KTrax Logbook", ref: "https://ktrax.kisstech.ch/logbook"}
+    where: "Logbook Help, Troubleshooting"
+    read: full page
+    quote: "All your gliders must be registered in the DDB with full disclosure, i.e. tracking and identification allowed."
+  - n: 18
+    claim: >
+      OGN data is under ODbL with two extra rules: redistribution must follow the owners' DDB privacy
+      choices, and OGN data older than 24 hours may not be redistributed. How this applies to showing a pilot
+      their own stored flights is not stated. (The DDB site itself names ODC-BY for its device data.)
+    label: VERIFIED
+    source: {title: "OGN data usage rules", ref: "https://www.glidernet.org/ogn-data-usage/"}
+    where: "whole page"
+    read: full page
+    quote: "You do not re-distribute OGN data older than 24 hours"
+  # --- general logbooks: features and price ---
+  - n: 19
+    claim: >
+      MyFlightbook is free (donations optional). It imports CSV with a preview, exports CSV, prints an EASA
+      FCL.050-style PDF and lets instructors sign. Offline, the mobile apps can build and queue a new flight,
+      but viewing the logbook, totals and currency needs a connection. Re-importing without FlightIDs can
+      create duplicates.
+    label: VERIFIED
+    source: {title: "MyFlightbook FAQ", ref: "https://myflightbook.com/logbook/mvc/faq"}
+    where: "FAQ entries on cost, offline use, import, printing, signing"
+    read: first 100,000 of 103,420 characters through a page summary, plus text search of the raw page
+    quote: "access to your logbook and the analysis of it (computing totals or currency, for example) requires a connection to the Internet."
+  - n: 20
+    claim: "capzlog.aero's site lists three tiers at CHF 3.99, 5.99 and 9.99 a month with annual discount and 30-day trial, with fully offline iOS/Android apps listed among tier features. The Dutch App Store shows Premium at EUR 49.99 for 3 months, EUR 179.99 for 12 and EUR 399.99 for 36."
+    label: VERIFIED
+    source: {title: "capzlog.aero pricing", ref: "https://www.capzlog.aero/pricing"}
+    where: "tier table; https://apps.apple.com/nl/app/id1635925038 in-app purchases"
+    read: price lines and feature lines; which tier holds which feature was not fully mapped
+    quote: "Mobile Apps iOS & Android Fully offline"
+  - n: 21
+    claim: "LogTen: free for the first 50 hours, then USD 79.99 a year (Basic) or USD 129.99 a year (Pro)."
+    label: VERIFIED
+    source: {title: "LogTen plans and pricing", ref: "https://logten.com/pricing/"}
+    where: "whole page"
+    read: full page
+    quote: "Free for your first 50 hours logged."
+  - n: 22
+    claim: "Safelog (Windows, Mac, iOS, Android, web): USD 69.99 a year, USD 59.99 with auto-renewal, USD 999.99 lifetime."
+    label: VERIFIED
+    source: {title: "Safelog order page", ref: "https://www.dauntless-soft.com/PRODUCTS/Safelog/order.asp"}
+    where: "Pricing for individual pilots"
+    read: the section
+    quote: "Lifetime $999.99"
+  - n: 23
+    claim: "Skyden: first 20 flight hours free, then EUR 79.99 a year or EUR 9.99 a month; vendor says it works offline, imports CSV, exports PDF and CSV, and stays readable after lapse."
+    label: VERIFIED
+    source: {title: "Skyden home page", ref: "https://skyden.app/"}
+    where: "Pricing, FAQ"
+    read: full page
+    quote: "79.99€ /year"
+  - n: 24
+    claim: "FLYLOG.io: first 50 flights free; the site shows from USD 3.99 (Basic) and USD 7.99 (Premium) a month on annual billing, ex tax. The Dutch App Store lists Basic Logbook EUR 69.00 and Premium Logbook EUR 99.00."
+    label: VERIFIED
+    source: {title: "FLYLOG.io pricing", ref: "https://www.flylog.io/pricing"}
+    where: "plans; https://apps.apple.com/nl/app/id1048742145 in-app purchases"
+    read: price lines
+    quote: "Log your first 50 flights free."
+  - n: 25
+    claim: "Logbook.aero is listed in the Dutch App Store at EUR 53.99 a year or EUR 5.49 a month. Its website returned no readable text."
+    label: VERIFIED
+    source: {title: "Logbook.aero, App Store (NL)", ref: "https://apps.apple.com/nl/app/id879530289"}
+    where: "in-app purchases"
+    read: price lines and review section
+    quote: "Annual Subscription € 53,99"
+  - n: 26
+    claim: >
+      AerisLog's site says it is free on iOS and Android, with airplane, helicopter, ultralight and glider,
+      FCL.050 export, signatures, QR/link sharing and Excel/CSV import. The Dutch App Store also lists an
+      AerisLog Pro purchase (EUR 7.99 and EUR 64.99; periods not shown in the text read).
+    label: VERIFIED
+    source: {title: "AerisLog home page", ref: "https://www.aerislog.com/en"}
+    where: "features, FAQ headings; https://apps.apple.com/nl/app/id6761933931"
+    read: home page; FAQ answers not shown
+    quote: "Airplane, helicopter, ultralight, glider: one logbook for all your flights."
+  - n: 27
+    claim: "pilotlogbook.io offers a free EASA FCL.050 logbook with signed PDF and JSON/CSV export; its FAQ names only JSON as an import file. Glider support was not seen."
+    label: VERIFIED
+    source: {title: "pilotlogbook.io", ref: "https://pilotlogbook.io/"}
+    where: "FAQ"
+    read: matching sections
+    quote: "You can import flight records from JSON files or enter them manually."
+  - n: 28
+    claim: >
+      NinerLog is a free, open-source (AGPL-3.0) EASA/FAA logbook whose feature document describes glider
+      launch method, per-method launch recency, separate SPL TMG recency and CSV import/export. The code was
+      not examined or run; the repository showed 6 stars.
+    label: VERIFIED
+    source: {title: "ninerlog-api, docs/FEATURES.md", ref: "https://github.com/fjaeckel/ninerlog-api/blob/main/docs/FEATURES.md"}
+    where: "currency, import, export"
+    read: "matching lines of the raw file, and the README in part"
+    quote: "Launch recency is reported per method (SFCL.155(c))"
+  # --- complaints about general apps ---
+  - n: 29
+    claim: >
+      Data loss or damage is reported in LogTen reviews (GB store 8 July 2026; also AT store 13 March 2024,
+      id 11039232896; NL App Store page, 12 June, to which the developer replied that the issue was fixed).
+      These are individual reports.
+    label: VERIFIED
+    source: {title: "Apple review feed, LogTen (GB), review 14277871375", ref: "https://itunes.apple.com/gb/rss/customerreviews/page=1/id=837274884/sortby=mostrecent/json"}
+    where: "review 14277871375, 2026-07-08, 1 star"
+    read: full review
+    quote: "Upgraded to the new version, my logbook was on the device and it deleted everything."
+  - n: 30
+    claim: "Getting old records in is a pain point: a LogTen reviewer (21 February 2025) said the app would not convert a non-standard CSV, and also called entry cumbersome (the example was a simulator session needing three fields) and sync unreliable."
+    label: VERIFIED
+    source: {title: "LogTen, App Store (NL), review by ESAD-Sandstorm", ref: "https://apps.apple.com/nl/app/id837274884"}
+    where: "ratings and reviews, 21-02-2025"
+    read: full review as shown
+    quote: "First of all the CSV conversion of my previous logbook. It was a non conventional format."
+  - n: 31
+    claim: "A FLYLOG reviewer (US, 2 December 2025) reported broken ForeFlight import, with only full-stop landings counted, and complained there were only iOS and Mac apps (the vendor's pricing page now lists Android, Windows and web too)."
+    label: VERIFIED
+    source: {title: "Apple review feed, FLYLOG (US), review 13468962170", ref: "https://itunes.apple.com/us/rss/customerreviews/page=1/id=1048742145/sortby=mostrecent/json"}
+    where: "2025-12-02, 4 stars"
+    read: full review
+    quote: "ForeFlight imports are broken. Only full stop landings are counted at all."
+  - n: 32
+    claim: "Offline: a FLYLOG reviewer (DE, 14 November 2026) could not open or edit offline because of a subscription check; another (BE, 19 June 2026) said it can bug badly offline."
+    label: VERIFIED
+    source: {title: "Apple review feed, FLYLOG (DE), review 14790064249", ref: "https://itunes.apple.com/de/rss/customerreviews/page=1/id=1048742145/sortby=mostrecent/json"}
+    where: "2026-11-14, 5 stars; BE review 14204123281"
+    read: full reviews
+    quote: "sometimes using it offline, it’s not opening up because it requires a „subscription“"
+  - n: 33
+    claim: "Printing: a CrewLounge user (BE, 20 May 2024, 5 stars) wants to print from iPad or phone because a desktop is needed; a US review (9 October 2023) says export cannot be done from mobile and prints miss information."
+    label: VERIFIED
+    source: {title: "Apple review feed, CrewLounge PILOTLOG (BE), review 11287236191", ref: "https://itunes.apple.com/be/rss/customerreviews/page=1/id=1478619388/sortby=mostrecent/json"}
+    where: "2024-05-20; US review 10456365388"
+    read: full reviews
+    quote: "Only one drawback is the need of a desktop/laptop to be able to print the logbook."
+  - n: 34
+    claim: "EASA output losing data: a reviewer (BE, 19 February 2022) of Flygo's Pilot Logbook said an added ultralight column disappeared from the EASA PDF."
+    label: VERIFIED
+    source: {title: "Apple review feed, Pilot Logbook by Flygo (BE), review 8372845870", ref: "https://itunes.apple.com/be/rss/customerreviews/page=1/id=590352539/sortby=mostrecent/json"}
+    where: "2022-02-19, 5 stars"
+    read: full review
+    quote: "when I asked a pdf EASA , the column ultralight disappears from the paper record"
+  - n: 35
+    claim: "MyFlightbook reviews praise it but call the interface dated or not very user-friendly (DE 11 August 2025; US 4 February and 23 March 2026, the last also about printing)."
+    label: VERIFIED
+    source: {title: "Apple review feed, MyFlightbook (US), review 13879951805", ref: "https://itunes.apple.com/us/rss/customerreviews/page=1/id=349983064/sortby=mostrecent/json"}
+    where: "2026-03-23, 4 stars; also reviews 13005742000 (de) and 13713668269 (us)"
+    read: full reviews
+    quote: "Not super user-friendly, and difficult to print out to share for interviews"
+  - n: 36
+    claim: >
+      Price and subscription are repeated complaints: LogTen (GB 28 October 2026, on paying for the Pro tier;
+      GB 25 August 2023, on paying for cloud sync), CrewLounge (US 5 October 2026, a second "lifetime"
+      payment, and slow support), capzlog (DE 1 September 2026, app behind a subscription).
+    label: VERIFIED
+    source: {title: "Apple review feed, LogTen (GB), review 14721938187", ref: "https://itunes.apple.com/gb/rss/customerreviews/page=1/id=837274884/sortby=mostrecent/json"}
+    where: "2026-10-28; also 10297657130, 14629856280, 14498483764"
+    read: the passages quoted
+    quote: "Paying £80 per year for the iPhone+iPad logbook isn’t enough"
+  - n: 37
+    claim: >
+      The literal word "clunky" found: a LogTen reviewer (GB, 14 September 2024), a five-year user switching
+      away, named the interface, import/export, manual entry on iPad or laptop, and field layout not synced
+      across devices.
+    label: VERIFIED
+    source: {title: "Apple review feed, LogTen (GB), review 11724072033", ref: "https://itunes.apple.com/gb/rss/customerreviews/page=1/id=837274884/sortby=mosthelpful/json"}
+    where: "2024-09-14, 2 stars"
+    read: full review
+    quote: "Clunky UI, minimal import/export options, unable to comfortably enter data manually from an iPad, or laptop"
+  - n: 38
+    claim: >
+      None of the 433 reviews retrieved contained glider, gliding, sailplane, Segelflug, zweef, planeur,
+      winch, IGC or TMG. This sample therefore says nothing about glider or mixed powered-and-glider
+      complaints; it does not show that there are none.
+    label: INFERRED
+    source: {title: "Keyword search over the retrieved Apple review feeds", ref: "https://itunes.apple.com/{store}/rss/customerreviews/page=1/id={appid}/sortby=mostrecent/json"}
+    where: "method above"
+    read: automated keyword search
+    quote: ""
+  # --- reuse and gap ---
+  - n: 39
+    claim: >
+      Import and reuse candidates seen in the sources: (a) CSV/spreadsheet with column mapping, offered by
+      many products (findings 8, 12, 19, 23, 26); (b) IGC files for date, times and site (8, 13, 14);
+      (c) exports from other logbooks (MyFlightbook CSV, Aerolog XLSX, LXNAV Logbook.txt, WeGlide files as
+      described by FlightStack); (d) club systems: Vereinsflieger through the pilot's account, as cloudlog
+      does (10), and GlidingApp's export (the all-features page lists data import and export; format not
+      seen); (e) OGN data or KTrax CSV, limited by coverage, DDB privacy choices and the 24-hour
+      redistribution rule (3, 17, 18). No public API terms for Vereinsflieger, GlidingApp, KTrax or WeGlide
+      were read, so none of these is established as open to a new product. Open-source logbooks exist
+      (14, 28); NinerLog's AGPL-3.0 has obligations that need checking before any reuse.
+    label: INFERRED
+    source: {title: "Findings 1-28 of this record", ref: "RES-XA6N"}
+    where: "as listed"
+    read: reasoning
+    quote: ""
+  - n: 40
+    claim: >
+      Gap assessment. A general "EASA logbook that does gliders and powered flight" is NOT an empty space:
+      several products claim it (10, 12, 26, 28), as do glider-first tools (1, 8, 13) and free options
+      (19, 26, 27). Candidate openings, all weakly evidenced: (i) one personal logbook that gathers home-club,
+      away and powered flights with little retyping for a Dutch pilot (5 and 7 old; GlidingApp now claims
+      most of this for gliders, cloudlog for Vereinsflieger users); (ii) simple entry and dependable offline
+      use, import and print on a phone (29-37, mostly general or airline-leaning users); (iii) clear
+      mixed glider/TMG/aeroplane handling (only a vendor pitch, 13, was found; no user complaint). No source
+      read shows what the builder's friends mean by "clunky", how many Dutch pilots are unserved, or that
+      any would pay. For the business case, the evidence for a gap is weak.
+    label: INFERRED
+    source: {title: "Findings 1-38 of this record", ref: "RES-XA6N"}
+    where: "as listed"
+    read: reasoning
+    quote: ""
+not_established:
+  - "PPRuNe and EuroGA threads on TMG/mixed logging: raw fetch returned 403. A search summary of PPRuNe complaints was seen but is not used as a finding."
+  - "Reddit: the search returned no threads. Google Play reviews were not collected, so Android complaints are missing."
+  - "Vereinsflieger price, personal logbook export and user complaints: the vendor pages fetched gave no usable text on them; a 2023 feature/price PDF returned 403."
+  - "naviter.com (SeeYou) returned 403; logbook.aero pages had no readable text; skyhop.org (named in a 2020 forum post) did not resolve; aerolog.de failed certificate check."
+  - "Glider Log (iOS id1570108139): its NL App Store page returned 404 and the US lookup returned no result; status unclear. A search summary mentioned it, not used."
+  - "FlyTool's current status and price; GeZC's own apps (2020 posts mention club-built systems) beyond the mention."
+  - "ForeFlight Logbook price in Europe and its glider handling (only search summaries seen)."
+  - "Whether any authority accepts any of these logbooks: out of scope; vendor compliance claims are untested."
+  - "No product was tried, so nothing here says which screens or tasks are clumsy in any product beyond what users wrote."
+conclusion: |
+  Many products exist. Glider/Dutch side: GlidingApp (club-bought, EUR 0.80/user/month ex VAT, OGN auto-logging),
+  FlightStack (beta, IGC import, no backup commitment), BLANIK (early access), SoarLog, plus flight loggers
+  (WeGlide Copilot, SeeYou, KTrax) and club systems (Vereinsflieger, own-built). General logbooks claiming
+  gliders include cloudlog.aero (EUR 3.99/7.90 a month), flightlogbook.cloud (EUR 40/year) and AerisLog (free tier);
+  MyFlightbook is free and was used by Dutch glider pilots in 2016.
+  Dated complaints about apps concern data loss, sync, import, offline, print/export, price, support and dated
+  or clunky interfaces, almost all from general or airline-leaning users. No recent user complaint about a
+  glider logbook app or about mixed glider/powered logging was found; the one recent glider-specific one is
+  about inconsistent automatic OGN times. A gap is not demonstrated.
+  Open choices for the builder: whether to position on ease and reliability of the personal logbook, on
+  gathering flights from club/IGC/OGN sources, or on mixed glider/powered handling; and which imports the MVP
+  carries (CSV is the widest; IGC is the glider-specific one; OGN and club connections have unresolved terms).

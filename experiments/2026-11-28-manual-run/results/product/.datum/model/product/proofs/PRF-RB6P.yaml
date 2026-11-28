@@ -1,0 +1,10 @@
+id: PRF-RB6P
+status: agreed
+title: Required information is in the copy
+method: inspection
+rationale: >-
+  Content set by text.
+covers: REQ-9RHQ
+criterion:
+  pass: >-
+    Each listed item is present and matches the current privacy notice.

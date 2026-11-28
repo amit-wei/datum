@@ -1,0 +1,9 @@
+id: PRF-KQBN
+status: agreed
+title: Backups age out
+method: inspection
+rationale: A retention setting can be changed unnoticed.
+covers: REQ-X5KB
+criterion:
+  pass: Configured retention of every backup meets backup_retention and no other copies exist.
+    This covers data erased for a privacy request.

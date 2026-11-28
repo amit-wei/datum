@@ -1,0 +1,13 @@
+id: SCN-7FM6
+status: agreed
+name: "Log a busy day of gliding"
+kind: variation
+trigger: "A glider pilot has made several short flights in one day."
+preconditions: "The pilot has a logbook."
+steps:
+  - {n: 1, by: user, what: "Enters the first flight."}
+  - {n: 2, by: product, what: "Adds it to the logbook."}
+  - {n: 3, by: user, what: "Enters each further flight, giving only what differs from an earlier one."}
+  - {n: 4, by: product, what: "Adds each as its own flight, with its launch method and landings."}
+outcome: "Every launch and landing of the day is logged without the same details being typed again."
+needs: [ELI-H0GB#5, ELI-BS4R#1, ELI-FV4M#1, ELI-PX7E#1]

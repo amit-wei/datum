@@ -1,0 +1,13 @@
+id: REQ-6CPP
+status: agreed
+pattern: state
+statement: While the pilot holds LAPL(A) without having held PPL(A) or higher, the part shall
+  show one passenger result for each type or class, separately for day and night, as met only
+  if the 10 hours as PIC on aeroplanes or TMG after licence issue are shown by entries or stated
+  by the pilot and the take-off and landing conditions of REQ-A3S1 are met.
+rationale: FCL.105.A(a) and FCL.060(b) (RES-7H7D n22, n25). One combined result so that recency
+  alone never reads as permission to carry passengers. Accepting a labelled statement by the
+  pilot was the agent's proposal. The builder accepted the proposed rules in ELI-SCJS.
+of: FUN-69E8
+answers:
+- HAZ-SDKD

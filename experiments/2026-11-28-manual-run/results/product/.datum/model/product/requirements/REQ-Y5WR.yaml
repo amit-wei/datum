@@ -1,0 +1,12 @@
+id: REQ-Y5WR
+status: agreed
+pattern: ubiquitous
+statement: >-
+  The part shall show with the rule results the date on which the rules the part applies were
+  last checked against their official texts.
+rationale: >-
+  ELI-C382#8: rule changes arrive with updates, so the pilot needs the age of the rules. An
+  old or offline app cannot know of newer rules.
+of: FUN-69E8
+answers:
+- HAZ-SDKD

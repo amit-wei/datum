@@ -1,0 +1,21 @@
+id: REQ-AMNB
+status: agreed
+pattern: state
+statement: While the part is open on a signed-in device with a working connection, the part
+  shall copy each unsynced record to the online copy within {measure}.
+measure:
+  metric: sync_delay
+  definition: From connection and open app to the record being in the online copy.
+  unit: s
+  bounds:
+  - statistic: max
+    op: <=
+    value: 60
+rationale: 'The device must stop being the only copy as soon as it can (SCN-JPQT#5). iPhones
+  offer no background sync, so only open-app time counts (RES-X2SP n15, n19). The time was the
+  agent''s proposal. The builder accepted the proposed rules in ELI-SCJS. Value: a judgement
+  call with no researched source, accepted by the builder as a starting target (ELI-SCJS#5);
+  revisit if testing or running cost gives a reason.'
+of: FUN-DV8F
+answers:
+- HAZ-2CDR

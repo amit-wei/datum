@@ -1,0 +1,17 @@
+id: FUN-VT5X
+status: agreed
+name: "Warn about expiry dates"
+definition: "Warns the pilot, when they open the app, about entered dates that are close or past, and says when medical warnings are off. Marks what an unresolved conflict affects."
+serves: [SCN-A5Z1#3, SCN-RXEM#4, SCN-C606#3, SCN-5EAZ#2]
+inputs:
+  - name: "recorded expiry dates"
+    from: FUN-SJJQ
+  - name: "synced records"
+    from: FUN-DV8F
+  - name: "medical date consent"
+    from: FUN-EMXF
+  - name: "conflicting changes"
+    from: FUN-DV8F
+outputs:
+  - name: "expiry warnings"
+    to: [pilot]

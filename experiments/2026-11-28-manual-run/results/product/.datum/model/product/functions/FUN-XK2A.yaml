@@ -1,0 +1,23 @@
+id: FUN-XK2A
+status: agreed
+name: Send a recovery proof
+definition: When asked, sends the owner of an account a new one-time recovery proof at its confirmed
+  means of contact, telling the requester only that the request was received.
+serves:
+- SCN-TYPM#3
+- SCN-VW03#5
+inputs:
+- name: changed means of contact
+  from: FUN-SGHT
+- name: request for a recovery proof
+  from: pilot
+- name: pilot account
+  from: FUN-EVE9
+outputs:
+- name: recovery proof
+  to:
+  - FUN-Q1BS
+  - pilot
+- name: request received notice
+  to:
+  - pilot

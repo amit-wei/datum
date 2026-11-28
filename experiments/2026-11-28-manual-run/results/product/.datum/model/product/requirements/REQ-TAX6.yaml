@@ -1,0 +1,21 @@
+id: REQ-TAX6
+status: agreed
+pattern: unwanted
+statement: If the number of failed sign-in attempts in a row with one sign-in method of an account
+  reaches {measure}, then the part shall refuse that method until the owner resets it through
+  account recovery.
+measure:
+  metric: consecutive_signin_failures
+  definition: Failed sign-in attempts with one method since the last successful one with it.
+  unit: attempts
+  bounds:
+  - statistic: value
+    op: ==
+    value: 100
+rationale: NIST SP 800-63B-4 caps consecutive failures at no more than 100 per authenticator,
+  recovery codes included (RES-6SKG n1, n2, n8); accepted by the builder (ELI-SCJS#8). An attacker
+  can force the owner to recover; access recovery stays usable.
+of: FUN-B8SK
+answers:
+- HAZ-9K19
+source: builder

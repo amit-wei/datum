@@ -1,0 +1,10 @@
+id: REQ-ES10
+status: agreed
+pattern: ubiquitous
+statement: The part shall take the passenger training flight of REQ-C2MJ as shown by entries
+  only from a signed training flight that the entry records as the passenger training flight.
+rationale: An ordinary training flight does not show passenger competence (SFCL.115(a)(2), RES-7H7D
+  n32).
+of: FUN-69E8
+answers:
+- HAZ-SDKD

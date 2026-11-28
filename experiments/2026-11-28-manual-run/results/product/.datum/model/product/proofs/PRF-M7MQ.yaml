@@ -1,0 +1,8 @@
+id: PRF-M7MQ
+status: agreed
+title: Deletion warning item
+method: test
+rationale: The warning screen can lose an item in a redesign.
+covers: REQ-XXFK
+criterion:
+  pass: The item appears before the confirmation can be given.

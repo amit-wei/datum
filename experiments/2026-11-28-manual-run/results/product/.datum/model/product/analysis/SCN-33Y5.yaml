@@ -1,0 +1,11 @@
+id: SCN-33Y5
+status: agreed
+name: "Restore a removed flight"
+kind: variation
+trigger: "A pilot finds that a removed flight should be in the logbook."
+preconditions: "A flight has been removed."
+steps:
+  - {n: 1, by: user, what: "Chooses a removed flight, including one removed by undoing an import."}
+  - {n: 2, by: product, what: "Puts it back and updates totals and rule results."}
+outcome: "The flight is in the logbook and counted again."
+needs: [ELI-J7WZ#6, ELI-C382#5]

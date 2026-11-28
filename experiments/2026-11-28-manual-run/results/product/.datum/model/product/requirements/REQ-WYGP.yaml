@@ -1,0 +1,10 @@
+id: REQ-WYGP
+status: agreed
+pattern: unwanted
+statement: If the device cannot store a change, then the part shall say that the change is not
+  saved.
+rationale: 'ELI-C382#8: full storage.'
+of: FUN-ESPG
+answers:
+- HAZ-BYMT
+- HAZ-2CDR

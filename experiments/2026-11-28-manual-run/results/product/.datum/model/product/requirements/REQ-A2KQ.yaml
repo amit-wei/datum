@@ -1,0 +1,22 @@
+id: REQ-A2KQ
+status: agreed
+pattern: event
+statement: When the part is opened with a working connection after a new release, the part shall
+  be running that release within {measure}.
+measure:
+  metric: update_delay
+  definition: Time with the part opened, connected and without unsaved input, summed over openings,
+    from the first such opening after the release until the new release runs.
+  unit: min
+  bounds:
+  - statistic: max
+    op: <=
+    value: 5
+rationale: 'Rule fixes reach pilots only through updates (ELI-C382#8), so the time to fetch
+  and apply must be bounded. The time was the agent''s proposal. The builder accepted the proposed
+  rules in ELI-SCJS. Value: a judgement call with no researched source, accepted by the builder
+  as a starting target (ELI-SCJS#5); revisit if testing or running cost gives a reason.'
+of: FUN-V6Z2
+answers:
+- HAZ-SDKD
+- HAZ-XWCK

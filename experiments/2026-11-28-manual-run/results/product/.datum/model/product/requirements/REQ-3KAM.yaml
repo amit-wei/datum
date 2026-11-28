@@ -1,0 +1,29 @@
+id: REQ-3KAM
+status: agreed
+pattern: ubiquitous
+statement: The part shall count an unsigned training flight, supervised flight, proficiency
+  check, skill test, assessment of competence or other entry with dual time toward no part of
+  LAPL(A) recency, SPL sailplane recency or SPL TMG recency, toward neither the refresher training
+  item nor the check condition of revalidation, and toward no one-time passenger training condition,
+  while counting such an entry toward revalidation experience, 90-day passenger recency, launch
+  method recency and the one-time passenger hours and launches like any other flight, except
+  that an unsigned supervised flight counts toward none of these and an unsigned proficiency
+  check, skill test or assessment of competence adds no PIC time, take-off, landing or launch
+  to a count that requires PIC.
+rationale: FCL.140.A(d) requires signatures for LAPL(A) recency dual flights, supervised flights,
+  refresher training and checks, and SFCL.160(d) for SPL recency dual, supervised and training
+  flights and checks (RES-7H7D n18-19); ELI-C382#2. Supervised time and passed tests and checks
+  may be logged as PIC in aeroplanes only when countersigned (n5), supervised solo as PIC in
+  sailplanes only if the supervising instructor signs (n7), and a supervised launch made when
+  launch method recency has lapsed is signed afterwards (n31, an ILT reading); hence the exceptions,
+  applied to every unsigned supervised flight and check as the stricter reading. AMC1 FCL.050(i)(10)(iv)
+  asks for the instructor's name and signature 'if the flight is part of' an SEP or TMG class
+  rating revalidation (RES-70FV n2). It can be read as the refresher flight only or as every
+  instructor flight whose time is counted, and no source read chooses (RES-70FV n3). The builder
+  chose to count unsigned dual and training flights toward revalidation experience and to have
+  the result say so (ELI-SCJS#8). No other signature requirement for the remaining counts was
+  found in RES-7H7D. One rule for where the mark matters. The builder accepted the proposed
+  rules in ELI-SCJS.
+of: FUN-69E8
+answers:
+- HAZ-SDKD

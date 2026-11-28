@@ -1,0 +1,27 @@
+id: ELI-BS4R
+date: 2026-11-28
+entries:
+  - n: 1
+    question: "Can you ask your pilot friends questions, and would they try early versions?"
+    answer: "Not now unfortunately, but I can imagine that we should care about simplicity and functionality, without unnecessary features."
+    need: true
+    constraint: true
+  - n: 2
+    question: "Should they be able to log a flight with no signal? Proposed: yes, entries save on the phone and sync later."
+    answer: "yes"
+    need: true
+    constraint: true
+  - n: 3
+    question: "Past flights. Proposed for the MVP: enter previous totals as a starting balance and import a file from the old app, without retyping every old flight. Is that enough?"
+    answer: "I think so"
+    need: true
+  - n: 4
+    question: "While the app is new, should friends keep their current logbook alongside it? Proposed: yes, until totals have matched and accepted records are confirmed; getting data out is easy."
+    answer: "I want the app to be designed to be the real primary logbook."
+    need: true
+    constraint: true
+  - n: 5
+    question: "Deadline, monthly budget, and who maintains it? Proposed: just you, a small budget and no fixed date."
+    answer: "agreed with your guess."
+    constraint: true
+    out_of_scope: "No requirement: limits the project (who builds and maintains it, budget, date), not the product's behaviour; synthesis weighs cost and upkeep."

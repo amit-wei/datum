@@ -1,0 +1,55 @@
+id: FUN-VY4C
+status: agreed
+name: Preview a flight import
+definition: Shows what a CSV file would add under the pilot's column matching, flagging unreadable
+  rows and likely duplicates, which are left out unless the pilot includes them one by one,
+  without changing the logbook.
+serves:
+- SCN-0RNY#2
+- SCN-0RNY#4
+- SCN-H9FP#1
+- SCN-H9FP#2
+- SCN-H9FP#4
+inputs:
+- name: CSV file
+  from: pilot
+- name: column matching
+  holds: which column holds what
+  from: pilot
+- name: reading of an unclear format
+  from: pilot
+- name: value for a missing column
+  holds: one value that applies to every row
+  from: pilot
+- name: duplicate rows to include
+  from: pilot
+- name: logbook entry
+  from: FUN-ESPG
+- name: recorded starting totals
+  from: FUN-PDMV
+- name: logbook entry
+  from: FUN-5QA7
+- name: corrected entry
+  from: FUN-JX7F
+- name: entry removal
+  from: FUN-2JYW
+- name: import removal
+  from: FUN-YRV9
+- name: restored entry
+  from: FUN-SR3A
+- name: synced records
+  from: FUN-DV8F
+outputs:
+- name: import preview
+  holds: the flights and totals that would be added, and the rows left out or unreadable
+  to:
+  - pilot
+  - FUN-5QA7
+- name: columns found in the file
+  holds: to be matched
+  to:
+  - pilot
+- name: import questions
+  holds: which reading applies to an unclear format, and which required item has no column
+  to:
+  - pilot

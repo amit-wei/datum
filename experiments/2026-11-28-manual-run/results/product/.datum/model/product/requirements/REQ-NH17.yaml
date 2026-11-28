@@ -1,0 +1,14 @@
+id: REQ-NH17
+status: agreed
+pattern: event
+statement: >-
+  When the pilot starts a new flight from an earlier entry, the part shall fill in every item
+  of that entry except times, flight time, part times, take-off, landing and launch counts,
+  training or check details, signed mark and remarks.
+rationale: >-
+  SCN-7FM6: a gliding day must not mean retyping. The left-out items differ per flight; carrying
+  them over would record things that did not happen.
+of: FUN-ESPG
+answers:
+- HAZ-BYMT
+- HAZ-SDKD

@@ -1,0 +1,12 @@
+id: REQ-PQMD
+status: agreed
+pattern: event
+statement: >-
+  When the pilot saves, changes or removes an expiry date of a rating, of language proficiency
+  or of the medical, the part shall record exactly what the pilot saved.
+rationale: >-
+  Warnings and the revalidation window rest on these dates.
+of: FUN-SJJQ
+answers:
+- HAZ-BYMT
+- HAZ-SDKD

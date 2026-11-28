@@ -1,0 +1,119 @@
+id: FUN-DV8F
+status: agreed
+name: Synchronise the logbook
+definition: Copies the pilot's records off the device and onto their other devices, including
+  all synced records onto a new one, and detects changes that conflict.
+serves:
+- SCN-JPQT#5
+- SCN-5DS4#2
+- SCN-5EAZ#1
+- SCN-5EAZ#4
+- SCN-6NZ9#2
+- SCN-070N#1
+- SCN-070N#2
+inputs:
+- name: pilot account
+  from: FUN-EVE9
+- name: signed-in pilot
+  from: FUN-B8SK
+- name: held privileges
+  from: FUN-V4TT
+- name: recorded starting totals
+  from: FUN-PDMV
+- name: recorded expiry dates
+  from: FUN-SJJQ
+- name: logbook entry
+  from: FUN-ESPG
+- name: logbook entry
+  from: FUN-5QA7
+- name: corrected entry
+  from: FUN-JX7F
+- name: entry removal
+  from: FUN-2JYW
+- name: conflict resolution
+  from: FUN-V0PH
+- name: import removal
+  from: FUN-YRV9
+- name: restored entry
+  from: FUN-SR3A
+- name: earlier version of a corrected entry
+  from: FUN-JX7F
+- name: earlier version of a removed entry
+  from: FUN-2JYW
+- name: earlier starting totals
+  from: FUN-PDMV
+- name: import record
+  from: FUN-5QA7
+- name: account deletion
+  from: FUN-VN36
+- name: recorded pilot details
+  from: FUN-82YT
+- name: medical date consent
+  from: FUN-EMXF
+- name: version not chosen
+  from: FUN-V0PH
+- name: renewed sign-in details
+  from: FUN-Q1BS
+- name: changed sign-in details
+  from: FUN-DAF5
+- name: device signed out
+  from: FUN-ZH87
+- name: changed means of contact
+  from: FUN-SGHT
+- name: privacy erasure
+  from: FUN-S6RT
+- name: account deletion
+  from: FUN-S6RT
+- name: privacy erasure notice state
+  from: FUN-S6RT
+outputs:
+- name: synced records
+  holds: the pilot's records as brought onto a device, including any privacy erasure notice
+    and whether it was acknowledged
+  to:
+  - pilot
+  - FUN-B8SK
+  - FUN-V4TT
+  - FUN-PDMV
+  - FUN-SJJQ
+  - FUN-ESPG
+  - FUN-VY4C
+  - FUN-6NTH
+  - FUN-69E8
+  - FUN-VT5X
+  - FUN-JX7F
+  - FUN-2JYW
+  - FUN-TF2W
+  - FUN-AV5B
+  - FUN-A60F
+  - FUN-VN36
+  - FUN-MPTZ
+  - FUN-YRV9
+  - FUN-SR3A
+  - FUN-82YT
+  - FUN-DVKC
+  - FUN-DDT6
+  - FUN-EMXF
+  - FUN-SGHT
+  - FUN-EK3N
+  - FUN-S6RT
+- name: conflicting changes
+  holds: two differing changes to the same record
+  to:
+  - FUN-6NTH
+  - FUN-69E8
+  - FUN-VT5X
+  - FUN-V0PH
+  - FUN-AV5B
+- name: sync state
+  holds: which records are not yet synced, and when the logbook last was
+  to:
+  - FUN-270Z
+  - FUN-VN36
+  - FUN-ZH87
+  - FUN-EK3N
+- name: sync problem warnings
+  holds: records that could not sync or are missing online, and that no copy exists off the
+    device, with the offer of a data copy
+  to:
+  - pilot

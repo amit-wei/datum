@@ -1,0 +1,11 @@
+id: PRF-SC6H
+status: agreed
+title: Unknown outcomes are not claimed
+method: test
+rationale: Only fault injection produces this order.
+covers: REQ-ATZ9
+criterion:
+  pass: With the service silent after delivery, and with the answer dropped or garbled, each
+    both after the service acted and without it acting, the part first says the outcome is unknown
+    and after reconnecting shows what really holds. For a request for a recovery proof,
+    the outcome shown afterwards is only whether it was received.

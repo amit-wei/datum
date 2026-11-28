@@ -1,0 +1,8 @@
+id: PRF-WW2F
+status: agreed
+title: Change without proof is refused
+method: test
+rationale: A shortcut in the settings screen would not show in normal use.
+covers: REQ-9A90
+criterion:
+  pass: With missing and with wrong proof the old details still work and the new ones do not.

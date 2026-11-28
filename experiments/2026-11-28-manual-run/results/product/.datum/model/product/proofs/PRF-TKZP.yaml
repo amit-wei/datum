@@ -1,0 +1,12 @@
+id: PRF-TKZP
+status: agreed
+title: LAPL(A) recency is computed correctly
+method: test
+rationale: >-
+  Rule logic changes with every rule update.
+covers: REQ-ADTS
+criterion:
+  pass: >-
+    Fixtures just meeting and just missing each condition, by each route, give the right result.
+  conditions: >-
+    Expected results worked by hand from the rule text.

@@ -1,0 +1,11 @@
+id: SCN-C8S2
+status: agreed
+name: "Open the app after an update"
+kind: variation
+trigger: "The builder has released a new version of the app."
+preconditions: "The pilot has a logbook."
+steps:
+  - {n: 1, by: user, what: "Opens the app."}
+  - {n: 2, by: product, what: "Updates itself and shows the logbook with every earlier record unchanged, including any not yet synced."}
+outcome: "The update has not damaged any record."
+needs: [ELI-H7X3#6]

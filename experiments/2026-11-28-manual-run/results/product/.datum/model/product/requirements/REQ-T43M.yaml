@@ -1,0 +1,14 @@
+id: REQ-T43M
+status: agreed
+pattern: event
+statement: >-
+  When the part tells the pilot that a change to any record is saved, the part shall still hold
+  that change after the app or the device is closed and started again.
+rationale: >-
+  Applies to entries, corrections, removals, restores, imports, undos, setup details, consent
+  and conflict choices. A device that is lost, wiped or loses power at that instant is outside
+  this (RES-X2SP n14, n19).
+of: FUN-ESPG
+answers:
+- HAZ-BYMT
+- HAZ-2CDR

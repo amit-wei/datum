@@ -1,0 +1,9 @@
+id: PRF-80A9
+status: agreed
+title: Bad erasure requests do nothing
+method: test
+rationale: A broad match in a later change could erase too much.
+covers: REQ-Q9WX
+criterion:
+  pass: For an unknown account, unknown data and an incomplete request nothing changes and the
+    builder is told which part failed.

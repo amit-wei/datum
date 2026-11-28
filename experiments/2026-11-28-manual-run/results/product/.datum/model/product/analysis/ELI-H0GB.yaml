@@ -1,0 +1,43 @@
+id: ELI-H0GB
+date: 2026-11-28
+entries:
+  - n: 1
+    question: "What is the product for? (The builder's opening statement.)"
+    answer: "I want to make a flight logbook app for light aircraft and glider pilot, im not much of a pilot myself but i have pilot friends that are dissatisfied with paper solutions and existing solutions, saying they're too clunky."
+    need: true
+  - n: 2
+    question: "Proposed: it must make logging a flight quick, keep the history safe, and show totals."
+    answer: "I agreed with your first \"it must\""
+    need: true
+  - n: 3
+    question: "Proposed: it must not lose or silently change records, or show wrong totals."
+    answer: "and the \"it must not\" i guess its obvious but i want to avoid giving pilots the wrong info lmao so idk if tis complete."
+    loss: true
+  - n: 4
+    question: "Who is this for, and what would count as success?"
+    answer: "I think it should be the mvp for my future business, but definitely safe enough for my friends to actually fly with it right now."
+    need: true
+    constraint: true
+    out_of_scope: "No requirement of its own: a goal (first version of a business, safe enough to fly with) carried by the requirements that answer the hazards."
+  - n: 5
+    question: "What exactly is clunky about paper and existing apps?"
+    answer: "no idea, thats what my friends say. I assume your guesses on simplicity are right but i rlly dont know the current solutions or what people are saying about it in detail"
+    need: true
+  - n: 6
+    question: "Do pilots need to share their logbook with others?"
+    answer: "I also think the want to share stuff with flight instructors and the authorities? is that a thing idk."
+    need: true
+  - n: 7
+    question: "When, where and on what device would they log a flight?"
+    answer: "they use both devices, but I think we could do a webapp for the mvp no? or is that unsafe?"
+    constraint: true
+    out_of_scope: "No requirement: a web app is a technology preference left to synthesis; both kinds of device are covered by the platform requirement."
+  - n: 8
+    question: "Does the app need to be their official logbook, and in which country are they licensed?"
+    answer: "I guess, my friends are european (netheralnds)"
+    need: true
+    constraint: true
+  - n: 9
+    question: "What is the worst thing the app could do to them?"
+    answer: "i mean i guess the worst thing the app could do to them is make them crash one way or another no?"
+    loss: true

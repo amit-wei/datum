@@ -1,0 +1,11 @@
+id: REQ-GK84
+status: agreed
+pattern: event
+statement: >-
+  When a signed-in device syncs, the part shall bring to the device every record of the account
+  that the device lacks.
+rationale: >-
+  SCN-5DS4: a new phone gets everything back.
+of: FUN-DV8F
+answers:
+- HAZ-XWCK

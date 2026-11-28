@@ -1,0 +1,13 @@
+id: SCN-AYXJ
+status: agreed
+name: "Sign out of a shared computer"
+kind: variation
+trigger: "A pilot has finished using a device others use."
+preconditions: "The pilot is signed in."
+steps:
+  - {n: 1, by: user, what: "Asks to sign out."}
+  - {n: 2, by: product, what: "Warns if anything has not synced."}
+  - {n: 3, by: user, what: "Chooses whether to go on."}
+  - {n: 4, by: product, what: "If the pilot goes on, closes access to the logbook on that device, losing nothing without the pilot knowing."}
+outcome: "Others on the device cannot reach the logbook."
+needs: [ELI-J7WZ#4]

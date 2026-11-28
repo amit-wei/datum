@@ -1,0 +1,16 @@
+id: REQ-PH63
+status: agreed
+pattern: event
+statement: When a person creates an account, the part shall tell the person that a pilot who
+  can no longer receive messages at the means of contact cannot use account recovery, and loses
+  access to the online logbook for good if the pilot also forgets the sign-in details or the
+  part has turned the sign-in method off after repeated failures, which other people's attempts
+  can cause.
+rationale: 'ELI-W9NN#9 accepted the risk; a pilot can only guard against a risk they know. Builder
+  limit: ELI-W9NN#9. With the consecutive-failure cap, losing the recovery proof or contact
+  can be enough by itself once others have used up the attempts. Agreed in ELI-PSRH. Builder
+  limit: ELI-PSRH#2.'
+of: FUN-EVE9
+answers:
+- HAZ-XWCK
+source: builder

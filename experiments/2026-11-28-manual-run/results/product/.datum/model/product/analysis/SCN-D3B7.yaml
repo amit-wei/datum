@@ -1,0 +1,13 @@
+id: SCN-D3B7
+status: agreed
+name: "Rule result with information missing"
+kind: failure
+trigger: "A pilot looks at rule results while the logbook lacks something a rule needs."
+preconditions: "The pilot has a logbook."
+steps:
+  - {n: 1, by: user, what: "Opens the rule results."}
+  - {n: 2, by: product, what: "Says it cannot give the affected result and what information is missing, instead of showing it as met."}
+  - {n: 3, by: user, what: "Adds the missing information."}
+  - {n: 4, by: product, what: "Shows the result."}
+outcome: "The pilot is not misled by a result built on incomplete information."
+needs: [ELI-KHF8#1, ELI-H0GB#4]

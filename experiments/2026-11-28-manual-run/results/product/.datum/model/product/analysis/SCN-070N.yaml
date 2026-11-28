@@ -1,0 +1,19 @@
+id: SCN-070N
+status: agreed
+name: Syncing keeps failing
+kind: failure
+trigger: Records stay unsynced although the device has a connection.
+preconditions: The pilot has unsynced records.
+steps:
+- n: 1
+  by: product
+  what: Keeps the records and keeps trying.
+- n: 2
+  by: product
+  what: Warns that no copy exists off the device, and offers a copy of the data.
+- n: 3
+  by: user
+  what: Takes a copy.
+outcome: The pilot knows the records are only on the device and can keep a copy.
+needs:
+- ELI-SCJS#5

@@ -1,0 +1,15 @@
+id: REQ-4SMW
+status: agreed
+pattern: event
+statement: >-
+  When the pilot asks for their data, the part shall give a copy in a documented machine-readable
+  format holding every item of personal data the part keeps for the account that is not a sign-in
+  secret, including entries, earlier and removed versions, setup data, import records and consent
+  record.
+rationale: >-
+  Access and portability need a complete structured copy; a PDF is likely not enough (RES-RZXY
+  n12, n15). Nothing that lets someone sign in may be in it (ELI-W9NN#11).
+of: FUN-A60F
+answers:
+- HAZ-XWCK
+- HAZ-9K19

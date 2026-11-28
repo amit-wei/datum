@@ -1,0 +1,9 @@
+id: PRF-S0YD
+status: agreed
+title: Unusable files are refused
+method: test
+rationale: A parser change can start reading a binary or oversize file partly instead of refusing
+  it.
+covers: REQ-Y28X
+criterion:
+  pass: A binary file, an empty file and an oversize file each give a reason and no change.

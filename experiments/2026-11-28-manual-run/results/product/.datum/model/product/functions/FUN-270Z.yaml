@@ -1,0 +1,11 @@
+id: FUN-270Z
+status: agreed
+name: "Show synchronisation state"
+definition: "Shows which records have no copy off the device and when the logbook was last synced."
+serves: [SCN-JPQT#2, SCN-JPQT#5, SCN-5DS4#3]
+inputs:
+  - name: "sync state"
+    from: FUN-DV8F
+outputs:
+  - name: "synchronisation status"
+    to: [pilot]

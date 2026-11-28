@@ -1,0 +1,30 @@
+id: SCN-RXEM
+status: agreed
+name: Change setup details
+kind: variation
+trigger: A pilot finds that a licence, rating, expiry date or starting total in the app no longer
+  says what is true.
+preconditions: The pilot has a logbook.
+steps:
+- n: 1
+  by: user
+  what: Looks over the setup details.
+- n: 2
+  by: product
+  what: Shows the name and address, means of contact, licences and ratings, expiry dates and
+    starting totals.
+- n: 3
+  by: user
+  what: Changes or removes a detail.
+- n: 4
+  by: product
+  what: Applies the change and updates totals, rule results and warnings.
+- n: 5
+  by: product
+  what: Keeps the earlier starting totals for the pilot to see.
+outcome: Results rest on current details.
+needs:
+- ELI-J7WZ#2
+- ELI-C382#4
+- ELI-C382#5
+- ELI-DZR1#1

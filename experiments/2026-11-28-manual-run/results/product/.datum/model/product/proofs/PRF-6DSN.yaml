@@ -1,0 +1,10 @@
+id: PRF-6DSN
+status: agreed
+title: Unsynced records are offered at remote deletion
+method: test
+rationale: Rare order of events.
+covers: REQ-KK7F
+criterion:
+  pass: The notice and offer appear; after the pilot confirms that the file was saved, the file
+    holds every unsynced record and the records are erased; declining erases them; closing without
+    answering keeps them locked and offers again; nothing is uploaded.

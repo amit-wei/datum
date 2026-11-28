@@ -1,0 +1,8 @@
+id: REQ-PEKH
+status: agreed
+pattern: unwanted
+statement: If the pilot has made no choice in a conflict, then the part shall keep both changes.
+rationale: 'SCN-5EAZ#2: neither is discarded.'
+of: FUN-V0PH
+answers:
+- HAZ-BYMT

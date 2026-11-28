@@ -1,0 +1,8 @@
+id: PRF-6NPF
+status: agreed
+title: Unchecked conditions are named
+method: inspection
+rationale: Fixed wording that a redesign can drop.
+covers: REQ-XE2E
+criterion:
+  pass: The statement is shown with every set of rule results.

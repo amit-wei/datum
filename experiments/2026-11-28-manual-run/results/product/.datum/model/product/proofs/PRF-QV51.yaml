@@ -1,0 +1,13 @@
+id: PRF-QV51
+status: agreed
+title: No half-applied changes
+method: test
+rationale: >-
+  Only fault injection notices.
+covers: REQ-RH8A
+criterion:
+  pass: >-
+    After interruption at each write step, the records equal the before or the after state.
+  conditions: >-
+    Force-close during import, undo, correction, removal, restore, starting-totals change and
+    conflict choice.

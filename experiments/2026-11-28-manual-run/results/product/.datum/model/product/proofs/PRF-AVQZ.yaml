@@ -1,0 +1,13 @@
+id: PRF-AVQZ
+status: agreed
+title: Unsynced flights survive loss of access
+method: test
+rationale: >-
+  Only a test of this rare order of events notices.
+covers: REQ-XWYB
+criterion:
+  pass: >-
+    While locked the records cannot be read; after signing in again they are in the online copy
+    unchanged. A sign-in to a different account never shows or uploads them.
+  conditions: >-
+    Flights and a correction made offline, then sign-in details changed elsewhere.

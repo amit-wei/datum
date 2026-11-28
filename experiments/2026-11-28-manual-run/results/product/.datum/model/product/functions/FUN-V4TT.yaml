@@ -1,0 +1,26 @@
+id: FUN-V4TT
+status: agreed
+name: Set held licences and ratings
+definition: Sets, changes or removes which covered licences and ratings the pilot holds, and
+  what else about them the covered rules need.
+serves:
+- SCN-72S0#4
+- SCN-RXEM#4
+- SCN-D3B7#3
+inputs:
+- name: held licences and ratings
+  holds: including what else the covered rules need to know about them, such as launch methods
+    and whether a one-time passenger condition has been met
+  from: pilot
+- name: synced records
+  from: FUN-DV8F
+outputs:
+- name: held privileges
+  to:
+  - FUN-69E8
+  - FUN-DV8F
+  - FUN-AV5B
+  - FUN-A60F
+  - FUN-DVKC
+  - FUN-EK3N
+  - FUN-VN36

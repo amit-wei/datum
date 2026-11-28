@@ -1,0 +1,10 @@
+id: PRF-6ZR0
+status: agreed
+title: Lock-out risk is told at sign-up
+method: test
+rationale: Redesigns of sign-up can drop the text; an automated screen test notices on every
+  change.
+covers: REQ-PH63
+criterion:
+  pass: The sign-up journey shows both ways of losing access, including that other people's
+    attempts can turn a sign-in method off, before the account is created.

@@ -1,0 +1,10 @@
+id: PRF-YCZ9
+status: agreed
+title: New device shows last sync
+method: test
+rationale: >-
+  Needs the time kept online.
+covers: REQ-WJQH
+criterion:
+  pass: >-
+    On a fresh device the shown time equals the last successful upload by any device.

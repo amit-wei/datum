@@ -1,0 +1,12 @@
+id: REQ-M08V
+status: agreed
+pattern: unwanted
+statement: >-
+  If a correction would make an entry break a rule of REQ-GDYQ, then the part shall leave the
+  entry unchanged and name each fault.
+rationale: >-
+  A correction must not be a way around entry validity.
+of: FUN-JX7F
+answers:
+- HAZ-BYMT
+- HAZ-SDKD

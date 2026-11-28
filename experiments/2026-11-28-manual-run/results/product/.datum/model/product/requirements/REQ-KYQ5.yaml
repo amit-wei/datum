@@ -1,0 +1,9 @@
+id: REQ-KYQ5
+status: agreed
+pattern: state
+statement: While a device has not yet received all records of the account, the part shall show
+  no met result for any rule.
+rationale: A part-downloaded logbook must not read as complete.
+of: FUN-69E8
+answers:
+- HAZ-SDKD

@@ -1,0 +1,9 @@
+id: REQ-D6SB
+status: agreed
+pattern: state
+statement: While a device has not yet received all records of the account, the part shall state
+  in any data copy it gives that the copy is incomplete.
+rationale: A part-downloaded logbook must not read as complete.
+of: FUN-A60F
+answers:
+- HAZ-XWCK

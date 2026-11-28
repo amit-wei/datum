@@ -1,0 +1,8 @@
+id: PRF-8CYW
+status: agreed
+title: Unconfirmed previews add nothing
+method: test
+rationale: A save slipped into preview code would show only here.
+covers: REQ-NHHW
+criterion:
+  pass: Cancelling, leaving and closing at the preview add nothing.

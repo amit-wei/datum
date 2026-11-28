@@ -1,0 +1,9 @@
+id: PRF-BSAP
+status: agreed
+title: Recovery guessing is limited
+method: test
+rationale: A server-side limit fails silently if dropped.
+covers: REQ-VYVM
+criterion:
+  pass: The number of failed recovery attempts evaluated for one account in any hour meets failed_recovery_per_hour.
+    Every attempt up to the limit is evaluated.

@@ -1,0 +1,9 @@
+id: REQ-YG59
+status: agreed
+pattern: event
+statement: When the pilot chooses between two conflicting changes, the part shall make the chosen
+  one current on every device of the account and keep the other as a version not chosen.
+rationale: SCN-5EAZ#4. A signed mark stays only with the exact content it was given for.
+of: FUN-V0PH
+answers:
+- HAZ-BYMT

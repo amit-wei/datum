@@ -1,0 +1,10 @@
+id: PRF-74JF
+status: agreed
+title: Proof requests are limited
+method: test
+rationale: A server-side limit fails silently.
+covers: REQ-58CH
+criterion:
+  pass: Proofs sent for one account in any 60 minutes meet recovery_proofs_per_hour, and every
+    request up to the limit is served.
+  conditions: A throwaway account; requests from several network addresses.

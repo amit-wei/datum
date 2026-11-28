@@ -1,0 +1,9 @@
+id: PRF-MK14
+status: agreed
+title: Only receipt is reported
+method: test
+rationale: A later status report could leak the account state.
+covers: REQ-R2CJ
+criterion:
+  pass: Requests for an unknown account, a known one and one at the hourly limit all show the
+    same report; when the answer is lost and later learned, only receipt is shown.

@@ -1,0 +1,8 @@
+id: PRF-G0MV
+status: agreed
+title: Cancellation is told
+method: test
+rationale: It happens only under attack.
+covers: REQ-5TFQ
+criterion:
+  pass: At each cancellation the message with both statements reaches the confirmed contact.

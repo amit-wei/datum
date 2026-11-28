@@ -1,0 +1,9 @@
+id: PRF-5E1Y
+status: agreed
+title: Reliance on unsigned flights is shown
+method: test
+rationale: A change in counting or display could drop the label without changing any result.
+covers: REQ-K9ER
+criterion:
+  pass: A result counting any such unsigned entry, including an unsigned check, skill test or
+    assessment, states so and identifies exactly those entries; one counting none does not.

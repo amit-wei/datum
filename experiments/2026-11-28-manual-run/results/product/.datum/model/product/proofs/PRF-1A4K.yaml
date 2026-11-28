@@ -1,0 +1,11 @@
+id: PRF-1A4K
+status: agreed
+title: Bad synced records do no harm
+method: test
+rationale: >-
+  Only fault injection notices.
+covers: REQ-CDPB
+criterion:
+  pass: >-
+    With corrupted records injected in both directions, good records are unchanged and the pilot
+    is told.

@@ -1,0 +1,11 @@
+id: PRF-6T8F
+status: agreed
+title: Sync state is true
+method: test
+rationale: >-
+  The display can drift from the sync engine.
+covers: REQ-CXAC
+criterion:
+  pass: >-
+    Marks and time match the online copy's content before, during and after sync, after failure
+    and after restart.

@@ -1,0 +1,13 @@
+id: REQ-M9E7
+status: agreed
+pattern: event
+statement: When a device whose access has ended through a change or renewal of sign-in details
+  connects, the part shall make every record on that device unreadable, before exchanging any
+  record, until the pilot signs in again with the new details.
+rationale: 'A pilot changes details after a lost or shared device. A device that stays offline
+  cannot be protected (ELI-W9NN#5). Cutting off the exchange alone would leave the synced logbook
+  readable on a lost or shared device. Builder limit: ELI-W9NN#5.'
+of: FUN-DAF5
+answers:
+- HAZ-9K19
+source: builder

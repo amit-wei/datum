@@ -1,0 +1,11 @@
+id: PRF-JEV9
+status: agreed
+title: Each launch method is counted separately
+method: test
+rationale: >-
+  Per-method counting can mix methods.
+covers: REQ-2S5R
+criterion:
+  pass: >-
+    Threshold fixtures per held method give the hand-worked result; launches of other methods
+    do not count.

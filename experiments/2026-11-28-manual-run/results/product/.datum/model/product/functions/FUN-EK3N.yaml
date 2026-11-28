@@ -1,0 +1,70 @@
+id: FUN-EK3N
+status: agreed
+name: Save a deleted account's unsynced records
+definition: On a device whose account was deleted, offers the pilot a file of the records never
+  synced and then erases them; erases them without an offer where the device's access had ended.
+serves:
+- SCN-G7QS#1
+- SCN-G7QS#3
+- SCN-Y920#1
+inputs:
+- name: choice about unsynced records after deletion
+  holds: save them to a file, or decline
+  from: pilot
+- name: account deletion
+  from: FUN-VN36
+- name: sync state
+  from: FUN-DV8F
+- name: synced records
+  from: FUN-DV8F
+- name: logbook entry
+  from: FUN-ESPG
+- name: corrected entry
+  from: FUN-JX7F
+- name: logbook entry
+  from: FUN-5QA7
+- name: import record
+  from: FUN-5QA7
+- name: earlier version of a corrected entry
+  from: FUN-JX7F
+- name: entry removal
+  from: FUN-2JYW
+- name: earlier version of a removed entry
+  from: FUN-2JYW
+- name: restored entry
+  from: FUN-SR3A
+- name: import removal
+  from: FUN-YRV9
+- name: recorded starting totals
+  from: FUN-PDMV
+- name: earlier starting totals
+  from: FUN-PDMV
+- name: held privileges
+  from: FUN-V4TT
+- name: recorded expiry dates
+  from: FUN-SJJQ
+- name: medical date consent
+  from: FUN-EMXF
+- name: recorded pilot details
+  from: FUN-82YT
+- name: version not chosen
+  from: FUN-V0PH
+- name: conflict resolution
+  from: FUN-V0PH
+- name: changed sign-in details
+  from: FUN-DAF5
+- name: renewed sign-in details
+  from: FUN-Q1BS
+- name: confirmation that the file was saved
+  from: pilot
+- name: account deletion
+  from: FUN-S6RT
+outputs:
+- name: deleted-account notice
+  holds: that the account was deleted, and the offer to save or decline
+  to:
+  - pilot
+- name: file of unsynced records
+  holds: the records of the device never synced
+  to:
+  - pilot

@@ -1,0 +1,11 @@
+id: PRF-Y87Z
+status: agreed
+title: Change needs fresh proof
+method: test
+rationale: >-
+  Easy to lose when the settings screen changes.
+covers: REQ-4QYH
+criterion:
+  pass: >-
+    With fresh proof the new details work and the old ones are refused; without it or with wrong
+    proof nothing changes.

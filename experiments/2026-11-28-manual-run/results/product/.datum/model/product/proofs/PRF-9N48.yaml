@@ -1,0 +1,8 @@
+id: PRF-9N48
+status: agreed
+title: Signed needs a name
+method: test
+rationale: Two paths set the mark.
+covers: REQ-Z593
+criterion:
+  pass: Marking without a name, on a new entry or a correction, leaves it unsigned and asks.

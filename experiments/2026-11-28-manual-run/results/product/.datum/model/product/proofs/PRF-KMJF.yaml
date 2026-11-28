@@ -1,0 +1,10 @@
+id: PRF-KMJF
+status: agreed
+title: Partial download is handled
+method: test
+rationale: Visible only during a slow first sync.
+covers: REQ-ATWD
+criterion:
+  pass: The warnings area says that warnings may be incomplete while paused, also when it lists
+    none.
+  conditions: The first sync of a new device paused part way.

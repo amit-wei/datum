@@ -1,0 +1,10 @@
+id: REQ-V7W7
+status: agreed
+pattern: state
+statement: While a device has not yet received all records of the account, the part shall say
+  that the logbook is incomplete.
+rationale: A half-downloaded logbook would give wrong totals and results.
+of: FUN-DV8F
+answers:
+- HAZ-SDKD
+- HAZ-FRTK

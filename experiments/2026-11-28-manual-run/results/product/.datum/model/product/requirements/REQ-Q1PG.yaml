@@ -1,0 +1,7 @@
+id: REQ-Q1PG
+status: agreed
+pattern: event
+statement: When anyone asks for the privacy notice, with or without an account, the part shall
+  show the current notice, covering people named in logbooks and how to send a privacy request.
+rationale: ELI-C382#6; RES-RZXY n23.
+of: FUN-KP1P

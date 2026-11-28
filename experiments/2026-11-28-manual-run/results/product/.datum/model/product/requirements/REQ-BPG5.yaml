@@ -1,0 +1,14 @@
+id: REQ-BPG5
+status: agreed
+pattern: event
+statement: >-
+  When the pilot asks for a PDF, the part shall produce a PDF holding the pilot's name and address,
+  held privileges, starting totals with their date, and every current entry in order of date
+  and departure time with every recorded item readable.
+rationale: >-
+  ILT asks for a complete, legible file with name, order and totals (RES-7H7D n12). Medical
+  data is left out.
+of: FUN-AV5B
+answers:
+- HAZ-FRTK
+- HAZ-XWCK

@@ -1,0 +1,14 @@
+id: REQ-WTNF
+status: agreed
+pattern: state
+statement: While a device holds records or changes that are not synced, the part shall, on a
+  sign-out request, list them, state that signing out deletes them, and wait for the pilot to
+  cancel or confirm.
+rationale: 'ELI-J7WZ#4: unsynced flights must not be silently lost. Delete-or-cancel was the
+  agent''s proposal in the batch. The builder accepted the proposed rules in ELI-SCJS. Builder
+  limit: ELI-SCJS#4.'
+of: FUN-ZH87
+answers:
+- HAZ-2CDR
+- HAZ-4HQG
+source: builder

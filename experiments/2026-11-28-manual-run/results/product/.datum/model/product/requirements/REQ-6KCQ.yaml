@@ -1,0 +1,9 @@
+id: REQ-6KCQ
+status: agreed
+pattern: state
+statement: While the pilot holds LAPL(A) after having held PPL(A) or higher, the part shall
+  show passenger results by the take-off and landing conditions of REQ-A3S1 alone.
+rationale: Former PPL holders are exempt from the 10 hours (RES-7H7D n22).
+of: FUN-69E8
+answers:
+- HAZ-SDKD

@@ -1,0 +1,15 @@
+id: REQ-KK7F
+status: agreed
+pattern: unwanted
+statement: If a device whose access had not ended connects after its account was deleted and
+  holds unsynced records, then the part shall tell the pilot that the account was deleted and
+  keep those records locked and not uploaded until the pilot either confirms that a complete
+  file of them was saved or declines, and then erase them.
+rationale: ELI-C382#8 asks for this case to be defined. This response was the agent's proposal.
+  While unanswered they stay locked on the pilot's own device; this exception to erasure ends
+  with the pilot's choice. Locked means shown to nobody except through the offer. The builder
+  accepted the proposed rules in ELI-SCJS.
+of: FUN-EK3N
+answers:
+- HAZ-2CDR
+- HAZ-7R3N

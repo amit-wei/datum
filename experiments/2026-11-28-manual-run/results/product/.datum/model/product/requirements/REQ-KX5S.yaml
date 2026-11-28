@@ -1,0 +1,14 @@
+id: REQ-KX5S
+status: agreed
+pattern: ubiquitous
+statement: The part shall show each of these totals, flight time, PIC, dual, co-pilot, instructor,
+  examiner, night and instrument time, day and night take-offs and landings, and launches, overall
+  and for each of SEP aeroplanes, TMG and sailplanes, as the starting figure plus the sum over
+  current entries dated after the starting-total date, or over all current entries when there
+  are no starting totals.
+rationale: ELI-C382#1, ELI-W9NN#4. Which totals are shown was the agent's proposal. The builder
+  accepted the proposed rules in ELI-SCJS.
+of: FUN-6NTH
+answers:
+- HAZ-SDKD
+- HAZ-BYMT

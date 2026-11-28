@@ -1,0 +1,9 @@
+id: REQ-F8F1
+status: agreed
+pattern: event
+statement: >-
+  When the pilot gives or withdraws consent for the medical date, the part shall record which
+  of the two happened and when.
+rationale: >-
+  Consent must be provable (RES-RZXY n29).
+of: FUN-EMXF

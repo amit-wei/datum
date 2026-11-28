@@ -1,0 +1,34 @@
+id: ELI-KKPH
+date: '2026-11-28'
+entries:
+- n: 1
+  question: 'How should account recovery work? Proposed: nothing extra to save at sign-up; whenever
+    recovery is asked for, a new one-time link or code goes to the confirmed address, each replacing
+    the last, at most 3 per hour, method left to design. Replaces the earlier approval to send
+    new ones only after a cancellation (ELI-X445#1). Risks: whoever controls the email may take
+    over the account; losing the email may lock the owner out for good; others'' requests can
+    use up the limit or replace the latest code.'
+  answer: yes (one yes to all four)
+  need: true
+  constraint: true
+- n: 2
+  question: 'A message does not arrive. Proposed: at sign-up or contact change the pilot can
+    resend or correct the new address, at most 3 messages per address per hour, and the app
+    says so if it knows sending failed; for recovery the pilot can ask again within the same
+    limit and the app only says the request was received; security notices are retried if the
+    app knows they failed. Settles part of the confirmation-message limit left open (ELI-X445#2).'
+  answer: yes (one yes to all four)
+  need: true
+  constraint: true
+- n: 3
+  question: 'Tell the owner when repeated failures cancel a recovery code or link? Proposed:
+    yes, a message to the confirmed address saying how to get a new one and that someone may
+    be trying to get in.'
+  answer: yes (one yes to all four)
+  need: true
+- n: 4
+  question: 'After erasing data for a privacy request, tell the affected pilot? Proposed: yes,
+    when the pilot''s app receives the change it shows which records changed and what kind of
+    information was removed, without repeating it.'
+  answer: yes (one yes to all four)
+  need: true

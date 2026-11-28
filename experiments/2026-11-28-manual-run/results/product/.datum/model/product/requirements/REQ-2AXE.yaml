@@ -1,0 +1,17 @@
+id: REQ-2AXE
+status: agreed
+pattern: ubiquitous
+statement: The part shall accept a CSV file of up to {measure}.
+measure:
+  metric: csv_rows
+  definition: Data rows in one file.
+  unit: rows
+  bounds:
+  - statistic: value
+    op: '>='
+    value: 10000
+rationale: 'A whole flying history must import in one go. The size was the agent''s proposal.
+  The builder accepted the proposed rules in ELI-SCJS. Value: a judgement call with no researched
+  source, accepted by the builder as a starting target (ELI-SCJS#5); revisit if testing or running
+  cost gives a reason.'
+of: FUN-VY4C

@@ -1,0 +1,9 @@
+id: PRF-NT1Y
+status: agreed
+title: The limit is told
+method: test
+rationale: The refusal path is rarely reached.
+covers: REQ-7W8W
+criterion:
+  pass: At sign-up and at a contact change, for a contact with and without an account, the same
+    message appears and nothing is sent.

@@ -1,0 +1,18 @@
+id: SCN-9XHH
+status: agreed
+name: A confirmation message does not arrive
+kind: failure
+trigger: At sign-up or a change of contact, the confirmation message does not reach the pilot.
+steps:
+- n: 1
+  by: product
+  what: Says so if it knows that the message service could not send the message.
+- n: 2
+  by: user
+  what: Asks for the message again or corrects the new means of contact.
+- n: 3
+  by: product
+  what: Sends a new confirmation message, within the hourly limit.
+outcome: The pilot can confirm the means of contact, or knows that it has not been confirmed.
+needs:
+- ELI-KKPH#2

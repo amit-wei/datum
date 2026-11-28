@@ -1,0 +1,11 @@
+id: REQ-4MRB
+status: agreed
+pattern: state
+statement: >-
+  While no medical date is kept, the part shall say with the warnings that medical warnings
+  are off.
+rationale: >-
+  ELI-C382#6: silence must not read as a valid medical.
+of: FUN-VT5X
+answers:
+- HAZ-SDKD

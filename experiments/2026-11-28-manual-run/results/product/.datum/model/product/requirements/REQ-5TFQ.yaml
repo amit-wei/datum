@@ -1,0 +1,12 @@
+id: REQ-5TFQ
+status: agreed
+pattern: event
+statement: When the part cancels a recovery proof after repeated failures, the part shall send
+  the confirmed means of contact a message saying how to get a new proof and that someone may
+  be trying to get into the account.
+rationale: ELI-KKPH#3.
+of: FUN-Q1BS
+answers:
+- HAZ-9K19
+- HAZ-XWCK
+source: builder

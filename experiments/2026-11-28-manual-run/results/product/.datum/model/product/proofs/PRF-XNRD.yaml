@@ -1,0 +1,12 @@
+id: PRF-XNRD
+status: agreed
+title: A new device gets all records
+method: test
+rationale: >-
+  New record types may not be pulled.
+covers: REQ-GK84
+criterion:
+  pass: >-
+    After sign-in on an empty device every record kind, including history, equals the source.
+  conditions: >-
+    An account of the size of REQ-7FTP.

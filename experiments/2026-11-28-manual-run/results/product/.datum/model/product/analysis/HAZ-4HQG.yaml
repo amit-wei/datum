@@ -1,0 +1,5 @@
+id: HAZ-4HQG
+status: agreed
+statement: "The part shows a record as copied off the device when it is not."
+losses: [LOS-7MZV]
+arises_from: [FUN-DV8F, FUN-270Z, FUN-ZH87]

@@ -1,0 +1,14 @@
+id: REQ-A3S1
+status: agreed
+pattern: state
+statement: While the pilot holds PPL(A), the part shall show passenger recency for each type
+  or class, separately for day and night, as met only if within 90 days there are at least 3
+  take-offs and 3 landings as pilot flying in that type or class and, for night as PIC, at least
+  1 take-off and 1 landing of the pilot flying at night.
+rationale: FCL.060(b) (RES-7H7D n25). A class result never covers another class. The instrument
+  rating exemption is not applied (stricter). One approach is assumed per landing. Leaving out
+  the instrument rating exemption and assuming one approach per landing were the agent's proposals.
+  The builder accepted the proposed rules in ELI-SCJS.
+of: FUN-69E8
+answers:
+- HAZ-SDKD

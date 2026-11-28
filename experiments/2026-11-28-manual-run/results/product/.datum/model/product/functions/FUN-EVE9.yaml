@@ -1,0 +1,44 @@
+id: FUN-EVE9
+status: agreed
+name: Create an account
+definition: Gives a new pilot a private logbook of their own.
+serves:
+- SCN-72S0#1
+- SCN-72S0#2
+- SCN-72S0#12
+- SCN-9XHH#1
+- SCN-9XHH#3
+inputs:
+- name: account details
+  holds: what identifies the pilot and lets only them get in, a means of contact the pilot confirms,
+    and the pilot's statement of age
+  from: pilot
+- name: confirmation of the means of contact
+  from: pilot
+- name: request to send the confirmation again, or a corrected means of contact
+  from: pilot
+- name: report that a message could not be sent
+  from: message service
+outputs:
+- name: confirmation message
+  to:
+  - pilot
+- name: pilot account
+  to:
+  - FUN-B8SK
+  - FUN-DV8F
+  - FUN-A60F
+  - FUN-VN36
+  - FUN-Q1BS
+  - FUN-DAF5
+  - FUN-DVKC
+  - FUN-SGHT
+  - FUN-XK2A
+- name: account loss warning
+  holds: how the online account can be lost for good
+  to:
+  - pilot
+- name: message failure notice
+  holds: that the confirmation message could not be sent
+  to:
+  - pilot

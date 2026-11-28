@@ -1,0 +1,15 @@
+id: REQ-TV33
+status: agreed
+pattern: unwanted
+statement: If account details already belong to an account, then the part shall create no account
+  and leave the existing account unchanged without revealing to the person that the account
+  exists.
+rationale: 'The same disclosure policy as sign-in: nobody learns who has an account. The policy
+  was the agent''s proposal. Disclosure rule, the agent''s proposal: what the person sees at
+  the time of the request is the same whether or not another account uses the details. This
+  assumes a sign-in design that can tell the true holder of the details privately, for example
+  by a message to them; synthesis must provide that or bring the rule back. The builder accepted
+  the proposed rules in ELI-SCJS.'
+of: FUN-EVE9
+answers:
+- HAZ-9K19

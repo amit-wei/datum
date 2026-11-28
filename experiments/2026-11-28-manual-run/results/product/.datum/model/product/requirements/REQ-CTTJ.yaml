@@ -1,0 +1,11 @@
+id: REQ-CTTJ
+status: agreed
+pattern: unwanted
+statement: >-
+  If a data copy or a PDF is made on a device that cannot confirm that the device holds all
+  of the online records, then the part shall state in the file when the device last synced.
+rationale: >-
+  An offline file may lack flights from another device.
+of: FUN-A60F
+answers:
+- HAZ-FRTK

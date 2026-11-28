@@ -1,0 +1,13 @@
+id: PRF-C4FV
+status: agreed
+title: PDF is complete
+method: test
+rationale: >-
+  Layouts truncate long values and lose columns.
+covers: REQ-BPG5
+criterion:
+  pass: >-
+    Text extracted from the PDF holds each item of each current entry in order, with no removed
+    entry and no truncation.
+  conditions: >-
+    A long logbook with long remarks and names, accented characters.

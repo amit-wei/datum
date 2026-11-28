@@ -1,0 +1,9 @@
+id: REQ-ATWD
+status: agreed
+pattern: state
+statement: While a device has not yet received all records of the account, the part shall say
+  that expiry warnings may be incomplete.
+rationale: A part-downloaded logbook must not read as complete.
+of: FUN-VT5X
+answers:
+- HAZ-SDKD

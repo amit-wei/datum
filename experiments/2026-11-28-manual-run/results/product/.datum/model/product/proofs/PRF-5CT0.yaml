@@ -1,0 +1,12 @@
+id: PRF-5CT0
+status: agreed
+title: Recovery proof is cancelled at the cap
+method: test
+rationale: Only a long run of failures shows it.
+covers: REQ-8R5M
+criterion:
+  pass: 'At the bound of consecutive_recovery_failures the current proof no longer works; a
+    successful recovery restarts the count. One failure short of the bound the proof still works.
+    A newly issued proof starts at zero: a further failure after issue does not cancel it, and
+    it is cancelled when its own count reaches the bound.'
+  conditions: Throwaway account; simulated clock allowed.

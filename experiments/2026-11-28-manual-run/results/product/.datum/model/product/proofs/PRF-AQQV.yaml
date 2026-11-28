@@ -1,0 +1,8 @@
+id: PRF-AQQV
+status: agreed
+title: Update failure is told
+method: test
+rationale: Only fault injection shows it.
+covers: REQ-EWEF
+criterion:
+  pass: The message appears for each forced failure.

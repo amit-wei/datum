@@ -1,0 +1,8 @@
+id: PRF-7G87
+status: agreed
+title: The old contact hears of a change
+method: test
+rationale: A notice can stop being sent without anything else failing.
+covers: REQ-8BR5
+criterion:
+  pass: The notice arrives at the old contact after each change.

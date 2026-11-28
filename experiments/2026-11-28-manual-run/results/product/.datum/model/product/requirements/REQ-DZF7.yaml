@@ -1,0 +1,14 @@
+id: REQ-DZF7
+status: agreed
+pattern: ubiquitous
+statement: The part shall treat a means of contact as confirmed only after the pilot returns
+  to the part something that the part sent to that means of contact for this confirmation, or
+  acts through it, for example by following a link or entering a code.
+rationale: Without a test of receipt, a mistyped address would be accepted and would get recovery
+  proofs and security notices (ELI-DZR1#1). The same meaning applies at sign-up and at a change
+  of contact.
+of: FUN-EVE9
+answers:
+- HAZ-9K19
+- HAZ-XWCK
+source: builder

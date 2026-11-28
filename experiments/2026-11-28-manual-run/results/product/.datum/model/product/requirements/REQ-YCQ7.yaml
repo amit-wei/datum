@@ -1,0 +1,9 @@
+id: REQ-YCQ7
+status: agreed
+pattern: ubiquitous
+statement: The part shall not state or imply that a pilot is cleared or permitted to fly.
+rationale: ELI-FV4M#3; a logbook cannot show that a pilot may fly (RES-7H7D n36).
+of: FUN-69E8
+answers:
+- HAZ-SDKD
+source: builder

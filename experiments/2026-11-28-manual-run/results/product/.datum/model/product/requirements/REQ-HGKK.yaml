@@ -1,0 +1,12 @@
+id: REQ-HGKK
+status: agreed
+pattern: event
+statement: When the pilot confirms a preview, the part shall add exactly the previewed flights,
+  with every training flight, supervised flight, proficiency check, skill test and assessment
+  of competence unsigned, and record which entries the import added.
+rationale: 'ELI-W9NN#2. The record is needed to undo. Builder limit: ELI-W9NN#2.'
+of: FUN-5QA7
+answers:
+- HAZ-BYMT
+- HAZ-SDKD
+source: builder

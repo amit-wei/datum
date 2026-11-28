@@ -1,0 +1,11 @@
+id: PRF-17HX
+status: agreed
+title: Bad rows are listed
+method: test
+rationale: >-
+  Silent skipping is the common parser fault.
+covers: REQ-7VGK
+criterion:
+  pass: >-
+    Rows added plus rows listed as left out equal the data rows of the file, each listed row
+    with a correct reason.

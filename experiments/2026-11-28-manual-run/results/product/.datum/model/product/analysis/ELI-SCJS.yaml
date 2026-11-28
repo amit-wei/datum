@@ -1,0 +1,73 @@
+id: ELI-SCJS
+date: '2026-11-28'
+entries:
+- n: 1
+  question: 'Safety defaults: prevent or detect each risk state, none accepted; strict UTC date
+    windows with 29 February read as 1 March; SPL training flights counted from their date;
+    TMG hours left out of the 5 sailplane hours; TMG take-offs and landings on TMG; no instrument
+    rating exemption, one approach per landing; no result for SEP(sea) holders; one-off passenger
+    conditions by the pilot''s labelled statement, unneeded facts not asked; pass or fail and
+    passenger training flight recorded, failed check cannot pass a rule but its flying counts,
+    signer taken as qualified; conflicting expiry dates warn by the earlier.'
+  answer: 1) yes
+  need: true
+- n: 2
+  question: 'Unsigned flights: nothing toward LAPL(A) or SPL recent experience or as required
+    training or checks; unsigned supervised flights count for nothing; unsigned checks add no
+    PIC credit; other unsigned training flights count elsewhere, including PPL revalidation
+    hours. The stricter choice leaves all unsigned training out of revalidation.'
+  answer: 2) I think its okay with this less-strict version right now? unless you want to get
+    another research agent to see how people are interpreting it and follow that?
+- n: 3
+  question: 'Entry and import rules: validity limits, signer name needed to mark signed, duplicate
+    key, asking about unclear formats, one value for a missing column, the totals list with
+    optional starting figures, search keys and order, separate PDF sections.'
+  answer: 3) yah
+  need: true
+  constraint: true
+- n: 4
+  question: 'Accounts and devices: account existence not revealed; 10 failed sign-ins and 5
+    failed recoveries per hour; identity again at deletion; sign-out deletes unsynced changes
+    after a warning; devices lock after a sign-in change and keep unsynced records; offer to
+    save them after remote deletion; the platform and browser list.'
+  answer: 4) where do the 10 and 5 come from? other than that it looks good.
+  need: true
+  constraint: true
+- n: 5
+  question: 'Numbers: log a repeat flight 60 s; sync 60 s; stuck sync warning 24 h; restore
+    loses at most 24 h; update applied within 5 min; erase live 24 h and backups 30 days; 10,000
+    entries and CSV rows; expiry warning 90 days; rule review at most 90 days old.'
+  answer: 5) i mean sure? seems pretty arbitrary
+  need: true
+  constraint: true
+- n: 6
+  question: 'New function changes: identity check at deletion, saving records from a deleted
+    account, the two CSV import questions, the one-off passenger statements. (First reply asked
+    who changes the functions; asked again.)'
+  answer: '6) is it you that changes function or functional-analysis? Then, asked again: yes
+    all 4.'
+  need: true
+- n: 7
+  question: 'Left open and tracked here: glider PDF layout by the EASA list until ILT or KNVvL
+    answers; business location undecided, needed for the privacy notice before release; no requirement
+    yet on detecting data breaches, to be settled before real pilot data goes in.'
+  answer: 7) ok.
+- n: 8
+  question: 'After research (RES-70FV, RES-6SKG): A) keep counting unsigned dual and training
+    flights toward revalidation but have the result say when it relies on them, optionally asking
+    ILT. B) keep 10 sign-in and 5 recovery failures per hour; after 100 failures in a row turn
+    off that sign-in method until reset through recovery; after 100 failed recoveries in a row
+    cancel the current recovery proof and let the owner ask for a new one; tell the owner when
+    a recovery succeeds.'
+  answer: agreed on both recommendations.
+  need: true
+  constraint: true
+- n: 9
+  question: 'Open items under entry 7 and the research (none is an answer from the builder).
+    How each is settled: glider layout and ILT acceptance, by the answer to the builder''s ILT
+    message (ELI-FV4M#4); whether unsigned dual flights count toward revalidation, by asking
+    ILT (FCL@ilent.nl) or a Dutch examiner, optional for the builder; business location, by
+    the builder before release; breach detection and reporting, raised in synthesis and settled
+    before real pilot data goes in; the SPL date and TMG-hour readings, by a pilot or authority
+    check (ELI-C382#14).'
+  answer: Open; not an answer from the builder.

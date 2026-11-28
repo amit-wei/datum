@@ -1,0 +1,10 @@
+id: REQ-XE2E
+status: agreed
+pattern: ubiquitous
+statement: The part shall state with the rule results that the medical certificate, the licence
+  endorsement and every other condition outside the listed rules are not checked.
+rationale: Without this a set of met results can be read as everything needed to fly (RES-7H7D
+  n36).
+of: FUN-69E8
+answers:
+- HAZ-SDKD

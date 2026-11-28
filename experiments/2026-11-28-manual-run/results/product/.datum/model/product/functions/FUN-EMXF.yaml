@@ -1,0 +1,23 @@
+id: FUN-EMXF
+status: agreed
+name: Set consent for the medical date
+definition: Records the pilot giving or withdrawing consent to keep the medical date.
+serves:
+- SCN-72S0#7
+- SCN-C606#1
+inputs:
+- name: consent choice
+  from: pilot
+- name: synced records
+  from: FUN-DV8F
+outputs:
+- name: medical date consent
+  to:
+  - FUN-SJJQ
+  - FUN-69E8
+  - FUN-VT5X
+  - FUN-DV8F
+  - FUN-A60F
+  - FUN-DVKC
+  - FUN-EK3N
+  - FUN-VN36

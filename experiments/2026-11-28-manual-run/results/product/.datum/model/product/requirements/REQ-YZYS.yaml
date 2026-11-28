@@ -1,0 +1,12 @@
+id: REQ-YZYS
+status: agreed
+pattern: state
+statement: While the pilot holds an SEP(sea) class rating, the part shall show, in place of
+  any result for LAPL(A) recency or for revalidation of an SEP rating, that no result is given
+  because the combined land and sea conditions are not checked.
+rationale: With both land and sea ratings the rules also need 1 hour and 6 take-offs and landings
+  in each (RES-7H7D n21, n23). Showing no result instead of computing it was the agent's proposal.
+  The builder accepted the proposed rules in ELI-SCJS.
+of: FUN-69E8
+answers:
+- HAZ-SDKD

@@ -1,0 +1,11 @@
+id: REQ-Z1SD
+status: agreed
+pattern: event
+statement: When access to an account is restored through recovery, the part shall send a notice
+  of the recovery to the means of contact in force immediately before that recovery began.
+rationale: Lets the owner notice a takeover (RES-6SKG; ELI-SCJS#8). A contact set during or
+  after the recovery would send the only notice to whoever took over. Agreed in ELI-PSRH.
+of: FUN-Q1BS
+answers:
+- HAZ-9K19
+source: builder

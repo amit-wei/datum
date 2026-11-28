@@ -1,0 +1,35 @@
+id: FUN-SR3A
+status: agreed
+name: Restore a removed entry
+definition: Puts a removed entry, including one removed by undoing an import, back into the
+  logbook.
+serves:
+- SCN-33Y5#2
+inputs:
+- name: chosen removed entry
+  from: pilot
+- name: entry removal
+  from: FUN-2JYW
+- name: earlier version of a removed entry
+  from: FUN-2JYW
+- name: synced records
+  from: FUN-DV8F
+- name: import removal
+  from: FUN-YRV9
+outputs:
+- name: restored entry
+  to:
+  - FUN-ESPG
+  - FUN-VY4C
+  - FUN-6NTH
+  - FUN-69E8
+  - FUN-JX7F
+  - FUN-2JYW
+  - FUN-TF2W
+  - FUN-DV8F
+  - FUN-AV5B
+  - FUN-A60F
+  - FUN-VN36
+  - FUN-MPTZ
+  - FUN-YRV9
+  - FUN-EK3N

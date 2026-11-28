@@ -1,0 +1,11 @@
+id: REQ-2EJR
+status: agreed
+pattern: ubiquitous
+statement: >-
+  The part shall state in the privacy notice the controller and contact, purposes and legal
+  bases, legitimate interests, recipients, transfers outside the EU, retention, the person's
+  rights including complaint and consent withdrawal, and which data is required.
+rationale: >-
+  Art. 13 and 14 content (RES-RZXY n5, n23). Controller details depend on where the business
+  is, which is not decided (ELI-C382#12).
+of: FUN-KP1P

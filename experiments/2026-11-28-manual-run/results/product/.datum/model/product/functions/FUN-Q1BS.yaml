@@ -1,0 +1,44 @@
+id: FUN-Q1BS
+status: agreed
+name: Restore access to an account
+definition: Lets a pilot who forgot their sign-in details, or whose sign-in method was turned
+  off, and only that pilot, set new ones, ending the access of other devices once they connect.
+  Tells the owner when access was recovered or a recovery proof was cancelled.
+serves:
+- SCN-VW03#2
+- SCN-VW03#4
+- SCN-TYPM#5
+- SCN-TYPM#1
+- SCN-VW03#6
+inputs:
+- name: proof of ownership and new sign-in details
+  from: pilot
+- name: pilot account
+  from: FUN-EVE9
+- name: changed sign-in details
+  from: FUN-DAF5
+- name: changed means of contact
+  from: FUN-SGHT
+- name: recovery proof
+  from: FUN-XK2A
+- name: report that a message could not be sent
+  from: message service
+outputs:
+- name: recovery notice
+  holds: that access was restored through recovery
+  to:
+  - pilot
+- name: renewed sign-in details
+  to:
+  - FUN-B8SK
+  - FUN-DV8F
+  - FUN-A60F
+  - FUN-DAF5
+  - FUN-SGHT
+  - FUN-VN36
+  - FUN-EK3N
+- name: cancellation notice
+  holds: that the recovery proof was cancelled, how to get a new one, and that someone may be
+    trying to get in
+  to:
+  - pilot

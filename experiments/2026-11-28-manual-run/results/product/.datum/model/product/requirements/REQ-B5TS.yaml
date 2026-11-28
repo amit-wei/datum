@@ -1,0 +1,22 @@
+id: REQ-B5TS
+status: agreed
+pattern: unwanted
+statement: If a device has had unsynced records for {measure} since the first failed attempt
+  made with a connection, with no later successful sync, then the part shall warn the pilot
+  when the part is next open that no copy exists off the device and offer a data copy.
+measure:
+  metric: stuck_time
+  definition: Time since the first failed sync attempt made with a connection, with no later
+    success.
+  unit: hours
+  bounds:
+  - statistic: value
+    op: ==
+    value: 24
+rationale: 'A failure that goes on silently leaves one copy only. The period was the agent''s
+  proposal. The builder accepted the proposed rules in ELI-SCJS. Value: a judgement call with
+  no researched source, accepted by the builder as a starting target (ELI-SCJS#5); revisit if
+  testing or running cost gives a reason.'
+of: FUN-DV8F
+answers:
+- HAZ-2CDR

@@ -1,0 +1,11 @@
+id: PRF-SS6Z
+status: agreed
+title: Missing facts withhold the result
+method: test
+rationale: Defaults creep in.
+covers: REQ-D8T8
+criterion:
+  pass: For each needed fact removed in turn, no result is given and that fact is named. Where
+    another entered fact or entry already settles the condition, a result is shown although
+    the alternative fact is unanswered, for example when entries show the one-time hours and
+    the instructor certificate is unanswered.

@@ -1,0 +1,9 @@
+id: PRF-B44H
+status: agreed
+title: Old versions cannot strip records
+method: test
+rationale: Appears only with two versions in use.
+covers: REQ-G7WD
+criterion:
+  pass: An old release run against newer data cannot change the affected record, directly or
+    by sync.

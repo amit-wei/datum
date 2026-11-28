@@ -1,0 +1,11 @@
+id: SCN-H46X
+status: agreed
+name: "Change sign-in details"
+kind: variation
+trigger: "What a pilot signs in with has to change."
+preconditions: "The pilot is signed in."
+steps:
+  - {n: 1, by: user, what: "Gives new sign-in details."}
+  - {n: 2, by: product, what: "Confirms it is the pilot and applies them. Other devices lose access once they connect; one that stays offline is not protected."}
+outcome: "The pilot signs in with the new details."
+needs: [ELI-C382#5, ELI-W9NN#5, ELI-W9NN#8]

@@ -1,0 +1,11 @@
+id: PRF-7D6B
+status: agreed
+title: No partial PDF
+method: test
+rationale: >-
+  Only fault injection notices.
+covers: REQ-EGHF
+criterion:
+  pass: >-
+    With production interrupted or an item that cannot be rendered, no file is offered and the
+    failure is told.

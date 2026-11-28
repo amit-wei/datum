@@ -1,0 +1,11 @@
+id: REQ-ADTS
+status: agreed
+pattern: state
+statement: While the pilot holds LAPL(A), the part shall show LAPL(A) recency as met only if
+  within 2 years there are at least 12 hours as PIC, dual or supervised solo on aeroplanes or
+  TMG with 12 take-offs and 12 landings and signed refresher training of at least 1 hour in
+  total with an instructor, or a signed passed proficiency check.
+rationale: FCL.140.A (RES-7H7D n21). The land and sea combination is handled by its own requirement.
+of: FUN-69E8
+answers:
+- HAZ-SDKD

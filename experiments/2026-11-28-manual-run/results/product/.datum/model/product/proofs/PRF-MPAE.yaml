@@ -1,0 +1,9 @@
+id: PRF-MPAE
+status: agreed
+title: Search finds exactly the matches
+method: test
+rationale: Indexes drift from the data.
+covers: REQ-98H1
+criterion:
+  pass: For each key the result equals the expected set in order, removed entries are absent,
+    and a search with no match says so.

@@ -1,0 +1,10 @@
+id: REQ-A4MW
+status: agreed
+pattern: ubiquitous
+statement: >-
+  The part shall let a pilot new to the part install the part, create an account and log a first
+  flight without help from the builder.
+rationale: >-
+  ELI-C382#7. On iPhone installing is manual (RES-X2SP n8), so the part has to guide it.
+of: FUN-EVE9
+source: builder

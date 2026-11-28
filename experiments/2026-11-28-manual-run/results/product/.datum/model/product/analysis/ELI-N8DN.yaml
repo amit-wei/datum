@@ -1,0 +1,33 @@
+id: ELI-N8DN
+date: '2026-11-28'
+entries:
+- n: 1
+  question: 'The privacy erasure notice stays on every device until the pilot acknowledges it
+    on one; an offline device clears it after syncing. Recommended: yes.'
+  answer: agree. close and commit.
+  need: true
+- n: 2
+  question: 'A whole account erased after an email request never shows the app''s deletion warning.
+    Recommended: before erasing, the builder gives the same warning in the email reply and allows
+    time to sync; the builder''s own procedure, not an app feature; it only helps a pilot who
+    can still sign in on that device.'
+  answer: agree. close and commit.
+- n: 3
+  question: The 24-hour limit for deleting live data also covers privacy erasures.
+  answer: agree. close and commit.
+- n: 4
+  question: 'Final walk-through of the summary: what the app does, the information it handles
+    (items with no way to remove them left so on purpose), what it responds to; failures with
+    requirements but no journey (full storage, failed update, lost online data, failed save
+    after account deletion, phone-storage warning) left so; the updated journeys, the split
+    functions and the broader erased-data hazard. Do the functions and requirements match what
+    you expect, and close both steps?'
+  answer: agree. close and commit.
+- n: 5
+  question: 'Open items at closing (not an answer from the builder). Settled as follows: limits
+    on wrong email confirmations and retention of unfinished sign-ups, and breach detection
+    and reporting: raised in synthesis, before real pilot data goes in; business location: by
+    the builder before release; glider PDF layout and official acceptance: by the answer to
+    the builder''s ILT message (ELI-FV4M#4); uncertain flying-rule readings: by a pilot or authority
+    check (ELI-C382#14, ELI-SCJS#9).'
+  answer: Open; not an answer from the builder.

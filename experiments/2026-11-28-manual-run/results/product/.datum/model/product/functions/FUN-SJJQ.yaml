@@ -1,0 +1,27 @@
+id: FUN-SJJQ
+status: agreed
+name: Set expiry dates
+definition: Sets, changes or removes the expiry dates of the ratings, language proficiency and,
+  with consent, the medical, and erases the medical date when consent is withdrawn.
+serves:
+- SCN-72S0#8
+- SCN-RXEM#4
+- SCN-D3B7#3
+- SCN-C606#2
+inputs:
+- name: expiry dates
+  from: pilot
+- name: medical date consent
+  from: FUN-EMXF
+- name: synced records
+  from: FUN-DV8F
+outputs:
+- name: recorded expiry dates
+  to:
+  - FUN-69E8
+  - FUN-VT5X
+  - FUN-DV8F
+  - FUN-A60F
+  - FUN-DVKC
+  - FUN-EK3N
+  - FUN-VN36

@@ -1,0 +1,12 @@
+id: REQ-1HY5
+status: agreed
+pattern: ubiquitous
+statement: The part shall show with each rule result whether the rule is met, the last date
+  it stays met without further flights or what is missing, the entries counted, each strict
+  reading applied, and the matching entries left out as unsigned.
+rationale: 'ELI-KHF8#1, ELI-C382#2. The pilot checks the result against these. Builder limit:
+  ELI-KHF8#1.'
+of: FUN-69E8
+answers:
+- HAZ-SDKD
+source: builder

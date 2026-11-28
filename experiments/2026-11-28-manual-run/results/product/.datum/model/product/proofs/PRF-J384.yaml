@@ -1,0 +1,11 @@
+id: PRF-J384
+status: agreed
+title: Repeat flights copy only the stable items
+method: test
+rationale: >-
+  New fields must be classed one way or the other.
+covers: REQ-NH17
+criterion:
+  pass: >-
+    The new draft holds exactly the stable items; every listed item is empty; nothing is saved
+    until the pilot saves.

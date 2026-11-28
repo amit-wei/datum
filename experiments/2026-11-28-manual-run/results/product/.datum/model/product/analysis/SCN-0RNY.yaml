@@ -1,0 +1,36 @@
+id: SCN-0RNY
+status: agreed
+name: Import a logbook from a CSV file
+kind: main
+trigger: A pilot moving from another app or a spreadsheet has their flights in a CSV file.
+preconditions: The pilot has an account.
+steps:
+- n: 1
+  by: user
+  what: Provides the file, on a computer or a phone.
+- n: 2
+  by: product
+  what: Reads the file, asks which column holds what, how to read any unclear date, time or
+    duration, and for one value for any required item that has no column.
+- n: 3
+  by: user
+  what: Matches the columns and answers.
+- n: 4
+  by: product
+  what: Shows a preview of the flights and totals as they would be imported, without saving
+    them.
+- n: 5
+  by: user
+  what: Compares them with the old logbook and confirms.
+- n: 6
+  by: product
+  what: Adds the flights to the logbook. Imported training flights and checks start unsigned,
+    for the pilot to mark one by one.
+outcome: The past flights are in the logbook, with totals the pilot has checked.
+needs:
+- ELI-BS4R#3
+- ELI-KHF8#3
+- ELI-H7X3#1
+- ELI-W9NN#2
+- ELI-SCJS#3
+- ELI-SCJS#6

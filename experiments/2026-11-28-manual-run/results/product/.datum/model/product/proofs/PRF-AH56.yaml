@@ -1,0 +1,14 @@
+id: PRF-AH56
+status: agreed
+title: Preview matches the file and saves nothing
+method: test
+rationale: >-
+  Parsing changes can alter values.
+covers: REQ-JYYP
+criterion:
+  pass: >-
+    For fixture files the previewed flights and totals equal hand-checked values and the records
+    are unchanged.
+  conditions: >-
+    Files with comma and semicolon separators, quoted text, accented names and the date and
+    duration formats offered.

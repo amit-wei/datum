@@ -1,0 +1,11 @@
+id: PRF-HXBR
+status: agreed
+title: Sign-in method is turned off at the cap
+method: test
+rationale: A long-run count fails silently if dropped or reset wrongly.
+covers: REQ-TAX6
+criterion:
+  pass: At the bound of consecutive_signin_failures the method is refused even with the right
+    details, until recovery resets it; a success before the bound restarts the count. One failure
+    short of the bound, the method still accepts the right details.
+  conditions: Throwaway account; the clock may be simulated to pass the hourly limit.

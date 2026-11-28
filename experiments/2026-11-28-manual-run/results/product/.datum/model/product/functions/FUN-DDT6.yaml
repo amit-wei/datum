@@ -1,0 +1,15 @@
+id: FUN-DDT6
+status: agreed
+name: "Show past imports"
+definition: "Shows the pilot the files imported before and what each added."
+serves: [SCN-2YTZ#2]
+inputs:
+  - name: "import record"
+    from: FUN-5QA7
+  - name: "synced records"
+    from: FUN-DV8F
+  - name: "import removal"
+    from: FUN-YRV9
+outputs:
+  - name: "past imports"
+    to: [pilot]

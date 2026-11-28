@@ -1,0 +1,12 @@
+id: PRF-2RXR
+status: agreed
+title: Saved means still there
+method: test
+rationale: >-
+  Storage code changes can make saving lazy.
+covers: REQ-T43M
+criterion:
+  pass: >-
+    Every change confirmed as saved is present after the app is force-closed at once and restarted.
+  conditions: >-
+    Offline; one change of each kind listed in the rationale; on each supported phone system.

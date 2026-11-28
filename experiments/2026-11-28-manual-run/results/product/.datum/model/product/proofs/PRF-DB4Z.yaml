@@ -1,0 +1,9 @@
+id: PRF-DB4Z
+status: agreed
+title: Online loss does not wipe devices
+method: test
+rationale: A sync that mirrors the server would delete everything.
+covers: REQ-K492
+criterion:
+  pass: After deleting or rolling back data in a test online copy by fault, the device keeps
+    all records marked unsynced.

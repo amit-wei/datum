@@ -1,0 +1,9 @@
+id: PRF-YF2T
+status: agreed
+title: The acceptance warning is shown
+method: test
+rationale: A wording or condition change can drop it.
+covers: REQ-GR3W
+criterion:
+  pass: A notice covering an erased signer name on a signed entry carries the statement; other
+    notices do not.

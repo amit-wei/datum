@@ -1,0 +1,11 @@
+id: REQ-1J34
+status: agreed
+pattern: unwanted
+statement: >-
+  If a figure of a total was not given in the starting totals, then the part shall mark that
+  total as not including earlier experience for that figure.
+rationale: >-
+  A partial total must not read as complete.
+of: FUN-6NTH
+answers:
+- HAZ-SDKD

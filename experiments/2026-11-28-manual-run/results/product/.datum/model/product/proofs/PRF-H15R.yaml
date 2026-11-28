@@ -1,0 +1,11 @@
+id: PRF-H15R
+status: agreed
+title: Duplicates stay out by default
+method: test
+rationale: >-
+  A bulk include would defeat the rule.
+covers: REQ-EDJ4
+criterion:
+  pass: >-
+    Matching rows are flagged and excluded; including one includes only that one; no control
+    includes all at once.

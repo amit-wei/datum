@@ -1,0 +1,9 @@
+id: PRF-GWW2
+status: agreed
+title: A failed save loses nothing
+method: test
+rationale: Only fault injection shows it.
+covers: REQ-TDSA
+criterion:
+  pass: With production and saving made to fail or interrupted, no record is erased, and the
+    offer returns. Each time, the part says that no complete file was saved.

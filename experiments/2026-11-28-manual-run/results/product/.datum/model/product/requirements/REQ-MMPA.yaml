@@ -1,0 +1,13 @@
+id: REQ-MMPA
+status: agreed
+pattern: unwanted
+statement: >-
+  If a sync fails, is interrupted or is answered wrongly by the online service, then the part
+  shall keep the unsynced records on the device unchanged and try again later without the pilot
+  re-entering anything.
+rationale: >-
+  ELI-C382#8: repeated sync failure.
+of: FUN-DV8F
+answers:
+- HAZ-2CDR
+- HAZ-BYMT

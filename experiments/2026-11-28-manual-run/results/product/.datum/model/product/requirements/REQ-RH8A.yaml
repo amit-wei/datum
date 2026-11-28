@@ -1,0 +1,11 @@
+id: REQ-RH8A
+status: agreed
+pattern: unwanted
+statement: >-
+  If a change to records is interrupted, then the part shall leave the records either as before
+  the change or with the whole change applied.
+rationale: >-
+  A half-applied import, undo, correction or restore would be wrong without the pilot knowing.
+of: FUN-ESPG
+answers:
+- HAZ-BYMT

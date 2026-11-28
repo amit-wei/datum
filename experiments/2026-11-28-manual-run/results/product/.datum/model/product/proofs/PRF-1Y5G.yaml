@@ -1,0 +1,11 @@
+id: PRF-1Y5G
+status: agreed
+title: Data is protected in transit and at rest
+method: inspection
+rationale: >-
+  Set by configuration.
+covers: REQ-2VKW
+criterion:
+  pass: >-
+    No pilot data crosses the network unencrypted and every online store and backup has encryption
+    at rest enabled.

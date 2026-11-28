@@ -1,0 +1,30 @@
+id: FUN-DAF5
+status: agreed
+name: Change sign-in details
+definition: Lets a signed-in pilot replace what they sign in with, ending the access of other
+  devices once they connect.
+serves:
+- SCN-H46X#2
+inputs:
+- name: new sign-in details
+  from: pilot
+- name: proof that it is the pilot
+  from: pilot
+- name: signed-in pilot
+  from: FUN-B8SK
+- name: pilot account
+  from: FUN-EVE9
+- name: renewed sign-in details
+  from: FUN-Q1BS
+- name: device signed out
+  from: FUN-ZH87
+outputs:
+- name: changed sign-in details
+  to:
+  - FUN-B8SK
+  - FUN-DV8F
+  - FUN-A60F
+  - FUN-Q1BS
+  - FUN-SGHT
+  - FUN-VN36
+  - FUN-EK3N

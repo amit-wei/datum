@@ -1,0 +1,16 @@
+id: REQ-GY5X
+status: agreed
+pattern: event
+statement: When a recovery proof is requested for an account, the part shall, within the limit
+  of REQ-58CH, send a new one-time proof, which replaces any earlier one, only to the confirmed
+  means of contact of that account.
+rationale: 'Recovery needs no secret kept from sign-up, and sending only to the confirmed contact
+  is what shows the requester to be the owner (ELI-KKPH#1; HAZ-9K19, HAZ-XWCK). There is no
+  manual recovery (ELI-W9NN#9): an owner who cannot reach the contact cannot recover. Accepted
+  risks: whoever controls the contact may take over the account, and requests by others can
+  replace the latest proof or use up the hourly limit. Builder limit: ELI-KKPH#1.'
+of: FUN-XK2A
+answers:
+- HAZ-XWCK
+- HAZ-9K19
+source: builder

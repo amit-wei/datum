@@ -1,0 +1,11 @@
+id: PRF-9TE6
+status: agreed
+title: Every entered item is stored
+method: test
+rationale: A new field can be dropped on save or sync.
+covers: REQ-S287
+criterion:
+  pass: Entries that together fill every item of REQ-KPP1, each with every item that applies
+    to its kind of flight, read back identical, after restart and after sync to a second device.
+  conditions: One aeroplane, one TMG and one sailplane flight, among them one proficiency check
+    with its result and one passenger training flight.

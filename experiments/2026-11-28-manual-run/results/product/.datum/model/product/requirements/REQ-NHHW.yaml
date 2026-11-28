@@ -1,0 +1,9 @@
+id: REQ-NHHW
+status: agreed
+pattern: unwanted
+statement: If the pilot has not confirmed a preview, then the part shall add no flight from
+  the file.
+rationale: SCN-H9FP#4.
+of: FUN-5QA7
+answers:
+- HAZ-BYMT

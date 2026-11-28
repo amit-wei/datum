@@ -1,0 +1,12 @@
+id: REQ-79G7
+status: agreed
+pattern: ubiquitous
+statement: The part shall give each training flight, supervised flight, proficiency check, skill
+  test and assessment of competence in the PDF the instructor or examiner name, a space for
+  an ink signature, and the pilot's signed mark described as the pilot's own mark.
+rationale: 'Signatures are in ink (ELI-FV4M#4); a mark in the app is not a signature. Builder
+  limit: ELI-FV4M#4 (ink signatures, no instructor accounts or in-app signing).'
+of: FUN-AV5B
+answers:
+- HAZ-FRTK
+source: builder

@@ -1,0 +1,10 @@
+id: SCN-Q3MK
+status: agreed
+name: "Read the privacy notice"
+kind: main
+trigger: "Someone, with or without an account, wants to know what happens to personal data."
+steps:
+  - {n: 1, by: user, what: "Asks for the privacy notice."}
+  - {n: 2, by: product, what: "Shows it, with how to send a privacy request."}
+outcome: "The person knows what is done with their data and whom to write to."
+needs: [ELI-C382#6]

@@ -1,0 +1,11 @@
+id: REQ-5HCE
+status: agreed
+pattern: event
+statement: >-
+  When the pilot chooses an import to undo, the part shall list every entry that the undo would
+  remove, marking entries changed since the import, and remove nothing before the pilot confirms.
+rationale: >-
+  SCN-2YTZ: changes made since must not vanish unnoticed.
+of: FUN-YRV9
+answers:
+- HAZ-BYMT

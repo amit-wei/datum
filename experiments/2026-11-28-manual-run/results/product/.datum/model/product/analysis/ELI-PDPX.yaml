@@ -1,0 +1,31 @@
+id: ELI-PDPX
+date: '2026-11-28'
+entries:
+- n: 1
+  question: 'How long should a recovery link or code work? Proposed: 1 hour (own choice within
+    the 24-hour ceiling for emailed recovery codes in NIST guidance).'
+  answer: Yes (one yes to all four)
+  need: true
+  constraint: true
+- n: 2
+  question: 'If someone''s name is erased from a signed flight, does it still count as signed?
+    Proposed: yes; show ''name erased on request'' in its place, also in the PDF, keep the signed
+    mark, treat the record as valid, and warn in the pilot notice that an examiner or authority
+    might not accept it (not researched).'
+  answer: Yes (one yes to all four)
+  need: true
+  constraint: true
+- n: 3
+  question: 'How long should a failed security email be retried? Proposed: 72 hours after the
+    first reported failure, at least once an hour; then it stops and the warning may never arrive.'
+  answer: Yes (one yes to all four)
+  need: true
+  constraint: true
+- n: 4
+  question: 'An old device lost access and then the account was deleted. Proposed: erase its
+    unsynced records when it connects, without offering a file; the deletion warning explains
+    this and that keeping them needs signing in again on that device and syncing before deleting.
+    Devices whose access had not ended still offer the file.'
+  answer: Yes (one yes to all four)
+  need: true
+  constraint: true

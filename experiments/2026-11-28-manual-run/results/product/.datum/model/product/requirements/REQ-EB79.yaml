@@ -1,0 +1,11 @@
+id: REQ-EB79
+status: agreed
+pattern: unwanted
+statement: >-
+  If there is no current consent for the medical date, then the part shall keep no medical date
+  that is offered to it.
+rationale: >-
+  Without consent there is no ground to keep the date (RES-RZXY n28).
+of: FUN-SJJQ
+answers:
+- HAZ-7R3N

@@ -1,0 +1,11 @@
+id: REQ-GR3W
+status: agreed
+pattern: state
+statement: While a notice of a privacy erasure covers a signer's name erased from a signed entry,
+  the part shall state in the notice that an examiner or authority might not accept the entry
+  without the name.
+rationale: The pilot can then act, for example by keeping other proof (ELI-PDPX#2).
+of: FUN-S6RT
+answers:
+- HAZ-SDKD
+source: builder

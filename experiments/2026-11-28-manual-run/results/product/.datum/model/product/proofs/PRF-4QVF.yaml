@@ -1,0 +1,8 @@
+id: PRF-4QVF
+status: agreed
+title: Bad issue dates are refused
+method: test
+rationale: Date checks regress separately for each field.
+covers: REQ-QKN9
+criterion:
+  pass: An impossible and a future date are refused with the reason.

@@ -1,0 +1,13 @@
+id: PRF-6MY3
+status: agreed
+title: Close and passed dates warn
+method: test
+rationale: >-
+  Date arithmetic regresses.
+covers: REQ-N9DK
+criterion:
+  pass: >-
+    Dates at the lead time and passed dates warn, one day beyond does not; an expiry date of
+    today is not yet shown as passed.
+  conditions: >-
+    Also after resuming the app on a later day.

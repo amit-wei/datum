@@ -1,0 +1,13 @@
+id: REQ-95FN
+status: agreed
+pattern: unwanted
+statement: If the pilot does not confirm their identity again at deletion, then the part shall
+  delete nothing.
+rationale: 'Someone at an unattended signed-in device must not be able to destroy the logbook.
+  Asking for identity again at deletion was the agent''s proposal; the builder approved the
+  matching function input (ELI-SCJS#6). The builder accepted the proposed rules in ELI-SCJS.
+  Builder limit: ELI-SCJS#4.'
+of: FUN-VN36
+answers:
+- HAZ-XWCK
+source: builder

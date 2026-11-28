@@ -1,0 +1,11 @@
+id: PRF-46PX
+status: agreed
+title: No medical date without consent
+method: test
+rationale: >-
+  Another path such as sync or import could store it.
+covers: REQ-EB79
+criterion:
+  pass: >-
+    After attempts to save a medical date through every path, including a stale device syncing,
+    no copy of it exists.

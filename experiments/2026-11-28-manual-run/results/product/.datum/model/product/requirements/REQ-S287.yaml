@@ -1,0 +1,10 @@
+id: REQ-S287
+status: agreed
+pattern: event
+statement: When the pilot saves a flight, the part shall add one entry holding every item the
+  pilot entered, unchanged.
+rationale: What the pilot enters is the record; any change on save would be unnoticed. The items
+  an entry can hold are in REQ-KPP1.
+of: FUN-ESPG
+answers:
+- HAZ-BYMT

@@ -1,0 +1,8 @@
+id: PRF-49X7
+status: agreed
+title: Online loss is told
+method: test
+rationale: Only fault injection shows it.
+covers: REQ-V4WX
+criterion:
+  pass: The pilot sees that records are missing online.

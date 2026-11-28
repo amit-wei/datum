@@ -1,0 +1,12 @@
+id: REQ-CXAC
+status: agreed
+pattern: ubiquitous
+statement: >-
+  The part shall show on the device which records and changes are not synced and when the logbook
+  last synced completely.
+rationale: >-
+  ELI-H7X3#2; SCN-5DS4#3: after losing a phone the pilot looks for flights after the last sync.
+of: FUN-270Z
+answers:
+- HAZ-4HQG
+- HAZ-2CDR

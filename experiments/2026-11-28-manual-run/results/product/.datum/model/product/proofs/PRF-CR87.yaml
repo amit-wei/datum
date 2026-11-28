@@ -1,0 +1,9 @@
+id: PRF-CR87
+status: agreed
+title: Confirmation messages are limited
+method: test
+rationale: A server-side limit fails silently.
+covers: REQ-YTDM
+criterion:
+  pass: Messages to one address in any 60 minutes, across sign-up and contact change, meet confirmations_per_hour,
+    and every request up to the limit is sent.

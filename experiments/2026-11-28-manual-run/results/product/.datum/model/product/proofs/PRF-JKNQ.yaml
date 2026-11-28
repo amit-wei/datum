@@ -1,0 +1,8 @@
+id: PRF-JKNQ
+status: agreed
+title: The contact can be changed
+method: test
+rationale: A rarely used path.
+covers: REQ-JX9S
+criterion:
+  pass: After confirmation the new contact is the one later messages reach.

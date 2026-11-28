@@ -1,0 +1,13 @@
+id: REQ-FNBH
+status: agreed
+pattern: unwanted
+statement: >-
+  If starting totals have a negative or unreadable figure, a missing date, a date after today,
+  or a part of a total larger than the total it belongs to, then the part shall refuse to save
+  them and name the fault.
+rationale: >-
+  These cannot be true of a logbook and would corrupt every total.
+of: FUN-PDMV
+answers:
+- HAZ-BYMT
+- HAZ-SDKD

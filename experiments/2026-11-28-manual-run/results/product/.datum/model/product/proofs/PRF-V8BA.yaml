@@ -1,0 +1,9 @@
+id: PRF-V8BA
+status: agreed
+title: Partial download is handled
+method: test
+rationale: Visible only during a slow first sync.
+covers: REQ-Q6PP
+criterion:
+  pass: Every shown total carries an incomplete mark while paused and none after completion.
+  conditions: The first sync of a new device paused part way.

@@ -1,0 +1,33 @@
+id: FUN-TF2W
+status: agreed
+name: "Show earlier versions of records"
+definition: "Shows the pilot what changed or removed entries and changed starting totals said before, and versions not chosen in a conflict."
+serves: [SCN-6E8F#3, SCN-RXEM#5]
+inputs:
+  - name: "corrected entry"
+    from: FUN-JX7F
+  - name: "entry removal"
+    from: FUN-2JYW
+  - name: "logbook entry"
+    from: FUN-ESPG
+  - name: "logbook entry"
+    from: FUN-5QA7
+  - name: "import removal"
+    from: FUN-YRV9
+  - name: "restored entry"
+    from: FUN-SR3A
+  - name: "recorded starting totals"
+    from: FUN-PDMV
+  - name: "earlier version of a corrected entry"
+    from: FUN-JX7F
+  - name: "earlier version of a removed entry"
+    from: FUN-2JYW
+  - name: "earlier starting totals"
+    from: FUN-PDMV
+  - name: "synced records"
+    from: FUN-DV8F
+  - name: "version not chosen"
+    from: FUN-V0PH
+outputs:
+  - name: "earlier versions"
+    to: [pilot]

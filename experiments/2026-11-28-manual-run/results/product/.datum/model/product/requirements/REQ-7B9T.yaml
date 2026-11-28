@@ -1,0 +1,9 @@
+id: REQ-7B9T
+status: agreed
+pattern: unwanted
+statement: If the pilot has not confirmed a removal of an entry, then the part shall leave the
+  logbook unchanged.
+rationale: 'SCN-6E8F#2: nothing changes without the pilot knowing.'
+of: FUN-2JYW
+answers:
+- HAZ-BYMT

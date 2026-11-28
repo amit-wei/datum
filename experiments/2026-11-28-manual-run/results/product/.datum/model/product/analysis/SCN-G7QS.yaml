@@ -1,0 +1,23 @@
+id: SCN-G7QS
+status: agreed
+name: A second device after the account is deleted
+kind: failure
+trigger: A device with unsynced records connects after its account was deleted.
+preconditions: The account was deleted on another device, and this device's access had not ended
+  before.
+steps:
+- n: 1
+  by: product
+  what: Says the account was deleted and offers to save the unsynced records to a file.
+- n: 2
+  by: user
+  what: Saves them and confirms that the file was saved, or declines.
+- n: 3
+  by: product
+  what: Gives the file if asked, then erases the records from the device without uploading them.
+outcome: The pilot has had the chance to keep the unsynced records, and the deleted account
+  does not come back.
+needs:
+- ELI-SCJS#4
+- ELI-SCJS#6
+- ELI-PDPX#4

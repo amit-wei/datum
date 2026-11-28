@@ -1,0 +1,11 @@
+id: SCN-YDCD
+status: agreed
+name: "Find a past flight"
+kind: main
+trigger: "A pilot wants to look back at flights."
+preconditions: "The pilot has a logbook."
+steps:
+  - {n: 1, by: user, what: "Looks through the logbook or searches for a flight."}
+  - {n: 2, by: product, what: "Shows the matching entries and their details."}
+outcome: "The pilot has found the flight."
+needs: [ELI-J7WZ#1]

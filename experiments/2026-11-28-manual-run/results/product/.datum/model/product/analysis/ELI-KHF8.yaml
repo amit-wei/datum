@@ -1,0 +1,21 @@
+id: ELI-KHF8
+date: 2026-11-28
+entries:
+  - n: 1
+    question: "Proposed meaning of useful rule results: a met / not met result per covered rule with date or what is missing and the flights counted; say when information is missing; stricter reading of unclear date rules, explained; no overall \"cleared to fly\". Asked together with entries 2 and 3."
+    answer: "idek dude agreed on your thing."
+    need: true
+    constraint: true
+  - n: 2
+    question: "Addition: pilots enter expiry dates for medical, ratings and language proficiency and get warnings. Included?"
+    answer: "idek dude agreed on your thing."
+    need: true
+  - n: 3
+    question: "Is column matching for CSV import, with a preview, unreadable rows flagged and totals to compare before saving, OK for the MVP?"
+    answer: "idek dude agreed on your thing."
+    need: true
+  - n: 4
+    question: "GitHub issues for open questions, given no remote repository is connected."
+    answer: "dont worry about github for now."
+    constraint: true
+    out_of_scope: "No requirement: about how the work is tracked, not about the product."

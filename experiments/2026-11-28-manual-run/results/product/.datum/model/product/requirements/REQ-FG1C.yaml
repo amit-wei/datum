@@ -1,0 +1,11 @@
+id: REQ-FG1C
+status: agreed
+pattern: event
+statement: >-
+  When the pilot saves a name and an address, the part shall record both as the current pilot
+  details.
+rationale: >-
+  The logbook must show both (RES-7H7D n2, n7).
+of: FUN-82YT
+answers:
+- HAZ-BYMT

@@ -1,0 +1,9 @@
+id: PRF-9G73
+status: agreed
+title: Incomplete totals are marked
+method: test
+rationale: The mark depends on which figures are empty; treating empty as zero would silently
+  remove it.
+covers: REQ-1J34
+criterion:
+  pass: Totals with a figure left out are marked; complete ones are not.

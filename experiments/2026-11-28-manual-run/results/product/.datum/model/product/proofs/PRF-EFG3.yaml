@@ -1,0 +1,10 @@
+id: PRF-EFG3
+status: agreed
+title: Impossible starting totals are refused
+method: test
+rationale: >-
+  Many small branches; a test covers all cheaply.
+covers: REQ-FNBH
+criterion:
+  pass: >-
+    For each of the four faults nothing is saved and the fault is named.

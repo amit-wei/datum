@@ -1,0 +1,12 @@
+id: REQ-2VKW
+status: agreed
+pattern: ubiquitous
+statement: >-
+  The part shall keep pilot data unreadable to others on the network in transit and in the online
+  copy and its backups at rest.
+rationale: >-
+  Security must fit the risk (RES-RZXY n8). Protection on the device relies on the device's
+  own lock.
+of: FUN-DV8F
+answers:
+- HAZ-9K19

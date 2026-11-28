@@ -1,0 +1,8 @@
+id: ELI-PX7E
+date: 2026-11-28
+entries:
+  - n: 1
+    question: "Do the 14 drafted journeys match how people will use the app, and are these choices approved: A) accounts; B) earlier versions of entries, including removed ones, kept until the account is deleted; C) expiry warnings only when the app is opened, no email or phone notifications in the MVP; D) several short flights are never combined into one entry?"
+    answer: "yeah i agree. I cant guarantee that these are all the possible user journeys but that's what you are for I guess."
+    need: true
+    constraint: true

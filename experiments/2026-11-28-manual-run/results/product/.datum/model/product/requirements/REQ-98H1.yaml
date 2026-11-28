@@ -1,0 +1,11 @@
+id: REQ-98H1
+status: agreed
+pattern: event
+statement: When the pilot searches by date range, aircraft registration or type, place, PIC
+  or instructor name, or remarks text, the part shall show exactly the current entries that
+  match, newest first, or say that none match.
+rationale: ELI-J7WZ#1. The search keys and order were the agent's proposal. The builder accepted
+  the proposed rules in ELI-SCJS.
+of: FUN-MPTZ
+answers:
+- HAZ-XWCK

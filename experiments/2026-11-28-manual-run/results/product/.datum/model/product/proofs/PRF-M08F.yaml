@@ -1,0 +1,8 @@
+id: PRF-M08F
+status: agreed
+title: Corrections keep history
+method: test
+rationale: History is easy to skip in a new edit path.
+covers: REQ-K57M
+criterion:
+  pass: The entry equals the confirmed content and the earlier version is intact.

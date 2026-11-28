@@ -1,0 +1,10 @@
+id: REQ-YZG3
+status: agreed
+pattern: event
+statement: When consent for the medical date is withdrawn on one device while another device
+  has a conflicting change to the consent or the medical date, the part shall apply the withdrawal
+  without waiting for a conflict choice.
+rationale: Withdrawal must take effect as easily as it was given (RES-RZXY n29).
+of: FUN-DV8F
+answers:
+- HAZ-7R3N

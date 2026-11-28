@@ -1,0 +1,11 @@
+id: PRF-RFST
+status: agreed
+title: PDF sums agree with the logbook
+method: test
+rationale: Computed values change with any layout or data change, so a one-off look is not enough.
+covers: REQ-E4BA
+criterion:
+  pass: Every page, brought-forward and accumulated figure equals an independent sum, and the
+    marks are on exactly the entries on or before the date.
+  conditions: A pilot with aeroplane, TMG and sailplane entries over many pages, before, on
+    and after the starting date, and one case without starting totals.

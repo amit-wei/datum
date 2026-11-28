@@ -1,0 +1,8 @@
+id: PRF-0ETS
+status: agreed
+title: Unchosen changes are kept
+method: test
+rationale: Cleanup or sync code could drop one.
+covers: REQ-PEKH
+criterion:
+  pass: After leaving, restart, sync and update both changes remain.

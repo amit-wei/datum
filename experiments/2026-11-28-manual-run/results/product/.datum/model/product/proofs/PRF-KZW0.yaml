@@ -1,0 +1,10 @@
+id: PRF-KZW0
+status: agreed
+title: Owner is told of a recovery
+method: test
+rationale: A notice can stop being sent without anything else failing.
+covers: REQ-Z1SD
+criterion:
+  pass: After each successful recovery the notice arrives at the contact in force immediately
+    before it began, also when that contact was changed right after the recovery; a contact
+    replaced before the recovery receives nothing; reading the notice needs no new sign-in details.

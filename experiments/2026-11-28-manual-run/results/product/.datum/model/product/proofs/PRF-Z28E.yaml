@@ -1,0 +1,10 @@
+id: PRF-Z28E
+status: agreed
+title: Works with no signal
+method: test
+rationale: Any new network call can break offline use.
+covers: REQ-GNNK
+criterion:
+  pass: With the network cut, the part opens after a device restart, the privacy notice is shown
+    and each other function not named as needing a connection completes.
+  conditions: A device previously signed in and loaded online.

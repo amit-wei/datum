@@ -1,0 +1,8 @@
+id: PRF-3XT5
+status: agreed
+title: Every starting figure can be entered
+method: test
+rationale: A figure missing from the form shows only when all are entered.
+covers: REQ-5QS3
+criterion:
+  pass: Each figure can be saved and read back, and each can be left out.

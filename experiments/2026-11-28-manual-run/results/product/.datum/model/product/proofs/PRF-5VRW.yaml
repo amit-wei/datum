@@ -1,0 +1,9 @@
+id: PRF-5VRW
+status: agreed
+title: Revoked devices are only erased
+method: test
+rationale: A shared code path with the offer could expose them.
+covers: REQ-QZRP
+criterion:
+  pass: A device with unsynced records, whose access ended before the deletion, shows no record
+    or offer on connecting, erases them and uploads nothing.

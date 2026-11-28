@@ -1,0 +1,9 @@
+id: REQ-E90D
+status: agreed
+pattern: ubiquitous
+statement: >-
+  The part shall present its interface and its own texts in English.
+rationale: >-
+  ELI-H7X3#4; Dutch may follow later.
+of: FUN-ESPG
+source: builder

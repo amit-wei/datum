@@ -1,0 +1,9 @@
+id: REQ-F516
+status: agreed
+pattern: event
+statement: When account deletion is confirmed, the part shall tell the pilot what remains in
+  backups and until when.
+rationale: The authority asks for this answer on erasure (RES-RZXY n19).
+of: FUN-VN36
+answers:
+- HAZ-7R3N

@@ -1,0 +1,9 @@
+id: PRF-P7HB
+status: agreed
+title: Every item can be entered
+method: test
+rationale: An item dropped from the entry form is only noticed by entering all of them.
+covers: REQ-KPP1
+criterion:
+  pass: A flight with every listed item can be entered, saved and read back, for each kind of
+    flight.

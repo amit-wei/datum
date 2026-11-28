@@ -1,0 +1,9 @@
+id: REQ-Q6PP
+status: agreed
+pattern: state
+statement: While a device has not yet received all records of the account, the part shall mark
+  every total as incomplete.
+rationale: A part-downloaded logbook must not read as complete.
+of: FUN-6NTH
+answers:
+- HAZ-SDKD

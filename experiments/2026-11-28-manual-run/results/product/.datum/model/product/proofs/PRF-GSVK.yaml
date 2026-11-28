@@ -1,0 +1,10 @@
+id: PRF-GSVK
+status: agreed
+title: Owner can get back in
+method: test
+rationale: >-
+  The recovery path is rarely used, so only a test notices it breaking.
+covers: REQ-KSA0
+criterion:
+  pass: >-
+    After recovery the new details give access and the old ones are refused.

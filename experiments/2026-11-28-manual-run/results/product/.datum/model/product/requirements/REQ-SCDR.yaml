@@ -1,0 +1,12 @@
+id: REQ-SCDR
+status: agreed
+pattern: state
+statement: >-
+  While a conflict is unresolved, the part shall mark every total that either version would
+  change.
+rationale: >-
+  ELI-W9NN#6.
+of: FUN-6NTH
+answers:
+- HAZ-SDKD
+- HAZ-BYMT

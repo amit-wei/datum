@@ -1,0 +1,16 @@
+id: REQ-C2MJ
+status: agreed
+pattern: state
+statement: 'While the pilot holds SPL, the part shall show SPL passenger carrying as met, separately
+  for sailplanes and TMG, only if both hold: first, either the pilot states that they hold an
+  instructor certificate for sailplanes, or after the SPL issue date there are 10 hours, or
+  30 launches or take-offs and landings, as PIC on sailplanes and a signed passenger training
+  flight, each shown by entries or stated by the pilot; second, within 90 days as PIC there
+  are 3 launches on sailplanes other than TMG for sailplanes, or 3 take-offs and 3 landings
+  on TMG for TMG, with, for night on TMG, at least 1 take-off and 1 landing at night.'
+rationale: SFCL.115(a)(2) and 160(e) (RES-7H7D n32). Accepting a labelled statement by the pilot
+  for the one-time condition was the agent's proposal, because starting totals do not say what
+  was flown after issue. The builder accepted the proposed rules in ELI-SCJS.
+of: FUN-69E8
+answers:
+- HAZ-SDKD

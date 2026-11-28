@@ -1,0 +1,11 @@
+id: REQ-3FKV
+status: agreed
+pattern: unwanted
+statement: >-
+  If the name or the address is empty, then the part shall keep the previous pilot details and
+  name the missing field.
+rationale: >-
+  A logbook without them lacks required content.
+of: FUN-82YT
+answers:
+- HAZ-FRTK

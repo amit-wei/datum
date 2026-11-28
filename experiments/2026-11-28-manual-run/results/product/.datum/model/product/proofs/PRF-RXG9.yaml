@@ -1,0 +1,9 @@
+id: PRF-RXG9
+status: agreed
+title: Failed updates leave a usable logbook
+method: test
+rationale: Only fault injection notices.
+covers: REQ-TPNW
+criterion:
+  pass: With download cut and conversion forced to fail, repeatedly, records are intact, viewable
+    and exportable.

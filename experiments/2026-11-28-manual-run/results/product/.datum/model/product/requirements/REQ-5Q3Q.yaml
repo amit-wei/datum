@@ -1,0 +1,11 @@
+id: REQ-5Q3Q
+status: agreed
+pattern: event
+statement: When consent for the medical date is withdrawn, the part shall erase the medical
+  date, including in earlier versions and versions not chosen in a conflict, from the device
+  used at once and from the live online copy when that device next reaches it.
+rationale: 'ELI-C382#6, ELI-W9NN#7 and #11. Other devices are covered by REQ-26SS and backups
+  by REQ-X5KB.'
+of: FUN-SJJQ
+answers:
+- HAZ-7R3N

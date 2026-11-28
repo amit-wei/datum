@@ -1,0 +1,10 @@
+id: PRF-2PA1
+status: agreed
+title: Interface is English
+method: inspection
+rationale: >-
+  Fixed by content.
+covers: REQ-E90D
+criterion:
+  pass: >-
+    No screen or generated text of the part's own is in another language.

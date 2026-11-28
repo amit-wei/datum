@@ -1,0 +1,16 @@
+id: REQ-GDYQ
+status: agreed
+pattern: ubiquitous
+statement: The part shall accept a flight only when the date is a real date not after today
+  in UTC, the date, aircraft class, registration, type, places, times, PIC name, flight time
+  and pilot function are present, a sailplane flight other than TMG has a launch method, counts
+  are whole numbers not below zero, flight time is above zero and under 24 hours and equals
+  arrival time minus departure time, and no part time exceeds flight time.
+rationale: 'Required items follow RES-7H7D n2 and n7. The validity limits were the agent''s
+  proposal. Arrival may be on the next UTC day. The builder accepted the proposed rules in ELI-SCJS.
+  Builder limit: ELI-SCJS#3.'
+of: FUN-ESPG
+answers:
+- HAZ-BYMT
+- HAZ-SDKD
+source: builder

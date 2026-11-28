@@ -1,0 +1,19 @@
+id: REQ-KPP1
+status: agreed
+pattern: ubiquitous
+statement: 'The part shall let a flight entry hold each of these items: date, PIC name, departure
+  and arrival place, departure and arrival time in UTC, aircraft make, model, variant, registration
+  and class, single or multi engine, flight time, time as PIC, dual, co-pilot, instructor and
+  examiner, night time, instrument time, day and night take-offs, day and night landings, flown
+  as pilot flying, number of launches and launch method, kind of flight among ordinary, training,
+  supervised, proficiency check, skill test and assessment of competence, for a proficiency
+  check, skill test or assessment of competence whether it was passed, for a training flight
+  whether it was the passenger training flight, instructor or examiner name, signed mark and
+  remarks.'
+rationale: The items are those a logbook needs for aeroplanes and sailplanes (RES-7H7D n2, n4,
+  n7) and those recency needs (n36). One entry is one flight; flights are never combined (ELI-PX7E#1).
+of: FUN-ESPG
+answers:
+- HAZ-BYMT
+- HAZ-FRTK
+source: builder

@@ -1,0 +1,10 @@
+id: PRF-03FV
+status: agreed
+title: Sailplane pages hold the required items
+method: inspection
+rationale: >-
+  As for the aeroplane format.
+covers: REQ-71XD
+criterion:
+  pass: >-
+    Each listed item including launch method is present.

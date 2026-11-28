@@ -1,0 +1,17 @@
+id: REQ-8R8J
+status: agreed
+pattern: ubiquitous
+statement: 'The part shall apply every look-back window to the UTC date of an entry as follows:
+  a window of 24 months, 2 years or 12 months counts only dates after the same calendar date
+  that long before the end point, using 1 March where that date does not exist; a window of
+  3 months does the same with 3 months; a window of 90 days counts only dates no more than 89
+  days before the end point; the end point is the day assessed, except that the 12-month and
+  3-month revalidation windows end at the rating expiry date and exclude that date; no window
+  counts a date after the day assessed; a condition counted since licence issue counts only
+  dates after the issue date.'
+rationale: The builder chose the stricter reading of unclear date rules (ELI-FV4M#3, ELI-KHF8#1);
+  no source fixes the day boundaries (RES-7H7D open choices). These boundaries were the agent's
+  reading. The builder accepted the proposed rules in ELI-SCJS.
+of: FUN-69E8
+answers:
+- HAZ-SDKD

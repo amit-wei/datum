@@ -1,0 +1,11 @@
+id: PRF-8P1W
+status: agreed
+title: Editing a signed entry unsigns it
+method: test
+rationale: >-
+  A new field could be left out of the check.
+covers: REQ-KMJW
+criterion:
+  pass: >-
+    For a change to each item in turn the mark is removed and the notice shown before confirmation;
+    marking signed alone keeps content.

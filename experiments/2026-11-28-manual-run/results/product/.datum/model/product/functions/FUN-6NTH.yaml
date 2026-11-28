@@ -1,0 +1,27 @@
+id: FUN-6NTH
+status: agreed
+name: "Show logbook totals"
+definition: "Shows the pilot's totals: the starting totals plus the flights after the date they run up to, marked where a conflict is unresolved."
+serves: [SCN-72S0#10, SCN-JPQT#3, SCN-6E8F#2, SCN-RXEM#4, SCN-2YTZ#4, SCN-33Y5#2, SCN-5EAZ#2]
+inputs:
+  - name: "logbook entry"
+    from: FUN-ESPG
+  - name: "logbook entry"
+    from: FUN-5QA7
+  - name: "corrected entry"
+    from: FUN-JX7F
+  - name: "entry removal"
+    from: FUN-2JYW
+  - name: "recorded starting totals"
+    from: FUN-PDMV
+  - name: "import removal"
+    from: FUN-YRV9
+  - name: "restored entry"
+    from: FUN-SR3A
+  - name: "synced records"
+    from: FUN-DV8F
+  - name: "conflicting changes"
+    from: FUN-DV8F
+outputs:
+  - name: "totals"
+    to: [pilot]

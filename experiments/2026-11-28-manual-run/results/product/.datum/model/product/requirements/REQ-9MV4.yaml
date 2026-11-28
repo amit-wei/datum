@@ -1,0 +1,18 @@
+id: REQ-9MV4
+status: agreed
+pattern: state
+statement: 'While the pilot holds an SEP or TMG class rating on a PPL(A) and the rating has
+  not expired, the part shall show revalidation by experience or check as met only if one of
+  two conditions holds: (a) within the 12 months before the rating expiry date there are 12
+  hours in the class including 6 as PIC, 12 take-offs, 12 landings and, unless a signed passed
+  class or type proficiency check, skill test or assessment of competence is entered in those
+  12 months, signed refresher training of at least 1 hour in total with a flight or class rating
+  instructor; (b) a signed passed proficiency check for the class is entered within the 3 months
+  before the rating expiry date; for a pilot holding both SEP and TMG ratings, flights in either
+  class count for (a).'
+rationale: FCL.740.A(b) (RES-7H7D n23). The check that revalidates counts only in the last 3
+  months; an earlier pass removes only the refresher item. An early revalidation by check changes
+  the expiry date, which the pilot then updates. One rule, one result, so it is one requirement.
+of: FUN-69E8
+answers:
+- HAZ-SDKD

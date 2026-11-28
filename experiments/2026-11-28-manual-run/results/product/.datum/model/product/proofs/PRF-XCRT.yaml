@@ -1,0 +1,8 @@
+id: PRF-XCRT
+status: agreed
+title: Both changes are shown
+method: test
+rationale: A new item could be left out of the comparison.
+covers: REQ-N371
+criterion:
+  pass: Every difference between the two changes is visible before choosing.

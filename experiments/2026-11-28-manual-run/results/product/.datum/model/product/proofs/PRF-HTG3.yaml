@@ -1,0 +1,12 @@
+id: PRF-HTG3
+status: agreed
+title: A backup restores
+method: demonstration
+rationale: >-
+  A backup never restored may not work.
+covers: REQ-365P
+criterion:
+  pass: >-
+    A restore into a test environment recovers all records older than backup_age.
+  conditions: >-
+    Throwaway data; repeated at each release.

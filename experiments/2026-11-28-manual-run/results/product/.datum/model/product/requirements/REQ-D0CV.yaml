@@ -1,0 +1,10 @@
+id: REQ-D0CV
+status: agreed
+pattern: event
+statement: When the pilot saves a training flight, supervised flight, proficiency check, skill
+  test or assessment of competence, the part shall record the entry as unsigned unless the pilot
+  explicitly marks the entry as signed.
+rationale: 'ELI-C382#2: a signature is never assumed; the part cannot verify one.'
+of: FUN-ESPG
+answers:
+- HAZ-SDKD

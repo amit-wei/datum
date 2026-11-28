@@ -1,0 +1,339 @@
+id: RES-6SKG
+date: 2026-11-28
+question: >
+  What do established security standards and guidance say about limiting failed sign-in attempts
+  and failed account-recovery attempts on an online account: what number over what period, what
+  response (delay, lockout, other), and how to avoid an attacker locking the real owner out?
+  Asked for REQ-HNV5 and REQ-VYVM (HAZ-9K19, HAZ-XWCK).
+narrowed: >
+  Limited to NIST SP 800-63B-4, OWASP (cheat sheets, ASVS 5.0.0, one community page), UK NCSC,
+  NCSC-NL and ENISA. Left out: choice of authentication technology or library, and password
+  composition rules. Differences by authentication method are noted. No measurement study of
+  attack success or of owners being locked out was read. Pages were fetched raw on 2026-11-28
+  and PDFs converted to text.
+findings:
+  - n: 1
+    claim: >
+      NIST caps CONSECUTIVE failed attempts at 100, counted per authenticator per account,
+      and the response is to disable that authenticator, which must then be bound again. It
+      sets no period (not per hour or day). This is the default where an authenticator type
+      requires throttling and sets nothing else.
+    label: VERIFIED
+    source: {title: "NIST SP 800-63B-4, Digital Identity Guidelines: Authentication and Authenticator Management", ref: "https://pages.nist.gov/800-63-4/sp800-63b.html (doi:10.6028/NIST.SP.800-63B-4)"}
+    where: "Sec. 3.2.2 Rate Limiting (Throttling)"
+    read: "the section"
+    quote: "the verifier SHALL limit consecutive failed authentication attempts using a specific authenticator on a single subscriber account to no more than 100 by disabling that authenticator [...] Authenticators that have been disabled SHALL be required to rebind to the subscriber account"
+  - n: 2
+    claim: >
+      100 is a ceiling and lower limits are allowed (the text addresses US agencies). NIST
+      says it balances guessing risk (its example is a six-digit one-time code) against the
+      need for account recovery once the limit is passed.
+    label: VERIFIED
+    source: {title: "NIST SP 800-63B-4, Digital Identity Guidelines: Authentication and Authenticator Management", ref: "https://pages.nist.gov/800-63-4/sp800-63b.html (doi:10.6028/NIST.SP.800-63B-4)"}
+    where: "Sec. 3.2.2"
+    read: "the section"
+    quote: "The limit of 100 attempts is an upper bound, and agencies MAY impose lower limits. The limit of 100 was chosen to balance the likelihood of a correct guess (e.g., 100 attempts against a six-digit decimal OTP authenticator output) versus the potential need for account recovery when the limit is exceeded."
+  - n: 3
+    claim: >
+      To make it less likely that an attacker locks out the real owner, NIST permits a
+      bot-detection challenge, a wait that grows as the account nears its limit (example 30
+      seconds up to an hour), and risk-based signals such as IP address, location, timing or
+      browser data. These are optional (MAY).
+    label: VERIFIED
+    source: {title: "NIST SP 800-63B-4, Digital Identity Guidelines: Authentication and Authenticator Management", ref: "https://pages.nist.gov/800-63-4/sp800-63b.html (doi:10.6028/NIST.SP.800-63B-4)"}
+    where: "Sec. 3.2.2"
+    read: "the section"
+    quote: "Additional techniques MAY be used to reduce the likelihood that an attacker will lock the legitimate claimant out due to rate limiting. [...] Requiring the claimant to wait after a failed attempt for a period of time that increases as the subscriber account approaches its maximum allowance for consecutive failed attempts (e.g., 30 seconds up to an hour)"
+  - n: 4
+    claim: >
+      After a successful sign-in the verifier should disregard earlier failures for the
+      authenticators used.
+    label: VERIFIED
+    source: {title: "NIST SP 800-63B-4, Digital Identity Guidelines: Authentication and Authenticator Management", ref: "https://pages.nist.gov/800-63-4/sp800-63b.html (doi:10.6028/NIST.SP.800-63B-4)"}
+    where: "Sec. 3.2.2"
+    read: "the section"
+    quote: "When the subscriber successfully authenticates, the verifier SHOULD disregard any previous failed attempts for the authenticators used in the successful authentication."
+  - n: 5
+    claim: >
+      By method: password verifiers must rate-limit under 3.2.2 (look-up secrets say the
+      same). For out-of-band codes shorter than 64 bits, consecutive failures must be
+      limited and sending a new code does not reset the count.
+    label: VERIFIED
+    source: {title: "NIST SP 800-63B-4, Digital Identity Guidelines: Authentication and Authenticator Management", ref: "https://pages.nist.gov/800-63-4/sp800-63b.html (doi:10.6028/NIST.SP.800-63B-4)"}
+    where: "Sec. 3.1.1.2 (passwords), 3.1.2.2 (look-up secrets), 3.1.3.2 (out-of-band verifiers)"
+    read: "the section"
+    quote: "Verifiers SHALL implement a rate-limiting mechanism that effectively limits the number of failed authentication attempts that can be made on the subscriber account, as described in Sec. 3.2.2. [...] Generating a new authentication secret SHALL NOT reset the failed authentication count."
+  - n: 6
+    claim: >
+      By method: one-time-password (OTP) verifiers are also rate-limited (required for
+      single-factor OTP output under 64 bits).
+    label: VERIFIED
+    source: {title: "NIST SP 800-63B-4, Digital Identity Guidelines: Authentication and Authenticator Management", ref: "https://pages.nist.gov/800-63-4/sp800-63b.html (doi:10.6028/NIST.SP.800-63B-4)"}
+    where: "Sec. 3.1.4.2 (single-factor OTP verifiers)"
+    read: "the section"
+    quote: "The verifier SHOULD implement or, if the authenticator output is less than 64 bits in length, SHALL implement a rate-limiting mechanism"
+  - n: 7
+    claim: >
+      By method: a PIN or password that only unlocks an authenticator on the user's device
+      (an activation secret) has a tighter limit of 10 consecutive failures. Biometrics have
+      their own limits (5, or 10 with presentation attack detection, then delays of at least
+      30 seconds, and overall 50 or 100).
+    label: VERIFIED
+    source: {title: "NIST SP 800-63B-4, Digital Identity Guidelines: Authentication and Authenticator Management", ref: "https://pages.nist.gov/800-63-4/sp800-63b.html (doi:10.6028/NIST.SP.800-63B-4)"}
+    where: "Sec. 3.2.10 and 3.2.3"
+    read: "the section"
+    quote: "limits the number of consecutive failed activation attempts using the authenticator to no more than 10 [...] The biometric system SHALL allow no more than five consecutive failed authentication attempts or 10 consecutive failed attempts if PAD is implemented"
+  - n: 8
+    claim: >
+      Recovery codes, both those the user saved and those sent to a recovery address, fall
+      under the same throttling as sign-in (3.2.2). NIST gives no separate number for
+      recovery.
+    label: VERIFIED
+    source: {title: "NIST SP 800-63B-4, Digital Identity Guidelines: Authentication and Authenticator Management", ref: "https://pages.nist.gov/800-63-4/sp800-63b.html (doi:10.6028/NIST.SP.800-63B-4)"}
+    where: "Sec. 4.2.1.1 and 4.2.1.2"
+    read: "the section"
+    quote: "The verification of saved recovery codes SHALL be subject to the throttling requirements in Sec. 3.2.2. [...] The verification of issued recovery codes SHALL be subject to the throttling requirements in Sec. 3.2.2."
+  - n: 9
+    claim: >
+      Related recovery rules: a saved code has at least 64 bits and an issued code at least
+      six decimal digits; a code sent by email is valid at most 24 hours (by text or voice,
+      10 minutes); every account recovery sends the owner a notification. (Email is not
+      allowed for out-of-band sign-in, Sec. 3.1.3.1, which differs from its use for recovery
+      codes.)
+    label: VERIFIED
+    source: {title: "NIST SP 800-63B-4, Digital Identity Guidelines: Authentication and Authenticator Management", ref: "https://pages.nist.gov/800-63-4/sp800-63b.html (doi:10.6028/NIST.SP.800-63B-4)"}
+    where: "Sec. 4.2.1 and 4.2.3"
+    read: "the section"
+    quote: "The issued recovery code SHALL include at least six decimal digits (or equivalent) [...] 24 hours when sent to an email address [...] In all cases, account recovery SHALL cause a notification to be sent to the subscriber"
+  - n: 10
+    claim: >
+      NIST's usability considerations (informative, not a requirement) say to allow at least
+      10 tries where the user types the output of an authenticator, and to tell throttled
+      users how long to wait.
+    label: VERIFIED
+    source: {title: "NIST SP 800-63B-4, Digital Identity Guidelines: Authentication and Authenticator Management", ref: "https://pages.nist.gov/800-63-4/sp800-63b.html (doi:10.6028/NIST.SP.800-63B-4)"}
+    where: "Sec. 8, Customer Experience Considerations (informative)"
+    read: "the section"
+    quote: "Allow at least 10 entry attempts for authenticators that require the entry of the authenticator output by the user. [...] For rate limiting (i.e., throttling), inform users how long they have to wait until the next attempt."
+  - n: 11
+    claim: >
+      OWASP describes lockout by threshold, observation window and duration, with the
+      counter tied to the account rather than the source IP. It names exponential lockout
+      (starting very short, doubling after each failure) as an alternative. It gives no
+      threshold or window; its only figures are examples for duration, and 'max 2-3' delayed
+      lockouts before a permanent one.
+    label: VERIFIED
+    source: {title: "OWASP Authentication Cheat Sheet", ref: "https://raw.githubusercontent.com/OWASP/CheatSheetSeries/master/cheatsheets/Authentication_Cheat_Sheet.md"}
+    where: "Login Throttling, Account Lockout"
+    read: "the section"
+    quote: "The counter of failed logins should be associated with the account itself, rather than the source IP address [...] the lockout duration starts as a very short period (e.g., one second), but doubles after each failed login attempt [...] Amount of time to delay after each account lockout (max 2-3, after that permanent account lockout)."
+  - n: 12
+    claim: >
+      OWASP warns that lockout can be turned into denial of service against other users, and
+      gives one remedy: let forgotten-password recovery work even while the account is
+      locked.
+    label: VERIFIED
+    source: {title: "OWASP Authentication Cheat Sheet", ref: "https://raw.githubusercontent.com/OWASP/CheatSheetSeries/master/cheatsheets/Authentication_Cheat_Sheet.md"}
+    where: "Account Lockout"
+    read: "the section"
+    quote: "care must be taken to prevent it from being used to cause a denial of service by locking out other users' accounts. One way this could be performed is to allow the use of the forgotten password functionality to log in, even if the account is locked out."
+  - n: 13
+    claim: >
+      OWASP says a CAPTCHA is defence in depth, not a preventive control, and may be shown
+      only after a few failures.
+    label: VERIFIED
+    source: {title: "OWASP Authentication Cheat Sheet", ref: "https://raw.githubusercontent.com/OWASP/CheatSheetSeries/master/cheatsheets/Authentication_Cheat_Sheet.md"}
+    where: "CAPTCHA"
+    read: "the section"
+    quote: "the use of CAPTCHA should be viewed as a defense-in-depth control [...] only require a CAPTCHA be solved after a small number of failed login attempts"
+  - n: 14
+    claim: >
+      For recovery OWASP says not to lock or change the account before a valid token is
+      presented, and that the user must always have some way to recover.
+    label: VERIFIED
+    source: {title: "OWASP Forgot Password Cheat Sheet", ref: "https://raw.githubusercontent.com/OWASP/CheatSheetSeries/master/cheatsheets/Forgot_Password_Cheat_Sheet.md"}
+    where: "Introduction; Methods; Account Lockout"
+    read: "full text"
+    quote: "Accounts should not be locked out in response to a forgotten password attack, as this can be used to deny access to users with known usernames. [...] you must ensure that a user always has a way to recover their account"
+  - n: 15
+    claim: >
+      OWASP also asks for per-account limits (or CAPTCHA or other controls) on how often a
+      reset can be REQUESTED, to stop message flooding, and for protection such as rate
+      limiting against guessing reset tokens. No numeric limit is given for either.
+    label: VERIFIED
+    source: {title: "OWASP Forgot Password Cheat Sheet", ref: "https://raw.githubusercontent.com/OWASP/CheatSheetSeries/master/cheatsheets/Forgot_Password_Cheat_Sheet.md"}
+    where: "Forgot Password Request; URL Tokens"
+    read: "full text"
+    quote: "Implement protections against excessive automated submissions such as rate-limiting on a per-account basis, requiring a CAPTCHA, or other controls. [...] Implement appropriate protection to prevent users from brute-forcing tokens in the URL, such as rate limiting."
+  - n: 16
+    claim: >
+      For one-time codes OWASP asks for strict attempt limits, without a number.
+    label: VERIFIED
+    source: {title: "OWASP Multifactor Authentication Cheat Sheet", ref: "https://raw.githubusercontent.com/OWASP/CheatSheetSeries/master/cheatsheets/Multifactor_Authentication_Cheat_Sheet.md"}
+    where: "One-Time Password (OTP) Handling and Storage"
+    read: "the section"
+    quote: "Apply strict attempt limits"
+  - n: 17
+    claim: >
+      An OWASP community page (not a cheat sheet or standard) describes one way to keep an
+      attacker from locking out the owner: a browser that has signed in successfully gets a
+      'device cookie'; failures from unknown clients are counted together and lock out only
+      unknown clients, while each known browser is counted and locked separately. N
+      (failures) and T (period) are left open. A browser without a valid cookie (new phone,
+      cleared data) is treated as unknown.
+    label: VERIFIED
+    source: {title: "OWASP community page: Slow Down Online Guessing Attacks with Device Cookies (A. Dedov)", ref: "https://community.owasp.org/Slow_Down_Online_Guessing_Attacks_with_Device_Cookies"}
+    where: "Intro; Protocol"
+    read: "the section"
+    quote: "Establish universal temporary lockouts for all untrusted clients [...] Temporary account lockout after several failed attempts is too simple of a target for DoS attacks against legitimate users."
+  - n: 18
+    claim: >
+      ASVS 5.0.0 level 1 sets no number: the application's own documentation must define the
+      controls against password guessing and credential stuffing, how they are configured
+      and how they prevent malicious lockout; 6.3.1 (level 1) requires them to be
+      implemented as documented.
+    label: VERIFIED
+    source: {title: "OWASP ASVS 5.0.0, V6 Authentication", ref: "https://raw.githubusercontent.com/OWASP/ASVS/v5.0.0/5.0/en/0x15-V6-Authentication.md"}
+    where: "6.1.1 and 6.3.1"
+    read: "the section"
+    quote: "The documentation must make clear how these controls are configured and prevent malicious account lockout. [...] are implemented according to the application's security documentation."
+  - n: 19
+    claim: >
+      Other ASVS items: code-based out-of-band sign-in needs rate limiting, with no number
+      (6.6.3, level 2); telling users about suspicious sign-in attempts, such as a success
+      after several failures, is level 3 (6.3.5); not using email as a sign-in factor is
+      level 3 (6.3.6).
+    label: VERIFIED
+    source: {title: "OWASP ASVS 5.0.0, V6 Authentication", ref: "https://raw.githubusercontent.com/OWASP/ASVS/v5.0.0/5.0/en/0x15-V6-Authentication.md"}
+    where: "6.3.5, 6.3.6, 6.6.3"
+    read: "the section"
+    quote: "code based out-of-band authentication mechanism is protected against brute force attacks by using rate limiting [...] Verify that users are notified of suspicious authentication attempts (successful or unsuccessful)."
+  - n: 20
+    claim: >
+      UK NCSC password guidance (written for system owners about passwords; last review
+      shown is 2018) prefers throttling with growing delays to lockout, because lockout can
+      shut out real users and gives attackers an easy denial of service. If lockout is used,
+      it recommends allowing 5 to 10 attempts. No period or lockout duration is given in
+      this section. It also suggests monitoring, including password spraying.
+    label: VERIFIED
+    source: {title: "UK NCSC, Password policy: updating your approach (reviewed 19 November 2018, version 1.0)", ref: "https://www.ncsc.gov.uk/collection/passwords/updating-your-approach"}
+    where: "Tip 2, Use throttling or account lockout"
+    read: "the section"
+    quote: "Throttling is preferred, because account lockout can leave legitimate users unable to access their accounts, and requires access to an account recovery method. [...] If using account lockout, we recommend you allow between 5 and 10 login attempts before the account is frozen"
+  - n: 21
+    claim: >
+      Cyber Essentials v3.3 (a UK certification scheme for organisations' own IT, including
+      SaaS accounts) requires at least one of: MFA; throttling with waits that grow after
+      each failure, allowing no more than 10 guesses in 5 minutes; or locking after no more
+      than 10 failures. It is the only source read here that states a count over a period.
+      It is not written as a rule for a product's customer accounts.
+    label: VERIFIED
+    source: {title: "UK NCSC, Cyber Essentials: Requirements for IT Infrastructure v3.3 (April 2026)", ref: "https://www.ncsc.gov.uk/sites/default/files/2026-11/Cyber-Essentials-Requirements-for-IT-Infrastructure-v3-3.pdf"}
+    where: "User Access Control, Password-based authentication (the same rule appears under Device unlocking credentials)"
+    read: "the section"
+    quote: "You should allow no more than 10 guesses in 5 minutes [...] locking devices after no more than 10 unsuccessful attempts"
+  - n: 22
+    claim: >
+      An NCSC-NL web page aimed at businesses says to limit failed sign-ins per user and
+      gives, as an example, temporarily shutting the user out after 5 failures. No window or
+      duration is given.
+    label: VERIFIED
+    source: {title: "NCSC-NL web page, Geavanceerde tips over wachtwoorden (no date seen; the page text refers to DTC advice to businesses)", ref: "https://www.ncsc.nl/multifactor-authenticatie/geavanceerde-tips-over-wachtwoorden"}
+    where: "Beperk inlogpogingen"
+    read: "the section"
+    quote: "Beperk daarom het aantal mislukte inlogpogingen per gebruiker en zorg er bijvoorbeeld voor dat na 5 mislukte pogingen de gebruiker tijdelijk wordt afgesloten."
+  - n: 23
+    claim: >
+      The NCSC-NL web application guidelines PDF, searched for attempt and lockout terms,
+      says a password policy records account lockouts and points to the NCSC website; the
+      search showed no number.
+    label: VERIFIED
+    source: {title: "NCSC-NL, ICT-beveiligingsrichtlijnen voor webapplicaties", ref: "https://www.ncsc.nl/api/media/sites/default/files/Richtlijn%20ICT%20beveiligingsrichtlijnen%20webapplicaties%2007-24_0.pdf"}
+    where: "Access guideline listing password policy (footnote 16)"
+    read: "keyword search of the extracted text and the matching passages"
+    quote: "In een wachtwoordbeleid worden de minimale wachtwoordlengte, lengte van de wachtwoordhistorie en account lock­outs vastgelegd."
+  - n: 24
+    claim: >
+      ENISA's 2017 handbook for small organisations processing personal data, among its
+      medium-risk measures, asks for a password policy that states the number of acceptable
+      failed attempts. It leaves the number open.
+    label: VERIFIED
+    source: {title: "ENISA, Handbook on Security of Personal Data Processing (December 2017); copy hosted by the Greek DPA", ref: "https://collab.dpa.gr/wp-content/uploads/2023/07/enisa_Handbook-on-Security-of-Personal-Data-Processing_en.pdf"}
+    where: "Annex, Proposed Measures for Medium Risk Level, K.5"
+    read: "keyword search of the extracted text and the matching passages; a third-party hosted copy"
+    quote: "as well as number of acceptable unsuccessful login attempts."
+  - n: 25
+    claim: >
+      ENISA's NIS2 guidance repeats the Implementing Regulation's duty to block users after
+      a predefined number of failed log-ins; a keyword search found no number for that
+      limit. It applies to NIS2 entity types, not shown to include this product. (Its '3 or
+      more account lockouts within 15 minutes' is an example monitoring threshold, not a
+      sign-in limit.)
+    label: VERIFIED
+    source: {title: "ENISA, Technical Implementation Guidance on cybersecurity risk-management measures (NIS2), June 2025, v1.0", ref: "https://www.enisa.europa.eu/sites/default/files/2025-06/ENISA_Technical_implementation_guidance_on_cybersecurity_risk_management_measures_version_1.0.pdf"}
+    where: "11.6.2(d); 3.2 examples of thresholds"
+    read: "keyword search of the extracted text and the matching passages"
+    quote: "require the reset of authentication credentials and the blocking of users after a predefined number of unsuccessful"
+  - n: 26
+    claim: >
+      A limit per hour alone does not meet NIST's consecutive cap. Evaluating up to 10 an
+      hour permits up to 240 a day and 87,600 a year if nothing else stops it (5 an hour:
+      120 and 43,800). Sustained failures with no successful sign-in in between reach 100
+      after about 10 hours at 10/hour, or 20 hours at 5/hour. Meeting NIST would take a
+      second bound on consecutive failures, with a response when it is reached.
+    label: INFERRED
+    basis: "Arithmetic on findings 1 and 4."
+  - n: 27
+    claim: >
+      What a rate allows depends on the secret. If each guess has a 1 in 1,000,000 chance
+      (random six-digit code), 100 guesses give about 1 in 10,000; 87,600 give about 8
+      percent and 43,800 about 4 percent. Against a random secret of 64 bits or more these
+      counts are negligible. For user-chosen passwords no source read here gives a success
+      probability, and a per-account limit does not by itself stop spraying a few common
+      passwords over many accounts (finding 20 lists spraying under monitoring).
+    label: INFERRED
+    basis: "Arithmetic, assuming independent uniform guesses."
+  - n: 28
+    claim: >
+      As worded, REQ-HNV5 and REQ-VYVM cap how many FAILED attempts are evaluated per
+      account. Once the cap is spent, a verifier cannot know whether the next attempt would
+      fail without evaluating it, so keeping the cap means refusing the owner's correct
+      attempt too, unless the owner's attempts are counted apart (as in finding 17). An
+      attacker can then keep the owner out by spending each hour's allowance (HAZ-XWCK).
+      Separate sign-in and recovery counters do not prevent this if the attacker spends
+      both. Disabling at 100 (finding 1) can also be forced by an attacker, so it moves the
+      owner's risk to the recovery path.
+    label: INFERRED
+    basis: "Reasoning on the two requirement statements and findings 1, 12, 14 and 17."
+  - n: 29
+    claim: >
+      None of these sources is shown to bind this product by itself: NIST 800-63B addresses
+      US federal systems and Cyber Essentials a UK certification. Which one to follow is a
+      choice. Whether GDPR duties are met by any particular number was not established.
+    label: INFERRED
+    basis: "Reasoning on the scope of the sources; no legal analysis done."
+not_established:
+  - "No source read gives a limit of failed attempts per hour for an online account; neither 10 nor 5 per hour appears in any of them."
+  - "No source read gives a number for recovery different from sign-in. NIST applies the same throttling to recovery codes."
+  - "No source read fixes a lockout duration or observation window for online accounts. NIST's 30 seconds to an hour is an example of growing waits."
+  - "No source read measures how well any limit or anti-lockout technique protects accounts or keeps owners from being locked out."
+  - "No NCSC (UK or NL) text specific to limiting account-recovery attempts was found. This rests on searches and the pages above, not on a full review of either site."
+  - "No ENISA number was found (handbook and NIS2 guidance searched by keyword)."
+  - "The authentication method of this product is not decided here, so which method-specific rules apply is open."
+fetch_notes: >
+  One ENISA address
+  (/publications/implementation-guidance-on-nis-2-security-measures/@@download/fullReport)
+  returned HTTP 429; the June 2025 version 1.0 PDF was fetched from another ENISA address. The
+  ENISA handbook was read from the Greek DPA's copy. A guessed NCSC passkeys URL returned 404
+  and nothing rests on it. Web search summaries were used only to find pages.
+conclusion: |
+  No source read gives a per-hour limit, so 10 and 5 per hour remain unsupported as stated.
+  The figures found: NIST, at most 100 consecutive failures per authenticator, then disable it (lower allowed;
+  recovery codes included); Cyber Essentials, no more than 10 guesses in 5 minutes with growing waits, or lock
+  after at most 10; UK NCSC, 5 to 10 attempts if locking; NCSC-NL, temporary lockout after 5 as an example.
+  OWASP, ASVS and ENISA give no threshold; ASVS requires the product to document its controls and how they
+  prevent malicious lockout. UK NCSC prefers growing delays to lockout. Ways offered to protect the owner:
+  growing waits, bot challenge, risk signals, resetting the count on success (NIST); recovery usable while
+  sign-in is locked, and no lockout caused by forgotten-password abuse (OWASP); separate treatment of known
+  browsers (OWASP community page). A per-hour cap alone neither meets NIST's consecutive cap nor protects
+  the owner (inferred). The numbers, the response and how the owner is protected are the builder's choice.

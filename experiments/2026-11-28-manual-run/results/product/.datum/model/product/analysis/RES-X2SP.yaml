@@ -1,0 +1,192 @@
+id: RES-X2SP
+date: 2026-11-28
+question: >
+  For an installable web app on iPhone (Safari) and Android (Chrome), what is established about
+  (1) working fully offline, (2) durability of on-device data, and (3) limits on background sync of unsent records?
+narrowed: >
+  Limited to documented platform behaviour. No source read measures how often records are actually lost,
+  so "safe enough" is not something these sources can settle. Nothing was tested on a device.
+  This serves ELI-H0GB entry 7.
+findings:
+  - n: 1
+    claim: A service worker can intercept the app's requests and answer from a local cache with the user offline.
+    label: VERIFIED
+    source: {title: "Service workers (web.dev, Learn PWA)", ref: "https://web.dev/learn/pwa/service-workers"}
+    where: 'introduction on service workers acting as a proxy'
+    read: 'page fetched raw; relevant passages'
+    quote: "intercepts the request and acts as a network proxy, even if the user is offline"
+  - n: 2
+    claim: The service worker is not available on first load or while waiting to activate, so the app must have been loaded online and the worker activated before offline use.
+    label: VERIFIED
+    source: {title: "Service workers (web.dev, Learn PWA)", ref: "https://web.dev/learn/pwa/service-workers"}
+    where: 'tip on browser support (the need for an earlier online load is our reading of it)'
+    read: 'page fetched raw; relevant passages'
+    quote: "your service worker won't be available on first load or while it's waiting to activate"
+  - n: 3
+    claim: >
+      IndexedDB, Cache storage and other storage are "best-effort" by default. WebKit evicts whole origins,
+      least recently used first, on exceeding the overall quota or under storage pressure (and through ITP, finding 6).
+      Safari 17 / iOS 17 quotas for browser apps are up to 60% of disk per origin and 80% overall; Home Screen web apps get the same.
+    label: VERIFIED
+    source: {title: "Updates to Storage Policy (WebKit, 2023-08-10)", ref: "https://webkit.org/blog/14403/updates-to-storage-policy/"}
+    where: 'sections Storage Quota, Storage Eviction'
+    read: 'full text'
+    quote: "By default, all origins use a best-effort mode, which means their persistence is not guaranteed and their data can be evicted."
+  - n: 4
+    claim: Eviction removes all of an origin's data at once, not selected items.
+    label: VERIFIED
+    source: {title: "Storage quotas and eviction criteria (MDN, modified 2026-01-05)", ref: "https://developer.mozilla.org/en-US/docs/Web/API/Storage_API/Storage_quotas_and_eviction_criteria"}
+    where: '"How is data evicted?"'
+    read: 'full text'
+    quote: "When an origin's data is evicted by the browser, all of its data, not parts of it, is deleted at the same time."
+  - n: 5
+    claim: Chromium evicts best-effort data least recently used first when space runs out. Google says automatic clearing by Chrome is very rare and manual clearing by users is far more common. The page gives no figures.
+    label: VERIFIED-secondary
+    source: {title: "Persistent storage (web.dev, updated 2020-05-12)", ref: "https://web.dev/articles/persistent-storage"}
+    where: 'introduction; the research it mentions was not seen'
+    read: 'full text of the page'
+    quote: "research by the Chrome team shows that data is very rarely cleared automatically by Chrome. It is far more common for users to manually clear storage."
+  - n: 6
+    claim: >
+      In Safari, ITP deletes IndexedDB, LocalStorage, service worker registrations and cache, and other script-writable
+      storage after 7 days of Safari use with no user interaction with the site. The count is days of Safari use,
+      not calendar days (2020 post).
+    label: VERIFIED
+    source: {title: "Full Third-Party Cookie Blocking and More (WebKit, 2020-03-24); Tracking Prevention in WebKit", ref: "https://webkit.org/blog/10218/full-third-party-cookie-blocking-and-more/ and https://webkit.org/tracking-prevention/"}
+    where: '"7-Day Cap on All Script-Writeable Storage"'
+    read: 'full text of the post; the relevant sections of the policy page'
+    quote: "deleting all of a website's script-writable storage after seven days of Safari use without user interaction on the site"
+  - n: 7
+    claim: >
+      The first-party domain of a Home Screen web app is exempt from the 7-day cap, and its data is isolated from Safari.
+      The exemption is from this ITP rule only; it does not say the data cannot be evicted for quota or storage pressure (finding 3)
+      or cleared by the user.
+    label: VERIFIED
+    source: {title: "Tracking Prevention in WebKit (undated living page)", ref: "https://webkit.org/tracking-prevention/"}
+    where: '"Home Screen Web Application Domain Exempt From ITP"'
+    read: 'relevant sections'
+    quote: "The first-party domain of home screen web applications is exempt from ITP's 7-day cap on all script-writeable storage"
+  - n: 8
+    claim: >
+      On iOS, installing is manual (Share menu, Add to Home Screen) with no browser install prompt, and each installation
+      has its own isolated storage. So records made in a Safari tab should not be expected to appear in the installed app (that consequence is our inference).
+    label: VERIFIED-secondary
+    source: {title: "Installation (web.dev, Learn PWA)", ref: "https://web.dev/learn/pwa/installation"}
+    where: 'iOS and iPadOS installation section (Google''s account of Apple behaviour)'
+    read: 'the relevant sections'
+    quote: "Each installation has its own isolated storage and is treated as a different application."
+  - n: 9
+    claim: Since iOS 26, any site added to the Home Screen opens as a web app by default, and the user can turn "Open as Web App" off, which makes a browser bookmark instead.
+    label: VERIFIED
+    source: {title: "WebKit Features in Safari 26.0", ref: "https://webkit.org/blog/17333/webkit-features-in-safari-26-0/"}
+    where: '"Every site can be a web app on iOS and iPadOS"'
+    read: 'that section'
+    quote: "If the user prefers to add a bookmark for their browser, they can disable"
+  - n: 10
+    claim: >
+      navigator.storage.persist() exists in Safari and Chrome. WebKit grants it by heuristics, for example being opened as a
+      Home Screen web app. Chromium grants or silently denies it by heuristics (engagement, installed or bookmarked, notification permission).
+      A request can therefore be refused.
+    label: VERIFIED
+    source: {title: "Updates to Storage Policy (WebKit); Persistent storage (web.dev)", ref: "https://webkit.org/blog/14403/updates-to-storage-policy/ and https://web.dev/articles/persistent-storage"}
+    where: '"Storage API"; "How is permission granted?"'
+    read: 'full text of both'
+    quote: "WebKit currently grants a request based on heuristics like whether the website is opened as a Home Screen Web App. / if a site is considered important, the persistent storage permission is automatically granted, otherwise it is silently denied."
+  - n: 11
+    claim: >
+      Persistence protects against the browser's automatic eviction, not against the user deleting the data.
+      WebKit's own wording is weaker: persistent origins "might be excluded" from eviction. No WebKit statement was found
+      saying whether persistence exempts a plain Safari tab from the 7-day rule. MDN's general statement implies it, but that is not explicit.
+    label: VERIFIED
+    source: {title: "Persistent storage (web.dev); Updates to Storage Policy (WebKit)", ref: "https://web.dev/articles/persistent-storage and https://webkit.org/blog/14403/updates-to-storage-policy/"}
+    where: 'note in the introduction; "Storage Eviction"'
+    read: 'full text'
+    quote: "It's only deleted if the user chooses to remove it using their site settings. / Origin might be excluded from eviction if it has active page at the time of eviction, or its storage is in persistent mode."
+  - n: 12
+    claim: In Chrome on Android, "Delete browsing data" with cookies and site data selected deletes IndexedDB and other site storage. That this also empties an installed Chrome PWA is our inference (it uses the same origin storage); the page does not mention installed apps.
+    label: VERIFIED
+    source: {title: "Delete browsing data in Chrome, Android (Google Chrome Help)", ref: "https://support.google.com/chrome/answer/2392709?co=GENIE.Platform%3DAndroid"}
+    where: '"Cookies and site data"'
+    read: 'full text'
+    quote: "Web SQL Database data, and Indexed Database data are deleted."
+  - n: 13
+    claim: >
+      On iPhone, Apple documents "Clear History and Website Data" and "Remove All Website Data" for Safari. The page does not say
+      whether either affects Home Screen web app data. No primary source was found on whether removing the Home Screen icon
+      deletes its data. Both are open and need a device test. web.dev says only, for PWAs in general, that deleting an icon may not clear storage.
+    label: VERIFIED
+    source: {title: "Delete your Safari history, cache, and cookies on iPhone (Apple, 2026-09-14); Installation (web.dev)", ref: "https://support.apple.com/en-us/105082 and https://web.dev/learn/pwa/installation"}
+    where: 'whole Apple page; web.dev note on uninstalling'
+    read: 'full text of the Apple page'
+    quote: "Deleting the icon may not clear the storage that a PWA is using."
+  - n: 14
+    claim: >
+      A completed IndexedDB write is not guaranteed to be on disk. Since Chrome 121 the default durability is "relaxed",
+      which the post says matches Firefox and Safari: "complete" fires once data reaches the OS buffer. "strict" asks for a flush
+      first, but even then a power failure soon after put() can lose the change.
+    label: VERIFIED
+    source: {title: "A change to the default durability mode in IndexedDB (Chrome for Developers, updated 2023-11-03)", ref: "https://developer.chrome.com/blog/indexeddb-durability-mode-now-defaults-to-relaxed"}
+    where: '"IndexedDB durability modes"'
+    read: 'full text'
+    quote: "there's still some finite amount of time during which a power failure could cause the change to not make it to disk"
+  - n: 15
+    claim: >
+      Background Sync (SyncManager) is supported in Chrome (49+, Android mirrors it) and not in Safari or iOS Safari.
+      Compatibility data also shows no Periodic Background Sync or Background Fetch in Safari.
+    label: VERIFIED-secondary
+    source: {title: "MDN browser-compat-data (main, fetched 2026-11-28)", ref: "https://github.com/mdn/browser-compat-data/blob/main/api/SyncManager.json and .../api/ServiceWorkerRegistration.json"}
+    where: 'support.safari, safari_ios, chrome_android'
+    read: 'SyncManager.json in full; the three entries in the other file'
+    quote: '"safari": { "version_added": false, "impl_url": "https://webkit.org/b/182565" }'
+  - n: 16
+    claim: >
+      Chromium's default one-shot sync makes at most 3 attempts, with a 5 minute first retry delay, a factor of 3, and a 3 minute
+      maximum event duration. These are source defaults on the main branch; field configuration can override them.
+      So Background Sync alone does not guarantee delivery (that conclusion is inferred).
+    label: VERIFIED
+    source: {title: "Chromium content/public/browser/background_sync_parameters.cc (main, fetched 2026-11-28)", ref: "https://chromium.googlesource.com/chromium/src/+/main/content/public/browser/background_sync_parameters.cc"}
+    where: 'constants; override code in components/background_sync/background_sync_controller_impl.cc'
+    read: 'the parameters file in full; searched lines of the controller'
+    quote: "const int kMaxSyncAttempts = 3; const int kRetryDelayFactor = 3; constexpr base::TimeDelta kInitialRetryDelay = base::Minutes(5);"
+  - n: 17
+    claim: A Chrome sync can be registered only while the user has a window open to the site; it can then fire when connectivity returns even if the page is closed.
+    label: VERIFIED
+    source: {title: "Introducing Background Sync (Chrome for Developers, 2015-12-08)", ref: "https://developer.chrome.com/blog/background-sync"}
+    where: 'Permissions (registration); How to request a background sync'
+    read: 'full text'
+    quote: "You can only register for a sync event when the user has a window open to the site."
+  - n: 18
+    claim: Chrome's periodic background sync needs an installed app launched as such, and its firing and frequency depend on a site engagement score. Timing is not under developer control.
+    label: VERIFIED
+    source: {title: "Periodic Background Sync (Chrome for Developers)", ref: "https://developer.chrome.com/docs/capabilities/periodic-background-sync"}
+    where: '"Getting user engagement right"'
+    read: 'relevant passages'
+    quote: "a periodicsync event won't be fired at all unless the engagement score is greater than zero"
+  - n: 19
+    claim: >
+      Inferred. Records that exist only on the phone can be lost whatever the browser does: through user clearing, eviction where
+      persistence is not granted, browser faults, or loss or damage of the phone. A copy off the device (server sync or user export)
+      is what limits this. On iOS, with no Background Sync, unsent records should be assumed to upload only while the app is open,
+      so the app can retry on launch or when it sees connectivity and show which records are not yet uploaded.
+      Web Push exists for Home Screen web apps (iOS 16.4+), but it was not examined as a way to trigger uploads.
+    label: INFERRED
+    source: {title: "Reasoning from findings 3-17", ref: "this record"}
+    where: 'n/a'
+    read: 'n/a'
+    quote: ""
+not_found_or_not_read:
+  - "Apple iPhone User Guide pages on web apps: HTTP 429 on two URLs. Icon removal and clearing website data remain open (finding 13)."
+  - "No measured rate of data loss for iOS or Android installed PWAs."
+  - "Searches turned up developer reports of lost storage or broken IndexedDB connections on iOS, and old WebKit bugs. They were seen only as search summaries and are not relied on."
+  - "Safari 27.0: release notes and feature post were only keyword-searched. They list IndexedDB and service worker fixes; no change to eviction or Background Sync was seen. Safari 27.1 and 27.2 notes were not read."
+  - "Not examined: iCloud or Android device backup of web app data; iOS browsers other than Safari; alternative engines in the EU (MDN notes the WebKit rules may not apply to them); private browsing beyond MDN's note that its data is usually deleted."
+  - "Two guessed Chromium source paths for the sync parameters and three for the persistence grant logic returned 404. The grant heuristics rest on web.dev (2020), which may be out of date."
+conclusion: |
+  Offline: supported by the web platform on both, after an earlier online load with the service worker active (1, 2).
+  Durability: storage is best-effort by default. A Safari tab is subject to the 7-day-of-use deletion; a Home Screen web app
+  is exempt from that rule, but not thereby from all eviction or from the user (3, 6, 7). persist() can be refused and does not
+  stop user deletion (10, 11). Eviction takes the whole origin (4). A "saved" write can be lost on power failure (14).
+  Google reports automatic eviction in Chrome as very rare, without figures (5). No source guarantees device-only records.
+  Sync: Chrome on Android has Background Sync with limited retries; Safari on iOS has none (15-18).
+  So the sources do not call a web app unsafe or safe. They do not support the phone as the only copy of a logbook (19, inferred).
+  Whether a web app with an off-device copy is good enough for the pilot is the builder's choice.

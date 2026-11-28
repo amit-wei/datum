@@ -1,0 +1,11 @@
+id: REQ-SYHZ
+status: agreed
+pattern: unwanted
+statement: If the part refuses a sign-in attempt, then the part shall point the person to account
+  recovery with the same response whatever the reason for the refusal.
+rationale: An owner whose sign-in method is turned off needs to learn the way back, and a special
+  message would reveal that the account exists. Agreed in ELI-PSRH#2.
+of: FUN-B8SK
+answers:
+- HAZ-9K19
+- HAZ-XWCK

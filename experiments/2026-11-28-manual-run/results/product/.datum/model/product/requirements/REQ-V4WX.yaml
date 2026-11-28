@@ -1,0 +1,10 @@
+id: REQ-V4WX
+status: agreed
+pattern: unwanted
+statement: If a device finds the online copy lacking records as described in REQ-K492, then
+  the part shall tell the pilot.
+rationale: A loss of the online copy must not go unnoticed (ELI-C382#8).
+of: FUN-DV8F
+answers:
+- HAZ-2CDR
+- HAZ-4HQG

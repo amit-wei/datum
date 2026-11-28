@@ -1,0 +1,22 @@
+id: REQ-ZY8A
+status: agreed
+pattern: unwanted
+statement: If the part learns that a notice of a recovery, of a cancelled recovery proof or
+  of a change of the means of contact could not be sent, then the part shall try again, at intervals
+  of at most one hour, until the notice is sent or {measure} have passed since the first reported
+  failure.
+measure:
+  metric: notice_retry_period
+  definition: Time after the first reported failure during which sending is tried again.
+  unit: hours
+  bounds:
+  - statistic: value
+    op: ==
+    value: 72
+rationale: Security notices are those of a recovery, a cancelled recovery proof and a change
+  of contact; each is the owner's chance to notice a takeover (ELI-KKPH#2). Period and interval
+  agreed in ELI-PDPX#3; after the period the warning may never arrive.
+of: FUN-Q1BS
+answers:
+- HAZ-9K19
+source: builder

@@ -1,0 +1,12 @@
+id: REQ-B3PG
+status: agreed
+pattern: event
+statement: >-
+  When the pilot confirms an undo, the part shall remove exactly the listed entries and keep
+  each as it was at removal.
+rationale: >-
+  So that each can be restored (ELI-C382#5).
+of: FUN-YRV9
+answers:
+- HAZ-BYMT
+- HAZ-SDKD

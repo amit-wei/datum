@@ -1,0 +1,13 @@
+id: PRF-G2M4
+status: agreed
+title: Nothing is assumed about privileges
+method: test
+rationale: >-
+  A convenient default can be added by any later change.
+covers: REQ-DWJD
+criterion:
+  pass: >-
+    A privilege saved with a needed fact left out shows it as unknown, and the dependent result
+    is not shown as met.
+  conditions: >-
+    One case for each fact the covered rules ask about.

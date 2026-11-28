@@ -1,0 +1,11 @@
+id: PRF-ENJA
+status: agreed
+title: Expiry dates are recorded as saved
+method: test
+rationale: >-
+  Date handling across time zones is a known source of off-by-one errors.
+covers: REQ-PQMD
+criterion:
+  pass: >-
+    Each date reads back as the same calendar day with the device set to time zones on both
+    sides of UTC.

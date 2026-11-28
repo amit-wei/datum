@@ -1,0 +1,12 @@
+id: REQ-2MA2
+status: agreed
+pattern: ubiquitous
+statement: >-
+  The part shall treat a record version as synced only after the online copy has confirmed that
+  the version is durably stored.
+rationale: >-
+  A false synced state invites the pilot to sign out or discard the phone.
+of: FUN-DV8F
+answers:
+- HAZ-4HQG
+- HAZ-2CDR

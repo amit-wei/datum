@@ -1,0 +1,10 @@
+id: PRF-QZ63
+status: agreed
+title: Faulty flights are refused without losing input
+method: test
+rationale: >-
+  Each rule is a branch.
+covers: REQ-22JV
+criterion:
+  pass: >-
+    For each rule one violating flight is refused, the fault is named and the typed values remain.

@@ -1,0 +1,25 @@
+id: REQ-N9DK
+status: agreed
+pattern: event
+statement: When the pilot opens the part, the part shall warn of each entered expiry date that
+  is before today or falls from today to {measure} ahead, showing a date before today as passed
+  and any other as coming.
+measure:
+  metric: warn_lead
+  definition: Days before an expiry date from which the warning shows.
+  unit: days
+  bounds:
+  - statistic: value
+    op: ==
+    value: 93
+rationale: 'Warnings only when opened (ELI-PX7E#1). The lead time was the agent''s proposal:
+  it gives notice at about the start of the 3-month window for a revalidation check, which can
+  be up to 92 days long (RES-7H7D n23). Builder limit: ELI-PX7E#1 C (warnings only when opened,
+  no email or phone notifications). The builder accepted the proposed rules in ELI-SCJS. Value:
+  a judgement call with no researched source, accepted by the builder as a starting target (ELI-SCJS#5);
+  revisit if testing or running cost gives a reason. Raised from 90 to 93 days so that the warning
+  is never later than the opening of a 3-month window, which can be 92 days (RES-7H7D n23; ELI-PSRH#4).'
+of: FUN-VT5X
+answers:
+- HAZ-SDKD
+source: builder

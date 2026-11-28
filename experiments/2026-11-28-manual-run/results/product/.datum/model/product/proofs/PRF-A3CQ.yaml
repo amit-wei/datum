@@ -1,0 +1,11 @@
+id: PRF-A3CQ
+status: agreed
+title: Validity rules hold at their edges
+method: test
+rationale: >-
+  Boundary conditions regress.
+covers: REQ-GDYQ
+criterion:
+  pass: >-
+    Flights just inside each rule are accepted and flights just outside are refused, including
+    one that crosses midnight UTC.

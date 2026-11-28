@@ -1,0 +1,20 @@
+id: REQ-X5KB
+status: agreed
+pattern: ubiquitous
+statement: The part shall remove deleted account data, an erased medical date and all other
+  data erased for a privacy request from all backups within {measure}.
+measure:
+  metric: backup_retention
+  definition: From erasure to removal from the last backup.
+  unit: days
+  bounds:
+  - statistic: max
+    op: <=
+    value: 30
+rationale: 'Erasure covers backups; where they cannot be rewritten they must age out (RES-RZXY
+  n19-20). The period was the agent''s proposal. The builder accepted the proposed rules in
+  ELI-SCJS. Value: a judgement call with no researched source, accepted by the builder as a
+  starting target (ELI-SCJS#5); revisit if testing or running cost gives a reason.'
+of: FUN-VN36
+answers:
+- HAZ-7R3N

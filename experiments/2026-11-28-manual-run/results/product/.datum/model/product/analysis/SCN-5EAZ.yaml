@@ -1,0 +1,13 @@
+id: SCN-5EAZ
+status: agreed
+name: "Conflicting changes from two devices"
+kind: failure
+trigger: "The same entry was changed differently on a phone and a computer before they synced."
+preconditions: "The pilot uses the app on two devices."
+steps:
+  - {n: 1, by: product, what: "Detects that the two changes conflict."}
+  - {n: 2, by: product, what: "Shows both to the pilot, without discarding either. Until the pilot chooses, affected rule results are withheld, and affected totals, warnings and PDFs are marked."}
+  - {n: 3, by: user, what: "Chooses what is right."}
+  - {n: 4, by: product, what: "Applies the choice on both devices and keeps the version not chosen for the pilot to see."}
+outcome: "The entry says what the pilot chose, and no change was lost silently."
+needs: [ELI-H0GB#2, ELI-H7X3#1, ELI-C382#5, ELI-W9NN#6]

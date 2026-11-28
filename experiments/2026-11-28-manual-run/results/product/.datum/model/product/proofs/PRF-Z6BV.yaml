@@ -1,0 +1,11 @@
+id: PRF-Z6BV
+status: agreed
+title: Missing early flights are explained
+method: test
+rationale: >-
+  Only arises just after setup.
+covers: REQ-5NGX
+criterion:
+  pass: >-
+    The statement appears for such a not-met result and not when the window starts after the
+    date.

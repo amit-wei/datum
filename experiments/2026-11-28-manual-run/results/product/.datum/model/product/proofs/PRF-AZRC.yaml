@@ -1,0 +1,8 @@
+id: PRF-AZRC
+status: agreed
+title: Entry details are complete
+method: test
+rationale: New items can be left off the detail view.
+covers: REQ-WZQW
+criterion:
+  pass: Every filled item of the chosen entry is shown.

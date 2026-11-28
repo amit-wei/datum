@@ -1,0 +1,12 @@
+id: PRF-3S35
+status: agreed
+title: Wrong sign-in tells nothing
+method: test
+rationale: >-
+  Error messages drift during interface changes.
+covers: REQ-8QKS
+criterion:
+  pass: >-
+    Access is refused, and the response is the same for an unknown account as for a wrong secret.
+  conditions: >-
+    One attempt of each kind.

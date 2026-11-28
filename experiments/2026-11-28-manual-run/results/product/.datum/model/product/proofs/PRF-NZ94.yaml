@@ -1,0 +1,8 @@
+id: PRF-NZ94
+status: agreed
+title: Former PPL holders skip the hours
+method: test
+rationale: A separate branch.
+covers: REQ-6KCQ
+criterion:
+  pass: With no qualifying hours, the result follows the take-off and landing conditions.

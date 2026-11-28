@@ -1,0 +1,13 @@
+id: PRF-SVYN
+status: agreed
+title: No one else can read a logbook
+method: test
+rationale: >-
+  Any new endpoint or third-party script can leak.
+covers: REQ-9RQ1
+criterion:
+  pass: >-
+    Every online access path refuses requests with no sign-in and with another account's sign-in,
+    for read and write.
+  conditions: >-
+    The list of access paths is taken from the release itself.

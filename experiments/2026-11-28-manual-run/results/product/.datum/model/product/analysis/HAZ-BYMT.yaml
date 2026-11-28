@@ -1,0 +1,27 @@
+id: HAZ-BYMT
+status: agreed
+statement: The part's records differ from what the pilot entered or confirmed, without the pilot
+  knowing.
+losses:
+- LOS-7MZV
+- LOS-0NMV
+- LOS-8EGC
+arises_from:
+- FUN-ESPG
+- FUN-VY4C
+- FUN-5QA7
+- FUN-JX7F
+- FUN-2JYW
+- FUN-YRV9
+- FUN-SR3A
+- FUN-PDMV
+- FUN-DV8F
+- FUN-V0PH
+- FUN-V6Z2
+- FUN-VN36
+- FUN-82YT
+- FUN-V4TT
+- FUN-SJJQ
+- FUN-EMXF
+- FUN-S6RT
+- FUN-SGHT

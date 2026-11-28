@@ -1,0 +1,10 @@
+id: REQ-XXFK
+status: agreed
+pattern: event
+statement: When the pilot asks to delete the account, the part shall, before asking for confirmation,
+  offer a data copy and a PDF of the logbook.
+rationale: Offer a copy before closing (RES-RZXY n16; ELI-W9NN#11).
+of: FUN-VN36
+answers:
+- HAZ-2CDR
+- HAZ-XWCK

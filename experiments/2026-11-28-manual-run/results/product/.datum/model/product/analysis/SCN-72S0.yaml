@@ -1,0 +1,68 @@
+id: SCN-72S0
+status: agreed
+name: Start a logbook from paper
+kind: main
+trigger: A pilot with a paper logbook decides to use the app as their logbook.
+steps:
+- n: 1
+  by: user
+  what: Creates an account, giving sign-in details, a means of contact and a statement of age.
+- n: 12
+  by: product
+  what: Sends a message to the means of contact, and says that a pilot who cannot use account
+    recovery can lose the online account for good.
+- n: 13
+  by: user
+  what: Confirms the means of contact.
+- n: 2
+  by: product
+  what: Gives the pilot a private logbook.
+- n: 3
+  by: user
+  what: Enters their name and address.
+- n: 4
+  by: user
+  what: Enters which covered licences and ratings they hold, what the rules need to know about
+    them, and any one-off passenger condition already met.
+- n: 5
+  by: user
+  what: Enters starting totals from the paper logbook and the date they run up to.
+- n: 6
+  by: product
+  what: Says that flights on that date are treated as already in the starting totals.
+- n: 7
+  by: user
+  what: Chooses whether to consent to the app keeping their medical date.
+- n: 8
+  by: user
+  what: Enters the expiry dates of their medical, ratings and language proficiency, as they
+    apply.
+- n: 9
+  by: user
+  what: Enters the past flights, training flights and checks that the rules still count.
+- n: 10
+  by: product
+  what: Keeps all of it and shows totals that include the starting totals.
+- n: 11
+  by: product
+  what: Shows which information is still missing for rule results.
+outcome: The logbook holds the pilot's starting point, and its totals can be compared with the
+  paper logbook.
+needs:
+- ELI-H0GB#1
+- ELI-H0GB#2
+- ELI-H0GB#8
+- ELI-BS4R#3
+- ELI-BS4R#4
+- ELI-KHF8#2
+- ELI-H7X3#3
+- ELI-PX7E#1
+- ELI-C382#1
+- ELI-C382#4
+- ELI-C382#6
+- ELI-C382#7
+- ELI-W9NN#4
+- ELI-PSRH#1
+- ELI-PSRH#2
+- ELI-DZR1#1
+- ELI-SCJS#1

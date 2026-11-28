@@ -1,0 +1,12 @@
+id: REQ-2S5R
+status: agreed
+pattern: state
+statement: >-
+  While the pilot holds SPL, the part shall show recency for each held launch method as met
+  only if within 2 years there are at least 5 launches by that method, or 2 for bungee launch,
+  counting TMG take-offs toward self-launch.
+rationale: >-
+  SFCL.155 (RES-7H7D n30).
+of: FUN-69E8
+answers:
+- HAZ-SDKD

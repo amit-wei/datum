@@ -1,0 +1,76 @@
+id: FUN-VN36
+status: agreed
+name: Delete an account
+definition: Deletes the account and its data after warning the pilot and getting confirmation.
+serves:
+- SCN-B3Y0#4
+inputs:
+- name: deletion request
+  holds: including the confirmation
+  from: pilot
+- name: pilot account
+  from: FUN-EVE9
+- name: signed-in pilot
+  from: FUN-B8SK
+- name: synced records
+  from: FUN-DV8F
+- name: sync state
+  from: FUN-DV8F
+- name: logbook entry
+  from: FUN-ESPG
+- name: logbook entry
+  from: FUN-5QA7
+- name: corrected entry
+  from: FUN-JX7F
+- name: entry removal
+  from: FUN-2JYW
+- name: import removal
+  from: FUN-YRV9
+- name: restored entry
+  from: FUN-SR3A
+- name: device signed out
+  from: FUN-ZH87
+- name: proof that it is the pilot
+  from: pilot
+- name: changed sign-in details
+  from: FUN-DAF5
+- name: renewed sign-in details
+  from: FUN-Q1BS
+- name: import record
+  from: FUN-5QA7
+- name: earlier version of a corrected entry
+  from: FUN-JX7F
+- name: earlier version of a removed entry
+  from: FUN-2JYW
+- name: recorded starting totals
+  from: FUN-PDMV
+- name: earlier starting totals
+  from: FUN-PDMV
+- name: held privileges
+  from: FUN-V4TT
+- name: recorded expiry dates
+  from: FUN-SJJQ
+- name: medical date consent
+  from: FUN-EMXF
+- name: recorded pilot details
+  from: FUN-82YT
+- name: version not chosen
+  from: FUN-V0PH
+- name: conflict resolution
+  from: FUN-V0PH
+outputs:
+- name: deletion warning
+  holds: what will be deleted, the duty to keep a logbook, the offer of a copy, and that unsynced
+    records on devices whose access has ended will be erased without a copy unless the pilot
+    signs in there and syncs first
+  to:
+  - pilot
+- name: account deletion
+  holds: that the account and its data are to be gone from every copy
+  to:
+  - FUN-DV8F
+  - FUN-EK3N
+- name: deletion statement
+  holds: what remains in backups and until when
+  to:
+  - pilot

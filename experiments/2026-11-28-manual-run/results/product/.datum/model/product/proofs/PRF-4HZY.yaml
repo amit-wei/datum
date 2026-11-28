@@ -1,0 +1,11 @@
+id: PRF-4HZY
+status: agreed
+title: Updates damage nothing
+method: test
+rationale: Every data format change is a risk.
+covers: REQ-VNJJ
+criterion:
+  pass: Records compared field by field before and after are equal.
+  conditions: Data made by each earlier released version, with unsynced changes. At the first
+    release, data made by each earlier test build that held real pilot data; if there is none,
+    a build one storage format back, or the proof first applies at the second release.

@@ -1,0 +1,12 @@
+id: REQ-JX9S
+status: agreed
+pattern: event
+statement: When a signed-in pilot, having confirmed their identity again, confirms a new means
+  of contact, the part shall replace the old means of contact with the new one.
+rationale: A pilot must be able to keep the contact current or recovery stops working (ELI-PSRH#1).
+  What counts as confirmed is set by REQ-DZF7. Without this a mistyped address would send recovery
+  proofs to a stranger.
+of: FUN-SGHT
+answers:
+- HAZ-XWCK
+source: builder

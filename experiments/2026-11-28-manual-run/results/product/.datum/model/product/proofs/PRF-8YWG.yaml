@@ -1,0 +1,11 @@
+id: PRF-8YWG
+status: agreed
+title: Results explain themselves
+method: test
+rationale: >-
+  A rule change can leave the explanation behind.
+covers: REQ-1HY5
+criterion:
+  pass: >-
+    For met and not-met fixtures every item is shown and the counted entries alone reproduce
+    the result.

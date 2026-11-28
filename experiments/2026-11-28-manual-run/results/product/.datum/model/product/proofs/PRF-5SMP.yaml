@@ -1,0 +1,9 @@
+id: PRF-5SMP
+status: agreed
+title: Erasure on request reaches devices
+method: test
+rationale: Only the erase-then-connect order shows it.
+covers: REQ-G987
+criterion:
+  pass: After a recorded erasure, a device holding the data, also with an unsynced change to
+    it, erases it on connecting and the online copy never receives it.

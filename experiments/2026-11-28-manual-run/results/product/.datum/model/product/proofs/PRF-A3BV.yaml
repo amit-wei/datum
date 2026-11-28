@@ -1,0 +1,9 @@
+id: PRF-A3BV
+status: agreed
+title: SPL TMG recency and its exemption
+method: test
+rationale: The exemption is a separate branch.
+covers: REQ-QX85
+criterion:
+  pass: Threshold fixtures give the hand-worked result; with a Part-FCL TMG privilege no SPL
+    TMG recency result is shown.

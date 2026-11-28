@@ -1,0 +1,15 @@
+id: REQ-KRFX
+status: agreed
+pattern: event
+statement: When the part erases a person's name for a privacy request, the part shall put the
+  text 'name erased on request' in the place of the name and leave the signed mark of the entry
+  unchanged.
+rationale: Removing a name must not undo training that happened (ELI-PDPX#2). The text fills
+  the required name item, so the entry stays valid under REQ-GDYQ and the signer-name rule,
+  syncs normally and can be corrected. Whether an examiner or authority accepts such an entry
+  was not researched.
+of: FUN-S6RT
+answers:
+- HAZ-BYMT
+- HAZ-SDKD
+source: builder

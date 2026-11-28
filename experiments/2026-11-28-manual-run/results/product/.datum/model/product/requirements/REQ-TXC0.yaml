@@ -1,0 +1,20 @@
+id: REQ-TXC0
+status: agreed
+pattern: ubiquitous
+statement: The part shall let a pilot log a flight that repeats an earlier one on a phone in
+  {measure}.
+measure:
+  metric: log_time
+  definition: From opening the part to the saved confirmation.
+  unit: s
+  bounds:
+  - statistic: max
+    op: <=
+    value: 60
+rationale: 'Simplicity is the point of the product (ELI-BS4R#1, ELI-H0GB#5). The time was the
+  agent''s proposal. Builder limit: ELI-FV4M#1 (quick entry, no automatic tracking). The builder
+  accepted the proposed rules in ELI-SCJS. Value: a judgement call with no researched source,
+  accepted by the builder as a starting target (ELI-SCJS#5); revisit if testing or running cost
+  gives a reason.'
+of: FUN-ESPG
+source: builder

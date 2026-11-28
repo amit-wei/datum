@@ -1,0 +1,10 @@
+id: PRF-GFYQ
+status: agreed
+title: Training rows can be signed
+method: inspection
+rationale: >-
+  Layout changes can drop the space.
+covers: REQ-79G7
+criterion:
+  pass: >-
+    Each such row has the three items and the mark is not presented as a signature.

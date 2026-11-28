@@ -1,0 +1,10 @@
+id: PRF-E7DK
+status: agreed
+title: Confirmed means received
+method: test
+rationale: A convenient shortcut could replace the receipt test.
+covers: REQ-DZF7
+criterion:
+  pass: At sign-up and at a contact change, retyping the address, ticking a statement of ownership,
+    and a code or link that was not sent to that contact do not confirm it; what was sent to
+    it does.

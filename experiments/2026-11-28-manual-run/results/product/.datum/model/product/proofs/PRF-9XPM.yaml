@@ -1,0 +1,10 @@
+id: PRF-9XPM
+status: agreed
+title: Online actions fail cleanly
+method: test
+rationale: Partial failure leaves accounts in odd states.
+covers: REQ-MVST
+criterion:
+  pass: With the network cut before the request is sent, for each action, and with the service
+    answering that it refused without acting, for each action other than a request for a new
+    recovery proof, the message appears and the old state holds.

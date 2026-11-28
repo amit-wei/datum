@@ -1,0 +1,9 @@
+id: PRF-FX90
+status: agreed
+title: History is kept
+method: test
+rationale: Cleanup code or a sync change could drop history.
+covers: REQ-5SZX
+criterion:
+  pass: After each kind of change, removal and conflict choice, restart, update and sync, every
+    earlier version is still stored.

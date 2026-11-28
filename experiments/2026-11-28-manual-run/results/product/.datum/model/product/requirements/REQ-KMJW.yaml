@@ -1,0 +1,12 @@
+id: REQ-KMJW
+status: agreed
+pattern: event
+statement: When a correction changes anything but the signed mark of a signed entry, the part
+  shall remove the signed mark and, before the pilot confirms, tell the pilot that the mark
+  will be removed because the signed content changes.
+rationale: 'ELI-W9NN#1: the signature covered the old content. Builder limit: ELI-W9NN#1.'
+of: FUN-JX7F
+answers:
+- HAZ-SDKD
+- HAZ-BYMT
+source: builder

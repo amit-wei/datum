@@ -1,0 +1,12 @@
+id: REQ-46ST
+status: agreed
+pattern: unwanted
+statement: >-
+  If an entered expiry date is not a real calendar date, then the part shall refuse to save
+  the date and say so.
+rationale: >-
+  An unreadable date would silently produce no warning. Past dates are valid: they are expired
+  items.
+of: FUN-SJJQ
+answers:
+- HAZ-SDKD

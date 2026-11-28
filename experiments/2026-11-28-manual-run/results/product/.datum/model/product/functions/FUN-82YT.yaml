@@ -1,0 +1,22 @@
+id: FUN-82YT
+status: agreed
+name: Set pilot details
+definition: Sets or changes the pilot's name and address.
+serves:
+- SCN-72S0#3
+- SCN-RXEM#4
+inputs:
+- name: pilot details
+  holds: name and address
+  from: pilot
+- name: synced records
+  from: FUN-DV8F
+outputs:
+- name: recorded pilot details
+  to:
+  - FUN-DV8F
+  - FUN-AV5B
+  - FUN-A60F
+  - FUN-DVKC
+  - FUN-EK3N
+  - FUN-VN36

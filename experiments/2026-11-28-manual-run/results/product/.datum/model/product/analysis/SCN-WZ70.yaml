@@ -1,0 +1,13 @@
+id: SCN-WZ70
+status: agreed
+name: "Show the logbook to an instructor or authority"
+kind: main
+trigger: "An instructor, examiner or authority asks to see the pilot's flight record."
+preconditions: "The pilot has a logbook."
+steps:
+  - {n: 1, by: user, what: "Asks for the record."}
+  - {n: 2, by: product, what: "Produces a PDF of the logbook."}
+  - {n: 3, by: user, what: "Sends or prints it."}
+  - {n: 4, by: outside, what: "The instructor or authority reads it, and signs in ink where needed."}
+outcome: "The other person has a readable copy of the record. Official acceptance is unconfirmed."
+needs: [ELI-H0GB#6, ELI-H0GB#8, ELI-FV4M#4, ELI-H7X3#1]

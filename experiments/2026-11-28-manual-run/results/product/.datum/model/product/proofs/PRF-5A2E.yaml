@@ -1,0 +1,10 @@
+id: PRF-5A2E
+status: agreed
+title: Rules were reviewed for the release
+method: inspection
+rationale: >-
+  This is a property of the release process.
+covers: REQ-4M05
+criterion:
+  pass: >-
+    The release carries a dated review naming the texts read; its age meets rule_review_age.

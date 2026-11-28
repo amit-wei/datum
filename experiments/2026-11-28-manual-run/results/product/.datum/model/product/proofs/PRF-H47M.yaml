@@ -1,0 +1,10 @@
+id: PRF-H47M
+status: agreed
+title: Undo shows its effect first
+method: test
+rationale: >-
+  A missed changed entry loses work unnoticed.
+covers: REQ-5HCE
+criterion:
+  pass: >-
+    The list equals the import's current entries with changed ones marked; cancel changes nothing.

@@ -1,0 +1,11 @@
+id: PRF-E6FF
+status: agreed
+title: Synced only after confirmation
+method: test
+rationale: >-
+  Optimistic marking is a common shortcut.
+covers: REQ-2MA2
+criterion:
+  pass: >-
+    With the confirmation lost, delayed or negative, and with the record changed during upload,
+    the newest version stays unsynced.

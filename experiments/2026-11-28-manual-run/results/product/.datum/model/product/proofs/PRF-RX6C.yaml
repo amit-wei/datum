@@ -1,0 +1,9 @@
+id: PRF-RX6C
+status: agreed
+title: No overall permission is given
+method: inspection
+rationale: Wording and colour summaries creep in with redesigns.
+covers: REQ-YCQ7
+criterion:
+  pass: No screen, PDF or warning gives an overall verdict, by words or by an overall status
+    symbol.

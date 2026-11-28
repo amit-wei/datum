@@ -1,0 +1,30 @@
+id: SCN-B3Y0
+status: agreed
+name: Take the data and leave
+kind: variation
+trigger: A pilot wants a copy of their data or wants to stop using the app.
+preconditions: The pilot has an account.
+steps:
+- n: 1
+  by: user
+  what: Asks for their data.
+- n: 2
+  by: product
+  what: Gives the pilot a copy of it.
+- n: 3
+  by: user
+  what: Asks to delete the account.
+- n: 4
+  by: product
+  what: Warns what will be deleted, including unsynced records on devices whose access has ended,
+    which are kept only by signing in there and syncing first, asks the pilot to confirm identity
+    again and to confirm the deletion, deletes the account and its data, and says what remains
+    in backups and until when. This needs a connection, and a failure is shown clearly.
+outcome: The pilot has their data, and the account is gone.
+needs:
+- ELI-H7X3#3
+- ELI-W9NN#7
+- ELI-W9NN#8
+- ELI-SCJS#4
+- ELI-SCJS#6
+- ELI-PDPX#4

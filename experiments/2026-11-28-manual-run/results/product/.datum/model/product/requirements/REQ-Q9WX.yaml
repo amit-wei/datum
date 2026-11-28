@@ -1,0 +1,11 @@
+id: REQ-Q9WX
+status: agreed
+pattern: unwanted
+statement: If an erasure request names an account or data that does not exist, or does not identify
+  what is to be erased, then the part shall erase nothing and tell the builder what could not
+  be identified.
+rationale: A vague or mistaken request must not erase the wrong data, and the builder must not
+  believe it was done.
+of: FUN-S6RT
+answers:
+- HAZ-BYMT

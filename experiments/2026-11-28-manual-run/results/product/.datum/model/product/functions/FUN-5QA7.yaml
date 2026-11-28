@@ -1,0 +1,41 @@
+id: FUN-5QA7
+status: agreed
+name: Import previewed flights
+definition: Adds the flights of a preview the pilot confirmed to the logbook, with training
+  flights and checks unsigned.
+serves:
+- SCN-0RNY#5
+- SCN-0RNY#6
+- SCN-H9FP#4
+inputs:
+- name: confirmation of the preview
+  from: pilot
+- name: import preview
+  from: FUN-VY4C
+outputs:
+- name: logbook entry
+  holds: one per imported flight
+  to:
+  - FUN-ESPG
+  - FUN-VY4C
+  - FUN-6NTH
+  - FUN-69E8
+  - FUN-JX7F
+  - FUN-2JYW
+  - FUN-TF2W
+  - FUN-DV8F
+  - FUN-AV5B
+  - FUN-A60F
+  - FUN-VN36
+  - FUN-MPTZ
+  - FUN-YRV9
+  - FUN-EK3N
+- name: import record
+  holds: the file's name, the time of the import, and which entries it added
+  to:
+  - FUN-DV8F
+  - FUN-A60F
+  - FUN-YRV9
+  - FUN-DDT6
+  - FUN-EK3N
+  - FUN-VN36

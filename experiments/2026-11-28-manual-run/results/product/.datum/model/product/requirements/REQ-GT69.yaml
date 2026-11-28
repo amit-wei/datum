@@ -1,0 +1,10 @@
+id: REQ-GT69
+status: agreed
+pattern: unwanted
+statement: If the device cannot store a change, then the part shall keep what was stored before
+  unchanged.
+rationale: 'ELI-C382#8: full storage.'
+of: FUN-ESPG
+answers:
+- HAZ-BYMT
+- HAZ-2CDR

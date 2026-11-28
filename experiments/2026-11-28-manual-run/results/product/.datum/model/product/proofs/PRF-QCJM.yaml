@@ -1,0 +1,10 @@
+id: PRF-QCJM
+status: agreed
+title: Earlier confirmation messages stop working
+method: test
+rationale: Old codes often stay valid by accident.
+covers: REQ-RKMR
+criterion:
+  pass: At sign-up and at a contact change, after a correction and after a resend, what was
+    sent earlier confirms neither the old nor the new address; the latest confirms only its
+    own address.

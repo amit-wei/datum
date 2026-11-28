@@ -1,0 +1,10 @@
+id: REQ-9RHQ
+status: agreed
+pattern: event
+statement: >-
+  When the part gives a data copy, the part shall include the purposes, kinds of data, recipients,
+  transfers outside the EU, retention, rights, complaint route, source of the data and use of
+  automated decisions.
+rationale: >-
+  Art. 15(1)-(2) information (RES-RZXY n12).
+of: FUN-A60F

@@ -1,0 +1,9 @@
+id: PRF-1CS2
+status: agreed
+title: Empty details are refused
+method: test
+rationale: A change to form validation could let a blank or space-only value through to the
+  PDF.
+covers: REQ-3FKV
+criterion:
+  pass: Nothing changes and the missing field is named.

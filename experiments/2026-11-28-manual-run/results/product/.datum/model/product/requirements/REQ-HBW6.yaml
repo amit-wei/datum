@@ -1,0 +1,9 @@
+id: REQ-HBW6
+status: agreed
+pattern: event
+statement: When the pilot asks to delete the account, the part shall, before asking for confirmation,
+  state that the pilot may have a duty to keep a logbook.
+rationale: Dutch law forbids a pilot to destroy the logbook (RES-RZXY n41).
+of: FUN-VN36
+answers:
+- HAZ-XWCK

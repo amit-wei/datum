@@ -1,0 +1,10 @@
+id: PRF-8W7V
+status: agreed
+title: No partial data copy
+method: test
+rationale: >-
+  Only fault injection notices.
+covers: REQ-PXXK
+criterion:
+  pass: >-
+    With production interrupted, no file is offered and the failure is told.

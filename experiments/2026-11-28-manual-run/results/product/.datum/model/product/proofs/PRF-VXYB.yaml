@@ -1,0 +1,10 @@
+id: PRF-VXYB
+status: agreed
+title: SPL passenger conditions
+method: test
+rationale: Two combined conditions, two classes.
+covers: REQ-C2MJ
+criterion:
+  pass: Fixtures failing each part of both conditions alone are not met; each way of meeting
+    the first condition together with the second is met; a result resting on a statement is
+    labelled.

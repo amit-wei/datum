@@ -1,0 +1,10 @@
+id: PRF-7VJS
+status: agreed
+title: Consent changes are recorded
+method: test
+rationale: >-
+  Not visible in use, so only a test notices.
+covers: REQ-F8F1
+criterion:
+  pass: >-
+    The record shows each change with its time, in order, and it appears in the data copy.

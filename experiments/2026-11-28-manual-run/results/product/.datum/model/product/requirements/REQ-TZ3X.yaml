@@ -1,0 +1,10 @@
+id: REQ-TZ3X
+status: agreed
+pattern: event
+statement: When the pilot chooses a version in a conflict, the part shall give the entry a signed
+  mark only if that version, with exactly that content, was marked signed.
+rationale: A signature covers only the content it was given for (ELI-W9NN#1).
+of: FUN-V0PH
+answers:
+- HAZ-SDKD
+- HAZ-BYMT

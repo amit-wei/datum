@@ -1,0 +1,12 @@
+id: REQ-1PTP
+status: agreed
+pattern: event
+statement: When the pilot asks for earlier versions, the part shall show every kept earlier
+  version of changed entries, removed entries, earlier starting totals and versions not chosen
+  in a conflict, each marked as not current with the time it stopped being current.
+rationale: 'ELI-C382#5, ELI-W9NN#7: kept until account deletion, except an erased medical date.
+  A superseded version must not read as current. Builder limit: ELI-C382#5.'
+of: FUN-TF2W
+answers:
+- HAZ-BYMT
+source: builder

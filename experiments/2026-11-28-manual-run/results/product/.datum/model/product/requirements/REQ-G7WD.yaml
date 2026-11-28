@@ -1,0 +1,9 @@
+id: REQ-G7WD
+status: agreed
+pattern: unwanted
+statement: If a device runs a release too old to read a record without loss, then the part shall
+  not let that device change the record.
+rationale: An old device saving a newer record would silently drop new items.
+of: FUN-DV8F
+answers:
+- HAZ-BYMT

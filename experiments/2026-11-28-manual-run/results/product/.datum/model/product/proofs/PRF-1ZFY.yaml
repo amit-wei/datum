@@ -1,0 +1,12 @@
+id: PRF-1ZFY
+status: agreed
+title: Sign-out warns about every unsynced change
+method: test
+rationale: >-
+  Any new record type could be left out of the list.
+covers: REQ-WTNF
+criterion:
+  pass: >-
+    The list holds each unsynced change; cancel leaves everything as it was.
+  conditions: >-
+    Offline, with one unsynced change of every kind of record the part keeps.

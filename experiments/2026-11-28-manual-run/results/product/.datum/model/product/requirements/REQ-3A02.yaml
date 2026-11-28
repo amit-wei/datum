@@ -1,0 +1,10 @@
+id: REQ-3A02
+status: agreed
+pattern: unwanted
+statement: If the device cannot store a change, then the part shall keep the typed input on
+  screen.
+rationale: 'ELI-C382#8: full storage.'
+of: FUN-ESPG
+answers:
+- HAZ-BYMT
+- HAZ-2CDR

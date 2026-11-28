@@ -1,0 +1,11 @@
+id: REQ-8QKS
+status: agreed
+pattern: unwanted
+statement: >-
+  If sign-in details are wrong, then the part shall refuse access without disclosing whether
+  an account exists for them.
+rationale: >-
+  Disclosing which accounts exist helps someone break into one.
+of: FUN-B8SK
+answers:
+- HAZ-9K19

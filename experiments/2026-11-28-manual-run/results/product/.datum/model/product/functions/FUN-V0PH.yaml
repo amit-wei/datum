@@ -1,0 +1,30 @@
+id: FUN-V0PH
+status: agreed
+name: Resolve conflicting changes
+definition: Shows the pilot two conflicting changes, discarding neither, applies their choice
+  and keeps the version not chosen.
+serves:
+- SCN-5EAZ#2
+- SCN-5EAZ#3
+- SCN-5EAZ#4
+inputs:
+- name: choice between changes
+  from: pilot
+- name: conflicting changes
+  from: FUN-DV8F
+outputs:
+- name: conflict resolution
+  to:
+  - FUN-DV8F
+  - FUN-EK3N
+  - FUN-VN36
+- name: both changes
+  to:
+  - pilot
+- name: version not chosen
+  to:
+  - FUN-TF2W
+  - FUN-DV8F
+  - FUN-A60F
+  - FUN-EK3N
+  - FUN-VN36

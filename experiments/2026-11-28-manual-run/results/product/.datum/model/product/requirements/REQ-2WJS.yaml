@@ -1,0 +1,10 @@
+id: REQ-2WJS
+status: agreed
+pattern: unwanted
+statement: If a recovery proof is requested, then the part shall give the requester the same
+  response whether or not the account exists.
+rationale: 'The disclosure rule: nobody learns who has an account.'
+of: FUN-XK2A
+answers:
+- HAZ-9K19
+source: builder

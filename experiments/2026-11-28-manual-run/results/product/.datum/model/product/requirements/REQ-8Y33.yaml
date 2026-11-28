@@ -1,0 +1,14 @@
+id: REQ-8Y33
+status: agreed
+pattern: unwanted
+statement: If account details hold no means of contact, or the person has not confirmed that
+  means of contact, then the part shall create no account and say that a confirmed means of
+  contact is needed.
+rationale: New recovery proofs and security notices go only to a contact set up beforehand (ELI-PSRH#1).
+  The builder proposes email; the method is a design choice. A contact that does not reach the
+  pilot leaves no way to get a new proof. What counts as confirmed is set by REQ-DZF7. Without
+  this a mistyped address would send recovery proofs to a stranger.
+of: FUN-EVE9
+answers:
+- HAZ-XWCK
+source: builder

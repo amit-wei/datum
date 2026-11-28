@@ -1,0 +1,13 @@
+id: SCN-2YTZ
+status: agreed
+name: "Undo a bad import"
+kind: variation
+trigger: "A pilot notices that an import was wrong."
+preconditions: "A file has been imported."
+steps:
+  - {n: 1, by: user, what: "Asks to see past imports and chooses one to undo."}
+  - {n: 2, by: product, what: "Shows past imports, and for the chosen one what will be removed, including entries changed since."}
+  - {n: 3, by: user, what: "Confirms."}
+  - {n: 4, by: product, what: "Takes that import's entries out of the logbook and updates totals and rule results."}
+outcome: "The logbook no longer counts the bad import."
+needs: [ELI-J7WZ#5, ELI-C382#5]

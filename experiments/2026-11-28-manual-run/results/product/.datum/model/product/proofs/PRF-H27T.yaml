@@ -1,0 +1,13 @@
+id: PRF-H27T
+status: agreed
+title: A new pilot manages alone
+method: demonstration
+rationale: >-
+  Only a new person shows this.
+covers: REQ-A4MW
+criterion:
+  pass: >-
+    Each participant finishes all three using only what the part shows.
+  conditions: >-
+    People who have not seen the part, on their own phones, including an iPhone; throwaway accounts.
+  sample_min: 2

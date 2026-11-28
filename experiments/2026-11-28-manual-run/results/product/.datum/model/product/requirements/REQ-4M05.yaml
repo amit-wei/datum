@@ -1,0 +1,20 @@
+id: REQ-4M05
+status: agreed
+pattern: ubiquitous
+statement: The part shall be released only with rule behaviour that has been checked against
+  the official rule texts no more than {measure} before the release.
+measure:
+  metric: rule_review_age
+  definition: Days from the rule review to the release.
+  unit: days
+  bounds:
+  - statistic: value
+    op: <=
+    value: 90
+rationale: 'Rules change (RES-7H7D n37); inputs from the builder can go stale. The period was
+  the agent''s proposal. The builder accepted the proposed rules in ELI-SCJS. Value: a judgement
+  call with no researched source, accepted by the builder as a starting target (ELI-SCJS#5);
+  revisit if testing or running cost gives a reason.'
+of: FUN-69E8
+answers:
+- HAZ-SDKD

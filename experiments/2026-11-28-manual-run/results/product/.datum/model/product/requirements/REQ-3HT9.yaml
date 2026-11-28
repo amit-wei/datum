@@ -1,0 +1,10 @@
+id: REQ-3HT9
+status: agreed
+pattern: unwanted
+statement: If the part learns that a confirmation message during a change of contact could not
+  be sent, then the part shall tell the pilot.
+rationale: Otherwise the pilot waits for a message that will not come (ELI-KKPH#2). A message
+  can also be lost without the part learning of it.
+of: FUN-SGHT
+answers:
+- HAZ-XWCK

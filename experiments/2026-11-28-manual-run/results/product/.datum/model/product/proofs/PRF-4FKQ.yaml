@@ -1,0 +1,9 @@
+id: PRF-4FKQ
+status: agreed
+title: Sign-up confirmation can be resent
+method: test
+rationale: A resend path is rarely used.
+covers: REQ-NRFR
+criterion:
+  pass: After a resend and after a correction, within the limit, the message reaches the address
+    then given and confirming works.

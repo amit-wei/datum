@@ -1,0 +1,10 @@
+id: PRF-FX0V
+status: agreed
+title: Endorsement need is stated
+method: inspection
+rationale: >-
+  Text can be dropped in redesign.
+covers: REQ-WHAP
+criterion:
+  pass: >-
+    The statement appears with met and not-met revalidation results.

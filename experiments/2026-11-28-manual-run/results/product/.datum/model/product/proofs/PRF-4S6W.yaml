@@ -1,0 +1,8 @@
+id: PRF-4S6W
+status: agreed
+title: Past imports are shown
+method: test
+rationale: Corrections and removals change what each import shows, and the join can drift.
+covers: REQ-Y144
+criterion:
+  pass: Two imports with later changes show correct lists and marks.

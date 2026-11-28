@@ -1,0 +1,13 @@
+id: SCN-A5Z1
+status: agreed
+name: "Check recent experience and dates before flying"
+kind: main
+trigger: "A pilot is planning a flight and wants to know where they stand."
+preconditions: "The pilot has a logbook."
+steps:
+  - {n: 1, by: user, what: "Opens the app."}
+  - {n: 2, by: product, what: "Shows for each covered rule that applies to the pilot whether it is met or not met, until when or what is missing, and where it read an unclear date rule strictly."}
+  - {n: 3, by: product, what: "Warns about entered expiry dates that are close or past."}
+  - {n: 4, by: user, what: "Looks at the flights counted for a result."}
+outcome: "The pilot knows which checked items are met and why, and decides about flying knowing the app does not check everything."
+needs: [ELI-FV4M#3, ELI-KHF8#1, ELI-KHF8#2, ELI-PX7E#1, ELI-C382#3, ELI-C382#8]

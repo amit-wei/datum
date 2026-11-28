@@ -1,0 +1,9 @@
+id: PRF-Z8C7
+status: agreed
+title: The choice applies everywhere
+method: test
+rationale: Resolution itself must sync.
+covers: REQ-YG59
+criterion:
+  pass: After a choice, each device shows the chosen version as current and history holds the
+    other.

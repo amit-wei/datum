@@ -1,0 +1,24 @@
+id: ELI-FV4M
+date: 2026-11-28
+entries:
+  - n: 1
+    question: "Focus. Proposed: a simple, dependable personal logbook for powered and glider flights, with quick entry, offline use and easy export; automatic flight tracking and club system connections wait."
+    answer: "agreed"
+    need: true
+    constraint: true
+  - n: 2
+    question: "Which pilots does the MVP cover? Proposed: LAPL(A), PPL(A) single-engine and touring motor glider, and SPL; no microlights and no students without a licence."
+    answer: "agreed"
+    constraint: true
+  - n: 3
+    question: "What should it say about being allowed to fly? Proposed: progress against each covered rule with the flights counted, never \"you're cleared to fly\", the stricter reading where a date rule is unclear; the alternative was totals only."
+    answer: "id rather be useful and deal with the risk of wrong rule calculations than be timid about rule calculations and less useful."
+    need: true
+  - n: 4
+    question: "Sharing and signatures. Proposed: PDF export to send or print, signatures in ink, no instructor accounts or in-app signing; ask ILT (and possibly KNVvL) whether a digital logbook is acceptable for glider pilots, in which layout, and how instructors and examiners sign. Offered to draft the message."
+    answer: "ok, sounds good, ill send the message, you needn't draft it."
+    need: true
+    constraint: true
+  - n: 5
+    question: "Old flights. Proposed: starting totals plus CSV import, with recent flights entered or imported individually for recency and the app saying its information is incomplete until then; IGC and automatic tracking wait. Whether ILT accepts starting totals is unconfirmed."
+    answer: "okay but like is the csv a specific format all other apps are bound by?"

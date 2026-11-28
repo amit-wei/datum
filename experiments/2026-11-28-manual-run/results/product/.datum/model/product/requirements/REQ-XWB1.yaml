@@ -1,0 +1,9 @@
+id: REQ-XWB1
+status: agreed
+pattern: event
+statement: >-
+  When a person starts to create an account, the part shall offer the privacy notice before
+  the person submits any personal data.
+rationale: >-
+  Information is due when data is collected (RES-RZXY n5; ELI-W9NN#11).
+of: FUN-EVE9

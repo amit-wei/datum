@@ -1,0 +1,10 @@
+id: PRF-VHZY
+status: agreed
+title: Old proofs stop working
+method: test
+rationale: A lifetime setting can change unnoticed.
+covers: REQ-Z0DJ
+criterion:
+  pass: An unused, unreplaced and uncancelled proof is accepted just inside proof_lifetime and
+    refused just after it.
+  conditions: Simulated clock allowed.

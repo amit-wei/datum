@@ -1,0 +1,12 @@
+id: SCN-6E8F
+status: agreed
+name: "Correct or remove a wrong entry"
+kind: variation
+trigger: "A pilot notices that an entry is wrong or should not be there."
+preconditions: "The logbook has an entry."
+steps:
+  - {n: 1, by: user, what: "Changes or removes the entry."}
+  - {n: 2, by: product, what: "Asks the pilot to confirm, applies the change and updates totals and rule results. A changed entry that was marked signed loses the mark, and the app says why."}
+  - {n: 3, by: product, what: "Keeps what the entry said before, for the pilot to see."}
+outcome: "The logbook is right, and nothing was changed without the pilot knowing."
+needs: [ELI-H0GB#2, ELI-BS4R#4, ELI-PX7E#1, ELI-W9NN#1]

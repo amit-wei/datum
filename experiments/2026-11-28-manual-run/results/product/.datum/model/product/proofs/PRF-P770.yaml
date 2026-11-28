@@ -1,0 +1,10 @@
+id: PRF-P770
+status: agreed
+title: Details in use reveal nothing
+method: test
+rationale: Sign-up messages are a usual leak.
+covers: REQ-TV33
+criterion:
+  pass: 'No account is made or changed, and what the person sees cannot be told apart from the
+    response for unused details. The check compares what the requester sees at the time of the
+    request, for details in use and not in use: the same messages, screens and next steps.'

@@ -1,0 +1,10 @@
+id: PRF-8Q5Z
+status: agreed
+title: Bad account details are refused
+method: test
+rationale: Each refusal is a separate branch that can regress.
+covers: REQ-MQYG
+criterion:
+  pass: For each of the two conditions no account is created and the stated reason names that
+    condition.
+  conditions: One attempt per condition.

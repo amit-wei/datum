@@ -1,0 +1,9 @@
+id: PRF-D21K
+status: agreed
+title: Ordinary training does not unlock passengers
+method: test
+rationale: The two differ by one item that code can ignore.
+covers: REQ-ES10
+criterion:
+  pass: A signed ordinary training flight does not meet the condition; a signed one recorded
+    as passenger training does.

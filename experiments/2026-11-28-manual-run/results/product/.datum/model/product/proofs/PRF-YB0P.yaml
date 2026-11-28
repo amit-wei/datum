@@ -1,0 +1,9 @@
+id: PRF-YB0P
+status: agreed
+title: Sea ratings never show a partial result
+method: test
+rationale: A separate branch over rating combinations.
+covers: REQ-YZYS
+criterion:
+  pass: With experience that would meet the land conditions and an SEP(sea) rating held, neither
+    rule shows a met or not-met result and the reason is shown.

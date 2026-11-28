@@ -1,0 +1,13 @@
+id: REQ-5JDV
+status: agreed
+pattern: ubiquitous
+statement: The part shall provide every function in iPhone Safari, Android Chrome, and desktop
+  Chrome, Edge, Firefox and Safari, each in the maker's latest and previous major version at
+  the time of the part's release.
+rationale: ELI-H7X3#1 asks for iPhone, Android and a computer browser; this list was the agent's
+  proposal. If synthesis chooses installed apps, the browser list applies to computer use. The
+  builder accepted the proposed rules in ELI-SCJS.
+of: FUN-ESPG
+answers:
+- HAZ-XWCK
+source: builder

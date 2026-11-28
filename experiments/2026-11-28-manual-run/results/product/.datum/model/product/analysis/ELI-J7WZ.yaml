@@ -1,0 +1,9 @@
+id: ELI-J7WZ
+date: 2026-11-28
+entries:
+  - {n: 1, need: true, question: "Add browsing and finding past flights?", answer: "yes. (One answer to \"Add all six?\")"}
+  - {n: 2, need: true, question: "Add changing licences, ratings, expiry dates and starting totals, keeping earlier starting totals visible?", answer: "yes. (Same answer.)"}
+  - {n: 3, need: true, question: "Add recovering account access?", answer: "yes. (Same answer.)"}
+  - {n: 4, need: true, loss: true, question: "Add signing out, with a warning about unsynced flights, which must not be silently lost?", answer: "yes. (Same answer.)"}
+  - {n: 5, need: true, question: "Add undoing a whole import?", answer: "yes. (Same answer.)"}
+  - {n: 6, need: true, question: "Add restoring a removed flight?", answer: "yes. (Same answer.)"}

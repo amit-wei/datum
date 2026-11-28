@@ -1,0 +1,9 @@
+id: PRF-XJZN
+status: agreed
+title: Training starts unsigned
+method: test
+rationale: A default or copy function could carry the mark over.
+covers: REQ-D0CV
+criterion:
+  pass: New entries of each of these kinds, including ones started from a signed entry, are
+    unsigned.

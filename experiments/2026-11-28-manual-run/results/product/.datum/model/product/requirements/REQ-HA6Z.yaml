@@ -1,0 +1,11 @@
+id: REQ-HA6Z
+status: agreed
+pattern: unwanted
+statement: If two devices change the same record, one removing it or not, without either having
+  the other's change, then the part shall keep both changes and mark the record as in conflict.
+rationale: 'SCN-5EAZ: no change is discarded silently. Applies to entries, setup details and
+  removals. Consent withdrawal has its own requirement.'
+of: FUN-DV8F
+answers:
+- HAZ-BYMT
+- HAZ-SDKD

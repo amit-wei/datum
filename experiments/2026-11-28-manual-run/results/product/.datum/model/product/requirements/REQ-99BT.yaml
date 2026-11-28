@@ -1,0 +1,13 @@
+id: REQ-99BT
+status: agreed
+pattern: ubiquitous
+statement: The part shall treat a proficiency check, skill test or assessment of competence
+  as passing the check condition or removing the refresher training item of a rule only when
+  the entry records it as passed and is marked signed.
+rationale: The rules ask for a passed check (RES-7H7D n21, n23, n26, n29); a failed one can
+  be signed too. A result not entered is not a pass. The signature is taken as covering the
+  signer's qualification, which the part does not check. Where the flight experience of such
+  an entry counts is set by REQ-3KAM; a failed result does not remove it.
+of: FUN-69E8
+answers:
+- HAZ-SDKD

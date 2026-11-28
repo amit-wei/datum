@@ -1,0 +1,11 @@
+id: REQ-TDSA
+status: agreed
+pattern: unwanted
+statement: If a complete file of the unsynced records cannot be produced or saved, then the
+  part shall keep the records locked, say that no complete file was saved, and offer the file
+  again.
+rationale: These are the only copies of the records. The part may be unable to tell whether
+  a device saved a file, so erasure waits for the pilot's confirmation.
+of: FUN-EK3N
+answers:
+- HAZ-2CDR

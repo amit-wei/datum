@@ -1,0 +1,10 @@
+id: PRF-ZVKJ
+status: agreed
+title: Notice has the required content
+method: inspection
+rationale: >-
+  Text, checked by reading.
+covers: REQ-2EJR
+criterion:
+  pass: >-
+    Each listed item is present and true of the release.

@@ -1,0 +1,12 @@
+id: REQ-EC8D
+status: agreed
+pattern: event
+statement: >-
+  When the pilot saves licences, ratings, launch methods or other facts that a covered rule
+  needs about them, the part shall record exactly what the pilot saved, including removals.
+rationale: >-
+  Rule results depend on these facts. Covered licences are LAPL(A), PPL(A) and SPL (ELI-FV4M#2).
+of: FUN-V4TT
+answers:
+- HAZ-BYMT
+- HAZ-SDKD

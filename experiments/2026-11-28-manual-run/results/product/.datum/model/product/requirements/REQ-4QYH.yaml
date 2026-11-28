@@ -1,0 +1,12 @@
+id: REQ-4QYH
+status: agreed
+pattern: event
+statement: >-
+  When a signed-in pilot confirms their identity again and gives new sign-in details, the part
+  shall replace the old sign-in details with the new ones.
+rationale: >-
+  Asking again stops someone at an unattended signed-in device from taking over the account.
+of: FUN-DAF5
+answers:
+- HAZ-9K19
+- HAZ-XWCK

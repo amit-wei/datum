@@ -1,0 +1,10 @@
+id: REQ-2YA1
+status: agreed
+pattern: event
+statement: When a pilot asks during a change of contact for the confirmation message again or
+  corrects the new means of contact, the part shall, within the limit of REQ-YTDM, send a new
+  confirmation message to the new means of contact then given.
+rationale: ELI-KKPH#2.
+of: FUN-SGHT
+answers:
+- HAZ-XWCK

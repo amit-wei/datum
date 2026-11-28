@@ -1,0 +1,10 @@
+id: PRF-EYEM
+status: agreed
+title: Rule check date is shown
+method: inspection
+rationale: >-
+  The date must be moved by a person at each rule review.
+covers: REQ-Y5WR
+criterion:
+  pass: >-
+    The shown date equals the date of the latest rule review recorded for the release.

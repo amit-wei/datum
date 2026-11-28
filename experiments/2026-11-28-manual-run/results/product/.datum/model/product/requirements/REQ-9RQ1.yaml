@@ -1,0 +1,13 @@
+id: REQ-9RQ1
+status: agreed
+pattern: ubiquitous
+statement: >-
+  The part shall give a pilot's data to no person or other service except that pilot, the service
+  providers named in the privacy notice, and the builder where needed to run the service or
+  answer a request.
+rationale: >-
+  ELI-H7X3#3: others see a logbook only if the pilot shares it.
+of: FUN-DV8F
+answers:
+- HAZ-9K19
+source: builder

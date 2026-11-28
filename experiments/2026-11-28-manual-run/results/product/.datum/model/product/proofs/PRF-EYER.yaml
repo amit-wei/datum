@@ -1,0 +1,8 @@
+id: PRF-EYER
+status: agreed
+title: No change without confirmation
+method: test
+rationale: A new shortcut could skip the confirmation.
+covers: REQ-7B9T
+criterion:
+  pass: Cancelling, leaving and closing before confirmation change nothing.

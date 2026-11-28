@@ -1,0 +1,12 @@
+id: REQ-XWYB
+status: agreed
+pattern: complex
+statement: While the account exists, if a device whose access has ended holds records that are
+  not synced, then the part shall keep those records locked on that device and sync them after
+  the pilot signs in again to the same account on that device.
+rationale: 'ELI-W9NN#11: such records must not be silently lost. Keeping them locked was the
+  agent''s proposal for how in the batch. The builder accepted the proposed rules in ELI-SCJS.'
+of: FUN-DAF5
+answers:
+- HAZ-2CDR
+- HAZ-9K19

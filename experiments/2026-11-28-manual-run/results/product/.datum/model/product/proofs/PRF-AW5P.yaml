@@ -1,0 +1,10 @@
+id: PRF-AW5P
+status: agreed
+title: Unsafe use is warned
+method: demonstration
+rationale: Platform behaviour decides; check on the phone.
+covers: REQ-RKA1
+criterion:
+  pass: In each supported way of use that is subject to such a deletion rule, the warning and
+    the steps appear; in the others they do not. If no way of use is subject to one, an inspection
+    of the design record shows that.

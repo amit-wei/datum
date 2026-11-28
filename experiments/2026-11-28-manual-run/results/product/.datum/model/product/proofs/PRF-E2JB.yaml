@@ -1,0 +1,8 @@
+id: PRF-E2JB
+status: agreed
+title: Deletion warns first
+method: test
+rationale: A shortcut flow could skip it.
+covers: REQ-CHFW
+criterion:
+  pass: Cancelling or leaving at any point before the confirmation deletes nothing.

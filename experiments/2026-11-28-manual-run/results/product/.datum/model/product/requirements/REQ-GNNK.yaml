@@ -1,0 +1,13 @@
+id: REQ-GNNK
+status: agreed
+pattern: state
+statement: While a signed-in device has no network connection, the part shall let the pilot
+  open the part and use every function other than account creation, sign-in on a device, change
+  and recovery of sign-in details, change of the means of contact, account deletion, requesting
+  a recovery proof, synchronisation and update, with the privacy notice among the usable functions.
+rationale: 'ELI-BS4R#2: airfields often have no signal. Assumes the device used the part online
+  once (SCN-JPQT).'
+of: FUN-ESPG
+answers:
+- HAZ-XWCK
+source: builder

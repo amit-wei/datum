@@ -1,0 +1,11 @@
+id: REQ-WHAP
+status: agreed
+pattern: event
+statement: >-
+  When the part shows a revalidation result, the part shall state that meeting it does not move
+  the rating expiry date, which needs an endorsement or an application to the authority.
+rationale: >-
+  RES-7H7D n20: otherwise a met result reads as a valid rating.
+of: FUN-69E8
+answers:
+- HAZ-SDKD

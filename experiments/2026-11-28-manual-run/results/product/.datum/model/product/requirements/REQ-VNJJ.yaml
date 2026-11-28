@@ -1,0 +1,13 @@
+id: REQ-VNJJ
+status: agreed
+pattern: event
+statement: >-
+  When the part is updated, the part shall keep every record, including unsynced ones and history,
+  with unchanged content.
+rationale: >-
+  ELI-H7X3#6: an update must never damage records.
+of: FUN-V6Z2
+answers:
+- HAZ-BYMT
+- HAZ-2CDR
+source: builder

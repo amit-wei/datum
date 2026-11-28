@@ -1,0 +1,13 @@
+id: REQ-QZRP
+status: agreed
+pattern: unwanted
+statement: If a device whose access had ended connects after its account was deleted, then the
+  part shall erase the records of the account from the device without offering a file.
+rationale: Such a device may be lost or shared, and nobody can sign in to a deleted account
+  to show who holds it (ELI-PDPX#4). Unsynced records on it are lost for good, which the builder
+  accepted.
+of: FUN-EK3N
+answers:
+- HAZ-9K19
+- HAZ-7R3N
+source: builder

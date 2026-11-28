@@ -1,0 +1,10 @@
+id: PRF-Q1HQ
+status: agreed
+title: Restore returns the same entry
+method: test
+rationale: New entry items or signed handling could be lost between removal and restore.
+covers: REQ-VNXE
+criterion:
+  pass: The restored entry equals the removed one and counts again; restoring twice gives one
+    entry.
+  conditions: Entries removed singly and by undoing an import.

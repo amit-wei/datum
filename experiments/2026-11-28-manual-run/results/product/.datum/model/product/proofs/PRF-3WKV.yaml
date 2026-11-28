@@ -1,0 +1,10 @@
+id: PRF-3WKV
+status: agreed
+title: Stale devices cannot resurrect data
+method: test
+rationale: Only the offline-then-connect order shows it.
+covers: REQ-26SS
+criterion:
+  pass: The device erases the data, apart from unsynced records awaiting the offer, and the
+    online copy never receives any of it.
+  conditions: Second device offline through the deletion, holding unsynced changes.

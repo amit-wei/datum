@@ -1,0 +1,12 @@
+id: REQ-7W8W
+status: agreed
+pattern: unwanted
+statement: If a confirmation message is asked for when the limit of REQ-YTDM for that means
+  of contact is reached, then the part shall send none and say that no further message can be
+  sent to that means of contact for now.
+rationale: Without this the pilot waits for a message that will not come. The limit counts messages
+  to a contact, so the answer says nothing about whether an account exists. It applies at sign-up
+  and at a contact change.
+of: FUN-EVE9
+answers:
+- HAZ-XWCK

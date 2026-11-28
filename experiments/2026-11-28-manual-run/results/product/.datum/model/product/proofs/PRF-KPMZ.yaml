@@ -1,0 +1,11 @@
+id: PRF-KPMZ
+status: agreed
+title: Passenger recency day and night
+method: test
+rationale: >-
+  Night and class handling are separate branches.
+covers: REQ-A3S1
+criterion:
+  pass: >-
+    Fixtures at the thresholds, for day and night and for two classes, give the hand-worked
+    result; dual flights not as pilot flying do not count.

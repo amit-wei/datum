@@ -1,0 +1,12 @@
+id: REQ-VNXE
+status: agreed
+pattern: event
+statement: >-
+  When the pilot restores a removed entry, the part shall put the entry back with the content
+  and signed mark the entry had when removed.
+rationale: >-
+  SCN-33Y5.
+of: FUN-SR3A
+answers:
+- HAZ-BYMT
+- HAZ-SDKD

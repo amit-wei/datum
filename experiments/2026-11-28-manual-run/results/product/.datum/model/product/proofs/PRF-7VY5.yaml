@@ -1,0 +1,8 @@
+id: PRF-7VY5
+status: agreed
+title: Removal takes out and keeps
+method: test
+rationale: Each reader of entries can forget to filter.
+covers: REQ-37SZ
+criterion:
+  pass: The entry is absent from the four places and present among removed entries.

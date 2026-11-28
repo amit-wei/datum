@@ -1,0 +1,8 @@
+id: PRF-KX35
+status: agreed
+title: Old versions ask for an update
+method: test
+rationale: Only a run with two versions shows the message.
+covers: REQ-7291
+criterion:
+  pass: An old release meeting newer data shows a request to update.

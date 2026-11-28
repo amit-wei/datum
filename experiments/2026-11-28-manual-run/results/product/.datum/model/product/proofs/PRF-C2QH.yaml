@@ -1,0 +1,11 @@
+id: PRF-C2QH
+status: agreed
+title: Recovery cannot be forged or reused
+method: test
+rationale: A weak recovery path would not show in normal use.
+covers: REQ-7GYZ
+criterion:
+  pass: 'For each of the four kinds of bad proof the old details still work, the new ones are
+    refused, and the response is the same for an unknown account. The check compares what the
+    requester sees at the time of the request, for details in use and not in use: the same messages,
+    screens and next steps.'

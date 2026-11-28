@@ -1,0 +1,12 @@
+id: PRF-78T3
+status: agreed
+title: Works on the supported devices
+method: test
+rationale: Platform differences return with every change and browser release; repeating a manual
+  walk on each is too costly.
+covers: REQ-5JDV
+criterion:
+  pass: The product journeys, run automatically, succeed on every system and browser the requirement
+    names.
+  conditions: Real or vendor-supplied emulated systems; file picking and saving checked on one
+    real phone of each system.

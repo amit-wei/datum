@@ -1,0 +1,14 @@
+id: REQ-7GYZ
+status: agreed
+pattern: unwanted
+statement: If the proof of ownership is missing, wrong, expired or already used, then the part
+  shall leave the sign-in details unchanged without revealing whether an account exists.
+rationale: 'Recovery is a second way in. There is no manual recovery in the first version (ELI-W9NN#9),
+  so a pilot without proof can lose online access for good; that was accepted. Disclosure rule,
+  the agent''s proposal: what the person sees at the time of the request is the same whether
+  or not another account uses the details. This assumes a sign-in design that can tell the true
+  holder of the details privately, for example by a message to them; synthesis must provide
+  that or bring the rule back. The builder accepted the proposed rules in ELI-SCJS.'
+of: FUN-Q1BS
+answers:
+- HAZ-9K19

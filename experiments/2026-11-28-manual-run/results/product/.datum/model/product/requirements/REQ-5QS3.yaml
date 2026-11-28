@@ -1,0 +1,11 @@
+id: REQ-5QS3
+status: agreed
+pattern: ubiquitous
+statement: The part shall let starting totals hold, for each total listed in REQ-KX5S, one overall
+  figure and a figure for each of SEP aeroplanes, TMG and sailplanes, each of which may be left
+  out.
+rationale: Without a stated set a pilot could be unable to carry over a figure the logbook shows.
+  Allowing figures to be left out suits paper logbooks that lack some.
+of: FUN-PDMV
+answers:
+- HAZ-BYMT

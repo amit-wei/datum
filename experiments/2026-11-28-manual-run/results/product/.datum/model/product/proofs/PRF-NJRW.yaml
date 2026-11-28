@@ -1,0 +1,10 @@
+id: PRF-NJRW
+status: agreed
+title: PDF marks conflicts
+method: test
+rationale: >-
+  Needs a conflict.
+covers: REQ-CDKX
+criterion:
+  pass: >-
+    Affected rows and totals are marked in the file.

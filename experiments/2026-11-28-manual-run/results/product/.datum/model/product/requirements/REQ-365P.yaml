@@ -1,0 +1,21 @@
+id: REQ-365P
+status: agreed
+pattern: unwanted
+statement: If the online copy is lost or damaged, then the part shall be able to restore synced
+  records from a separate backup with at most {measure} of changes lost.
+measure:
+  metric: backup_age
+  definition: Age of the newest change missing after restore.
+  unit: hours
+  bounds:
+  - statistic: max
+    op: <=
+    value: 24
+rationale: 'The online copy is the only copy when a phone is lost. The figure was the agent''s
+  proposal and has a running cost. The builder accepted the proposed rules in ELI-SCJS. Value:
+  a judgement call with no researched source, accepted by the builder as a starting target (ELI-SCJS#5);
+  revisit if testing or running cost gives a reason.'
+of: FUN-DV8F
+answers:
+- HAZ-2CDR
+- HAZ-XWCK

@@ -1,0 +1,11 @@
+id: PRF-JZS6
+status: agreed
+title: Failed notices are retried
+method: test
+rationale: Only fault injection shows it.
+covers: REQ-ZY8A
+criterion:
+  pass: For each of the three notices, with failures reported, attempts follow at the required
+    intervals without any user action for notice_retry_period and then stop; once the service
+    works within the period, the notice is sent and attempts stop.
+  conditions: Simulated clock allowed.

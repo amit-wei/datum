@@ -1,0 +1,11 @@
+id: PRF-30MN
+status: agreed
+title: Stated data is erased online
+method: test
+rationale: A new store or kind of history can be missed.
+covers: REQ-J1BW
+criterion:
+  pass: After a request, a search of every live online store finds none of the stated data within
+    privacy_erase_time, and other data is unchanged.
+  conditions: Data present in current entries, earlier versions, removed entries and versions
+    not chosen.

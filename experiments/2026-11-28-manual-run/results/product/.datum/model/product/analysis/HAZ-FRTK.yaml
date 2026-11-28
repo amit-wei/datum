@@ -1,0 +1,9 @@
+id: HAZ-FRTK
+status: agreed
+statement: The part presents a logbook for others to read that is incomplete, differs from its
+  records or lacks what the rules require.
+losses:
+- LOS-0NMV
+arises_from:
+- FUN-AV5B
+- FUN-S6RT

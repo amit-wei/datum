@@ -1,0 +1,10 @@
+id: PRF-ASXG
+status: agreed
+title: Conflicts withhold affected results
+method: test
+rationale: >-
+  Needs a conflict to be present.
+covers: REQ-F303
+criterion:
+  pass: >-
+    Affected results are withheld with the reason; unaffected ones are shown.

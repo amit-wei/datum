@@ -1,0 +1,24 @@
+id: SCN-PK9P
+status: agreed
+name: Change the means of contact
+kind: variation
+trigger: The pilot's means of contact has to change.
+preconditions: The pilot is signed in.
+steps:
+- n: 1
+  by: user
+  what: Gives a new means of contact and confirms identity again.
+- n: 2
+  by: product
+  what: Sends a message to the new means of contact.
+- n: 3
+  by: user
+  what: Confirms the new means of contact.
+- n: 4
+  by: product
+  what: Uses the new one from then on and tells the old one of the change. Until confirmed,
+    the old one stays in use.
+outcome: Messages reach the pilot at the new means of contact.
+needs:
+- ELI-PSRH#1
+- ELI-DZR1#1

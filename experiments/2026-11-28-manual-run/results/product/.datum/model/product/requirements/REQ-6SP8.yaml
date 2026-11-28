@@ -1,0 +1,9 @@
+id: REQ-6SP8
+status: agreed
+pattern: event
+statement: When the builder states a whole account to be erased for a privacy request, the part
+  shall erase the account and all its data as for a deletion that the pilot confirmed.
+rationale: An account holder can ask by email instead of in the app (ELI-C382#6).
+of: FUN-S6RT
+answers:
+- HAZ-7R3N

@@ -1,0 +1,8 @@
+id: PRF-RBP0
+status: agreed
+title: Full storage keeps typed input
+method: test
+rationale: Full storage never occurs in normal use, so only fault injection shows the loss.
+covers: REQ-3A02
+criterion:
+  pass: With writes made to fail, the typed input is still shown.

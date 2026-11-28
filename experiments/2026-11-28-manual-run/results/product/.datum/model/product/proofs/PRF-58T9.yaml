@@ -1,0 +1,9 @@
+id: PRF-58T9
+status: agreed
+title: No account without a contact
+method: test
+rationale: A sign-up change could make the field optional.
+covers: REQ-8Y33
+criterion:
+  pass: With the contact left out, with a mistyped one that nothing reaches, and with a confirmation
+    that is wrong or not completed, no account is created and the message is shown.

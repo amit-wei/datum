@@ -1,0 +1,13 @@
+id: REQ-K9ER
+status: agreed
+pattern: event
+statement: When a revalidation result counts the flight time, take-offs or landings of any unsigned
+  entry that has dual time or is a training flight, proficiency check, skill test or assessment
+  of competence, the part shall state that the result relies on unsigned entries and identify
+  those entries.
+rationale: Whether such flights need a signature is not settled (RES-70FV n3); the pilot can
+  then see what an examiner might question (ELI-SCJS#8).
+of: FUN-69E8
+answers:
+- HAZ-SDKD
+source: builder

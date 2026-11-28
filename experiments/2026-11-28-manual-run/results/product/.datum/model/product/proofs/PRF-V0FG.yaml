@@ -1,0 +1,10 @@
+id: PRF-V0FG
+status: agreed
+title: Missing columns are asked for
+method: test
+rationale: A parser change could start filling a missing column by itself.
+covers: REQ-G65D
+criterion:
+  pass: For a file lacking a required column the item is named; with a value given all rows
+    carry it; without one no flight lacking the item is previewed.
+  conditions: One file for each kind of required item left out.

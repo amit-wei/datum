@@ -1,0 +1,11 @@
+id: REQ-CHFW
+status: agreed
+pattern: event
+statement: When the pilot asks to delete the account, the part shall delete nothing before the
+  pilot gives a separate confirmation.
+rationale: One tap must not destroy a logbook.
+of: FUN-VN36
+answers:
+- HAZ-2CDR
+- HAZ-XWCK
+- HAZ-BYMT

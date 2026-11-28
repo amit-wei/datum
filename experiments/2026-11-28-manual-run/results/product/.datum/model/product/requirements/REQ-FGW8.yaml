@@ -1,0 +1,11 @@
+id: REQ-FGW8
+status: agreed
+pattern: event
+statement: When previewed flights are dated on or before the date of the starting totals, the
+  part shall state in the preview that those flights count for rules but add nothing to totals.
+rationale: 'ELI-C382#1, ELI-W9NN#4 and #11: same-date handling applies to every total. Builder
+  limit: ELI-W9NN#4.'
+of: FUN-VY4C
+answers:
+- HAZ-SDKD
+source: builder

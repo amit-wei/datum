@@ -1,0 +1,52 @@
+id: FUN-JX7F
+status: agreed
+name: Correct a logbook entry
+definition: Changes a wrong or outdated entry as the pilot confirms, such as marking a training
+  or check as signed; any other change to a signed entry removes the mark and says why.
+serves:
+- SCN-6E8F#2
+- SCN-7T38#4
+inputs:
+- name: correction
+  holds: the entry, what it should say, and the confirmation
+  from: pilot
+- name: logbook entry
+  from: FUN-ESPG
+- name: logbook entry
+  from: FUN-5QA7
+- name: restored entry
+  from: FUN-SR3A
+- name: synced records
+  from: FUN-DV8F
+- name: import removal
+  from: FUN-YRV9
+- name: entry removal
+  from: FUN-2JYW
+outputs:
+- name: corrected entry
+  to:
+  - FUN-ESPG
+  - FUN-VY4C
+  - FUN-6NTH
+  - FUN-69E8
+  - FUN-2JYW
+  - FUN-TF2W
+  - FUN-DV8F
+  - FUN-AV5B
+  - FUN-A60F
+  - FUN-VN36
+  - FUN-MPTZ
+  - FUN-YRV9
+  - FUN-EK3N
+- name: earlier version of a corrected entry
+  holds: what the entry said before
+  to:
+  - FUN-TF2W
+  - FUN-DV8F
+  - FUN-A60F
+  - FUN-EK3N
+  - FUN-VN36
+- name: signed mark removal notice
+  holds: that the mark was removed, and why
+  to:
+  - pilot

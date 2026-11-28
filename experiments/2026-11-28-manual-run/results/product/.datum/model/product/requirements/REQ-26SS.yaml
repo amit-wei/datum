@@ -1,0 +1,12 @@
+id: REQ-26SS
+status: agreed
+pattern: event
+statement: When a device connects after its account was deleted or a medical date it holds was
+  erased, the part shall erase the deleted data from that device, apart from unsynced records
+  held for the offer of REQ-KK7F, and upload none of it.
+rationale: A stale device must not bring erased data back (RES-RZXY n40). A device that never
+  connects cannot be reached. Devices whose access had ended have their own requirement and
+  get no offer.
+of: FUN-DV8F
+answers:
+- HAZ-7R3N

@@ -1,0 +1,9 @@
+id: REQ-Y28X
+status: agreed
+pattern: unwanted
+statement: >-
+  If a file is not readable as CSV or is larger than the size of REQ-2AXE, then the part shall
+  change nothing and say why the file was refused.
+rationale: >-
+  A refused file must be told apart from an empty one.
+of: FUN-VY4C

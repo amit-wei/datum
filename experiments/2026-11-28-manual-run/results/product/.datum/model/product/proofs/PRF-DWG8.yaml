@@ -1,0 +1,10 @@
+id: PRF-DWG8
+status: agreed
+title: Deletion erases live data
+method: test
+rationale: New stores can be missed.
+covers: REQ-1X9Q
+criterion:
+  pass: A search of every live store and the confirming device finds nothing of the account
+    within erase_time, and sign-in fails.
+  conditions: An account using every kind of record.

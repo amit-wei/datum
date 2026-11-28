@@ -1,0 +1,9 @@
+id: PRF-CJAJ
+status: agreed
+title: Import adds exactly the preview
+method: test
+rationale: Preview and import code can diverge.
+covers: REQ-HGKK
+criterion:
+  pass: New entries equal the previewed ones, every flight of those kinds is unsigned even if
+    the file says signed, and the import record lists them.

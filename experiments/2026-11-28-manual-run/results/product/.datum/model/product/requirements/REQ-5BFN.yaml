@@ -1,0 +1,10 @@
+id: REQ-5BFN
+status: agreed
+pattern: ubiquitous
+statement: The part shall use names of other people in a logbook only to keep, show and export
+  that pilot's logbook.
+rationale: They are data subjects too; no contacting, profiling or linking across pilots (RES-RZXY
+  n21, n40).
+of: FUN-DV8F
+answers:
+- HAZ-9K19

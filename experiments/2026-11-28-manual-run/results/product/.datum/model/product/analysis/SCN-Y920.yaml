@@ -1,0 +1,12 @@
+id: SCN-Y920
+status: agreed
+name: A device without access after the account is deleted
+kind: failure
+trigger: A device whose access had ended connects after the account was deleted.
+steps:
+- n: 1
+  by: product
+  what: Erases the account's records from the device without offering a file and uploads nothing.
+outcome: Whoever holds the device gets nothing from it.
+needs:
+- ELI-PDPX#4

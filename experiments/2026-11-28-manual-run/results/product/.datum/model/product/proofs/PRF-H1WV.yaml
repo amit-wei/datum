@@ -1,0 +1,8 @@
+id: PRF-H1WV
+status: agreed
+title: Full storage is reported
+method: test
+rationale: Never seen in normal use.
+covers: REQ-WYGP
+criterion:
+  pass: With writes made to fail, the message appears and no saved confirmation does.

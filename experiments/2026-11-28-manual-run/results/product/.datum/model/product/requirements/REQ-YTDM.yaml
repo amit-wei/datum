@@ -1,0 +1,20 @@
+id: REQ-YTDM
+status: agreed
+pattern: ubiquitous
+statement: The part shall limit the confirmation messages it sends to one means of contact in
+  any hour to {measure}.
+measure:
+  metric: confirmations_per_hour
+  definition: Confirmation messages sent to one means of contact in any 60 minutes.
+  unit: messages
+  bounds:
+  - statistic: value
+    op: ==
+    value: 3
+rationale: Stops the sign-up and contact-change forms being used to flood an address (ELI-KKPH#2;
+  RES-6SKG n15). The value is a judgement call accepted by the builder. One limit covers sign-up
+  and contact change together.
+of: FUN-EVE9
+answers:
+- HAZ-9K19
+source: builder

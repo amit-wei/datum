@@ -1,0 +1,12 @@
+id: PRF-QKZD
+status: agreed
+title: Setup details are complete
+method: test
+rationale: >-
+  A new setup field could be left off the screen.
+covers: REQ-ZDBY
+criterion:
+  pass: >-
+    Each recorded item is shown with its current value, and unknown items are shown as not entered.
+  conditions: >-
+    A profile with every item set, then one with items missing.

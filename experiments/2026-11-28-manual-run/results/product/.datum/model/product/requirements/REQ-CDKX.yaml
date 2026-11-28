@@ -1,0 +1,11 @@
+id: REQ-CDKX
+status: agreed
+pattern: state
+statement: >-
+  While a conflict is unresolved, the part shall mark in the PDF the affected entries and totals
+  as unresolved.
+rationale: >-
+  ELI-W9NN#6.
+of: FUN-AV5B
+answers:
+- HAZ-FRTK

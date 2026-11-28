@@ -1,0 +1,9 @@
+id: PRF-S3N9
+status: agreed
+title: Change confirmation can be resent
+method: test
+rationale: A resend path is rarely used.
+covers: REQ-2YA1
+criterion:
+  pass: After a resend and a correction, within the limit, the message reaches the new address
+    then given; the old contact stays in use until confirmation.

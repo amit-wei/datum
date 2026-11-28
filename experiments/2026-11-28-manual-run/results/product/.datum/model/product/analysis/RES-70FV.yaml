@@ -1,0 +1,273 @@
+id: RES-70FV
+date: 2026-11-28
+question: >
+  Under Part-FCL as applied in the Netherlands, which flights need an instructor's or examiner's
+  signature before their time, take-offs and landings count toward SEP/TMG revalidation by experience
+  (FCL.740.A)? Does the AMC1 FCL.050 instructor name and signature item reach only the refresher
+  training flight, or also other dual or training flights counted toward the 12 hours? Are unsigned
+  ordinary dual or training flights accepted?
+narrowing: >
+  Non-commercial flying, SEP aeroplane and TMG class ratings. Left out: SPL and LAPL rules (named only
+  where a source's wording contrasts them with SEP/TMG), commercial licences, electronic signature
+  acceptance. Builds on RES-7H7D n4, n5, n18, n23 (and n12, n20, n24), which are not repeated in full.
+sources_note: >
+  EU text: EASA Easy Access Rules for Aircrew XML (https://www.easa.europa.eu/en/downloads/136679/en),
+  fetched 2026-11-28. PDF text was extracted with pypdf, so spacing and line breaks in PDF quotes were
+  repaired. Other states are comparison only: they do not bind a Dutch licence holder.
+
+findings:
+  # ---------- EU rule and AMC ----------
+  - n: 1
+    claim: >
+      The SEP/TMG experience route in FCL.740.A(b)(1)(ii) asks for 12 h in class within the 12 months
+      before expiry, including 6 h PIC, 12 take-offs and 12 landings, and the refresher training.
+      The section, read in full, has no logbook or signature requirement. It does not say that any of
+      the counted flights, or the refresher, must be signed.
+    label: VERIFIED
+    source: {title: "FCL.740.A as amended by Reg (EU) 2024/2076, with its AMC and GM", ref: "https://www.easa.europa.eu/en/downloads/136679/en"}
+    where: FCL.740.A(a)-(c); AMC1 FCL.740.A(b)(1)(ii)(C); GM1 and GM2 FCL.740.A
+    read: full section with AMC/GM
+    quote: "within the 12 months preceding the expiry date of the rating, complete 12 hours of flight time in the relevant class, including the following:"
+  - n: 2
+    claim: >
+      The exact AMC wording is wider than RES-7H7D n4's paraphrase "SEP/TMG revalidation flights".
+      Under "The following entries, however, should always be made", item (iv) asks for the
+      instructor's name and signature "if the flight is part of any of the following": an SEP aeroplane
+      or TMG class rating (or single-engine helicopter type rating) revalidation, or LAPL recency
+      flying. No definition of "part of ... a revalidation" was found in the AMC or in GM1 FCL.050.
+    label: VERIFIED
+    source: {title: "AMC1 FCL.050 (ED Decision 2025/002/R) and GM1 FCL.050", ref: "https://www.easa.europa.eu/en/downloads/136679/en"}
+    where: AMC1 FCL.050(i)(10)(iv)
+    read: full AMC and GM
+    quote: "name and signature of the instructor if the flight is part of any of the following: an SEP aeroplane or TMG class rating or single-engine helicopter type rating revalidation; flying activity that is performed by an LAPL holder to comply with recency requirements;"
+  - n: 3
+    claim: >
+      The wording can be read two ways. Narrow: the flight meant is the revalidation training flight,
+      the only flight in FCL.740.A(b)(1)(ii) that has to be flown with an instructor; FCL.945 calls it
+      "the training flight for the revalidation". Wide: every flight with an instructor whose time is
+      used toward the revalidation is "part of" it. It cannot sensibly mean every counted flight,
+      since solo PIC flights count and have no instructor. No source read chooses between the narrow
+      and the wide reading.
+    label: INFERRED
+    source: {title: "reasoning from findings 1, 2; FCL.945", ref: "https://www.easa.europa.eu/en/downloads/136679/en"}
+    where: FCL.945; FCL.740.A(b)(1)(ii)
+    read: the sections
+    quote: "Upon completion of the training flight for the revalidation of an SEP aeroplane or TMG class rating in accordance with point FCL.740.A(b)(1)(ii)(C)"
+  - n: 4
+    claim: >
+      Apart from item (iv), the AMC ties countersignature to PIC logging: solo is PIC outright, but
+      SPIC time, time under supervision and passed tests, checks and assessments may be logged as PIC
+      only if countersigned (see also RES-7H7D n5). This bears on the 6 h PIC. Ordinary dual time is
+      not in that list, and it is not PIC time.
+    label: VERIFIED
+    source: {title: "AMC1 FCL.050", ref: "https://www.easa.europa.eu/en/downloads/136679/en"}
+    where: AMC1 FCL.050(b)(1)(ii)
+    read: full AMC
+    quote: "provided that such SPIC time, flight time under supervision and tests, checks and assessments are countersigned by the instructor or examiner, as applicable"
+
+  # ---------- Netherlands ----------
+  - n: 5
+    claim: >
+      ILT's current declaration form for revalidation on refresher training or proficiency check asks
+      the instructor to sign only that they were the instructor for the REFRESHER training. A second
+      signature, by an examiner or an instructor with FCL.945, declares that the rating was extended and
+      that the candidate's logbook data match the form (totals, PIC hours, take-offs, landings). The
+      text of the form does not ask whether each counted dual flight is signed in the logbook.
+    label: VERIFIED
+    source: {title: "ILT.554.02, Verklaring verlenging bevoegdverklaring op basis van herhalingstraining of proeve van bekwaamheid", ref: "https://www.ilent.nl/site/binaries/site-content/collections/documents/luchtvaart/brevetten-en-certificaten/formulieren/verlenging-bevoegdverklaring-na-herhalingstraining-of-proeve-van-bekwaamheid/ilt-554-02-verlenging-bevoegdverklaring-na-herhalingstraining-of-proeve-van-bekwaamheid.pdf"}
+    where: pages 1-4, "Ondertekening instructeur" and "Ondertekening gecertificeerde examinator of instructeur FCL.945"
+    read: full text (extracted text, not a rendered page)
+    quote: "Ik verklaar dat de aanvrager een herhalingstraining op het genoemde luchtvaartuig heeft afgelegd, waarbij ik de instructeur was. [...] de gegevens in het logboek van de kandidaat gelijk zijn aan de gegevens op dit formulier."
+  - n: 6
+    claim: >
+      ILT's revalidation page asks for logbook copies showing at least 12 h in class and 6 h PIC, all
+      relevant flights and totals, with the APPLICANT's own signature on every full page. The page, as
+      searched for signature and logbook passages, asks for no instructor signature on counted flights.
+    label: VERIFIED
+    source: {title: "ILT, Bevoegdverklaring verlengen voor piloten van vliegtuigen", ref: "https://www.ilent.nl/onderwerpen/luchtvaart/brevetten-en-certificaten/piloten/vliegtuigpiloten/verlenging-rating"}
+    where: section "Verlengen op basis van een herhalingstraining"
+    read: raw page, relevant passages
+    quote: "Zet uw handtekening op alle volle pagina's van uw logboek voordat u deze kopieert."
+  - n: 7
+    claim: >
+      For digital logbooks sent to ILT, ILT asks that hours signed off by instructors be visible "where
+      applicable" and gives PICUS hours as its example. It does not say which hours need signing. It
+      also requires at least the AMC1 FCL.050 format (RES-7H7D n12).
+    label: VERIFIED
+    source: {title: "ILT, Vragen en antwoorden voor piloten", ref: "https://www.ilent.nl/onderwerpen/luchtvaart/brevetten-en-certificaten/piloten/piloot-worden-en-blijven/vragen-en-antwoorden-voor-piloten"}
+    where: question on supplying a digital logbook
+    read: the relevant questions, raw page
+    quote: "Zorg dat de afgetekende uren door instructeurs zichtbaar zijn, als dat van toepassing is. Bijvoorbeeld bij PICUS-uren."
+  - n: 8
+    claim: >
+      ILT's examiner FAQ describes revalidation on experience as the hours, PIC hours, take-offs and
+      landings and a 1-hour training flight, and says the examiner's part is administrative: any
+      examiner may revalidate if the candidate can prove the requirements are met. The passages
+      (Q81, Q85) do not say what proof of dual time is needed.
+    label: VERIFIED
+    source: {title: "ILT FAQ, Examiners certified by CAA-NL, June 2025", ref: "https://www.ilent.nl/site/binaries/site-content/collections/documents/luchtvaart/examinatoren-luchtvaart/publicaties/faq-examiners-caa-nl/FAQ+Examiners+ILT+June+2025.pdf"}
+    where: questions 81 and 85
+    read: those questions and a text search of the document for sign, logbook, experience
+    quote: "the examiner only fulfills the administrative part of a revalidation based on experience requirements as described in part-FCL. If the candidate can provide proof that he meets the requirements any examiner can revalidate the rating."
+  - n: 9
+    claim: >
+      ILT newsletters (examiners, November 2024; DTO 2024 no. 1) say an FI(A) may endorse the licence
+      only under conditions, among them having flown the training flight personally and establishing
+      beforehand that the candidate meets the revalidation conditions. The SEP/TMG passages read
+      say nothing about signatures on counted flights.
+    label: VERIFIED
+    source: {title: "ILT, Nieuwsbrief voor examinatoren luchtvarenden, November 2024; Nieuwsbrief DTO 2024 nummer 1", ref: "https://www.ilent.nl/documenten/luchtvaart/examinatoren-luchtvaart/nieuwsbrieven/nieuwsbrief-voor-examinatoren-luchtvarenden-november-2024"}
+    where: "Verlenging class rating SEP en TMG"
+    read: the SEP/TMG sections, raw pages
+    quote: "De FI(A) moet (voorafgaand aan de trainingsvlucht) vaststellen dat de kandidaat voldoet aan de verlengingsvoorwaarden."
+  - n: 10
+    claim: >
+      A Dutch flying school says the training flight of at least 1 hour with an instructor can count
+      among the 12 hours and that the school can endorse the licence if it was flown there. The
+      passage says nothing about signing other dual flights.
+    label: VERIFIED-secondary
+    source: {title: "Flight School Teuge, Proficiency check / trainingsvlucht", ref: "https://flightschoolteuge.nl/proficiency-check/"}
+    where: "Trainingsvlucht (herhalingstraining of refresher training)"
+    read: the section; no date found
+    quote: "Daarnaast moet een trainingsvlucht van minimaal 1 uur met een instructeur worden gemaakt. Dat uur kan meetellen bij bovenbedoelde 12 vlieguren."
+
+  # ---------- other states (comparison only) ----------
+  - n: 11
+    claim: >
+      Germany's logbook determination for private pilots (NfL of 16 April 2021, set under FCL.050) says
+      dual flights are logged as DUAL, and requires instructor or examiner certification with licence
+      number and signature for LAPL, SPL and BPL flights flown to meet recency, and for training and
+      test flights for extensions of privileges. In its one general sentence on signing instructor
+      flights, PPL SEP/TMG revalidation flights are not named. It does not say they are exempt from
+      AMC1 FCL.050(i)(10)(iv).
+    label: VERIFIED
+    source: {title: "NfL (header reads 2212-21), Grundsätze für die Aufzeichnung von Flugzeiten, 16.04.2021, reproduced as annex to the northern German authorities' logbook guidance", ref: "https://www.haefen.bremen.de/sixcms/media.php/13/DOC_FCL_SFCL_BFCL_Flugbuchfuehrung.pdf"}
+    where: NfL annex, 4.2.1
+    read: section 4 of the annex and a text search of the file for signature words; whether the NfL is still current was not checked
+    quote: "Für die Lizenzen LAPL, SPL, und BPL sind Flüge mit Lehrberechtigtem oder Prüfer zur Erfüllung der Ausübungsvoraussetzungen für die Wahrnehmung der Rechte aus der Lizenz sowie Schulungs- und Prüfungsflüge für Erweiterungen der Rechte im Flugbuch des Bewerbers durch den Lehrberechtigten oder Prüfer zu bescheinigen."
+  - n: 12
+    claim: >
+      The German LBA requires every training flight of a STUDENT at an LBA-supervised ATO to be signed
+      by the instructor, and says the times otherwise cannot be counted. It is addressed to ATO
+      student training from 1 October 2025, not to licence holders revalidating.
+    label: VERIFIED
+    source: {title: "LBA Rundschreiben RS-L1-2025-03 (24.09.2025)", ref: "https://www.lba.de/SharedDocs/Downloads/DE/L/L1/Rundschreiben/2025-09-24_RS-L1-2025-03_Flugbuch.pdf?__blob=publicationFile&v=3"}
+    where: sections 1, 4(1), 5
+    read: full text
+    quote: "Sämtliche Ausbildungsflüge, die Flugschüler absolvieren, sind im persönlichen Flugbuch [...] zu dokumentieren und anschließend vom ausbildenden Fluglehrer (FI, TRI, SFI, etc.) abzuzeichnen. Andernfalls können diese Zeiten nicht entsprechend im Flugbuch geführt und berücksichtigt werden."
+  - n: 13
+    claim: >
+      Revalidation forms of other EASA states ask the instructor to sign for the refresher flight on
+      the form. LBA's FI/CRI report has the instructor sign once, after a final review of all
+      requirements including hours. Switzerland's form 60.521 has an instructor signature at the
+      refresher item, has hours confirmed on the form by an airport authority or examiner (not needed
+      via the official FOCA dLogbook), and asks for logbook pages. Austro Control's training-flight
+      form (version of 2015) and Luxembourg's form have the instructor sign for the training flight.
+      None of these forms says whether other dual flights must be signed in the logbook, so they do
+      not show that unsigned ones are accepted.
+    label: VERIFIED
+    source: {title: "LBA FI/CRI report Rev. 01 (18.09.2025); FOCA Form 60.521; Austro Control FO_LFA_PEL_233_DE v6.0; Luxembourg DAC form 111-19", ref: "https://www.lba.de/SharedDocs/Downloads/DE/Formulare/L4/Lizenzierung_Flug/Bericht_Lehrberechtigte_Verlaengerung_Klassenberechtigung.pdf?__blob=publicationFile&v=3 ; https://www.bazl.admin.ch/dam/it/sd-web/zMAX6j50C9uk/60.521.pdf ; https://www.austrocontrol.at/jart/prj3/ac/data/dokumente/LPFwg_FO_LFA_PEL_233_DE.pdf ; https://guichet.public.lu/dam-assets/catalogue-formulaires/aviation/licence/emission-revalidation-renouvellement-fcl/avion/sep-a-tmg-revalidation/form-111-19-sep-a-tmg-demande-revalidation-en.pdf"}
+    where: LBA sections 3-4; FOCA page 1; Austro Control sections 3-5; Luxembourg section 4
+    read: the sections (extracted text). A newer Austro Control form link returned 404.
+    quote: "After reviewing the renewal requirements, the following class ratings were revalidated [LBA]; Data confirmed by a Swiss airport authority (authorised duty manager of a Swiss airport authority) or a FOCA authorised examiner [FOCA]"
+  - n: 14
+    claim: >
+      The Czech examiner form has the examiner verify experience from the logbooks, and states a
+      countersignature requirement only for the refresher training or the passed test or check.
+      Denmark's form has the signing examiner or FCL.945 instructor declare a personal review of the
+      logbook, including one flight of at least 1 h with an instructor, and states no signature
+      condition for the counted flights. Ireland's form has experience shown from an FCL.050
+      compliant logbook to an examiner or authorised instructor.
+    label: VERIFIED
+    source: {title: "CAA Czech Republic CAA-F-SL-007; Trafikstyrelsen form 2.02 (05.02.2025); IAA ECON.ACW-F-147C (25/09/2024)", ref: "https://www.caa.gov.cz/wp-content/uploads/2025/10/TMG-SEP-land-Revalidation.pdf ; https://cdn.trafikstyrelsen.dk/trafikstyrelsen/Media/638745175457715560/2.02%20Vers.%202%20-%2005.02.2025%20-%20FCL.945%20Revalidation%20of%20classrating%20SEP(land),%20SEP(sea)%20and%20TMG.pdf ; https://www.iaa.ie/docs/default-source/publications/forms/personnel-licensing-forms/pilots-and-cabin-crew-licensing/application-for-revalidation-of-se-piston-aeroplane-(land-sea)-foot-launched-ppg-phg-gyroplane.pdf?sfvrsn=4e4507f3_31"}
+    where: Czech section IV.3; Danish declaration; Irish notes, sections 3-5
+    read: Danish full text; Czech and Irish relevant sections
+    quote: "The refresher training or passed skill test, proficiency check or assessment of competence shall be countersigned / confirmed by the instructor / examiner."
+  - n: 15
+    claim: >
+      An Irish flying club describes the logbook practice as the instructor recording satisfactory
+      completion of the REFRESHER hour with licence number and signature, and says a training flight
+      not to standard is simply logged as dual without that annotation. It mentions no signature for
+      other dual flights. The IAA text it may rest on was not found.
+    label: VERIFIED-secondary
+    source: {title: "Waterford Aero Club guide to keeping your SEP valid (2025)", ref: "https://flyinginireland.com/2025/04/waterford-aero-club-guide-to-keeping-your-sep-valid/"}
+    where: whole article
+    read: full article
+    quote: "it’s simply logged as dual training without the above “satisfactorily completed” annotation being added."
+  - n: 16
+    claim: >
+      NOT EASA. A UK CAA update of April 2025 speaks of the instructor countersigning the pilot's
+      logbook entry for the refresher training flight, and may decline to. The passage does not deal
+      with other dual flights.
+    label: VERIFIED
+    source: {title: "UK CAA training communications update, 1 April 2025", ref: "https://www.caa.co.uk/media/ihlmhkti/training-comms-update-010425-v4.pdf"}
+    where: "Clarification for Instructors on 'Refresher training with an instructor'"
+    read: that section
+    quote: "Instructors are not obliged to revalidate the pilot’s class rating endorsed in their licence and counter sign the pilot’s logbook entry for the refresher training flight if they consider that the pilot did not demonstrate the appropriate standards and competencies expected."
+
+  # ---------- logbook products ----------
+  - n: 17
+    claim: >
+      capzlog.aero (a logbook vendor) says required signatures are far fewer than widely assumed,
+      that normal training flights logged as Dual need no signature (said in a student context: "your
+      first signature" is at first solo), and also lists the AMC item as "flight is part of an SEP or
+      TMG class rating revalidation" (older wording) without saying which flights that is. It adds that
+      DTOs and ATOs may set stricter requirements of their own.
+    label: VERIFIED-secondary
+    source: {title: "capzlog.aero, General requirements for pilot logbooks from AMC1 FCL.050", ref: "https://capzlog.aero/academy/regulatory-frameworks/general-logbook-requirements"}
+    where: section "Signatures"
+    read: the section; no date found
+    quote: "Normal training flights are recorded with the Dual pilot function and do not require a signature from the instructor. Your first signature will be required when you do your first solo."
+  - n: 18
+    claim: >
+      For SEP revalidation by experience, capzlog's feature page and its Swiss FOCA guide ask the user
+      to mark the REFRESHER flight and get the instructor's signature on it. Neither says whether
+      unsigned dual flights are excluded from the 12 h total.
+    label: VERIFIED-secondary
+    source: {title: "capzlog.aero, Flight Markers; SEP (Land) Revalidation (CH.FCL) guide", ref: "https://www.capzlog.aero/use-cases/flight-markers ; https://capzlog.aero/areas/pel/content/docs/CH.FCL%20Revalidation%20SEP%20(Land).pdf"}
+    where: marker "Refresher training"; guide page 1
+    read: the marker text; the guide's extracted text (a diagram, so its layout was not seen)
+    quote: "Revalidating your SEP class rating by experience? Mark your \"Refresher Training\" flight and invite your instructor to sign it via email."
+
+not_found:
+  - "Any EASA FAQ on which flights need an instructor's signature for SEP/TMG revalidation. A web search limited to easa.europa.eu returned only rule and AMC documents; the FAQ site was not browsed page by page. The EASA Examiner Differences Document was only text-searched for FCL.740, refresher training, revalidation by experience and countersign; nothing on this was seen."
+  - "Any ILT, KIWA, KNVvL or AOPA NL statement that unsigned ordinary dual or training flights ARE accepted toward the 12 h, 6 h PIC, or 12 take-offs and landings, or that they are NOT. No KNVvL or AOPA NL page on the point turned up."
+  - "Any authority statement reading AMC1 FCL.050(i)(10)(iv) as covering all dual flights counted toward SEP/TMG revalidation, or as covering only the refresher."
+  - "Any report from a primary source of an examiner or authority refusing unsigned ordinary dual time for a PPL SEP/TMG revalidation. Examiners' own practice on this was not established."
+  - "Any logbook product documentation saying how it treats unsigned dual time in a revalidation count. A search of several vendors found none; ForeFlight, LogTen and mccPILOTLOG calculation rules were not read in detail."
+  - "An explanatory note from EASA on why item (iv) was introduced or reworded; not searched beyond the AMC itself."
+fetch_failures:
+  - "euroga.org (two pages of the SEP revalidation thread), pprune.org (two threads), forums.flyer.co.uk (one thread): HTTP 403, not retried or bypassed. Pilot and examiner forum practice is therefore largely unread."
+  - "transport.gov.mt, 'PEL 95 Guidance to Flight Instructors Recording of flight time' (a Maltese authority document that may bear on this): HTTP 403, not read."
+  - "An older ILT.554.02 link returned 404; the current form was read from ILT's forms page. A Swedish Transportstyrelsen form and a first FOCA link returned 404 (FOCA read at a second link). Two Belgian BCAA download links returned an HTML page, not the form."
+  - "vliegclubrotterdam.nl returned a page without the article text that a search summary attributed to it; not used."
+  - "An airwork.nl forum thread (about 2015) was read; it says an FI may sign the logbook for the dual flight and the KIWA form. It says nothing on other dual flights and its endorsement claims are outdated, so it is not used as a finding."
+
+conclusion: |
+  No source found settles the point. Part-FCL FCL.740.A itself states no signature requirement at all
+  (n1). The one signature text aimed at SEP/TMG revalidation is AMC1 FCL.050(i)(10)(iv), "if the
+  flight is part of ... [a] class rating ... revalidation" (n2). It does not say whether that means the
+  refresher flight only or every instructor flight whose time is counted (n3).
+  Practice points toward the refresher flight: ILT's declaration form has the instructor sign for the
+  refresher only, and the FCL.945 signer or examiner confirms that the logbook figures match (n5, n8);
+  ILT asks the applicant to sign the logbook pages (n6). Several other states' forms, an Irish club, the
+  UK CAA (not EASA) and one logbook vendor likewise put the instructor's signature on the refresher
+  (n13-16, n18). This is evidence from what is asked for, not a statement that unsigned ordinary dual
+  flights count. A vendor says normal dual training needs no signature, in a student context (n17).
+  Germany's national logbook rule lists signing duties for LAPL, SPL and BPL recency flights and does
+  not name PPL SEP revalidation (n11); the LBA requires signatures on all ATO student training flights
+  (n12), which is a different case.
+  Separately, SPIC, supervised time and tests or checks need countersignature to be logged as PIC, and
+  so to count toward the 6 h PIC (n4).
+  For REQ-3KAM: counting unsigned ordinary dual or training flights remains an interpretation that no
+  source confirms and none read refutes. Its rationale's quoted phrase "SEP/TMG revalidation flights"
+  is RES-7H7D's paraphrase; the AMC's words are those in n2.
+
+open_choices:
+  - >
+    Unsigned ordinary dual or training flights toward SEP/TMG revalidation experience (12 h, 12
+    take-offs and landings): (a) count them, as now, resting on the narrow reading, which ILT's form is
+    consistent with but does not state; (b) count them and show that the result relies on unsigned
+    entries; (c) leave them out (the wide reading, the stricter one under HAZ-SDKD, which may show a
+    pilot as short when an examiner would accept the time); or (d) ask ILT (FCL@ilent.nl is the address
+    on form ILT.554.02) or a Dutch examiner before deciding. The choice is the builder's.

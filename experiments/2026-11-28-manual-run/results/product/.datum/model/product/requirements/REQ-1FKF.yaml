@@ -1,0 +1,11 @@
+id: REQ-1FKF
+status: agreed
+pattern: event
+statement: >-
+  When the pilot chooses the date of the starting totals, the part shall state that flights
+  on that date count as already included in the starting totals.
+rationale: >-
+  ELI-W9NN#4.
+of: FUN-PDMV
+answers:
+- HAZ-SDKD

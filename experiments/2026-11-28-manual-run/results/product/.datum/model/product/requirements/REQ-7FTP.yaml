@@ -1,0 +1,20 @@
+id: REQ-7FTP
+status: agreed
+pattern: ubiquitous
+statement: The part shall perform every function on a logbook of up to {measure}.
+measure:
+  metric: logbook_size
+  definition: Current plus removed entries in one account.
+  unit: entries
+  bounds:
+  - statistic: value
+    op: '>='
+    value: 10000
+rationale: 'A primary logbook (ELI-BS4R#4) grows for decades. The size was the agent''s proposal.
+  Builder limit: ELI-BS4R#4 (primary logbook). The builder accepted the proposed rules in ELI-SCJS.
+  Value: a judgement call with no researched source, accepted by the builder as a starting target
+  (ELI-SCJS#5); revisit if testing or running cost gives a reason.'
+of: FUN-MPTZ
+answers:
+- HAZ-XWCK
+source: builder

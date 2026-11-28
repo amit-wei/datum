@@ -1,0 +1,11 @@
+id: FUN-KP1P
+status: agreed
+name: "Show the privacy notice"
+definition: "Shows anyone, with or without an account, what is done with personal data and how to send a privacy request."
+serves: [SCN-Q3MK#2]
+inputs:
+  - name: "privacy notice text"
+    from: builder
+outputs:
+  - name: "privacy notice"
+    to: [pilot, anyone]

@@ -1,0 +1,8 @@
+id: PRF-TX7H
+status: agreed
+title: No change without confirmation
+method: test
+rationale: A new shortcut could skip the confirmation.
+covers: REQ-6Z1M
+criterion:
+  pass: Cancelling, leaving and closing before confirmation change nothing.

@@ -1,0 +1,11 @@
+id: PRF-BN23
+status: agreed
+title: LAPL passenger one-time condition
+method: test
+rationale: One-time conditions are easy to forget.
+covers: REQ-6CPP
+criterion:
+  pass: With the hours neither shown nor answered no result is given and the statement is named
+    as missing; with the hours not shown and the pilot stating they are not flown it is not
+    met; with entries or a statement it follows the take-off and landing conditions, and a statement
+    is labelled.

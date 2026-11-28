@@ -1,0 +1,20 @@
+id: FUN-ZH87
+status: agreed
+name: "Sign out of a device"
+definition: "Closes access to the logbook on a device, warning first about unsynced flights."
+serves: [SCN-AYXJ#2, SCN-AYXJ#4]
+inputs:
+  - name: "sign-out request"
+    holds: "including the choice made after any warning"
+    from: pilot
+  - name: "signed-in pilot"
+    from: FUN-B8SK
+  - name: "sync state"
+    from: FUN-DV8F
+outputs:
+  - name: "sign-out warning"
+    holds: "all records and changes not yet synced"
+    to: [pilot]
+  - name: "device signed out"
+    holds: "that access on this device has ended"
+    to: [FUN-B8SK, FUN-DV8F, FUN-VN36, FUN-DAF5]

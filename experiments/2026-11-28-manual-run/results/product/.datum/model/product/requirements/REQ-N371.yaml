@@ -1,0 +1,9 @@
+id: REQ-N371
+status: agreed
+pattern: state
+statement: While a conflict is unresolved, the part shall show both changes to the pilot when
+  the pilot opens the conflict.
+rationale: 'SCN-5EAZ#2: the pilot chooses knowing both.'
+of: FUN-V0PH
+answers:
+- HAZ-BYMT

@@ -1,0 +1,21 @@
+id: REQ-58CH
+status: agreed
+pattern: ubiquitous
+statement: The part shall limit the recovery proofs it sends for one account in any hour to
+  {measure}.
+measure:
+  metric: recovery_proofs_per_hour
+  definition: Recovery proofs sent for one account in any 60 minutes.
+  unit: proofs
+  bounds:
+  - statistic: value
+    op: ==
+    value: 3
+rationale: 'Without a limit anyone can flood the owner with messages (RES-6SKG n15, from OWASP).
+  Value: a judgement call; the research suggests limiting requests and gives no number; accepted
+  by the builder (ELI-PSRH#3). Builder limit: ELI-PSRH#3. With proofs sent on request this limit
+  also covers ordinary recovery (ELI-KKPH#1).'
+of: FUN-XK2A
+answers:
+- HAZ-XWCK
+source: builder

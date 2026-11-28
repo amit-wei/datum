@@ -1,0 +1,9 @@
+id: PRF-WJ2G
+status: agreed
+title: Partial download is handled
+method: test
+rationale: Visible only during a slow first sync.
+covers: REQ-D6SB
+criterion:
+  pass: A data copy made while paused states that it is incomplete.
+  conditions: The first sync of a new device paused part way.
