@@ -14,20 +14,23 @@ works. That is #74 and #54.
 
 ## The product
 
-A static-fire log analyser, used on a laptop. It reads the CSV of one load-cell test of a
-small solid rocket motor (time, thrust) and prints the peak thrust, the burn time, the
-total impulse and the motor's impulse class letter; a thrust-curve plot is the builder's
-call. One input file, one calculation, one report: no service, no stored data, no user
-interface beyond the command line, so synthesis has no reason to split it into parts.
+A pilot's logbook, for one glider or light-aircraft pilot on their own device. It logs
+flights, keeps running totals, shows whether the pilot is current to fly and to carry
+passengers, exports the logbook, and may fill a flight in from the glider's IGC track
+file. One user, one device, local data, no server: synthesis has no reason to split it
+into parts.
 
-Chosen because it holds both things the run needs:
+Chosen because datum should add something Claude alone would not: vague needs ("like my
+paper logbook") for grilling, a dozen functions that interact (totals feed the currency
+check; editing a past flight changes both), real hazards (a wrong total, or "current"
+shown when the pilot is not), and both things the run needs:
 
-- **An established value:** the impulse class boundaries, and how burn time is defined,
-  come from the rocketry bodies' standards. They should come from the `researcher`, not
-  from memory.
-- **A doubt settled only by measuring:** whether a long, high-rate log (for example
-  10 kHz for 30 s) loads and is processed fast enough, or how much filtering the noise
-  moves the impulse. That is the `spiker`'s.
+- **Established values:** the fields a logbook must hold (EASA Part-FCL, FCL.050), the
+  recency rule for carrying passengers (FCL.060), and how the IGC format records a
+  track. They should come from the `researcher`, not from memory.
+- **A doubt settled only by measuring:** whether take-off and landing times can be found
+  reliably from an IGC track, given noisy ground speed and altitude, a ground run or a
+  winch launch. That is the `spiker`'s, on sample files.
 
 It is not the deduper, the skill examples' products or the fixtures' expense splitter.
 
@@ -38,8 +41,8 @@ It is not the deduper, the skill examples' products or the fixtures' expense spl
    `config/` (no personal skills, plugins, settings or memories), `notes.md`, and the
    datum commit.
 2. Before the run, Amit writes a short intent sheet, kept outside `~/datum-run/`: what
-   the tool must do, what he would answer, and what he does not know (for example the
-   exact class boundaries, or whether plain Python is fast enough). It keeps the answers
+   the logbook must do, what he would answer, and what he does not know (for example
+   which fields FCL.050 requires, or whether a track gives reliable take-off times). It keeps the answers
    consistent and shows afterwards what datum missed.
 3. In `product/`: `CLAUDE_CONFIG_DIR=~/datum-run/config claude --plugin-dir
    ~/datum-run/plugin --model sonnet`, then `/login`, then `/datum:datum` and a few
@@ -71,7 +74,7 @@ handled when the run says how it would be settled.
 
 | # | Outcome | Read from |
 |---|---|---|
-| O1 | The `researcher` was called before the class boundaries (or any other established value) entered the model, and its `RES-` record quotes a source | transcript (Agent call before the write), `analysis/RES-*` |
+| O1 | The `researcher` was called before a legal field list or rule (or any other established value) entered the model, and its `RES-` record quotes a source | transcript (Agent call before the write), `analysis/RES-*` |
 | O2 | The `spiker` was called for the measurable doubt, and its `SPK-` record holds the commands and their raw output, the median and range, and the machine | transcript, `analysis/SPK-*`, `analysis/spikes/` |
 | O3 | Grilling left an entry for each of the four whole-part areas (where it runs, the people, standards and legal, getting it into use) | `analysis/ELI-*` |
 | O4 | No number or rule entered the model without a record, the builder's answer or a `TBD` | model files against the transcript |
